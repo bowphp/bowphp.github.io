@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Bow\Auth\Authentication | Bow Framework API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Bow_Auth_Authentication" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../3.0.1/index.html" data-version="3.0.1">3.0.1</option>
+                                            <option value="../../../3.0.5/index.html" data-version="3.0.5">3.0.5</option>
+                                            <option value="../../../master/index.html" data-version="master">master</option>
+                                            <option value="../../../3.0.1/index.html" data-version="3.0.1">3.0 branch</option>
+                                    </select>
+            </form>
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Auth.html">Auth</a></li><li class="backslash">\</li><li>Authentication</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            Authentication
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>Authentication</strong>        extends <a href="../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>        (<a href="https://github.com/papac/bow/blob/3.0.5/src/Auth/Authentication.php">View source</a>)
+</p>
+
+        
+    
+
+    
+    
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_describeOrder">
+                                        protected                                        array
+                </td>
+                <td>$describeOrder</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#property_describeOrder"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_timestamps">
+                                        protected                                        bool
+                </td>
+                <td>$timestamps</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#property_timestamps"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_prefix">
+                                        protected                                        string
+                </td>
+                <td>$prefix</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#property_prefix"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_autoIncrement">
+                                        protected                                        bool
+                </td>
+                <td>$autoIncrement</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#property_autoIncrement"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_safeDeleted">
+                                        protected                                        bool
+                </td>
+                <td>$safeDeleted</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#property_safeDeleted"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_attributes">
+                                        protected                                        array
+                </td>
+                <td>$attributes</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#property_attributes"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_dates">
+                                        protected                                        array
+                </td>
+                <td>$dates</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#property_dates"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_primaryKey">
+                                        protected                                        string
+                </td>
+                <td>$primaryKey</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#property_primaryKey"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_primaryKeyType">
+                                        protected                                        string
+                </td>
+                <td>$primaryKeyType</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#property_primaryKeyType"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_table">
+                                        protected                                        string
+                </td>
+                <td>$table</td>
+                <td class="last">Le nom de la table courrente</td>
+                <td><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#property_table"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_connexion">
+                                        protected                                        string
+                </td>
+                <td>$connexion</td>
+                <td class="last">Le nom de la connexion</td>
+                <td><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#property_connexion"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_builder">
+                    static                    protected                                        <a href="../../Bow/Database/Query/Builder.html"><abbr title="Bow\Database\Query\Builder">Builder</abbr></a>
+                </td>
+                <td>$builder</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#property_builder"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(array $attributes = [])
+        
+                                            <p>Model constructor.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method___construct"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;<a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_all">all</a>(array $columns = [])
+        
+                                            <p>Rétourne tout les enregistrements</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_all"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;<a href="../../Bow/Database/SqlUnity.html"><abbr title="Bow\Database\SqlUnity">SqlUnity</abbr></a>|null
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_first">first</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_first"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;<a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a>|<a href="../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>|null
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_find">find</a>(mixed $id, array $select = [&#039;*&#039;])
+        
+                                            <p>find</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_find"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_describe">describe</a>()
+        
+                                            <p>Permet de retourner le description de la table</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_describe"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;<a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a>|<a href="../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>|null
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_findAndDelete">findAndDelete</a>(mixed $id, array $select = [&#039;*&#039;])
+        
+                                            <p>Récuper des informations sur la Builder ensuite les supprimes dans celle-ci</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_findAndDelete"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;<a href="../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_findOrFail">findOrFail</a>(mixed $id, array|callable $select = [&#039;*&#039;])
+        
+                                            <p>Lance une execption en case de donnée non trouvé</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_findOrFail"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;<a href="../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_create">create</a>(array $data)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_create"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;<a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_paginate">paginate</a>(integer $n, integer $current = 0, integer $chunk = null)
+        
+                                            <p>paginate</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_paginate"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_deleted">deleted</a>(callable $cb)
+        
+                                            <p>Permet d'associer listerner</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_deleted"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_created">created</a>(callable $cb)
+        
+                                            <p>Permet d'associer un listerner</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_created"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_updated">updated</a>(callable $cb)
+        
+                                            <p>Permet d'associer un listerner</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_updated"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_save">save</a>()
+        
+                                            <p>save aliase sur l'action insert</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_save"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_delete">delete</a>()
+        
+                                            <p>Permet de supprimer un enregistrement</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_delete"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_touch">touch</a>()
+        
+                                            <p>Permet de mettre le timestamp à jour.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_touch"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setAttributes">setAttributes</a>(array $data)
+        
+                                            <p>Permet d'Assigner des valeurs aux attribues de la classe</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_setAttributes"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setAttribute">setAttribute</a>(string $key, string $data)
+        
+                                            <p>Permet d'Assigner une valeur</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_setAttribute"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getAttributes">getAttributes</a>()
+        
+                                            <p>Permet de récupérer la liste des attributes.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_getAttributes"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed|null
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getAttribute">getAttribute</a>(string $name)
+        
+                                            <p>Permet de récupérer un attribue</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_getAttribute"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_toArray">toArray</a>()
+        
+                                            <p>Permet de retourner les données</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_toArray"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_offsetSet">offsetSet</a>(mixed $offset, mixed $value)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_offsetSet"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_offsetExists">offsetExists</a>(mixed $offset)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_offsetExists"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_offsetUnset">offsetUnset</a>(mixed $offset)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_offsetUnset"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed|null
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_offsetGet">offsetGet</a>(mixed $offset)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_offsetGet"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_jsonSerialize">jsonSerialize</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method_jsonSerialize"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed|null
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___get">__get</a>(string $name)
+        
+                                            <p>__get</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method___get"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___set">__set</a>(string $name, $value)
+        
+                                            <p>__set</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method___set"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___toString">__toString</a>()
+        
+                                            <p>__toString</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method___toString"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___call">__call</a>(string $name, array $arguments)
+        
+                                            <p>__call</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method___call"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___callStatic">__callStatic</a>(string $name, array $arguments)
+        
+                                            <p>__callStatic</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Barry/Model.html#method___callStatic"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getAuthenticateUserId">getAuthenticateUserId</a>()
+        
+                                            <p>Get User id</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method___construct"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L93">line 93</a></div>
+        <code>                    
+    <strong>__construct</strong>(array $attributes = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Model constructor.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$attributes</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_all">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_all"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L107">line 107</a></div>
+        <code>        static            <a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a>
+    <strong>all</strong>(array $columns = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Rétourne tout les enregistrements</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$columns</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_first">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_first"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L121">line 121</a></div>
+        <code>        static            <a href="../../Bow/Database/SqlUnity.html"><abbr title="Bow\Database\SqlUnity">SqlUnity</abbr></a>|null
+    <strong>first</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/SqlUnity.html"><abbr title="Bow\Database\SqlUnity">SqlUnity</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_find">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_find"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L133">line 133</a></div>
+        <code>        static            <a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a>|<a href="../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>|null
+    <strong>find</strong>(mixed $id, array $select = [&#039;*&#039;])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>find</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$id</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$select</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a>|<a href="../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_describe">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_describe"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L151">line 151</a></div>
+        <code>        static            
+    <strong>describe</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de retourner le description de la table</p>                                                </div>
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_findAndDelete">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_findAndDelete"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L164">line 164</a></div>
+        <code>        static            <a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a>|<a href="../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>|null
+    <strong>findAndDelete</strong>(mixed $id, array $select = [&#039;*&#039;])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Récuper des informations sur la Builder ensuite les supprimes dans celle-ci</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$id</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$select</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a>|<a href="../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_findOrFail">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_findOrFail"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L181">line 181</a></div>
+        <code>        static            <a href="../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>
+    <strong>findOrFail</strong>(mixed $id, array|callable $select = [&#039;*&#039;])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Lance une execption en case de donnée non trouvé</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$id</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array|callable</td>
+                <td>$select</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Database/Exception/NotFoundException.html"><abbr title="Bow\Database\Exception\NotFoundException">NotFoundException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_create">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_create"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L196">line 196</a></div>
+        <code>        static            <a href="../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>
+    <strong>create</strong>(array $data)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_paginate">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_paginate"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L239">line 239</a></div>
+        <code>        static            <a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a>
+    <strong>paginate</strong>(integer $n, integer $current = 0, integer $chunk = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>paginate</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>integer</td>
+                <td>$n</td>
+                <td>nombre d'element a
+                         récupérer</td>
+            </tr>
+                    <tr>
+                <td>integer</td>
+                <td>$current</td>
+                <td>la page courrant</td>
+            </tr>
+                    <tr>
+                <td>integer</td>
+                <td>$chunk</td>
+                <td>le nombre l'élément par groupe que l'on veux
+                         faire.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_deleted">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_deleted"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L250">line 250</a></div>
+        <code>        static            
+    <strong>deleted</strong>(callable $cb)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet d'associer listerner</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>callable</td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_created">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_created"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L263">line 263</a></div>
+        <code>        static            
+    <strong>created</strong>(callable $cb)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet d'associer un listerner</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>callable</td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_updated">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_updated"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L276">line 276</a></div>
+        <code>        static            
+    <strong>updated</strong>(callable $cb)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet d'associer un listerner</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>callable</td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_save">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_save"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L357">line 357</a></div>
+        <code>                    int
+    <strong>save</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>save aliase sur l'action insert</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_delete">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_delete"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L420">line 420</a></div>
+        <code>                    int
+    <strong>delete</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de supprimer un enregistrement</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_touch">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_touch"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L449">line 449</a></div>
+        <code>                    bool
+    <strong>touch</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de mettre le timestamp à jour.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setAttributes">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_setAttributes"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L465">line 465</a></div>
+        <code>                    
+    <strong>setAttributes</strong>(array $data)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet d'Assigner des valeurs aux attribues de la classe</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setAttribute">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_setAttribute"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L476">line 476</a></div>
+        <code>                    
+    <strong>setAttribute</strong>(string $key, string $data)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet d'Assigner une valeur</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAttributes">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_getAttributes"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L486">line 486</a></div>
+        <code>                    array
+    <strong>getAttributes</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de récupérer la liste des attributes.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAttribute">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_getAttribute"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L497">line 497</a></div>
+        <code>                    mixed|null
+    <strong>getAttribute</strong>(string $name)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de récupérer un attribue</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_toArray">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_toArray"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L519">line 519</a></div>
+        <code>                    array
+    <strong>toArray</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de retourner les données</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_offsetSet">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_offsetSet"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L528">line 528</a></div>
+        <code>                    
+    <strong>offsetSet</strong>(mixed $offset, mixed $value)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$offset</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_offsetExists">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_offsetExists"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L541">line 541</a></div>
+        <code>                    bool
+    <strong>offsetExists</strong>(mixed $offset)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$offset</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_offsetUnset">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_offsetUnset"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L549">line 549</a></div>
+        <code>                    
+    <strong>offsetUnset</strong>(mixed $offset)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$offset</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_offsetGet">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_offsetGet"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L558">line 558</a></div>
+        <code>                    mixed|null
+    <strong>offsetGet</strong>(mixed $offset)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$offset</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_jsonSerialize">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method_jsonSerialize"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L566">line 566</a></div>
+        <code>                    
+    <strong>jsonSerialize</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___get">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method___get"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L577">line 577</a></div>
+        <code>                    mixed|null
+    <strong>__get</strong>(string $name)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>__get</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___set">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method___set"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L596">line 596</a></div>
+        <code>                    
+    <strong>__set</strong>(string $name, $value)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>__set</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___toString">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method___toString"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L606">line 606</a></div>
+        <code>                    string
+    <strong>__toString</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>__toString</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___call">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method___call"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L618">line 618</a></div>
+        <code>                    mixed
+    <strong>__call</strong>(string $name, array $arguments)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>__call</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$arguments</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___callStatic">
+        <div class="location">in <a href="../../Bow/Database/Barry/Model.html#method___callStatic"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Barry/Model.php#L636">line 636</a></div>
+        <code>        static            mixed
+    <strong>__callStatic</strong>(string $name, array $arguments)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>__callStatic</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$arguments</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAuthenticateUserId">
+        <div class="location">at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Auth/Authentication.php#L14">line 14</a></div>
+        <code>            protected        mixed
+    <strong>getAuthenticateUserId</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get User id</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>

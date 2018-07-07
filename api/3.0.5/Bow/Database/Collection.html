@@ -1,0 +1,2249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Bow\Database\Collection | Bow Framework API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Bow_Database_Collection" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../3.0.1/index.html" data-version="3.0.1">3.0.1</option>
+                                            <option value="../../../3.0.5/index.html" data-version="3.0.5">3.0.5</option>
+                                            <option value="../../../master/index.html" data-version="master">master</option>
+                                            <option value="../../../3.0.1/index.html" data-version="3.0.1">3.0 branch</option>
+                                    </select>
+            </form>
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Database.html">Database</a></li><li class="backslash">\</li><li>Collection</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            Collection
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>Collection</strong>        extends <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>        (<a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Collection.php">View source</a>)
+</p>
+
+        
+    
+
+    
+    
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_storage">
+                                        protected                                        array
+                </td>
+                <td>$storage</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../Bow/Support/Collection.html#property_storage"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(array $arr = [])
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_first">first</a>()
+        
+                                            <p>Le premier element de la liste</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_first"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_last">last</a>()
+        
+                                            <p>Le dernier element de la liste</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_last"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_has">has</a>(string $key, bool $strict = false)
+        
+                                            <p>has, vérifie l'existance une clé dans la colléction de session</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_has"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isEmpty">isEmpty</a>()
+        
+                                            <p>isEmpty, vérifie si une colléction est vide.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_isEmpty"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_get">get</a>(string $key, mixed $default = null)
+        
+                                            <p>get, permet de récupérer une valeur ou la colléction de valeur.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_get"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_values">values</a>()
+        
+                                            <p>retourne la liste des valeurs de la collection</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_values"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_keys">keys</a>()
+        
+                                            <p>retourne la liste des clés de la collection</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_keys"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_count">count</a>()
+        
+                                            <p>Quand on appelera la fonction count sur un object collection.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_count"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_collectionify">collectionify</a>(string $key)
+        
+                                            <p>collectionify, permet de récupérer une valeur ou la colléction de valeur sous forme
+d'instance de collection.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_collectionify"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_delete">delete</a>(string $key)
+        
+                                            <p>delete, supprime une entrée dans la colléction</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_delete"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_set">set</a>(string $key, mixed $value)
+        
+                                            <p>set, modifie une entrée dans la colléction ou l'ajout si non</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_set"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_each">each</a>(callable $cb)
+        
+                                            <p>each parcour l'ensemble des valeurs de la collection</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_each"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_merge">merge</a>(<a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>|array $array)
+        
+                                            <p>fusion la collection avec un tableau ou une autre collection</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_merge"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_map">map</a>(callable $cb)
+        
+                                            <p>map</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_map"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_filter">filter</a>(callable $cb)
+        
+                                            <p>filter</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_filter"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_fill">fill</a>(mixed $data, int $offset)
+        
+                                            <p>Fill</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_fill"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_reduce">reduce</a>(callable $cb, mixed $next = null)
+        
+                                            <p>reduce</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_reduce"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_implode">implode</a>($sep)
+        
+                                            <p>Implode</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_implode"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_sum">sum</a>(callable $cb = null)
+        
+                                            <p>Sum</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_sum"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Support\number">number</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_max">max</a>(callable $cb = null)
+        
+                                            <p>Max</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_max"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Support\number">number</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_min">min</a>(callable $cb = null)
+        
+                                            <p>Max</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_min"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_excepts">excepts</a>(array $except)
+        
+                                            <p>Permet de retourne la liste de clé
+et retourne une instance de Collection.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_excepts"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_ignores">ignores</a>(array $ignores)
+        
+                                            <p>Permet d'ignorer la clé que l'on lui donne
+et retourne une instance de Collection.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_ignores"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_reverse">reverse</a>()
+        
+                                            <p>reverse</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_reverse"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_update">update</a>(string|integer $key, mixed $data, boolean $overide = false)
+        
+                                            <p>update, met à jour une valeur existant dans la collection</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_update"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a target="_blank" href="http://php.net/Generator">Generator</a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_yieldify">yieldify</a>()
+        
+                                            <p>yieldify, lance un générateur</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_yieldify"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_toJson">toJson</a>(int $option = 0)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_length">length</a>()
+        
+                                            <p>length, longeur de la collection</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_length"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_shift">shift</a>()
+        
+                                            <p>Supprime le premier élément de la collection</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_shift"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_pop">pop</a>()
+        
+                                            <p>Supprime le dernier élément de la collection</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_pop"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_toArray">toArray</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_all">all</a>()
+        
+                                            <p>Retourne les éléments de la collection</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_all"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_push">push</a>(mixed $value, int|string $key = null)
+        
+                                            <p>Ajout après le dernier élément de la collection</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_push"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___get">__get</a>(string $name)
+        
+                                            <p>__get</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method___get"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___set">__set</a>($name, $value)
+        
+                                            <p>__set</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method___set"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___isset">__isset</a>($name)
+        
+                                            <p>__isset</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method___isset"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___unset">__unset</a>($name)
+        
+                                            <p>__unset</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method___unset"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___toString">__toString</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_jsonSerialize">jsonSerialize</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getIterator">getIterator</a>()
+        
+                                            <p>getIterator</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_getIterator"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_offsetExists">offsetExists</a>(mixed $offset)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_offsetExists"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_offsetGet">offsetGet</a>(mixed $offset)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_offsetGet"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_offsetSet">offsetSet</a>(mixed $offset, mixed $value)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_offsetSet"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_offsetUnset">offsetUnset</a>(mixed $offset)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Support/Collection.html#method_offsetUnset"><abbr title="Bow\Support\Collection">Collection</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_dropAll">dropAll</a>()
+        
+                                            <p>Permet de supprimer tout les enrégistrement séléctionnés</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Collection.php#L11">line 11</a></div>
+        <code>                    
+    <strong>__construct</strong>(array $arr = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$arr</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_first">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_first"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L33">line 33</a></div>
+        <code>                    mixed
+    <strong>first</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Le premier element de la liste</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_last">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_last"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L43">line 43</a></div>
+        <code>                    array
+    <strong>last</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Le dernier element de la liste</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_has">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_has"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L58">line 58</a></div>
+        <code>                    boolean
+    <strong>has</strong>(string $key, bool $strict = false)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>has, vérifie l'existance une clé dans la colléction de session</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td>La clé de l'élément
+                       récherché</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$strict</td>
+                <td>Quand $val est a true alors :has vas vérifie $key non pas comment une cle mais un valeur.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isEmpty">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_isEmpty"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L77">line 77</a></div>
+        <code>                    boolean
+    <strong>isEmpty</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>isEmpty, vérifie si une colléction est vide.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_get">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_get"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L100">line 100</a></div>
+        <code>                    mixed
+    <strong>get</strong>(string $key, mixed $default = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>get, permet de récupérer une valeur ou la colléction de valeur.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$default</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_values">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_values"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L122">line 122</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>values</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>retourne la liste des valeurs de la collection</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_keys">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_keys"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L138">line 138</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>keys</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>retourne la liste des clés de la collection</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_count">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_count"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L154">line 154</a></div>
+        <code>                    int
+    <strong>count</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Quand on appelera la fonction count sur un object collection.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_collectionify">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_collectionify"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L167">line 167</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>collectionify</strong>(string $key)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>collectionify, permet de récupérer une valeur ou la colléction de valeur sous forme
+d'instance de collection.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td>La clé de l'élément</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_delete">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_delete"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L186">line 186</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>delete</strong>(string $key)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>delete, supprime une entrée dans la colléction</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_set">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_set"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L200">line 200</a></div>
+        <code>                    mixed
+    <strong>set</strong>(string $key, mixed $value)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>set, modifie une entrée dans la colléction ou l'ajout si non</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_each">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_each"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L220">line 220</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>each</strong>(callable $cb)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>each parcour l'ensemble des valeurs de la collection</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>callable</td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_merge">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_merge"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L238">line 238</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>merge</strong>(<a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>|array $array)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>fusion la collection avec un tableau ou une autre collection</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>|array</td>
+                <td>$array</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a target="_blank" href="http://php.net/ErrorException">ErrorException</a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_map">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_map"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L258">line 258</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>map</strong>(callable $cb)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>map</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>callable</td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_filter">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_filter"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L276">line 276</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>filter</strong>(callable $cb)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>filter</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>callable</td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_fill">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_fill"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L297">line 297</a></div>
+        <code>                    array
+    <strong>fill</strong>(mixed $data, int $offset)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Fill</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$offset</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_reduce">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_reduce"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L317">line 317</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>reduce</strong>(callable $cb, mixed $next = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>reduce</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>callable</td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$next</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_implode">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_implode"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L332">line 332</a></div>
+        <code>                    string
+    <strong>implode</strong>($sep)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Implode</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$sep</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_sum">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_sum"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L344">line 344</a></div>
+        <code>                    int
+    <strong>sum</strong>(callable $cb = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Sum</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>callable</td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_max">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_max"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L371">line 371</a></div>
+        <code>                    <abbr title="Bow\Support\number">number</abbr>
+    <strong>max</strong>(callable $cb = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Max</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>callable</td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Support\number">number</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_min">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_min"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L383">line 383</a></div>
+        <code>                    <abbr title="Bow\Support\number">number</abbr>
+    <strong>min</strong>(callable $cb = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Max</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>callable</td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Support\number">number</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_excepts">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_excepts"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L425">line 425</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>excepts</strong>(array $except)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de retourne la liste de clé
+et retourne une instance de Collection.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$except</td>
+                <td>Liste des éléments à ignorer</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_ignores">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_ignores"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L448">line 448</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>ignores</strong>(array $ignores)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet d'ignorer la clé que l'on lui donne
+et retourne une instance de Collection.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$ignores</td>
+                <td>Liste des éléments à ignorer</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_reverse">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_reverse"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L469">line 469</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>reverse</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>reverse</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_update">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_update"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L482">line 482</a></div>
+        <code>                    boolean
+    <strong>update</strong>(string|integer $key, mixed $data, boolean $overide = false)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>update, met à jour une valeur existant dans la collection</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string|integer</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>boolean</td>
+                <td>$overide</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_yieldify">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_yieldify"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L506">line 506</a></div>
+        <code>                    <a target="_blank" href="http://php.net/Generator">Generator</a>
+    <strong>yieldify</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>yieldify, lance un générateur</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a target="_blank" href="http://php.net/Generator">Generator</a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_toJson">
+        <div class="location">at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Collection.php#L33">line 33</a></div>
+        <code>                    string
+    <strong>toJson</strong>(int $option = 0)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$option</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_length">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_length"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L531">line 531</a></div>
+        <code>                    int
+    <strong>length</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>length, longeur de la collection</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_shift">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_shift"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L541">line 541</a></div>
+        <code>                    mixed
+    <strong>shift</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Supprime le premier élément de la collection</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_pop">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_pop"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L552">line 552</a></div>
+        <code>                    mixed
+    <strong>pop</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Supprime le dernier élément de la collection</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_toArray">
+        <div class="location">at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Collection.php#L19">line 19</a></div>
+        <code>                    array
+    <strong>toArray</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_all">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_all"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L585">line 585</a></div>
+        <code>                    mixed
+    <strong>all</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Retourne les éléments de la collection</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_push">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_push"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L597">line 597</a></div>
+        <code>                    mixed
+    <strong>push</strong>(mixed $value, int|string $key = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Ajout après le dernier élément de la collection</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>int|string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___get">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method___get"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L632">line 632</a></div>
+        <code>                    mixed
+    <strong>__get</strong>(string $name)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>__get</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>La clé</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___set">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method___set"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L643">line 643</a></div>
+        <code>                    
+    <strong>__set</strong>($name, $value)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>__set</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$name</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___isset">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method___isset"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L654">line 654</a></div>
+        <code>                    bool
+    <strong>__isset</strong>($name)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>__isset</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$name</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___unset">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method___unset"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L664">line 664</a></div>
+        <code>                    
+    <strong>__unset</strong>($name)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>__unset</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$name</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___toString">
+        <div class="location">at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Collection.php#L53">line 53</a></div>
+        <code>                    string
+    <strong>__toString</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_jsonSerialize">
+        <div class="location">at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Collection.php#L61">line 61</a></div>
+        <code>                    
+    <strong>jsonSerialize</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getIterator">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_getIterator"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L690">line 690</a></div>
+        <code>                    
+    <strong>getIterator</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>getIterator</p>                                                </div>
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_offsetExists">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_offsetExists"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L699">line 699</a></div>
+        <code>                    bool
+    <strong>offsetExists</strong>(mixed $offset)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$offset</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_offsetGet">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_offsetGet"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L708">line 708</a></div>
+        <code>                    mixed
+    <strong>offsetGet</strong>(mixed $offset)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$offset</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_offsetSet">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_offsetSet"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L717">line 717</a></div>
+        <code>                    
+    <strong>offsetSet</strong>(mixed $offset, mixed $value)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$offset</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_offsetUnset">
+        <div class="location">in <a href="../../Bow/Support/Collection.html#method_offsetUnset"><abbr title="Bow\Support\Collection">Collection</abbr></a> at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Support/Collection.php#L725">line 725</a></div>
+        <code>                    
+    <strong>offsetUnset</strong>(mixed $offset)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$offset</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_dropAll">
+        <div class="location">at         <a href="https://github.com/papac/bow/blob/3.0.5/src/Database/Collection.php#L41">line 41</a></div>
+        <code>                    
+    <strong>dropAll</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de supprimer tout les enrégistrement séléctionnés</p>                                                </div>
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>
