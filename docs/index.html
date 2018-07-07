@@ -8,26 +8,25 @@
     <title>Bow Framework</title>
 
     <!-- Flatdoc -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/legacy.js'></script>
-    <script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/flatdoc.js'></script>
+    <script src="../vendor/jquery.js"></script>
+    <script src='../vendor/legacy.js'></script>
+    <script src='../vendor/flatdoc.js'></script>
 
     <!-- Flatdoc theme -->
-    <link  href='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/style.css' rel='stylesheet'>
-    <script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/script.js'></script>
+    <link  href='../vendor/flatdoc.css' rel='stylesheet'>
+    <script src='../vendor/flatdoc-script.js'></script>
 
     <!-- Meta -->
     <meta content="Bow Framework" property="og:title">
-    <meta content="Bow est un micro framework écrir pour les débutants qui veulent travail sur un projet un peut plus
-grand." name="description">
+    <meta content="Bow est un micro framework écrir pour les débutants qui veulent travail sur un projet un peut plus grand." name="description">
 
     <!-- Initializer -->
+    <link  href='../public/css/docs.css' rel='stylesheet'>
     <script type="text/javascript">
         Flatdoc.run({
             fetcher: Flatdoc.file('docs.md')
         });
     </script>
-    <link  href='../public/css/docs.css' rel='stylesheet'>
 </head>
 <body role='flatdoc' class='no-literate'>
 <div class='header'>
@@ -51,6 +50,7 @@ grand." name="description">
     </div>
     <div role='flatdoc-content' class='content'></div>
 </div>
+
 <script type="text/javascript">
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

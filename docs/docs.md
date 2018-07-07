@@ -142,7 +142,6 @@ Mais pour lors, presentons les differents fichiers.
 
 [Voir la vidéo](https://www.youtube.com/watch?v=:id 'video')
 
-
 Routing
 -------
 
@@ -370,7 +369,6 @@ $app->code(statusCode, action);
 > ``` php
 > $app->get(..., ...)->post(..., ...)->put(..., ...)->delete(..., ...)->patch(..., ...)
 > ```
-
 
 ### Personnalisation
 
