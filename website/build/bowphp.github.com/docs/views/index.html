@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>views · Bow Framework</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Views"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="views · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.github.io/index.html"/><meta property="og:description" content="# Views"/><meta property="og:image" content="https://bowphp.github.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.github.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://bowphp.github.io/blog/atom.xml" title="Bow Framework Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://bowphp.github.io/blog/feed.xml" title="Bow Framework Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">Bow Framework</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/installation" target="_self">Documentation</a></li><li class=""><a href="https://bowphp.github.io/api/master" target="_self">API</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">views</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="views"></a><a href="#views" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Views</h1>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#package-supplementaire">Package supplementaire</a></li>
+</ul></li>
+<li><a href="#création-de-vue">Création de vue</a></li>
+<li><a href="#vue-avec-twig">Vue avec Twig</a></li>
+<li><a href="#vue-avec-pug-php">Vue avec Pug PHP</a></li>
+<li><a href="#vue-avec-mustache-php">Vue avec Mustache PHP</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>Les vues contiennent le code HTML fourni par votre application et séparent votre logique de contrôleur / application de votre logique de présentation:</p>
+<h3><a class="anchor" aria-hidden="true" id="configuration"></a><a href="#configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h3>
+<p>Bow framework implement 3 moteur de template par defaut, <a href="https://twig.symfony.com">Twig</a>, <a href="https://www.phug-lang.com/">Pug-PHP</a>, <a href="https://github.com/bobthecow/mustache.php/wiki/Mustache-Tags">Mustache-PHP</a>.
+La configuration des vues ce trouve dans le fichier <code>view.php</code> du dossier <code>config</code>/..</p>
+<p>Spécifiez le nom du template à utiliser avec option <code>engine</code> de la configuration, cette option peut prendre le valeur suivant <code>twig</code>, <code>pug</code> et <code>mustache</code>. Par défaut Bow utilise <code>twig</code>.</p>
+<p>Vous pouvez aussi changer l'extension de template en modifiant la valeur de l'entré <code>extension</code>. Vous verez également que les vues sont stockées dans le répertoire <code>components/views</code> par defaut.</p>
+<h3><a class="anchor" aria-hidden="true" id="package-supplementaire"></a><a href="#package-supplementaire" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Package supplementaire</h3>
+<p>Dans le cas où vous avez opter pour un autre moteur template, voici la liste des packages nécessaires:</p>
+<table>
+<thead>
+<tr><th>Template</th><th>Package</th></tr>
+</thead>
+<tbody>
+<tr><td><code>mustache</code></td><td><code>mustache/mustache</code></td></tr>
+<tr><td><code>pug</code></td><td><code>pug-php/pug</code></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="creation-de-vue"></a><a href="#creation-de-vue" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Création de vue</h2>
+<p>Une simple vue peut ressembler à ceci</p>
+<pre><code class="hljs css language-twig"><span class="xml"><span class="hljs-comment">&lt;!-- View stored in components/views/greeting.twig --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, </span><span class="hljs-template-variable">{{ name }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</span></code></pre>
+<p>Apres avoir modifier et sauvegarde votre vue dans <code>components/views/greeting.twig</code>. Vous pouvez maintenant l'envoyer au utilisateur avec le helper view comme ceci:</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">return</span> view(<span class="hljs-string">'greeting'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Bowphp'</span>]);
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="utilisation"></a><a href="#utilisation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Utilisation</h3>
+<p>Exemple d'utilisation: (Avec le classe <code>View</code>)
+Cette utilise la methode <code>parse</code>.</p>
+<pre><code class="hljs css language-php">View::parse(view, data, status)
+</code></pre>
+<table>
+<thead>
+<tr><th>paramètre</th><th>type</th><th>description</th></tr>
+</thead>
+<tbody>
+<tr><td>view</td><td>String</td><td>Le chemin de la vue sachant dans le moteur se base sur le dossier des vues</td></tr>
+<tr><td>data</td><td>Array, Object</td><td>Les données a passé à la vue</td></tr>
+<tr><td>status</td><td>Integer</td><td>Le code http</td></tr>
+</tbody>
+</table>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">View</span>\<span class="hljs-title">View</span>;
+<span class="hljs-keyword">echo</span> View::parse(<span class="hljs-string">'nom-de-la-vue-sans-extension'</span>);
+</code></pre>
+<p>Pour passer des variables a la vue</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">View</span>\<span class="hljs-title">View</span>;
+<span class="hljs-keyword">echo</span> View::parse(<span class="hljs-string">'nom-de-la-vue-sans-extension'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'bow'</span>], <span class="hljs-number">200</span>);
+</code></pre>
+<p>Vous pouvez utiliser le helper <code>view</code> qui s'utilise de la même façon.</p>
+<p>Avec la vue suivante:</p>
+<pre><code class="hljs css language-twig"><span class="xml"><span class="hljs-comment">&lt;!-- View stored in components/views/greeting.twig --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, </span><span class="hljs-template-variable">{{ name }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</span></code></pre>
+<p>Exemple dans un controlleur:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controllers</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controllers</span>\<span class="hljs-title">Controller</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HomeController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span>
+</span>{
+  <span class="hljs-comment">/**
+   * Show hello page
+   *
+   * <span class="hljs-doctag">@return</span> mixed
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> view(<span class="hljs-string">'greeting'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Bowphp'</span>]);
+    <span class="hljs-comment">// Ou</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;render(<span class="hljs-string">'greeting'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">"Bowphp"</span>]);
+  }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="vue-avec-twig"></a><a href="#vue-avec-twig" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vue avec Twig</h2>
+<p>Twig est un moteur de templates pour le langage de programmation PHP, utilisé par défaut par le framework Symfony.
+Il aurait été inspiré par Jinja, moteur de template Python.</p>
+<p>Exemple de code:</p>
+<pre><code class="hljs css language-php">$names = [
+  <span class="hljs-string">"resque"</span>, <span class="hljs-string">"hub"</span>, <span class="hljs-string">"rip"</span>
+];
+</code></pre>
+<pre><code class="hljs css language-twig"><span class="xml"></span><span class="hljs-comment">{# components/views/greeting.twig #}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, User<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> name in names %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello, </span><span class="hljs-template-variable">{{name}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</span></code></pre>
+<p><a href="https://twig.symfony.com/" title="Lien de la documentation">Lien de la documentation</a></p>
+<h2><a class="anchor" aria-hidden="true" id="vue-avec-pug-php"></a><a href="#vue-avec-pug-php" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vue avec Pug PHP</h2>
+<p>Pug est un moteur de templates de haute performance fortement influencé par Haml et implémenté principalement avec JavaScript pour Node.js et navigateurs.
+Pug-PHP est une réécriture de pour PHP avec les mêmes fonctionnalités.</p>
+<p>Exemple de code:</p>
+<pre><code class="hljs css language-php">$names = [
+  <span class="hljs-string">"resque"</span>, <span class="hljs-string">"hub"</span>, <span class="hljs-string">"rip"</span>
+];
+</code></pre>
+<pre><code class="hljs css language-pug">&lt;!-- components/views/greeting<span class="hljs-selector-class">.pug</span> --&gt;
+doctype <span class="hljs-selector-tag">html</span>
+<span class="hljs-selector-tag">html</span>
+  <span class="hljs-selector-tag">body</span>
+    <span class="hljs-selector-tag">h1</span> Hello User
+    each name <span class="hljs-keyword">in</span> names
+      <span class="hljs-selector-tag">p</span> Hello, #{name}
+</code></pre>
+<p><a href="https://www.phug-lang.com" title="Lien de la documentation">Lien de la documentation</a></p>
+<h2><a class="anchor" aria-hidden="true" id="vue-avec-mustache-php"></a><a href="#vue-avec-mustache-php" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vue avec Mustache PHP</h2>
+<p>Mustache est un moteur de templates de haute performance fortement influencé par Handlebar et implémenté principalement avec JavaScript pour Node.js et navigateurs.
+Mustache-PHP est une réécriture de pour PHP avec les mêmes fonctionnalités.</p>
+<p>Exemple de code:</p>
+<pre><code class="hljs css language-php">$names = [
+  [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">"resque"</span>],
+  [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">"hub"</span>],
+  [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">"rip"</span>],
+];
+</code></pre>
+<pre><code class="hljs css language-jinja"><span class="xml"><span class="hljs-comment">&lt;!-- components/views/greeting.tpl --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, Users<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    </span><span class="hljs-template-variable">{{# names}}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello, </span><span class="hljs-template-variable">{{name}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    </span><span class="hljs-template-variable">{{/ names}}</span><span class="xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</span></code></pre>
+<p><a href="https://github.com/bobthecow/mustache.php/wiki/Mustache-Tags" title="Lien de la documentation">Lien de la documentation</a></p>
+<h3><a class="anchor" aria-hidden="true" id="plugin"></a><a href="#plugin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Plugin</h3>
+<p>Bow implément aussi au travers d'un plugin, le moteur de template <code>Blade</code> utilisé par <a href="https://laravel.com">Laravel</a> et aussi un template extermement simpliste nommé <code>Tintin</code>.</p>
+<ul>
+<li>Le plugin Blade <a href="https://github.com/papac/bow-blade">papac/bow-blade</a></li>
+<li>Le plugin Tintin <a href="https://github.com/bowphp/tintin">bowphp/tintin</a></li>
+</ul>
+<blockquote>
+<p>N'hésitez pas à donner votre avis sur la qualité de la documentation ou proposez des correctifs.</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a><ul class="toc-headings"><li><a href="#configuration">Configuration</a></li><li><a href="#package-supplementaire">Package supplementaire</a></li></ul></li><li><a href="#creation-de-vue">Création de vue</a><ul class="toc-headings"><li><a href="#utilisation">Utilisation</a></li></ul></li><li><a href="#vue-avec-twig">Vue avec Twig</a></li><li><a href="#vue-avec-pug-php">Vue avec Pug PHP</a></li><li><a href="#vue-avec-mustache-php">Vue avec Mustache PHP</a><ul class="toc-headings"><li><a href="#plugin">Plugin</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/installation.html">Getting Started</a><a href="/docs/en/contribution.html">Do You want to contribute</a><a href="https://bowphp.github.io/api/master">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://bowphp.slack.com/">Project Chat</a><a href="https://twitter.com/@franck_dakia" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/bowphp/app/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Bowphp</section></footer></div></body></html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>responses · Bow Framework</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# HTTP Response"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="responses · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.github.io/index.html"/><meta property="og:description" content="# HTTP Response"/><meta property="og:image" content="https://bowphp.github.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.github.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://bowphp.github.io/blog/atom.xml" title="Bow Framework Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://bowphp.github.io/blog/feed.xml" title="Bow Framework Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">Bow Framework</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/installation" target="_self">Documentation</a></li><li class=""><a href="https://bowphp.github.io/api/master" target="_self">API</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">responses</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="http-response"></a><a href="#http-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP Response</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#envoyé-un-résponse">Envoyé un résponse</a>
+<ul>
+<li><a href="#une-chaine-de-caractère">Une chaine de caractère</a></li>
+<li><a href="#une-collection-et-une-tableau-ou-un-object">Une Collection et Une tableau ou un Object</a></li>
+<li><a href="un-model-de-barry-orm">Un Model de Barry ORM</a></li>
+</ul></li>
+<li><a href="#modification-de-réponse">Modification de réponse</a>
+<ul>
+<li><a href="#modification-du-code-d-erreur">Modification du code d'erreur</a></li>
+<li><a href="#ajouter-une-entête-http">Ajouter une entête http</a></li>
+</ul></li>
+<li><a href="#envoyer-un-json">Envoyer un json</a>
+<ul>
+<li><a href="#protototype-de-la-methode-json">Protototype de la methode json</a></li>
+<li><a href="#exemple-d-envoye-de-json">Exemple d'envoye de JSON</a></li>
+</ul></li>
+<li><a href="#envoyer-une-reponse-depuis-les-vues">Envoyer une reponse depuis les vues</a>
+<ul>
+<li><a href="#protototype-de-la-methode-render">Protototype de la methode render</a></li>
+<li><a href="#exemple-d-envoye-de-vue">Exemple d'envoye de vue</a></li>
+</ul></li>
+<li><a href="#redirection">Redirection</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>Tous les routes et contrôleurs doivent renvoyer une réponse à renvoyer au navigateur de l'utilisateur. Bow fournit plusieurs façons différentes de renvoyer des réponses. La réponse la plus élémentaire est le retour d'une chaîne depuis une route ou un contrôleur. Bow convertira automatiquement la chaîne en une réponse HTTP complète.</p>
+<h2><a class="anchor" aria-hidden="true" id="envoye-un-response"></a><a href="#envoye-un-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Envoyé un résponse</h2>
+<h3><a class="anchor" aria-hidden="true" id="une-chaine-de-caractere"></a><a href="#une-chaine-de-caractere" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Une chaine de caractère</h3>
+<p>Une réponse HTTP peut être une chaine de caractère.</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">"Hello, world"</span>;
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="une-collection-et-une-tableau-ou-un-object"></a><a href="#une-collection-et-une-tableau-ou-un-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Une Collection et Une tableau ou un Object</h3>
+<p>Une réponse HTTP peut être une instance de <a href="https://bowphp.github.com/api/master/Bow/Support/Collection.html"><code>Bow\Support\Collection</code></a>.</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/array'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">return</span> [<span class="hljs-number">10</span>, <span class="hljs-number">2</span>, <span class="hljs-number">12</span>, <span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Dakia'</span>];
+});
+
+$app-&gt;get(<span class="hljs-string">'/collection'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">return</span> collect([<span class="hljs-number">10</span>, <span class="hljs-number">2</span>, <span class="hljs-number">12</span>]);
+});
+
+$app-&gt;get(<span class="hljs-string">'/object'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">return</span> (object) [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Dakia'</span>];
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="un-model-barry"></a><a href="#un-model-barry" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Un model Barry</h3>
+<p>La réponse HTTP peut êtres un <code>Model</code> ou une <code>Collection</code> de model, Bow la convertis directement en <code>JSON</code>.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">User</span>;
+
+$app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  $model = User::where(<span class="hljs-string">'id'</span>, <span class="hljs-number">1</span>)-&gt;first();
+  
+  <span class="hljs-keyword">return</span> $model;
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="modification-de-reponse"></a><a href="#modification-de-reponse" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Modification de réponse</h2>
+<h3><a class="anchor" aria-hidden="true" id="modification-du-code-d-erreur"></a><a href="#modification-du-code-d-erreur" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Modification du code d'erreur</h3>
+<p>Il est très important d'ajouter les codes d'erreurs à votre réponse HTTP si vous développew un API Restful. La methode <code>status</code> vous permet de le faire.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">User</span>;
+
+$app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  $response = response();
+  
+  <span class="hljs-keyword">return</span> $response-&gt;status(<span class="hljs-number">400</span>);
+});
+</code></pre>
+<p>Pour plus d'information sur les code HTTP. Consultez ce <a href="https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP">lien</a>.</p>
+<p>Si dans votre API, la requête a été traitée avec succès et vous n'avez pas d’information à renvoyer. Il est préférable de lui retourne un <code>204</code> qu'un <code>200</code> :tada:.</p>
+<h3><a class="anchor" aria-hidden="true" id="ajouter-une-entete-http"></a><a href="#ajouter-une-entete-http" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ajouter une entête HTTP</h3>
+<p>Souvent vous serez amener à ajouter d'autre entête HTTP à votre réponse HTTP. La methode <code>addHeader</code> et <code>withHeaders</code> vous permet de le faire.</p>
+<pre><code class="hljs css language-php">$response-&gt;addHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json'</span>);
+</code></pre>
+<p>Nous pouvez ajouter plusieur entête en même temps:</p>
+<pre><code class="hljs css language-php">$response-&gt;withHeaders([
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>,
+  <span class="hljs-string">'X-Proto-Value'</span> =&gt; <span class="hljs-number">1</span>
+]);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="envoyer-un-json"></a><a href="#envoyer-un-json" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Envoyer un JSON</h2>
+<p>Dans les applications REST (Api Rest) les informations sont généralement retournés en JSON. Pour envoyer un information JSON au client, vous pouvez utiliser le help <code>json</code> ou la methode <code>json</code> sur l'instance de <code>Bow\Http\Response</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="protototype-de-la-methode-json"></a><a href="#protototype-de-la-methode-json" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Protototype de la methode <code>json</code></h3>
+<pre><code class="hljs css language-php">$response-&gt;json($data, $code, $headers);
+</code></pre>
+<table>
+<thead>
+<tr><th>paramêtre</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>$data</td><td><code>Array</code> \</td><td><code>stdClass</code> \</td><td><code>Iterable</code> \</td><td><code>JsonSerializable</code> - Les données à sérialiser</td></tr>
+<tr><td>$code</td><td><code>Int</code> - Le code du status HTTP</td></tr>
+<tr><td>$headers</td><td><code>Array</code> - Les entêtes à ajouter sur le réponse</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="exemple-d-envoye-de-json"></a><a href="#exemple-d-envoye-de-json" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple d'envoye de JSON</h3>
+<p>Exemple:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">return</span> $response-&gt;json([<span class="hljs-string">'message'</span> =&gt; <span class="hljs-string">'hello world'</span>], $code = <span class="hljs-number">200</span>, [
+  <span class="hljs-string">'X-Proto-Value'</span> =&gt; <span class="hljs-number">1</span> <span class="hljs-comment">// Juste un test</span>
+]);
+</code></pre>
+<p>Ici Bow ajout directement l'entête HTTP <code>Content-Type</code> à <code>application/json</code>, donc plus besoin de l'ajouter manuellement dans le <code>$headers</code>.</p>
+<h2><a class="anchor" aria-hidden="true" id="envoyer-une-reponse-depuis-les-vues"></a><a href="#envoyer-une-reponse-depuis-les-vues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Envoyer une reponse depuis les vues</h2>
+<p>Souvent vous pouvez utiliser un instance de response pour faire le rendu de view via la methode <code>render</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="protototype-de-la-methode-render"></a><a href="#protototype-de-la-methode-render" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Protototype de la methode <code>render</code></h3>
+<pre><code class="hljs css language-php">$response-&gt;render($view_name, $data, $code, $headers);
+</code></pre>
+<table>
+<thead>
+<tr><th>paramêtre</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>$view_name</td><td><code>String</code> - Le nom d'une vue à rendre</td></tr>
+<tr><td>$data</td><td><code>Array</code> - Les données à envoyer à la vue</td></tr>
+<tr><td>$code</td><td><code>Int</code> - Le code du status HTTP</td></tr>
+<tr><td>$headers</td><td><code>Array</code> - Les entêtes à ajouter à la réponse</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="exemple-d-envoye-de-vue"></a><a href="#exemple-d-envoye-de-vue" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple d'envoye de vue</h3>
+<p>Exemple:</p>
+<pre><code class="hljs css language-php">$users = User::where(<span class="hljs-string">'id'</span>, <span class="hljs-string">'!='</span>, <span class="hljs-number">2</span>)-&gt;get();
+
+<span class="hljs-keyword">return</span> $response-&gt;render(<span class="hljs-string">'users'</span>, [<span class="hljs-string">'users'</span> =&gt; $users], <span class="hljs-number">200</span>, [
+  <span class="hljs-string">'X-Proto-Value'</span> =&gt; <span class="hljs-number">1</span> <span class="hljs-comment">// Juste un test</span>
+]);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="telecharger-un-fichier"></a><a href="#telecharger-un-fichier" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Télécharger un fichier</h3>
+<p>Souvent vous serez amener à mettre en place des systèmes de téléchargement de fichier zip ou image, encore vous allez faire des applications où il faut s'authentifier avant de télécharge des fichiers du type dropbox. Bow offre un API simple via la classe <a href="https://bowphp.github.com/api/master/Bow/Http/Response.html">Bow\Http\Response</a> pour télécharger un fichier avec la methode <code>dowload</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="protototype-de-la-methode-download"></a><a href="#protototype-de-la-methode-download" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Protototype de la methode <code>download</code></h3>
+<pre><code class="hljs css language-php">$response-&gt;download($file, $filename = <span class="hljs-keyword">null</span>, $headers, $disposition = <span class="hljs-string">'attachment'</span>);
+</code></pre>
+<table>
+<thead>
+<tr><th>paramêtre</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>$file</td><td><code>String</code> - Le chemin absolu du fichier</td></tr>
+<tr><td>$filename</td><td><code>String</code> - Le nouveau du ficher par defaut est <code>null</code></td></tr>
+<tr><td>$headers</td><td><code>Array</code> - Les entêtes à ajouter à la réponse</td></tr>
+<tr><td>$disposition</td><td><code>String</code> - Indiquant si le contenu devrait être affiché en ligne dans le navigateur, c'est-à-dire en tant que page Web ou dans une page Web, ou en pièce jointe est téléchargé et enregistré localement.</td></tr>
+</tbody>
+</table>
+<p>Plus d'information sur l'entête <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Content-Disposition"><code>Content-Disposition</code></a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="exemple-de-telecharge"></a><a href="#exemple-de-telecharge" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple de télécharge</h3>
+<p>Exemple:</p>
+<pre><code class="hljs css language-php">$file = <span class="hljs-string">'/path/to/file.png'</span>;
+
+<span class="hljs-keyword">return</span> $response-&gt;download($file, <span class="hljs-string">'image.png'</span>);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="redirection"></a><a href="#redirection" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redirection</h2>
+<p>Vous serez certainement amener à faire des redirections vers d'autres ressources et cela en réalité constitue une réponse HTTP. Les methodes <code>to</code> et <code>back</code> (qui comme son nom l'indique permet de faire une revenir sur en arrière) de la classe <a href="https://bowphp.github.com/api/master/Bow/Http/Redirect.html"><code>Bow\Http\Redirect</code></a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="redirection-avec-to"></a><a href="#redirection-avec-to" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redirection avec to</h3>
+<p>La redirection avec <code>to</code> permet de faire renvoyer l'utilisateur sur une autre la page.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">return</span> redirect()-&gt;to($path);
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="prototype-de-to"></a><a href="#prototype-de-to" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prototype de To</h4>
+<table>
+<thead>
+<tr><th>paramêtre</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>$path</td><td><code>String</code> - L'URL de rédirection</td></tr>
+</tbody>
+</table>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">return</span> redirect()-&gt;to(<span class="hljs-string">'/users'</span>);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="redirection-avec-back"></a><a href="#redirection-avec-back" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redirection avec back</h3>
+<p>La redirection avec <code>back</code> permet de faire renvoyer l'utilisateur sur la page précédente.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">return</span> redirect()-&gt;back($status_code);
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="prototype-de-back"></a><a href="#prototype-de-back" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prototype de Back</h4>
+<table>
+<thead>
+<tr><th>paramêtre</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>$status_code</td><td><code>Int</code> - Le code HTTP de la réponse par defaut est égale à <code>302</code></td></tr>
+</tbody>
+</table>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">return</span> redirect()-&gt;back();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="redirection-avec-des-informations"></a><a href="#redirection-avec-des-informations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redirection avec des informations</h3>
+<p>Vous pouvez aussi faire la redirection avec les informations envoyés par l'utilisateur et ceci avec la methode <code>withInput</code> comme ceci:</p>
+<pre><code class="hljs css language-php"> <span class="hljs-keyword">return</span> redirect()-&gt;back()-&gt;withInput();
+ <span class="hljs-comment">// Ou</span>
+ <span class="hljs-keyword">return</span> redirect()-&gt;to(<span class="hljs-string">"/home"</span>)-&gt;withInput();
+</code></pre>
+<p>Notez que vous pouvez donner une tableau de valeur à <code>withInput</code> qui sera une collection d'information à envoyer à utilisateur.</p>
+<blockquote>
+<p>N'hésitez pas à donner votre avis sur la qualité de la documentation ou proposez des correctifs.</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#envoye-un-response">Envoyé un résponse</a><ul class="toc-headings"><li><a href="#une-chaine-de-caractere">Une chaine de caractère</a></li><li><a href="#une-collection-et-une-tableau-ou-un-object">Une Collection et Une tableau ou un Object</a></li><li><a href="#un-model-barry">Un model Barry</a></li></ul></li><li><a href="#modification-de-reponse">Modification de réponse</a><ul class="toc-headings"><li><a href="#modification-du-code-d-erreur">Modification du code d'erreur</a></li><li><a href="#ajouter-une-entete-http">Ajouter une entête HTTP</a></li></ul></li><li><a href="#envoyer-un-json">Envoyer un JSON</a><ul class="toc-headings"><li><a href="#protototype-de-la-methode-json">Protototype de la methode <code>json</code></a></li><li><a href="#exemple-d-envoye-de-json">Exemple d'envoye de JSON</a></li></ul></li><li><a href="#envoyer-une-reponse-depuis-les-vues">Envoyer une reponse depuis les vues</a><ul class="toc-headings"><li><a href="#protototype-de-la-methode-render">Protototype de la methode <code>render</code></a></li><li><a href="#exemple-d-envoye-de-vue">Exemple d'envoye de vue</a></li><li><a href="#telecharger-un-fichier">Télécharger un fichier</a></li><li><a href="#protototype-de-la-methode-download">Protototype de la methode <code>download</code></a></li><li><a href="#exemple-de-telecharge">Exemple de télécharge</a></li></ul></li><li><a href="#redirection">Redirection</a><ul class="toc-headings"><li><a href="#redirection-avec-to">Redirection avec to</a></li><li><a href="#redirection-avec-back">Redirection avec back</a></li><li><a href="#redirection-avec-des-informations">Redirection avec des informations</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/installation.html">Getting Started</a><a href="/docs/en/contribution.html">Do You want to contribute</a><a href="https://bowphp.github.io/api/master">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://bowphp.slack.com/">Project Chat</a><a href="https://twitter.com/@franck_dakia" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/bowphp/app/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Bowphp</section></footer></div></body></html>
