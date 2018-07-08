@@ -245,6 +245,7 @@ header {
   font-weight: bold;
   font-size: 14px;
   width: 500px;
+  overflow: hidden;
   margin: auto;
   min-height: 120px; }
   .code span.pull-right a {
