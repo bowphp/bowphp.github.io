@@ -97,7 +97,7 @@
                     void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(string $dirname, <a href="../../Bow/Console/Command.html"><abbr title="Bow\Console\Command">Command</abbr></a> $command)
+                    <a href="#method___construct">__construct</a>(<a href="../../Bow/Console/Command.html"><abbr title="Bow\Console\Command">Command</abbr></a> $command)
         
                                             <p>Bow constructor.</p>                </div>
                 <div class="col-md-2"></div>
@@ -144,12 +144,12 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    void
+                    
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_run">run</a>()
+                    <a href="#method_bind">bind</a>(<a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a> $kernel)
         
-                                            <p>Permet de lancer Bow task runner</p>                </div>
+                                            <p>Bind kernel</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -157,9 +157,9 @@
                     void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_call">call</a>(string $command)
+                    <a href="#method_run">run</a>()
         
-                                            <p>Permet d'appeler un commande</p>                </div>
+                                            <p>Permet de lancer Bow task runner</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -207,26 +207,6 @@
                     void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_serve">serve</a>()
-        
-                                            <p>Permet de lancer le serveur local</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_console">console</a>()
-        
-                                            <p>Permet de lancer le repl</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    void
-                </div>
-                <div class="col-md-8 type">
                     <a href="#method_generate">generate</a>()
         
                                             <p>Permet de generate un resource sur un controller</p>                </div>
@@ -250,9 +230,9 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L49">line 49</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L52">line 52</a></div>
         <code>                    void
-    <strong>__construct</strong>(string $dirname, <a href="../../Bow/Console/Command.html"><abbr title="Bow\Console\Command">Command</abbr></a> $command)
+    <strong>__construct</strong>(<a href="../../Bow/Console/Command.html"><abbr title="Bow\Console\Command">Command</abbr></a> $command)
         </code>
     </h3>
     <div class="details">
@@ -265,11 +245,6 @@
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$dirname</td>
-                <td></td>
-            </tr>
                     <tr>
                 <td><a href="../../Bow/Console/Command.html"><abbr title="Bow\Console\Command">Command</abbr></a></td>
                 <td>$command</td>
@@ -295,7 +270,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setPublicDirectory">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L73">line 73</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L76">line 76</a></div>
         <code>                    
     <strong>setPublicDirectory</strong>(string $dirname)
         </code>
@@ -326,7 +301,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setStorageDirectory">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L83">line 83</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L86">line 86</a></div>
         <code>                    
     <strong>setStorageDirectory</strong>(string $dirname)
         </code>
@@ -357,7 +332,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setBootstrap">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L94">line 94</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L97">line 97</a></div>
         <code>                    void
     <strong>setBootstrap</strong>(array $bootstrap)
         </code>
@@ -397,7 +372,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setServerFilename">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L105">line 105</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L108">line 108</a></div>
         <code>                    void
     <strong>setServerFilename</strong>(string $serve_filename)
         </code>
@@ -436,8 +411,39 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_bind">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L118">line 118</a></div>
+        <code>                    
+    <strong>bind</strong>(<a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a> $kernel)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Bind kernel</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a></td>
+                <td>$kernel</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_run">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L115">line 115</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L128">line 128</a></div>
         <code>                    void
     <strong>run</strong>()
         </code>
@@ -466,48 +472,8 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_call">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L130">line 130</a></div>
-        <code>                    void
-    <strong>call</strong>(string $command)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Permet d'appeler un commande</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$command</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>void</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_migrate">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L162">line 162</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L187">line 187</a></div>
         <code>                    void
     <strong>migrate</strong>()
         </code>
@@ -546,7 +512,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_add">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L194">line 194</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L221">line 221</a></div>
         <code>                    void
     <strong>add</strong>()
         </code>
@@ -585,7 +551,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_seed">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L214">line 214</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L243">line 243</a></div>
         <code>                    void
     <strong>seed</strong>()
         </code>
@@ -615,7 +581,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_register">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L283">line 283</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L313">line 313</a></div>
         <code>                    
     <strong>register</strong>()
         </code>
@@ -644,59 +610,8 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_serve">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L299">line 299</a></div>
-        <code>                    void
-    <strong>serve</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Permet de lancer le serveur local</p>                                                </div>
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>void</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_console">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L329">line 329</a></div>
-        <code>                    
-    <strong>console</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Permet de lancer le repl</p>                                                </div>
-                <div class="tags">
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_generate">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L361">line 361</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L407">line 407</a></div>
         <code>                    void
     <strong>generate</strong>()
         </code>
@@ -726,7 +641,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_clear">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L381">line 381</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Console/Bow.php#L427">line 427</a></div>
         <code>                    void
     <strong>clear</strong>()
         </code>

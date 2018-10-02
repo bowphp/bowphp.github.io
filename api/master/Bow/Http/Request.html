@@ -447,17 +447,6 @@ e.g /users/:id . alors params serait params->id == une la value suivant /users/1
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method__setUrlParameters">_setUrlParameters</a>(array $parameter)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
                     object
                 </div>
                 <div class="col-md-8 type">
@@ -471,10 +460,19 @@ e.g /users/:id . alors params serait params->id == une la value suivant /users/1
                     static&nbsp;mixed
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_session">session</a>($property = null)
+                    <a href="#method_session">session</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get session information</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_cookie">cookie</a>($property)
+        
+                                            <p>Get cookie</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -1231,7 +1229,7 @@ e.g /users/:id . alors params serait params->id == une la value suivant /users/1
             </div>
                     <div class="method-item">
                     <h3 id="method_is">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L352">line 352</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L354">line 354</a></div>
         <code>                    int
     <strong>is</strong>(string $match)
         </code>
@@ -1271,7 +1269,7 @@ e.g /users/:id . alors params serait params->id == une la value suivant /users/1
             </div>
                     <div class="method-item">
                     <h3 id="method_ip">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L362">line 362</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L364">line 364</a></div>
         <code>                    string
     <strong>ip</strong>()
         </code>
@@ -1301,7 +1299,7 @@ e.g /users/:id . alors params serait params->id == une la value suivant /users/1
             </div>
                     <div class="method-item">
                     <h3 id="method_port">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L372">line 372</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L374">line 374</a></div>
         <code>                    string
     <strong>port</strong>()
         </code>
@@ -1331,7 +1329,7 @@ e.g /users/:id . alors params serait params->id == une la value suivant /users/1
             </div>
                     <div class="method-item">
                     <h3 id="method_referer">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L382">line 382</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L384">line 384</a></div>
         <code>                    string
     <strong>referer</strong>()
         </code>
@@ -1361,7 +1359,7 @@ e.g /users/:id . alors params serait params->id == une la value suivant /users/1
             </div>
                     <div class="method-item">
                     <h3 id="method_language">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L392">line 392</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L394">line 394</a></div>
         <code>                    string|null
     <strong>language</strong>()
         </code>
@@ -1391,7 +1389,7 @@ e.g /users/:id . alors params serait params->id == une la value suivant /users/1
             </div>
                     <div class="method-item">
                     <h3 id="method_locale">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L406">line 406</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L408">line 408</a></div>
         <code>                    string|null
     <strong>locale</strong>()
         </code>
@@ -1423,7 +1421,7 @@ e.g en => locale [ en_US, en_EN]</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_lang">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L426">line 426</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L428">line 428</a></div>
         <code>                    string|null
     <strong>lang</strong>()
         </code>
@@ -1453,7 +1451,7 @@ e.g en => locale [ en_US, en_EN]</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_protocol">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L443">line 443</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L444">line 444</a></div>
         <code>                    mixed
     <strong>protocol</strong>()
         </code>
@@ -1483,7 +1481,7 @@ e.g en => locale [ en_US, en_EN]</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getHeader">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L454">line 454</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L455">line 455</a></div>
         <code>                    bool|string
     <strong>getHeader</strong>(string $key)
         </code>
@@ -1523,7 +1521,7 @@ e.g en => locale [ en_US, en_EN]</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_hasHeader">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L475">line 475</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L476">line 476</a></div>
         <code>                    bool
     <strong>hasHeader</strong>(string $key)
         </code>
@@ -1563,7 +1561,7 @@ e.g en => locale [ en_US, en_EN]</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getParameter">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L486">line 486</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L487">line 487</a></div>
         <code>                    string
     <strong>getParameter</strong>(string $key)
         </code>
@@ -1602,37 +1600,8 @@ e.g en => locale [ en_US, en_EN]</p>                            </div>
 
             </div>
                     <div class="method-item">
-                    <h3 id="method__setUrlParameters">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L494">line 494</a></div>
-        <code>                    
-    <strong>_setUrlParameters</strong>(array $parameter)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>array</td>
-                <td>$parameter</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_getParameters">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L504">line 504</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L497">line 497</a></div>
         <code>                    object
     <strong>getParameters</strong>()
         </code>
@@ -1662,15 +1631,47 @@ e.g en => locale [ en_US, en_EN]</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_session">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L513">line 513</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L509">line 509</a></div>
         <code>        static            mixed
-    <strong>session</strong>($property = null)
+    <strong>session</strong>()
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get session information</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_cookie">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L520">line 520</a></div>
+        <code>        static            mixed
+    <strong>cookie</strong>($property)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get cookie</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1700,7 +1701,7 @@ e.g en => locale [ en_US, en_EN]</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_redirect">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L526">line 526</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L529">line 529</a></div>
         <code>        static            mixed
     <strong>redirect</strong>(string $url = null)
         </code>
@@ -1738,7 +1739,7 @@ e.g en => locale [ en_US, en_EN]</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method___get">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L541">line 541</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L544">line 544</a></div>
         <code>                    mixed
     <strong>__get</strong>($property)
         </code>
@@ -1776,7 +1777,7 @@ e.g en => locale [ en_US, en_EN]</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method___call">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L554">line 554</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Request.php#L557">line 557</a></div>
         <code>                    mixed
     <strong>__call</strong>(string $name, array $arguments)
         </code>

@@ -97,7 +97,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(<a href="../../Bow/Config/Config.html"><abbr title="Bow\Config\Config">Config</abbr></a> $config)
+                    <a href="#method___construct">__construct</a>(<a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a> $config)
         
                                             <p>View constructor.</p>                </div>
                 <div class="col-md-2"></div>
@@ -107,7 +107,7 @@
                     static&nbsp;
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_configure">configure</a>(<a href="../../Bow/Config/Config.html"><abbr title="Bow\Config\Config">Config</abbr></a> $config)
+                    <a href="#method_configure">configure</a>(<a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a> $config)
         
                                             <p>Permet de configurer la classe</p>                </div>
                 <div class="col-md-2"></div>
@@ -127,7 +127,7 @@
                     static&nbsp;string
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_make">make</a>(string $viewname, array $data = [])
+                    <a href="#method_parse">parse</a>(string $viewname, array $data = [])
         
                                             <p>Permet de faire le rendu d'une vue</p>                </div>
                 <div class="col-md-2"></div>
@@ -149,8 +149,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_setEngine">setEngine</a>(string $engine)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Set Engine</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -158,10 +157,9 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_cachable">cachable</a>($cachabled)
+                    <a href="#method_cachable">cachable</a>(bool $cachabled)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Set the availability of caching system</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -216,7 +214,7 @@
                     <h3 id="method___construct">
         <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L46">line 46</a></div>
         <code>                    
-    <strong>__construct</strong>(<a href="../../Bow/Config/Config.html"><abbr title="Bow\Config\Config">Config</abbr></a> $config)
+    <strong>__construct</strong>(<a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a> $config)
         </code>
     </h3>
     <div class="details">
@@ -230,7 +228,7 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="../../Bow/Config/Config.html"><abbr title="Bow\Config\Config">Config</abbr></a></td>
+                <td><a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a></td>
                 <td>$config</td>
                 <td></td>
             </tr>
@@ -256,7 +254,7 @@
                     <h3 id="method_configure">
         <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L68">line 68</a></div>
         <code>        static            
-    <strong>configure</strong>(<a href="../../Bow/Config/Config.html"><abbr title="Bow\Config\Config">Config</abbr></a> $config)
+    <strong>configure</strong>(<a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a> $config)
         </code>
     </h3>
     <div class="details">
@@ -270,7 +268,7 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="../../Bow/Config/Config.html"><abbr title="Bow\Config\Config">Config</abbr></a></td>
+                <td><a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a></td>
                 <td>$config</td>
                 <td></td>
             </tr>
@@ -323,10 +321,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_make">
+                    <h3 id="method_parse">
         <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L95">line 95</a></div>
         <code>        static            string
-    <strong>make</strong>(string $viewname, array $data = [])
+    <strong>parse</strong>(string $viewname, array $data = [])
         </code>
     </h3>
     <div class="details">
@@ -399,7 +397,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setEngine">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L116">line 116</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L118">line 118</a></div>
         <code>                    <a href="../../Bow/View/View.html"><abbr title="Bow\View\View">View</abbr></a>
     <strong>setEngine</strong>(string $engine)
         </code>
@@ -408,6 +406,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Set Engine</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -437,21 +437,23 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_cachable">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L128">line 128</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L132">line 132</a></div>
         <code>                    
-    <strong>cachable</strong>($cachabled)
+    <strong>cachable</strong>(bool $cachabled)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Set the availability of caching system</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>bool</td>
                 <td>$cachabled</td>
                 <td></td>
             </tr>
@@ -466,7 +468,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setExtension">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L137">line 137</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L141">line 141</a></div>
         <code>                    <a href="../../Bow/View/View.html"><abbr title="Bow\View\View">View</abbr></a>
     <strong>setExtension</strong>(string $extension)
         </code>
@@ -504,7 +506,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_pushEngine">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L154">line 154</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L158">line 158</a></div>
         <code>        static            bool
     <strong>pushEngine</strong>($name, $engine)
         </code>
@@ -558,7 +560,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___callStatic">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L174">line 174</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L178">line 178</a></div>
         <code>        static            mixed
     <strong>__callStatic</strong>($name, $arguments)
         </code>
@@ -601,7 +603,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___call">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L192">line 192</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/View.php#L196">line 196</a></div>
         <code>                    mixed
     <strong>__call</strong>(string $method, array $arguments)
         </code>

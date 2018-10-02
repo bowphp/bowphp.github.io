@@ -124,10 +124,20 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
+                    static&nbsp;bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isLocale">isLocale</a>(string $locale)
+        
+                                            <p>Check the locale</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_make">make</a>(string $key, array $data = [], bool $plurial = false)
+                    <a href="#method_translate">translate</a>(string $key, array $data = [], bool $plurial = false)
         
                                             <p>Permet de faire la tranduction</p>                </div>
                 <div class="col-md-2"></div>
@@ -152,6 +162,26 @@
         
                                             <p class="no-description">No description</p>
                                     </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setLocale">setLocale</a>($locale)
+        
+                                            <p>Update locale</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getLocale">getLocale</a>()
+        
+                                            <p>Get locale</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -208,7 +238,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_configure">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L42">line 42</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L43">line 43</a></div>
         <code>        static            <a href="../../Bow/Translate/Translator.html"><abbr title="Bow\Translate\Translator">Translator</abbr></a>
     <strong>configure</strong>(string $lang, string $directory)
         </code>
@@ -253,7 +283,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getInstance">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L56">line 56</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L57">line 57</a></div>
         <code>        static            <a href="../../Bow/Translate/Translator.html"><abbr title="Bow\Translate\Translator">Translator</abbr></a>
     <strong>getInstance</strong>()
         </code>
@@ -282,10 +312,50 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_make">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L69">line 69</a></div>
+                    <h3 id="method_isLocale">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L68">line 68</a></div>
+        <code>        static            bool
+    <strong>isLocale</strong>(string $locale)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Check the locale</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$locale</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_translate">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L81">line 81</a></div>
         <code>        static            string
-    <strong>make</strong>(string $key, array $data = [], bool $plurial = false)
+    <strong>translate</strong>(string $key, array $data = [], bool $plurial = false)
         </code>
     </h3>
     <div class="details">
@@ -333,7 +403,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_single">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L121">line 121</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L134">line 134</a></div>
         <code>        static            string
     <strong>single</strong>($key, array $data = [])
         </code>
@@ -376,7 +446,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_pluiral">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L133">line 133</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L146">line 146</a></div>
         <code>        static            string
     <strong>pluiral</strong>($key, array $data = [])
         </code>
@@ -418,8 +488,69 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_setLocale">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L172">line 172</a></div>
+        <code>        static            
+    <strong>setLocale</strong>($locale)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Update locale</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$locale</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getLocale">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L182">line 182</a></div>
+        <code>        static            string
+    <strong>getLocale</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get locale</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method___call">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L161">line 161</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Translate/Translator.php#L194">line 194</a></div>
         <code>                    string
     <strong>__call</strong>($name, $arguments)
         </code>
