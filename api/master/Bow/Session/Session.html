@@ -80,21 +80,19 @@
 
     <p>    class
     <strong>Session</strong>        implements
-        <a href="../../Bow/Interfaces/CollectionAccessStatic.html"><abbr title="Bow\Interfaces\CollectionAccessStatic">CollectionAccessStatic</abbr></a>        (<a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php">View source</a>)
+        <a href="../../Bow/Contrats/CollectionInterface.html"><abbr title="Bow\Contrats\CollectionInterface">CollectionInterface</abbr></a>        (<a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php">View source</a>)
 </p>
 
         
     
 
-            <div class="description">
-            <p>Class Session</p>                                </div>
     
     
             <h2>Constants</h2>
 
             <table class="table table-condensed">
                     <tr>
-                <td>SESSION_CORE_KEY</td>
+                <td>CORE_KEY</td>
                 <td class="last">
                     <p><em></em></p>
                     <p></p>
@@ -112,14 +110,34 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>()
+                    <a href="#method___construct">__construct</a>(array $config)
         
                                             <p>Session constructor.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;
+                    static&nbsp;mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_configure">configure</a>(array $config)
+        
+                                            <p>Configure</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getInstance">getInstance</a>()
+        
+                                            <p>Get session singleton</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_start">start</a>()
@@ -129,7 +147,17 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;boolean
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_regenerate">regenerate</a>()
+        
+                                            <p>Generate session</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    boolean
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_has">has</a>(string $key, bool $strict = false)
@@ -139,7 +167,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;boolean
+                    boolean
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_exists">exists</a>(string $key)
@@ -149,7 +177,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;boolean
+                    boolean
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_isEmpty">isEmpty</a>()
@@ -159,7 +187,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;mixed
+                    mixed
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_get">get</a>(string $key, mixed $default = null)
@@ -169,7 +197,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;<a href="../../Bow/Interfaces/CollectionAccessStatic.html"><abbr title="Bow\Interfaces\CollectionAccessStatic">CollectionAccessStatic</abbr></a>
+                    <a href="../../Bow/Contrats/CollectionInterface.html"><abbr title="Bow\Contrats\CollectionInterface">CollectionInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_add">add</a>(string $key, mixed $value, bool $next = false)
@@ -179,7 +207,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;array
+                    array
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_all">all</a>()
@@ -189,7 +217,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;<a href="../../Bow/Interfaces/CollectionAccessStatic.html"><abbr title="Bow\Interfaces\CollectionAccessStatic">CollectionAccessStatic</abbr></a>
+                    <a href="../../Bow/Contrats/CollectionInterface.html"><abbr title="Bow\Contrats\CollectionInterface">CollectionInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_remove">remove</a>(string $key)
@@ -199,7 +227,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;<a href="../../Bow/Interfaces/CollectionAccessStatic.html"><abbr title="Bow\Interfaces\CollectionAccessStatic">CollectionAccessStatic</abbr></a>
+                    <a href="../../Bow/Contrats/CollectionInterface.html"><abbr title="Bow\Contrats\CollectionInterface">CollectionInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_set">set</a>(string $key, mixed $value)
@@ -209,7 +237,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;mixed
+                    mixed
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_flash">flash</a>(mixed $key, mixed $message = null)
@@ -219,7 +247,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;array
+                    array
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_toArray">toArray</a>()
@@ -229,7 +257,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;
+                    
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_clearFash">clearFash</a>()
@@ -239,7 +267,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;
+                    
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_clear">clear</a>()
@@ -249,7 +277,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;
+                    
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_flush">flush</a>()
@@ -269,12 +297,23 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    mixed
+                    static&nbsp;mixed
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___call">__call</a>(string $name, array $arguments)
+                    <a href="#method___callStatic">__callStatic</a>(string $name, array $arguments)
         
-                                            <p>__call</p>                </div>
+                                            <p>__callStatic</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_toObject">toObject</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -285,9 +324,9 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L33">line 33</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L39">line 39</a></div>
         <code>                    
-    <strong>__construct</strong>()
+    <strong>__construct</strong>(array $config)
         </code>
     </h3>
     <div class="details">
@@ -297,6 +336,16 @@
                     <div class="method-description">
                                     <p>Session constructor.</p>                                                </div>
                 <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$config</td>
+                <td></td>
+            </tr>
+            </table>
+
             
             
             
@@ -305,9 +354,79 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_configure">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L52">line 52</a></div>
+        <code>        static            mixed
+    <strong>configure</strong>(array $config)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Configure</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$config</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getInstance">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L66">line 66</a></div>
+        <code>        static            mixed
+    <strong>getInstance</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get session singleton</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_start">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L41">line 41</a></div>
-        <code>        static            
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L74">line 74</a></div>
+        <code>                    
     <strong>start</strong>()
         </code>
     </h3>
@@ -326,9 +445,30 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_regenerate">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L124">line 124</a></div>
+        <code>                    
+    <strong>regenerate</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Generate session</p>                                                </div>
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_has">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L101">line 101</a></div>
-        <code>        static            boolean
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L159">line 159</a></div>
+        <code>                    boolean
     <strong>has</strong>(string $key, bool $strict = false)
         </code>
     </h3>
@@ -372,8 +512,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_exists">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L134">line 134</a></div>
-        <code>        static            boolean
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L192">line 192</a></div>
+        <code>                    boolean
     <strong>exists</strong>(string $key)
         </code>
     </h3>
@@ -412,8 +552,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isEmpty">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L144">line 144</a></div>
-        <code>        static            boolean
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L202">line 202</a></div>
+        <code>                    boolean
     <strong>isEmpty</strong>()
         </code>
     </h3>
@@ -442,8 +582,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_get">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L157">line 157</a></div>
-        <code>        static            mixed
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L215">line 215</a></div>
+        <code>                    mixed
     <strong>get</strong>(string $key, mixed $default = null)
         </code>
     </h3>
@@ -465,7 +605,7 @@
                     <tr>
                 <td>mixed</td>
                 <td>$default</td>
-                <td>[optinal]</td>
+                <td></td>
             </tr>
             </table>
 
@@ -487,8 +627,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_add">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L191">line 191</a></div>
-        <code>        static            <a href="../../Bow/Interfaces/CollectionAccessStatic.html"><abbr title="Bow\Interfaces\CollectionAccessStatic">CollectionAccessStatic</abbr></a>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L247">line 247</a></div>
+        <code>                    <a href="../../Bow/Contrats/CollectionInterface.html"><abbr title="Bow\Contrats\CollectionInterface">CollectionInterface</abbr></a>
     <strong>add</strong>(string $key, mixed $value, bool $next = false)
         </code>
     </h3>
@@ -510,8 +650,7 @@
                     <tr>
                 <td>mixed</td>
                 <td>$value</td>
-                <td>La donnée à
-                         ajouter</td>
+                <td></td>
             </tr>
                     <tr>
                 <td>bool</td>
@@ -525,7 +664,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Interfaces/CollectionAccessStatic.html"><abbr title="Bow\Interfaces\CollectionAccessStatic">CollectionAccessStatic</abbr></a></td>
+            <td><a href="../../Bow/Contrats/CollectionInterface.html"><abbr title="Bow\Contrats\CollectionInterface">CollectionInterface</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -547,8 +686,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_all">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L223">line 223</a></div>
-        <code>        static            array
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L279">line 279</a></div>
+        <code>                    array
     <strong>all</strong>()
         </code>
     </h3>
@@ -577,8 +716,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_remove">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L235">line 235</a></div>
-        <code>        static            <a href="../../Bow/Interfaces/CollectionAccessStatic.html"><abbr title="Bow\Interfaces\CollectionAccessStatic">CollectionAccessStatic</abbr></a>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L291">line 291</a></div>
+        <code>                    <a href="../../Bow/Contrats/CollectionInterface.html"><abbr title="Bow\Contrats\CollectionInterface">CollectionInterface</abbr></a>
     <strong>remove</strong>(string $key)
         </code>
     </h3>
@@ -604,7 +743,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Interfaces/CollectionAccessStatic.html"><abbr title="Bow\Interfaces\CollectionAccessStatic">CollectionAccessStatic</abbr></a></td>
+            <td><a href="../../Bow/Contrats/CollectionInterface.html"><abbr title="Bow\Contrats\CollectionInterface">CollectionInterface</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -617,8 +756,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_set">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L257">line 257</a></div>
-        <code>        static            <a href="../../Bow/Interfaces/CollectionAccessStatic.html"><abbr title="Bow\Interfaces\CollectionAccessStatic">CollectionAccessStatic</abbr></a>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L314">line 314</a></div>
+        <code>                    <a href="../../Bow/Contrats/CollectionInterface.html"><abbr title="Bow\Contrats\CollectionInterface">CollectionInterface</abbr></a>
     <strong>set</strong>(string $key, mixed $value)
         </code>
     </h3>
@@ -649,7 +788,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Interfaces/CollectionAccessStatic.html"><abbr title="Bow\Interfaces\CollectionAccessStatic">CollectionAccessStatic</abbr></a></td>
+            <td><a href="../../Bow/Contrats/CollectionInterface.html"><abbr title="Bow\Contrats\CollectionInterface">CollectionInterface</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -662,8 +801,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_flash">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L282">line 282</a></div>
-        <code>        static            mixed
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L342">line 342</a></div>
+        <code>                    mixed
     <strong>flash</strong>(mixed $key, mixed $message = null)
         </code>
     </h3>
@@ -707,8 +846,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L303">line 303</a></div>
-        <code>        static            array
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L365">line 365</a></div>
+        <code>                    array
     <strong>toArray</strong>()
         </code>
     </h3>
@@ -737,8 +876,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_clearFash">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L311">line 311</a></div>
-        <code>        static            
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L373">line 373</a></div>
+        <code>                    
     <strong>clearFash</strong>()
         </code>
     </h3>
@@ -758,8 +897,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_clear">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L321">line 321</a></div>
-        <code>        static            
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L383">line 383</a></div>
+        <code>                    
     <strong>clear</strong>()
         </code>
     </h3>
@@ -779,8 +918,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_flush">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L335">line 335</a></div>
-        <code>        static            
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L397">line 397</a></div>
+        <code>                    
     <strong>flush</strong>()
         </code>
     </h3>
@@ -800,7 +939,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___toString">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L348">line 348</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L408">line 408</a></div>
         <code>                    string
     <strong>__toString</strong>()
         </code>
@@ -829,10 +968,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method___call">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L362">line 362</a></div>
-        <code>                    mixed
-    <strong>__call</strong>(string $name, array $arguments)
+                    <h3 id="method___callStatic">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L422">line 422</a></div>
+        <code>        static            mixed
+    <strong>__callStatic</strong>(string $name, array $arguments)
         </code>
     </h3>
     <div class="details">
@@ -840,7 +979,7 @@
     
 
                     <div class="method-description">
-                                    <p>__call</p>                                                </div>
+                                    <p>__callStatic</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -863,6 +1002,34 @@
                     <table class="table table-condensed">
         <tr>
             <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_toObject">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Session/Session.php#L434">line 434</a></div>
+        <code>                    array
+    <strong>toObject</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
             <td></td>
         </tr>
     </table>

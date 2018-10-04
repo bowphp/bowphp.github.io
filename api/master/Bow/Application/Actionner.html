@@ -154,16 +154,6 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    bool
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_middleware">middleware</a>(string $middleware, callable $callback = null)
-        
-                                            <p>Permet de lancer un middleware</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
                     array
                 </div>
                 <div class="col-md-8 type">
@@ -204,12 +194,12 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    array
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_pushGuard">pushGuard</a>($guard)
+                    <a href="#method_closure">closure</a>(<a target="_blank" href="http://php.net/Closure">Closure</a> $closure)
         
-                                            <p>Ajout de guard</p>                </div>
+                                            <p>Charge les closure definir comme action</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -220,7 +210,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L42">line 42</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L43">line 43</a></div>
         <code>                    
     <strong>__construct</strong>(array $namespaces, array $middlewares)
         </code>
@@ -256,7 +246,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_configure">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L56">line 56</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L59">line 59</a></div>
         <code>        static            <a href="../../Bow/Application/Actionner.html"><abbr title="Bow\Application\Actionner">Actionner</abbr></a>
     <strong>configure</strong>(array $namespaces, array $middlewares)
         </code>
@@ -301,7 +291,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getInstance">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L70">line 70</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L73">line 73</a></div>
         <code>        static            <a href="../../Bow/Application/Actionner.html"><abbr title="Bow\Application\Actionner">Actionner</abbr></a>
     <strong>getInstance</strong>()
         </code>
@@ -331,7 +321,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_pushMiddleware">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L81">line 81</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L84">line 84</a></div>
         <code>                    
     <strong>pushMiddleware</strong>(array|callable $middlewares, bool $end = false)
         </code>
@@ -367,7 +357,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_pushNamespace">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L97">line 97</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L100">line 100</a></div>
         <code>                    
     <strong>pushNamespace</strong>(array|string $namespace)
         </code>
@@ -398,7 +388,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_call">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L113">line 113</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L116">line 116</a></div>
         <code>                    mixed
     <strong>call</strong>(callable|string|array $actions, mixed $param = null)
         </code>
@@ -451,53 +441,8 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_middleware">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L244">line 244</a></div>
-        <code>                    bool
-    <strong>middleware</strong>(string $middleware, callable $callback = null)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Permet de lancer un middleware</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$middleware</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>callable</td>
-                <td>$callback</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>bool</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_injector">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L291">line 291</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L256">line 256</a></div>
         <code>                    array
     <strong>injector</strong>(string $classname, string $method)
         </code>
@@ -551,7 +496,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_injectorForClosure">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L327">line 327</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L296">line 296</a></div>
         <code>                    array
     <strong>injectorForClosure</strong>(callable $closure)
         </code>
@@ -600,7 +545,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_execute">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L375">line 375</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L348">line 348</a></div>
         <code>                    mixed
     <strong>execute</strong>(array|callable $arr, array|callable $arg)
         </code>
@@ -645,7 +590,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_controller">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L409">line 409</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L382">line 382</a></div>
         <code>                    array
     <strong>controller</strong>(string $controller_name)
         </code>
@@ -684,10 +629,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_pushGuard">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L439">line 439</a></div>
-        <code>                    
-    <strong>pushGuard</strong>($guard)
+                    <h3 id="method_closure">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Application/Actionner.php#L414">line 414</a></div>
+        <code>                    array
+    <strong>closure</strong>(<a target="_blank" href="http://php.net/Closure">Closure</a> $closure)
         </code>
     </h3>
     <div class="details">
@@ -695,19 +640,28 @@
     
 
                     <div class="method-description">
-                                    <p>Ajout de guard</p>                                                </div>
+                                    <p>Charge les closure definir comme action</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
-                <td>$guard</td>
+                <td><a target="_blank" href="http://php.net/Closure">Closure</a></td>
+                <td>$closure</td>
                 <td></td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>

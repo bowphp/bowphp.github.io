@@ -94,10 +94,20 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(string $data = &#039;&#039;, int $code = 200, array $headers = [])
+        
+                                            <p>Response constructor.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;<a href="../../Bow/Http/Response.html"><abbr title="Bow\Http\Response">Response</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_singleton">singleton</a>()
+                    <a href="#method_getInstance">getInstance</a>()
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -230,10 +240,51 @@
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method_singleton">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L62">line 62</a></div>
+                    <h3 id="method___construct">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L65">line 65</a></div>
+        <code>                    
+    <strong>__construct</strong>(string $data = &#039;&#039;, int $code = 200, array $headers = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Response constructor.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$code</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getInstance">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L72">line 72</a></div>
         <code>        static            <a href="../../Bow/Http/Response.html"><abbr title="Bow\Http\Response">Response</abbr></a>
-    <strong>singleton</strong>()
+    <strong>getInstance</strong>()
         </code>
     </h3>
     <div class="details">
@@ -259,7 +310,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addHeader">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L79">line 79</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L89">line 89</a></div>
         <code>                    <a href="../../Bow/Http/Response.html"><abbr title="Bow\Http\Response">Response</abbr></a>
     <strong>addHeader</strong>(string $key, string $value)
         </code>
@@ -305,7 +356,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_download">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L94">line 94</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L104">line 104</a></div>
         <code>                    
     <strong>download</strong>(string $file, null $name = null, array $headers = array(), string $disposition = &#039;attachment&#039;)
         </code>
@@ -351,7 +402,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_statusCode">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L127">line 127</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L137">line 137</a></div>
         <code>                    mixed
     <strong>statusCode</strong>(int $code, bool $override = false)
         </code>
@@ -397,7 +448,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_json">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L150">line 150</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L160">line 160</a></div>
         <code>                    bool
     <strong>json</strong>(mixed $data, int $code = 200, array $headers = [])
         </code>
@@ -449,7 +500,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_send">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L171">line 171</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L181">line 181</a></div>
         <code>                    mixed
     <strong>send</strong>(string|array|<a target="_blank" href="http://php.net/stdClass">stdClass</a> $data, int $code = 200, array $headers = [])
         </code>
@@ -499,7 +550,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_view">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L194">line 194</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L204">line 204</a></div>
         <code>                    string
     <strong>view</strong>($template, array $data = [])
         </code>
@@ -553,7 +604,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_accessControlAllowOrigin">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L222">line 222</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L232">line 232</a></div>
         <code>                    <a href="../../Bow/Http/Response.html"><abbr title="Bow\Http\Response">Response</abbr></a>
     <strong>accessControlAllowOrigin</strong>(array $excepted)
         </code>
@@ -602,7 +653,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_accessControlAllowMethods">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L244">line 244</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L254">line 254</a></div>
         <code>                    <a href="../../Bow/Http/Response.html"><abbr title="Bow\Http\Response">Response</abbr></a>
     <strong>accessControlAllowMethods</strong>(array $excepted)
         </code>
@@ -651,7 +702,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_accessControlAllowHeaders">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L260">line 260</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L270">line 270</a></div>
         <code>                    <a href="../../Bow/Http/Response.html"><abbr title="Bow\Http\Response">Response</abbr></a>
     <strong>accessControlAllowHeaders</strong>(array $excepted)
         </code>
@@ -700,7 +751,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_accessControlAllowCredentials">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L274">line 274</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L284">line 284</a></div>
         <code>                    <a href="../../Bow/Http/Response.html"><abbr title="Bow\Http\Response">Response</abbr></a>
     <strong>accessControlAllowCredentials</strong>()
         </code>
@@ -730,7 +781,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_accessControlMaxAge">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L286">line 286</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L296">line 296</a></div>
         <code>                    <a href="../../Bow/Http/Response.html"><abbr title="Bow\Http\Response">Response</abbr></a>
     <strong>accessControlMaxAge</strong>(string $excepted)
         </code>
@@ -779,7 +830,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_accessControlExposeHeaders">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L305">line 305</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Response.php#L315">line 315</a></div>
         <code>                    <a href="../../Bow/Http/Response.html"><abbr title="Bow\Http\Response">Response</abbr></a>
     <strong>accessControlExposeHeaders</strong>(array $excepted)
         </code>

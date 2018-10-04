@@ -79,7 +79,8 @@
     </div>
 
     <p>    class
-    <strong>Redirect</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php">View source</a>)
+    <strong>Redirect</strong>        implements
+        <a href="../../Bow/Contrats/ResponseInterface.html"><abbr title="Bow\Contrats\ResponseInterface">ResponseInterface</abbr></a>        (<a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php">View source</a>)
 </p>
 
         
@@ -94,12 +95,12 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    static&nbsp;<a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>()
+                    <a href="#method_getInstance">getInstance</a>()
         
-                                            <p>Redirect constructor.</p>                </div>
+                                            <p>Get redirection instance</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -118,10 +119,9 @@
                     <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_withInput">withInput</a>(array $data)
+                    <a href="#method_withInput">withInput</a>(array $data = [])
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Ajoute</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -156,6 +156,17 @@
                                     </div>
                 <div class="col-md-2"></div>
             </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_send">send</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
             </div>
 
 
@@ -163,10 +174,10 @@
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L25">line 25</a></div>
-        <code>                    
-    <strong>__construct</strong>()
+                    <h3 id="method_getInstance">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L44">line 44</a></div>
+        <code>        static            <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
+    <strong>getInstance</strong>()
         </code>
     </h3>
     <div class="details">
@@ -174,9 +185,18 @@
     
 
                     <div class="method-description">
-                                    <p>Redirect constructor.</p>                                                </div>
+                                    <p>Get redirection instance</p>                                                </div>
                 <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -185,7 +205,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_to">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L37">line 37</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L58">line 58</a></div>
         <code>                    <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
     <strong>to</strong>($path, int $status = 302)
         </code>
@@ -228,15 +248,17 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_withInput">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L50">line 50</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L73">line 73</a></div>
         <code>                    <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
-    <strong>withInput</strong>(array $data)
+    <strong>withInput</strong>(array $data = [])
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Ajoute</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -266,7 +288,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_back">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L63">line 63</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L92">line 92</a></div>
         <code>                    
     <strong>back</strong>(int $status = 302, array $data = [])
         </code>
@@ -302,7 +324,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___invoke">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L73">line 73</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L102">line 102</a></div>
         <code>                    mixed
     <strong>__invoke</strong>()
         </code>
@@ -330,7 +352,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___toString">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L81">line 81</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L110">line 110</a></div>
         <code>                    string
     <strong>__toString</strong>()
         </code>
@@ -346,6 +368,34 @@
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_send">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L118">line 118</a></div>
+        <code>                    mixed
+    <strong>send</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
             <td></td>
         </tr>
     </table>

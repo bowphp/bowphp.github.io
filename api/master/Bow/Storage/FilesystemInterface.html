@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Resource\MountFilesystem | Bow Framework API</title>
+    <title>Bow\Storage\FilesystemInterface | Bow Framework API</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:Bow_Resource_MountFilesystem" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Storage_FilesystemInterface" data-root-path="../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -65,22 +65,21 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
-                        <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Resource.html">Resource</a></li><li class="backslash">\</li><li>MountFilesystem</li>
+                <li><span class="label label-default">interface</span></li>
+                        <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Storage.html">Storage</a></li><li class="backslash">\</li><li>FilesystemInterface</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            MountFilesystem
+            FilesystemInterface
                 
         </h1>
     </div>
 
-    <p>    class
-    <strong>MountFilesystem</strong>        implements
-        <a href="../../Bow/Resource/FilesystemInterface.html"><abbr title="Bow\Resource\FilesystemInterface">FilesystemInterface</abbr></a>        (<a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php">View source</a>)
+    <p>    interface
+    <strong>FilesystemInterface</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php">View source</a>)
 </p>
 
         
@@ -93,16 +92,6 @@
             <h2>Methods</h2>
 
             <div class="container-fluid underlined">
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>($basedir)
-        
-                                            <p>Filesystem constructor.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
@@ -208,7 +197,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_move">move</a>($targerFile, $sourceFile)
+                    <a href="#method_move">move</a>($targer_file, $source_file)
         
                                             <p>Rénomme ou déplace un fichier source vers un fichier cible.</p>                </div>
                 <div class="col-md-2"></div>
@@ -270,39 +259,8 @@
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L16">line 16</a></div>
-        <code>                    
-    <strong>__construct</strong>($basedir)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Filesystem constructor.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td></td>
-                <td>$basedir</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_store">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L32">line 32</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L19">line 19</a></div>
         <code>                    mixed
     <strong>store</strong>(array $file, string $location, int $size, array $extension, callable $cb)
         </code>
@@ -371,7 +329,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_append">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L74">line 74</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L28">line 28</a></div>
         <code>                    bool
     <strong>append</strong>(string $file, string $content)
         </code>
@@ -416,7 +374,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_prepend">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L87">line 87</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L38">line 38</a></div>
         <code>                    bool
     <strong>prepend</strong>(string $file, string $content)
         </code>
@@ -470,7 +428,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_put">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L103">line 103</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L47">line 47</a></div>
         <code>                    bool
     <strong>put</strong>($file, $content)
         </code>
@@ -515,7 +473,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_delete">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L120">line 120</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L55">line 55</a></div>
         <code>                    boolean
     <strong>delete</strong>(string $file)
         </code>
@@ -555,7 +513,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_files">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L137">line 137</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L63">line 63</a></div>
         <code>                    array
     <strong>files</strong>(string $dirname)
         </code>
@@ -595,7 +553,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_directories">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L154">line 154</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L71">line 71</a></div>
         <code>                    array
     <strong>directories</strong>(string $dirname)
         </code>
@@ -635,7 +593,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_makeDirectory">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L171">line 171</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L81">line 81</a></div>
         <code>                    boolean
     <strong>makeDirectory</strong>(string $dirname, int $mode = 0777, bool $recursive = false)
         </code>
@@ -685,7 +643,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_get">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L194">line 194</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L89">line 89</a></div>
         <code>                    null|string
     <strong>get</strong>(string $filename)
         </code>
@@ -725,7 +683,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_copy">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L212">line 212</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L98">line 98</a></div>
         <code>                    bool
     <strong>copy</strong>(string $targerFile, string $sourceFile)
         </code>
@@ -770,9 +728,9 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_move">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L231">line 231</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L106">line 106</a></div>
         <code>                    
-    <strong>move</strong>($targerFile, $sourceFile)
+    <strong>move</strong>($targer_file, $source_file)
         </code>
     </h3>
     <div class="details">
@@ -787,12 +745,12 @@
                     <table class="table table-condensed">
                     <tr>
                 <td></td>
-                <td>$targerFile</td>
+                <td>$targer_file</td>
                 <td></td>
             </tr>
                     <tr>
                 <td></td>
-                <td>$sourceFile</td>
+                <td>$source_file</td>
                 <td></td>
             </tr>
             </table>
@@ -806,7 +764,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_exists">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L244">line 244</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L114">line 114</a></div>
         <code>                    bool
     <strong>exists</strong>($filename)
         </code>
@@ -846,7 +804,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_extension">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L267">line 267</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L122">line 122</a></div>
         <code>                    string
     <strong>extension</strong>($filename)
         </code>
@@ -886,7 +844,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isFile">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L282">line 282</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L130">line 130</a></div>
         <code>                    bool
     <strong>isFile</strong>($filename)
         </code>
@@ -926,7 +884,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isDirectory">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L293">line 293</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L138">line 138</a></div>
         <code>                    bool
     <strong>isDirectory</strong>($dirname)
         </code>
@@ -966,7 +924,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_resolvePath">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Resource/MountFilesystem.php#L305">line 305</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/FilesystemInterface.php#L147">line 147</a></div>
         <code>                    string
     <strong>resolvePath</strong>($filename)
         </code>
