@@ -1,0 +1,2966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Bow\Database\QueryBuilder | Bow Framework API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Bow_Database_QueryBuilder" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Database.html">Database</a></li><li class="backslash">\</li><li>QueryBuilder</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            QueryBuilder
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>QueryBuilder</strong>        extends <a href="../../Bow/Database/Tool.html"><abbr title="Bow\Database\Tool">Tool</abbr></a>        implements
+        <a target="_blank" href="http://php.net/JsonSerializable">JsonSerializable</a>        (<a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php">View source</a>)
+</p>
+
+        
+    
+
+            <div class="description">
+            <p>Class Builder</p>                                </div>
+    
+    
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_primaryKey">
+                                        protected                                        string
+                </td>
+                <td>$primaryKey</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_table">
+                                        protected                                        string
+                </td>
+                <td>$table</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_select">
+                                        protected                                        string
+                </td>
+                <td>$select</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_where">
+                                        protected                                        string
+                </td>
+                <td>$where</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_whereDataBinding">
+                                        protected                                        array
+                </td>
+                <td>$whereDataBinding</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_join">
+                                        protected                                        string
+                </td>
+                <td>$join</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_limit">
+                                        protected                                        string
+                </td>
+                <td>$limit</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_group">
+                                        protected                                        string
+                </td>
+                <td>$group</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_havin">
+                                        protected                                        string
+                </td>
+                <td>$havin</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_order">
+                                        protected                                        string
+                </td>
+                <td>$order</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_connection">
+                                        protected                                        <a target="_blank" href="http://php.net/PDO">PDO</a>
+                </td>
+                <td>$connection</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_first">
+                                        protected                                        bool
+                </td>
+                <td>$first</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_prefix">
+                                        protected                                        string
+                </td>
+                <td>$prefix</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a target="_blank" href="http://php.net/PDOStatement">PDOStatement</a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_bind">bind</a>(<a target="_blank" href="http://php.net/PDOStatement">PDOStatement</a> $pdoStatement, array $data = [])
+        
+                                            <p>Éxécute PDOStatement::bindValue sur une instance de PDOStatement passé en paramètre</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Bow/Database/Tool.html#method_bind"><abbr title="Bow\Database\Tool">Tool</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(string $table, <a target="_blank" href="http://php.net/PDO">PDO</a> $connection)
+        
+                                            <p>Contructeur</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_select">select</a>(array $select = [&#039;*&#039;])
+        
+                                            <p>select, ajout de champ à séléction.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_where">where</a>($column, $comp = &#039;=&#039;, null $value = null, $boolean = &#039;and&#039;)
+        
+                                            <p>where, ajout condition de type where, si chainé ajout un &lt;<and>></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_orWhere">orWhere</a>(string $column, string $comp = &#039;=&#039;, null $value = null)
+        
+                                            <p>orWhere, retourne une condition de type [where colonne = value &lt;<or colonne = value>>]</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_whereNull">whereNull</a>($column, $boolean = &#039;and&#039;)
+        
+                                            <p>clause where avec comparaison en &lt;<is null>></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_whereNotNull">whereNotNull</a>($column, $boolean = &#039;and&#039;)
+        
+                                            <p>clause where avec comparaison en &lt;<not null>></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_whereBetween">whereBetween</a>($column, array $range, string $boolean = &#039;and&#039;)
+        
+                                            <p>clause where avec comparaison en &lt;<between>></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_whereNotBetween">whereNotBetween</a>($column, array $range)
+        
+                                            <p>WHERE column NOT BETWEEN '' AND ''</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_whereIn">whereIn</a>(string $column, array $range, string $boolean = &#039;and&#039;)
+        
+                                            <p>clause where avec comparaison en &lt;<in>></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_whereNotIn">whereNotIn</a>(string $column, array $range)
+        
+                                            <p>clause where avec comparaison en &lt;<not in>></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_join">join</a>(string $table, callable $callabe = null)
+        
+                                            <p>clause join</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_leftJoin">leftJoin</a>(string $table, callable $callable = null)
+        
+                                            <p>clause left join</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_rightJoin">rightJoin</a>(string $table, callable $callable)
+        
+                                            <p>clause right join</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_on">on</a>(string $first, string $comp = &#039;=&#039;, string $second = null)
+        
+                                            <p>On, Si chainé avec lui même doit ajouter un &lt;<and>> avant, sinon
+si chainé avec &lt;<orOn>> orOn ajout un &lt;<or>> dévant</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_orOn">orOn</a>(string $first, string $comp = &#039;=&#039;, string $second = null)
+        
+                                            <p>clause On, suivie d'une combinaison par un comparateur &lt;<or>>
+Il faut que l'utilisateur fasse un &lt;&lt;on()>> avant d'utiliser le &lt;<orOn>></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_group">group</a>(string $column)
+        
+                                            <p>clause group by</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_having">having</a>(string $column, string $comp = &#039;=&#039;, null $value = null, string $boolean = &#039;and&#039;)
+        
+                                            <p>clause having, s'utilise avec un groupBy</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_orderBy">orderBy</a>(string $column, string $type = &#039;asc&#039;)
+        
+                                            <p>clause order by</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_jump">jump</a>(int $offset = 0)
+        
+                                            <p>jump = offset</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_take">take</a>(int $limit)
+        
+                                            <p>take = limit</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>|<abbr title="Bow\Database\number">number</abbr>|array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_max">max</a>(string $column)
+        
+                                            <p>Max</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>|<abbr title="Bow\Database\number">number</abbr>|array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_min">min</a>(string $column)
+        
+                                            <p>Min</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>|<abbr title="Bow\Database\number">number</abbr>|array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_avg">avg</a>(string $column)
+        
+                                            <p>Avg</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>|<abbr title="Bow\Database\number">number</abbr>|array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_sum">sum</a>(string $column)
+        
+                                            <p>Sum</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array|<a target="_blank" href="http://php.net/stdClass">stdClass</a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_get">get</a>(array $columns = [])
+        
+                                            <p>Action get, seulement sur la requete de type select
+ Si le mode de séléction unitaire n'est pas active</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a target="_blank" href="http://php.net/stdClass">stdClass</a>|null
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_first">first</a>()
+        
+                                            <p>Alias de getOne</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_last">last</a>()
+        
+                                            <p>Action first, récupère le première enregistrement</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_transition">transition</a>(callable $cb)
+        
+                                            <p>Demarrer un transaction dans la base de donnée.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_count">count</a>(string $column = &#039;*&#039;)
+        
+                                            <p>count</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_update">update</a>(array $data = [])
+        
+                                            <p>Action update</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_delete">delete</a>()
+        
+                                            <p>Action delete</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_remove">remove</a>(string $column, string $comp = &#039;=&#039;, string $value = null)
+        
+                                            <p>remove alise simplifié de delete.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_increment">increment</a>(string $column, int $step = 1)
+        
+                                            <p>Action increment, ajout 1 par défaut sur le champs spécifié</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_decrement">decrement</a>(string $column, int $step = 1)
+        
+                                            <p>Action decrement, soustrait 1 par defaut sur le champs spécifié</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_distinct">distinct</a>(string $column)
+        
+                                            <p>Permet de faire une réquete avec la close DISTINCT</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_truncate">truncate</a>()
+        
+                                            <p>Action truncate, vide la Builder</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_insert">insert</a>(array $values)
+        
+                                            <p>Action insert</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_insertAndGetLastId">insertAndGetLastId</a>(array $values)
+        
+                                            <p>Action insertAndGetLastId lance les actions insert et lastInsertId</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_drop">drop</a>()
+        
+                                            <p>Action drop, supprime la Builder</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_paginate">paginate</a>(integer $n, integer $current = 0, integer $chunk = null)
+        
+                                            <p>paginate</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_exists">exists</a>(string $column = null, mixed $value = null)
+        
+                                            <p>vérifie si un valeur existe déjà dans la DB</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getLastInsertId">getLastInsertId</a>(string $name = null)
+        
+                                            <p>rétourne l'id de la dernière insertion</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_jsonSerialize">jsonSerialize</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_toJson">toJson</a>(int $option = 0)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_toSql">toSql</a>()
+        
+                                            <p>Formate la requete select</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getTable">getTable</a>()
+        
+                                            <p>Permet de retourner le nom de la table.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getPrefix">getPrefix</a>()
+        
+                                            <p>Permet de retourner le prefixage.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setPrefix">setPrefix</a>(string $prefix)
+        
+                                            <p>Permet de modifier le prefix</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setTable">setTable</a>(string $table)
+        
+                                            <p>Permet de modifier le mom de la table</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setWhereDataBinding">setWhereDataBinding</a>(array $whereDataBinding)
+        
+                                            <p>Permet de définir les données à associer</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___toString">__toString</a>()
+        
+                                            <p>__toString</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_bind">
+        <div class="location">in <a href="../../Bow/Database/Tool.html#method_bind"><abbr title="Bow\Database\Tool">Tool</abbr></a> at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/Tool.php#L18">line 18</a></div>
+        <code>                    <a target="_blank" href="http://php.net/PDOStatement">PDOStatement</a>
+    <strong>bind</strong>(<a target="_blank" href="http://php.net/PDOStatement">PDOStatement</a> $pdoStatement, array $data = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Éxécute PDOStatement::bindValue sur une instance de PDOStatement passé en paramètre</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a target="_blank" href="http://php.net/PDOStatement">PDOStatement</a></td>
+                <td>$pdoStatement</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a target="_blank" href="http://php.net/PDOStatement">PDOStatement</a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L91">line 91</a></div>
+        <code>                    
+    <strong>__construct</strong>(string $table, <a target="_blank" href="http://php.net/PDO">PDO</a> $connection)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Contructeur</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$table</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a target="_blank" href="http://php.net/PDO">PDO</a></td>
+                <td>$connection</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_select">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L107">line 107</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>select</strong>(array $select = [&#039;*&#039;])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>select, ajout de champ à séléction.</p>                    <p>SELECT $column | SELECT column1, column2, ...</p>                            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$select</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_where">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L136">line 136</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>where</strong>($column, $comp = &#039;=&#039;, null $value = null, $boolean = &#039;and&#039;)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>where, ajout condition de type where, si chainé ajout un &lt;<and>></p>                    <p>WHERE column1 $comp $value|column</p>                            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$comp</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>null</td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$boolean</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Database/Exception/QueryBuilderException.html"><abbr title="Bow\Database\Exception\QueryBuilderException">QueryBuilderException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_orWhere">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L174">line 174</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>orWhere</strong>(string $column, string $comp = &#039;=&#039;, null $value = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>orWhere, retourne une condition de type [where colonne = value &lt;<or colonne = value>>]</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$comp</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>null</td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Database/Exception/QueryBuilderException.html"><abbr title="Bow\Database\Exception\QueryBuilderException">QueryBuilderException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_whereNull">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L193">line 193</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>whereNull</strong>($column, $boolean = &#039;and&#039;)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>clause where avec comparaison en &lt;<is null>></p>                    <p>WHERE column IS NULL</p>                            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$boolean</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_whereNotNull">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L214">line 214</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>whereNotNull</strong>($column, $boolean = &#039;and&#039;)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>clause where avec comparaison en &lt;<not null>></p>                    <p>WHERE column NOT NULL</p>                            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$boolean</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_whereBetween">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L238">line 238</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>whereBetween</strong>($column, array $range, string $boolean = &#039;and&#039;)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>clause where avec comparaison en &lt;<between>></p>                    <p>WHERE column BETWEEN '' AND ''</p>                            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$range</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$boolean</td>
+                <td>boolean='and|or'</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Database/Exception/QueryBuilderException.html"><abbr title="Bow\Database\Exception\QueryBuilderException">QueryBuilderException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_whereNotBetween">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L271">line 271</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>whereNotBetween</strong>($column, array $range)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>WHERE column NOT BETWEEN '' AND ''</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$range</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_whereIn">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L289">line 289</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>whereIn</strong>(string $column, array $range, string $boolean = &#039;and&#039;)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>clause where avec comparaison en &lt;<in>></p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$range</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$boolean</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Database/Exception/QueryBuilderException.html"><abbr title="Bow\Database\Exception\QueryBuilderException">QueryBuilderException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_whereNotIn">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L333">line 333</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>whereNotIn</strong>(string $column, array $range)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>clause where avec comparaison en &lt;<not in>></p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$range</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Database/Exception/QueryBuilderException.html"><abbr title="Bow\Database\Exception\QueryBuilderException">QueryBuilderException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_join">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L348">line 348</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>join</strong>(string $table, callable $callabe = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>clause join</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$table</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>callable</td>
+                <td>$callabe</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_leftJoin">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L374">line 374</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>leftJoin</strong>(string $table, callable $callable = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>clause left join</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$table</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>callable</td>
+                <td>$callable</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Database/Exception/QueryBuilderException.html"><abbr title="Bow\Database\Exception\QueryBuilderException">QueryBuilderException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_rightJoin">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L410">line 410</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>rightJoin</strong>(string $table, callable $callable)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>clause right join</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$table</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>callable</td>
+                <td>$callable</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Database/Exception/QueryBuilderException.html"><abbr title="Bow\Database\Exception\QueryBuilderException">QueryBuilderException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_on">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L449">line 449</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>on</strong>(string $first, string $comp = &#039;=&#039;, string $second = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>On, Si chainé avec lui même doit ajouter un &lt;<and>> avant, sinon
+si chainé avec &lt;<orOn>> orOn ajout un &lt;<or>> dévant</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$first</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$comp</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$second</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Database/Exception/QueryBuilderException.html"><abbr title="Bow\Database\Exception\QueryBuilderException">QueryBuilderException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_orOn">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L488">line 488</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>orOn</strong>(string $first, string $comp = &#039;=&#039;, string $second = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>clause On, suivie d'une combinaison par un comparateur &lt;<or>>
+Il faut que l'utilisateur fasse un &lt;&lt;on()>> avant d'utiliser le &lt;<orOn>></p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$first</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$comp</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$second</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Database/Exception/QueryBuilderException.html"><abbr title="Bow\Database\Exception\QueryBuilderException">QueryBuilderException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_group">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L522">line 522</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>group</strong>(string $column)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>clause group by</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_having">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L540">line 540</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>having</strong>(string $column, string $comp = &#039;=&#039;, null $value = null, string $boolean = &#039;and&#039;)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>clause having, s'utilise avec un groupBy</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$comp</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>null</td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$boolean</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_orderBy">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L564">line 564</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>orderBy</strong>(string $column, string $type = &#039;asc&#039;)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>clause order by</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$type</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_jump">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L585">line 585</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>jump</strong>(int $offset = 0)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>jump = offset</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$offset</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_take">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L601">line 601</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>take</strong>(int $limit)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>take = limit</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$limit</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_max">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L623">line 623</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>|<abbr title="Bow\Database\number">number</abbr>|array
+    <strong>max</strong>(string $column)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Max</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>|<abbr title="Bow\Database\number">number</abbr>|array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_min">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L635">line 635</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>|<abbr title="Bow\Database\number">number</abbr>|array
+    <strong>min</strong>(string $column)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Min</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>|<abbr title="Bow\Database\number">number</abbr>|array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_avg">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L647">line 647</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>|<abbr title="Bow\Database\number">number</abbr>|array
+    <strong>avg</strong>(string $column)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Avg</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>|<abbr title="Bow\Database\number">number</abbr>|array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_sum">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L659">line 659</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>|<abbr title="Bow\Database\number">number</abbr>|array
+    <strong>sum</strong>(string $column)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Sum</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>|<abbr title="Bow\Database\number">number</abbr>|array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_get">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L713">line 713</a></div>
+        <code>                    array|<a target="_blank" href="http://php.net/stdClass">stdClass</a>
+    <strong>get</strong>(array $columns = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Action get, seulement sur la requete de type select
+ Si le mode de séléction unitaire n'est pas active</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$columns</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array|<a target="_blank" href="http://php.net/stdClass">stdClass</a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_first">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L753">line 753</a></div>
+        <code>                    <a target="_blank" href="http://php.net/stdClass">stdClass</a>|null
+    <strong>first</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Alias de getOne</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a target="_blank" href="http://php.net/stdClass">stdClass</a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_last">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L767">line 767</a></div>
+        <code>                    mixed
+    <strong>last</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Action first, récupère le première enregistrement</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_transition">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L790">line 790</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>transition</strong>(callable $cb)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Demarrer un transaction dans la base de donnée.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>callable</td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_count">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L810">line 810</a></div>
+        <code>                    int
+    <strong>count</strong>(string $column = &#039;*&#039;)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>count</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td>La colonne sur laquelle sera faite le <code>count</code></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_update">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L843">line 843</a></div>
+        <code>                    int
+    <strong>update</strong>(array $data = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Action update</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_delete">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L877">line 877</a></div>
+        <code>                    int
+    <strong>delete</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Action delete</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_remove">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L910">line 910</a></div>
+        <code>                    int
+    <strong>remove</strong>(string $column, string $comp = &#039;=&#039;, string $value = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>remove alise simplifié de delete.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$comp</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Database/Exception/QueryBuilderException.html"><abbr title="Bow\Database\Exception\QueryBuilderException">QueryBuilderException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_increment">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L925">line 925</a></div>
+        <code>                    int
+    <strong>increment</strong>(string $column, int $step = 1)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Action increment, ajout 1 par défaut sur le champs spécifié</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$step</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_decrement">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L939">line 939</a></div>
+        <code>                    int
+    <strong>decrement</strong>(string $column, int $step = 1)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Action decrement, soustrait 1 par defaut sur le champs spécifié</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$step</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_distinct">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L950">line 950</a></div>
+        <code>                    <a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+    <strong>distinct</strong>(string $column)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de faire une réquete avec la close DISTINCT</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_truncate">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L994">line 994</a></div>
+        <code>                    bool
+    <strong>truncate</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Action truncate, vide la Builder</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_insert">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1007">line 1007</a></div>
+        <code>                    int
+    <strong>insert</strong>(array $values)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Action insert</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$values</td>
+                <td>Les données a inserer dans la base de donnée.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_insertAndGetLastId">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1062">line 1062</a></div>
+        <code>                    int
+    <strong>insertAndGetLastId</strong>(array $values)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Action insertAndGetLastId lance les actions insert et lastInsertId</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$values</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_drop">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1076">line 1076</a></div>
+        <code>                    mixed
+    <strong>drop</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Action drop, supprime la Builder</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_paginate">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1103">line 1103</a></div>
+        <code>                    <a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a>
+    <strong>paginate</strong>(integer $n, integer $current = 0, integer $chunk = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>paginate</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>integer</td>
+                <td>$n</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>integer</td>
+                <td>$current</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>integer</td>
+                <td>$chunk</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Database/Collection.html"><abbr title="Bow\Database\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_exists">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1161">line 1161</a></div>
+        <code>                    bool
+    <strong>exists</strong>(string $column = null, mixed $value = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>vérifie si un valeur existe déjà dans la DB</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$column</td>
+                <td>Le nom de la colonne a vérifié</td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td>Le valeur de la colonne</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Database/Exception/QueryBuilderException.html"><abbr title="Bow\Database\Exception\QueryBuilderException">QueryBuilderException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getLastInsertId">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1176">line 1176</a></div>
+        <code>                    string
+    <strong>getLastInsertId</strong>(string $name = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>rétourne l'id de la dernière insertion</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>[optional]</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_jsonSerialize">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1184">line 1184</a></div>
+        <code>                    string
+    <strong>jsonSerialize</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_toJson">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1193">line 1193</a></div>
+        <code>                    string
+    <strong>toJson</strong>(int $option = 0)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$option</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_toSql">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1203">line 1203</a></div>
+        <code>                    string
+    <strong>toSql</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Formate la requete select</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getTable">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1263">line 1263</a></div>
+        <code>                    string
+    <strong>getTable</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de retourner le nom de la table.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPrefix">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1273">line 1273</a></div>
+        <code>                    string
+    <strong>getPrefix</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de retourner le prefixage.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPrefix">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1283">line 1283</a></div>
+        <code>                    
+    <strong>setPrefix</strong>(string $prefix)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de modifier le prefix</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$prefix</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setTable">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1293">line 1293</a></div>
+        <code>                    
+    <strong>setTable</strong>(string $table)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de modifier le mom de la table</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$table</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setWhereDataBinding">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1303">line 1303</a></div>
+        <code>                    
+    <strong>setWhereDataBinding</strong>(array $whereDataBinding)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Permet de définir les données à associer</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$whereDataBinding</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___toString">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/framework/src/Database/QueryBuilder.php#L1313">line 1313</a></div>
+        <code>                    string
+    <strong>__toString</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>__toString</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>
