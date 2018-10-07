@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Contrats\StaticCollectionInterface | Bow Framework API</title>
+    <title>Bow\Contracts\CollectionInterface | Bow Framework API</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:Bow_Contrats_StaticCollectionInterface" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Contracts_CollectionInterface" data-root-path="../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -66,20 +66,20 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">interface</span></li>
-                        <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Contrats.html">Contrats</a></li><li class="backslash">\</li><li>StaticCollectionInterface</li>
+                        <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Contracts.html">Contracts</a></li><li class="backslash">\</li><li>CollectionInterface</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            StaticCollectionInterface
+            CollectionInterface
                 
         </h1>
     </div>
 
     <p>    interface
-    <strong>StaticCollectionInterface</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Contrats/StaticCollectionInterface.php">View source</a>)
+    <strong>CollectionInterface</strong>        (<a href="https://github.com/bowphp/framework/blob/master/framework/src/Contracts/CollectionInterface.php">View source</a>)
 </p>
 
         
@@ -94,7 +94,7 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;boolean
+                    boolean
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_has">has</a>(string $key)
@@ -104,7 +104,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;boolean
+                    boolean
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_isEmpty">isEmpty</a>()
@@ -114,17 +114,17 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;mixed
+                    mixed
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_get">get</a>(string $key, mixed $default = null)
+                    <a href="#method_get">get</a>(string $key, mixed $default)
         
                                             <p>get, permet de récupérer une valeur ou la colléction de valeur.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;<a href="../../Bow/Contrats/StaticCollectionInterface.html"><abbr title="Bow\Contrats\StaticCollectionInterface">StaticCollectionInterface</abbr></a>
+                    <a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_add">add</a>(string $key, $data, bool $next = false)
@@ -134,7 +134,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;<a href="../../Bow/Contrats/StaticCollectionInterface.html"><abbr title="Bow\Contrats\StaticCollectionInterface">StaticCollectionInterface</abbr></a>
+                    <a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_remove">remove</a>(string $key)
@@ -144,7 +144,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;<a href="../../Bow/Contrats/StaticCollectionInterface.html"><abbr title="Bow\Contrats\StaticCollectionInterface">StaticCollectionInterface</abbr></a>
+                    <a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_set">set</a>(string $key, mixed $value)
@@ -154,12 +154,22 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;array
+                    array
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_toArray">toArray</a>()
         
                                             <p>retourne tout les entrées de la colléction</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_toObject">toObject</a>()
+        
+                                            <p>retourne tout les entrées de la colléction sous forme d'object</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -170,8 +180,8 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_has">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contrats/StaticCollectionInterface.php#L13">line 13</a></div>
-        <code>        static            boolean
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/framework/src/Contracts/CollectionInterface.php#L13">line 13</a></div>
+        <code>                    boolean
     <strong>has</strong>(string $key)
         </code>
     </h3>
@@ -210,8 +220,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isEmpty">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contrats/StaticCollectionInterface.php#L20">line 20</a></div>
-        <code>        static            boolean
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/framework/src/Contracts/CollectionInterface.php#L20">line 20</a></div>
+        <code>                    boolean
     <strong>isEmpty</strong>()
         </code>
     </h3>
@@ -240,9 +250,9 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_get">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contrats/StaticCollectionInterface.php#L29">line 29</a></div>
-        <code>        static            mixed
-    <strong>get</strong>(string $key, mixed $default = null)
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/framework/src/Contracts/CollectionInterface.php#L29">line 29</a></div>
+        <code>                    mixed
+    <strong>get</strong>(string $key, mixed $default)
         </code>
     </h3>
     <div class="details">
@@ -263,7 +273,7 @@
                     <tr>
                 <td>mixed</td>
                 <td>$default</td>
-                <td>[optinal]</td>
+                <td></td>
             </tr>
             </table>
 
@@ -285,8 +295,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_add">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contrats/StaticCollectionInterface.php#L39">line 39</a></div>
-        <code>        static            <a href="../../Bow/Contrats/StaticCollectionInterface.html"><abbr title="Bow\Contrats\StaticCollectionInterface">StaticCollectionInterface</abbr></a>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/framework/src/Contracts/CollectionInterface.php#L39">line 39</a></div>
+        <code>                    <a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a>
     <strong>add</strong>(string $key, $data, bool $next = false)
         </code>
     </h3>
@@ -322,7 +332,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Contrats/StaticCollectionInterface.html"><abbr title="Bow\Contrats\StaticCollectionInterface">StaticCollectionInterface</abbr></a></td>
+            <td><a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -335,8 +345,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_remove">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contrats/StaticCollectionInterface.php#L48">line 48</a></div>
-        <code>        static            <a href="../../Bow/Contrats/StaticCollectionInterface.html"><abbr title="Bow\Contrats\StaticCollectionInterface">StaticCollectionInterface</abbr></a>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/framework/src/Contracts/CollectionInterface.php#L48">line 48</a></div>
+        <code>                    <a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a>
     <strong>remove</strong>(string $key)
         </code>
     </h3>
@@ -362,7 +372,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Contrats/StaticCollectionInterface.html"><abbr title="Bow\Contrats\StaticCollectionInterface">StaticCollectionInterface</abbr></a></td>
+            <td><a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -375,8 +385,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_set">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contrats/StaticCollectionInterface.php#L57">line 57</a></div>
-        <code>        static            <a href="../../Bow/Contrats/StaticCollectionInterface.html"><abbr title="Bow\Contrats\StaticCollectionInterface">StaticCollectionInterface</abbr></a>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/framework/src/Contracts/CollectionInterface.php#L57">line 57</a></div>
+        <code>                    <a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a>
     <strong>set</strong>(string $key, mixed $value)
         </code>
     </h3>
@@ -407,7 +417,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Contrats/StaticCollectionInterface.html"><abbr title="Bow\Contrats\StaticCollectionInterface">StaticCollectionInterface</abbr></a></td>
+            <td><a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -420,8 +430,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contrats/StaticCollectionInterface.php#L64">line 64</a></div>
-        <code>        static            array
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/framework/src/Contracts/CollectionInterface.php#L64">line 64</a></div>
+        <code>                    array
     <strong>toArray</strong>()
         </code>
     </h3>
@@ -431,6 +441,36 @@
 
                     <div class="method-description">
                                     <p>retourne tout les entrées de la colléction</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_toObject">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/framework/src/Contracts/CollectionInterface.php#L71">line 71</a></div>
+        <code>                    array
+    <strong>toObject</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>retourne tout les entrées de la colléction sous forme d'object</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
