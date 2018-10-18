@@ -247,7 +247,7 @@
                     static&nbsp;string
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_slugify">slugify</a>(string $str)
+                    <a href="#method_slugify">slugify</a>(string $str, string $delimiter = &#039;-&#039;)
         
                                             <p>slugify créateur de slug en utilisant un chaine simple.</p>                </div>
                 <div class="col-md-2"></div>
@@ -1062,7 +1062,7 @@
                     <h3 id="method_slugify">
         <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L247">line 247</a></div>
         <code>        static            string
-    <strong>slugify</strong>(string $str)
+    <strong>slugify</strong>(string $str, string $delimiter = &#039;-&#039;)
         </code>
     </h3>
     <div class="details">
@@ -1078,6 +1078,11 @@
                     <tr>
                 <td>string</td>
                 <td>$str</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$delimiter</td>
                 <td></td>
             </tr>
             </table>
@@ -1100,7 +1105,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_unSlugify">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L261">line 261</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L260">line 260</a></div>
         <code>        static            string
     <strong>unSlugify</strong>(string $str)
         </code>
@@ -1140,7 +1145,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isMail">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L274">line 274</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L273">line 273</a></div>
         <code>        static            bool
     <strong>isMail</strong>(string $email)
         </code>
@@ -1180,7 +1185,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isDomain">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L296">line 296</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L295">line 295</a></div>
         <code>        static            bool
     <strong>isDomain</strong>(string $domain)
         </code>
@@ -1230,7 +1235,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isAlphaNum">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L312">line 312</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L311">line 311</a></div>
         <code>        static            bool
     <strong>isAlphaNum</strong>($str)
         </code>
@@ -1279,7 +1284,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isNumeric">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L329">line 329</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L328">line 328</a></div>
         <code>        static            bool
     <strong>isNumeric</strong>(string $str)
         </code>
@@ -1328,7 +1333,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isAlpha">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L346">line 346</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L345">line 345</a></div>
         <code>        static            bool
     <strong>isAlpha</strong>(string $str)
         </code>
@@ -1377,7 +1382,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isSlug">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L362">line 362</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L361">line 361</a></div>
         <code>        static            bool
     <strong>isSlug</strong>(string $str)
         </code>
@@ -1426,7 +1431,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isUpper">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L377">line 377</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L376">line 376</a></div>
         <code>        static            bool
     <strong>isUpper</strong>(string $str)
         </code>
@@ -1466,7 +1471,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isLower">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L388">line 388</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L387">line 387</a></div>
         <code>        static            bool
     <strong>isLower</strong>(string $str)
         </code>
@@ -1506,7 +1511,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_count">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L401">line 401</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L400">line 400</a></div>
         <code>        static            int
     <strong>count</strong>(string $pattern, string $str)
         </code>
@@ -1551,7 +1556,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getWords">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L414">line 414</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L413">line 413</a></div>
         <code>        static            string
     <strong>getWords</strong>(string $words, int $len)
         </code>
@@ -1596,7 +1601,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_shuffleWords">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L434">line 434</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L433">line 433</a></div>
         <code>        static            string
     <strong>shuffleWords</strong>(string $words)
         </code>
@@ -1636,7 +1641,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_forceInUTF8">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L462">line 462</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L461">line 461</a></div>
         <code>        static            
     <strong>forceInUTF8</strong>()
         </code>
@@ -1657,7 +1662,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method___call">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L476">line 476</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L475">line 475</a></div>
         <code>                    mixed
     <strong>__call</strong>(string $method, array $arguments)
         </code>

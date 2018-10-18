@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Database\Barry\Relations\Simple | Bow Framework API</title>
+    <title>Bow\Database\Barry\Relations\SimpleRelation | Bow Framework API</title>
 
             <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:Bow_Database_Barry_Relations_Simple" data-root-path="../../../../">
+    <body id="class" data-name="class:Bow_Database_Barry_Relations_SimpleRelation" data-root-path="../../../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -65,21 +65,21 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">interface</span></li>
-                        <li><a href="../../../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../../../Bow/Database.html">Database</a></li><li class="backslash">\</li><li><a href="../../../../Bow/Database/Barry.html">Barry</a></li><li class="backslash">\</li><li><a href="../../../../Bow/Database/Barry/Relations.html">Relations</a></li><li class="backslash">\</li><li>Simple</li>
+                <li><span class="label label-default">trait</span></li>
+                        <li><a href="../../../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../../../Bow/Database.html">Database</a></li><li class="backslash">\</li><li><a href="../../../../Bow/Database/Barry.html">Barry</a></li><li class="backslash">\</li><li><a href="../../../../Bow/Database/Barry/Relations.html">Relations</a></li><li class="backslash">\</li><li>SimpleRelation</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            Simple
+            SimpleRelation
                 
         </h1>
     </div>
 
-    <p>    interface
-    <strong>Simple</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Database/Barry/Relations/Simple.php">View source</a>)
+    <p>    trait
+    <strong>SimpleRelation</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Database/Barry/Relations/SimpleRelation.php">View source</a>)
 </p>
 
         
@@ -94,17 +94,17 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a href="../../../../Bow/Database/Barry/Relations/Simple.html"><abbr title="Bow\Database\Barry\Relations\Simple">Simple</abbr></a>
+                    <a href="../../../../Bow/Database/Barry/Relations/SimpleRelation.html"><abbr title="Bow\Database\Barry\Relations\SimpleRelation">SimpleRelation</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_foreign">foreign</a>(string $id)
+                    <a href="#method_foreign">foreign</a>($table, $foreign_key = null)
         
                                             <p>Definir la clé étranger</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a href="../../../../Bow/Database/Barry/Relations/Simple.html"><abbr title="Bow\Database\Barry\Relations\Simple">Simple</abbr></a>
+                    <a href="../../../../Bow/Database/Barry/Relations/SimpleRelation.html"><abbr title="Bow\Database\Barry\Relations\SimpleRelation">SimpleRelation</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_merge">merge</a>(string $table, mixed $foreign_key = null)
@@ -120,9 +120,9 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_foreign">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Barry/Relations/Simple.php#L13">line 13</a></div>
-        <code>                    <a href="../../../../Bow/Database/Barry/Relations/Simple.html"><abbr title="Bow\Database\Barry\Relations\Simple">Simple</abbr></a>
-    <strong>foreign</strong>(string $id)
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Barry/Relations/SimpleRelation.php#L14">line 14</a></div>
+        <code>                    <a href="../../../../Bow/Database/Barry/Relations/SimpleRelation.html"><abbr title="Bow\Database\Barry\Relations\SimpleRelation">SimpleRelation</abbr></a>
+    <strong>foreign</strong>($table, $foreign_key = null)
         </code>
     </h3>
     <div class="details">
@@ -136,8 +136,13 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
-                <td>$id</td>
+                <td></td>
+                <td>$table</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$foreign_key</td>
                 <td></td>
             </tr>
             </table>
@@ -147,7 +152,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../../../Bow/Database/Barry/Relations/Simple.html"><abbr title="Bow\Database\Barry\Relations\Simple">Simple</abbr></a></td>
+            <td><a href="../../../../Bow/Database/Barry/Relations/SimpleRelation.html"><abbr title="Bow\Database\Barry\Relations\SimpleRelation">SimpleRelation</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -160,8 +165,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_merge">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Barry/Relations/Simple.php#L22">line 22</a></div>
-        <code>                    <a href="../../../../Bow/Database/Barry/Relations/Simple.html"><abbr title="Bow\Database\Barry\Relations\Simple">Simple</abbr></a>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Barry/Relations/SimpleRelation.php#L26">line 26</a></div>
+        <code>                    <a href="../../../../Bow/Database/Barry/Relations/SimpleRelation.html"><abbr title="Bow\Database\Barry\Relations\SimpleRelation">SimpleRelation</abbr></a>
     <strong>merge</strong>(string $table, mixed $foreign_key = null)
         </code>
     </h3>
@@ -192,7 +197,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../../../Bow/Database/Barry/Relations/Simple.html"><abbr title="Bow\Database\Barry\Relations\Simple">Simple</abbr></a></td>
+            <td><a href="../../../../Bow/Database/Barry/Relations/SimpleRelation.html"><abbr title="Bow\Database\Barry\Relations\SimpleRelation">SimpleRelation</abbr></a></td>
             <td></td>
         </tr>
     </table>
