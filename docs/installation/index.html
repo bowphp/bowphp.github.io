@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>installation · Bow Framework</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Installation"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="installation · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.github.io/index.html"/><meta property="og:description" content="# Installation"/><meta property="og:image" content="https://bowphp.github.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.github.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://bowphp.github.io/blog/atom.xml" title="Bow Framework Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://bowphp.github.io/blog/feed.xml" title="Bow Framework Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">Bow Framework</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/docs/installation" target="_self">Documentation</a></li><li class=""><a href="https://bowphp.github.io/api/master" target="_self">API</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Demarrage</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Demarrage</h3><ul><li class="navListItem navListItemActive"><a class="navItem" href="/docs/installation">installation</a></li><li class="navListItem"><a class="navItem" href="/docs/contribution">contribution</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">installation</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="installation"></a><a href="#installation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h1>
+<ul>
+<li><a href="#installation">Installation</a>
+<ul>
+<li><a href="#préréquis-du-serveur">Préréquis du serveur</a></li>
+<li><a href="#installation-de-bow">Installation de Bow</a></li>
+<li><a href="#test-rapide">Test rapide</a></li>
+<li><a href="#configuration">Configuration</a></li>
+</ul></li>
+<li><a href="#configuration-serveur-web">Configuration Serveur Web</a>
+<ul>
+<li><a href="#apache">Apache</a></li>
+<li><a href="#nginx">Nginx</a></li>
+</ul></li>
+</ul>
+<p>Dans cette section nous allons apprendre à installer une application bow framework et faire un test rapide.</p>
+<h2><a class="anchor" aria-hidden="true" id="prerequis-du-serveur"></a><a href="#prerequis-du-serveur" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Préréquis du serveur</h2>
+<p>Vous devez vous assurer les différents elements suivants sont installés sur votre machine.</p>
+<ul>
+<li>PHP &gt;= 7</li>
+<li>OpenSSL PHP Extension</li>
+<li>PDO PHP Extension</li>
+<li>Mbstring PHP Extension</li>
+<li>XML PHP Extension</li>
+<li>JSON PHP Extension</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="installation-de-bow"></a><a href="#installation-de-bow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation de Bow</h2>
+<p>Pour installer une copie de Bow, il vous faut d'abord installer <a href="https://getcomposer.org">composer</a> et ensuite vous lancez la commande suivante:</p>
+<pre><code class="hljs css language-bash">$ composer create-project --prefer-dist bowphp/app
+$ <span class="hljs-built_in">cd</span> app
+$ php bow run:server --port=8000 --host=0.0.0.0
+</code></pre>
+<blockquote>
+<p><strong>NB</strong>: Il est conseillé d'installer <code>composer</code> de façon globale sur votre machine. Pour ce faire référez-vous à la <a href="https://getcomposer.org/download">documentation</a> d'installation de composer.
+Si vous n'êtes pas familier à <code>composer</code>, nous vous invitons à parcourir la documentation.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="test-rapide"></a><a href="#test-rapide" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test rapide</h2>
+<p>Dans le dossier <code>routes</code>, ouvrez le fichier <code>get.php</code> et ajoutez:</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/hello/:name'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($name)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'Hello, world '</span>.$name;
+});
+</code></pre>
+<p>Dans votre navigateur et tapez <code>http://localhost:8000/hello/bow</code>. <code>8000</code> est le port par défaut quand vous faites <code>php bow run:server</code>.</p>
+<pre><code class="hljs css language-html">hello, world bow
+</code></pre>
+<p>On peut faire un test avec <code>curl</code>:</p>
+<pre><code class="hljs css language-sh">$ curl http://localhost:8000/hello/bow
+<span class="hljs-comment"># Hello world bow</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="configuration"></a><a href="#configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h2>
+<h3><a class="anchor" aria-hidden="true" id="dossier-public"></a><a href="#dossier-public" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dossier Public</h3>
+<p>Après l'installation de Bow, vous devrez configurer le <code>document root</code> de votre serveur pour qu'il soit pointer vers le dossier <code>public</code>. Le fichier <code>index.php</code> qui se trouve dans le dossier public sert de point d'entrer pour toutes les requêtes HTTP (le front controlleur).</p>
+<h3><a class="anchor" aria-hidden="true" id="fichier-de-configuration"></a><a href="#fichier-de-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fichier de configuration</h3>
+<p>Tout les fichiers de configurations de Bow framework sont stockés dans le dossier <code>config</code>. Et tous les options sont documentés pour vous permettre d'aller vite dans votre dévéloppement. Vous êtes libre de regarder ces files pour vous famillariser avec les options disponibles.</p>
+<h3><a class="anchor" aria-hidden="true" id="permissions-sur-les-dossiers"></a><a href="#permissions-sur-les-dossiers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Permissions sur les dossiers</h3>
+<p>Après l'installation de Bow, vous aurez bésoin de configurer quelques permissions. Les dossiers contenu dans le dossier <code>storage</code> doivents avoir les permissions d'écriture sur le serveur web.</p>
+<blockquote>
+<p>Je vous invite à régarder ces documentations pour démarrer.</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/bowphp/docs/blob/3.0/controllers.md">Controlleur</a></li>
+<li><a href="https://github.com/bowphp/docs/blob/3.0/routing.md">Routing</a></li>
+<li><a href="https://github.com/bowphp/docs/blob/3.0/session.md">Session</a></li>
+<li><a href="https://github.com/bowphp/docs/blob/3.0/database.md">Base de donnée</a></li>
+<li><a href="https://github.com/bowphp/docs/blob/3.0/storage.md">Ressource</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="configuration-serveur-web"></a><a href="#configuration-serveur-web" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration Serveur Web</h2>
+<h3><a class="anchor" aria-hidden="true" id="apache"></a><a href="#apache" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Apache</h3>
+<p>Bow inclut un fichier <code>public/.htaccess</code> qui est utilisé pour fair de ré-écriture d'URLs sans le <code>index.php</code> front controlleur dans le dossier. Après avoir installer Bow avec Apache, Soyez sûr que le module <code>mod_rewrite</code>  est activé sinon vous n'irrez pas bien loin.</p>
+<p>Si le fichier <code>.htaccess</code> par defaut dans Bow ne fonction pas avec votre installation d'Apache, Essayez cette alternative:</p>
+<pre><code class="hljs css language-sh">Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="nginx"></a><a href="#nginx" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nginx</h3>
+<p>Si vous utilisez Nginx, les directives suivantes dans votre configuration sauront faire fonctionner votre application Bow, tout les requêtes seront directement envoyer vers le front controlleur <code>index.php</code>:</p>
+<pre><code class="hljs css language-sh">location / {
+    try_files <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ /index.php?<span class="hljs-variable">$query_string</span>;
+}
+</code></pre>
+<blockquote>
+<p>N'hésitez pas à donner votre avis sur la qualité de la documentation ou proposez des correctifs.</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/contribution"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#prerequis-du-serveur">Préréquis du serveur</a></li><li><a href="#installation-de-bow">Installation de Bow</a></li><li><a href="#test-rapide">Test rapide</a></li><li><a href="#configuration">Configuration</a><ul class="toc-headings"><li><a href="#dossier-public">Dossier Public</a></li><li><a href="#fichier-de-configuration">Fichier de configuration</a></li><li><a href="#permissions-sur-les-dossiers">Permissions sur les dossiers</a></li></ul></li><li><a href="#configuration-serveur-web">Configuration Serveur Web</a><ul class="toc-headings"><li><a href="#apache">Apache</a></li><li><a href="#nginx">Nginx</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/installation.html">Getting Started</a><a href="/docs/en/contribution.html">Do You want to contribute</a><a href="https://bowphp.github.io/api/master">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://bowphp.slack.com/">Project Chat</a><a href="https://twitter.com/@franck_dakia" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/bowphp/app/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Bowphp</section></footer></div></body></html>
