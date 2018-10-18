@@ -6,7 +6,7 @@
     "tagline": "Simply your web development",
     "docs": {
       "contribution": {
-        "title": "Contribution"
+        "title": "contribution"
       },
       "controllers": {
         "title": "controllers"
@@ -17,8 +17,11 @@
       "database": {
         "title": "database"
       },
+      "helper": {
+        "title": "helper"
+      },
       "installation": {
-        "title": "Installation"
+        "title": "installation"
       },
       "localization": {
         "title": "localization"
@@ -40,6 +43,9 @@
       },
       "session": {
         "title": "session"
+      },
+      "storage": {
+        "title": "storage"
       },
       "structure": {
         "title": "structure"
