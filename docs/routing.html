@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>routing · Bow Framework</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# HTTP Routing"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="routing · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.github.io/index.html"/><meta property="og:description" content="# HTTP Routing"/><meta property="og:image" content="https://bowphp.github.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.github.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">Bow Framework</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/installation" target="_self">Documentation</a></li><li class=""><a href="https://bowphp.github.io/api/master" target="_self">API</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">routing</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="http-routing"></a><a href="#http-routing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP Routing</h1>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#prototype-du-routing">Prototype du routing</a></li>
+</ul></li>
+<li><a href="#les-methods-de-maping">Les methods de maping</a>
+<ul>
+<li><a href="#get">get</a></li>
+<li><a href="#post">post</a></li>
+<li><a href="#put">put</a></li>
+<li><a href="#delete">delete</a>m</li>
+<li><a href="#patch">patch</a></li>
+<li><a href="#options">options</a></li>
+<li><a href="#match">match</a></li>
+<li><a href="#any">any</a></li>
+<li><a href="#prefix">prefix</a></li>
+</ul></li>
+<li><a href="#personnalisation">Personnalisation</a>
+<ul>
+<li><a href="#capturer-des-variables-dans-l-url">Capturer des variables dans l'url</a></li>
+<li><a href="#ajouter-des-critères-des-restrictions-sur-les-urls">Ajouter des critères, des restrictions sur les urls</a></li>
+<li><a href="#donner-un-nom-au-route">Donner un nom au route</a></li>
+<li><a href="#association-de-middleware">Association de middleware</a></li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>Le routing vous permet de maper une URL sur un controlleur ou une action particulière.
+Le système de routing de Bow est grèfé directement sur l'instance de l'application,
+donc sur la variable <code>$app</code>.</p>
+<p>Les routes de l'application sont dans le fichier <code>app.php</code> du dossier <code>routes</code>
+de votre application.</p>
+<h3><a class="anchor" aria-hidden="true" id="prototype-du-routing"></a><a href="#prototype-du-routing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prototype du routing</h3>
+<p>prototype des methodes du routing</p>
+<pre><code class="hljs css language-php">$app-&gt;[verbe](url, action);
+</code></pre>
+<p><code>verbe</code> correspond au verbe <code>http</code> à associer à la route, soit GET, POST, PUT, DELETE, OPTIONS, PATCH écrite en minuscule.</p>
+<table>
+<thead>
+<tr><th>paramêtre</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>url</td><td>String</td></tr>
+<tr><td>action</td><td>String, Array, Closure ou Callable</td></tr>
+</tbody>
+</table>
+<ul>
+<li>Avec une clourse</li>
+</ul>
+<pre><code class="hljs css language-php">$app-&gt;verbe(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">'hello world'</span>;
+});
+</code></pre>
+<blockquote>
+<p>Une Closure une fonction dite anonyme (<a href="http://php.net/manual/fr/class.closure.php">Plus d'information</a> sur le sujet).</p>
+</blockquote>
+<ul>
+<li>Avec une collection de fonction dans un tableau:</li>
+</ul>
+<pre><code class="hljs css language-php">$app-&gt;verbe(<span class="hljs-string">'/'</span>, [<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">'hello world'</span>;
+
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+}, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">'Bien merci'</span>;
+}]);
+</code></pre>
+<blockquote>
+<p>Notez que dans la première fonction il y a à la fin une instruction <code>return true</code>, cette instruction est indispensable si vous voulez lancer la prochaine fonction. Alors ce qui veut dire que si c'est aussi un <code>return false</code> la fonctione suivante ne sera pas exécutée.</p>
+</blockquote>
+<ul>
+<li>Avec le nom d'un controller</li>
+</ul>
+<pre><code class="hljs css language-php">$app-&gt;[verbe](<span class="hljs-string">'/'</span>, <span class="hljs-string">'ClassController::action'</span>);
+</code></pre>
+<ul>
+<li>Avec le nom d'un controller et un middelware</li>
+</ul>
+<pre><code class="hljs css language-php">$app-&gt;[verbe](<span class="hljs-string">'/'</span>, [<span class="hljs-string">'middleware'</span> =&gt; <span class="hljs-string">'ip'</span>, <span class="hljs-string">'controller'</span> =&gt; <span class="hljs-string">'ClassController::action'</span>]);
+</code></pre>
+<blockquote>
+<p><code>verbe</code> correspond au verbe <code>http</code> à associer à la route, soit GET, POST, PUT, DELETE, OPTIONS, PATCH écrite en minuscule.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="liste-des-possibilites"></a><a href="#liste-des-possibilites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Liste des possibilités</h2>
+<pre><code class="hljs css language-php">$app-&gt;get($url, $action);
+$app-&gt;post($url, $action);
+$app-&gt;put($url, $action);
+$app-&gt;delete($url, $action);
+$app-&gt;option($url, $action);
+$app-&gt;patch($url, $action);
+$app-&gt;any($url, $action);
+$app-&gt;match(<span class="hljs-keyword">array</span> $url, $action);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="les-methods-de-maping"></a><a href="#les-methods-de-maping" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Les methods de maping</h2>
+<p>La mise en place du routage se faire donc via les methodes suivants:</p>
+<h3><a class="anchor" aria-hidden="true" id="get"></a><a href="#get" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>get</h3>
+<p>Cette méthode permet de maper une URL à une requête de type <code>GET</code>.</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">'hello world'</span>;
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="post"></a><a href="#post" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>post</h3>
+<p>Cette méthode permet de maper une URL à une requête de type <code>POST</code></p>
+<pre><code class="hljs css language-php">$app-&gt;post(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">'data posted'</span>;
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="put"></a><a href="#put" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>put</h3>
+<p>Cette méthode permet de maper une URL à une requête de type <code>PUT</code>.</p>
+<p>Quand vous utilisez des outils qui peuvent envoyer des requêtes de ce type comme <code>curl</code>, <code>httpie</code>.</p>
+<p>Parcontre les navigateurs ne supportent pas cette méthode. Alors dans votre formulaire d'envoie,
+il faudra créer un champs comme ceci:</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_method"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"PUT"</span>&gt;</span>
+</code></pre>
+<p>ce qui aura pour but de permettre à Bow de comprendre votre requête.</p>
+<pre><code class="hljs css language-php">$app-&gt;put(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-comment">// code ici</span>
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="delete"></a><a href="#delete" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>delete</h3>
+<p>Cette méthode permet de maper une URL à une requête de type <code>DELETE</code>.</p>
+<p>Quand vous utilisez des outils qui peuvent envoyer des requêtes de ce type comme <code>curl</code>, <code>httpie</code>.</p>
+<p>Parcontre les navigateurs ne supportent pas cette methode. Alors dans votre formulaire d'envoie,
+il faudra créer un champs comme ceci:</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_method"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"DELETE"</span>&gt;</span>
+</code></pre>
+<p>ce qui aura pour but de permettre à Bow de comprendre votre requête.</p>
+<pre><code class="hljs css language-php">$app-&gt;delete(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-comment">// code ici</span>
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="patch"></a><a href="#patch" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>patch</h3>
+<p>Cette méthode permet de maper une URL à une requête de type <code>PATCH</code>.</p>
+<p>Quand vous utilisez des outils qui peuvent envoyerenvoyer des requêtes de ce type comme <code>curl</code>, <code>httpie</code>.</p>
+<p>Parcontre les navigateurs ne supportent pas cette methode. Alors dans votre formulaire d'envoie,
+il faudra créer un champs comme ceci:</p>
+<pre><code class="hljs css language-html"> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_method"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"PATCH"</span>&gt;</span>
+</code></pre>
+<p>ce qui aura pour but de permettre à Bow de comprendre votre requête.</p>
+<pre><code class="hljs css language-php">$app-&gt;patch(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-comment">// code ici</span>
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="options"></a><a href="#options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>options</h3>
+<p>Cette méthode permet de maper une URL à une requête de type <code>OPTIONS</code>.</p>
+<p>Quand vous utilisez des outils qui peuvent envoyerenvoyer des requêtes de ce type comme <code>curl</code>, <code>httpie</code>.</p>
+<p>Parcontre les navigateurs ne supportent pas cette méthode. Alors dans votre formulaire d'envoie,
+il faudra créer un champs comme ceci:</p>
+<pre><code class="hljs css language-html"> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_method"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"OPTIONS"</span>&gt;</span>
+</code></pre>
+<p>ce qui aura pour but de permettre à Bow de comprendre votre requête.</p>
+<pre><code class="hljs css language-php">$app-&gt;options(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-comment">// code ici</span>
+});
+</code></pre>
+<blockquote>
+<p>Les méthodes DELELTE, PUT, PATCH, OPTIONS ne sont pas supporter par le navigateur.</p>
+</blockquote>
+<p>Tout les methodes definir ci-dessus retourne l'instance de <code>Bow\Router\Route::class</code>. (Plus d'information sur le <a href="https://bowphp.github.com/api/master/Bow/Router/Route.html"><code>Bow\Router\Route::class</code></a>)</p>
+<h3><a class="anchor" aria-hidden="true" id="match"></a><a href="#match" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>match</h3>
+<p>Permet d'associer des methodes <code>http</code> sur l'url spécifier.</p>
+<p>prototype de la methode <code>match</code>.</p>
+<pre><code class="hljs css language-php">$app-&gt;match(verbes, url, action);
+</code></pre>
+<table>
+<thead>
+<tr><th>paramêtre</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>verbes</td><td><code>Array</code> - La liste de methode <code>http</code></td></tr>
+<tr><td>url</td><td><code>String</code> - l'URL de la route</td></tr>
+<tr><td>action</td><td><code>String</code> \</td><td><code>Array</code> \</td><td><code>Closure</code> - L'action à lancer</td></tr>
+</tbody>
+</table>
+<pre><code class="hljs css language-php">$app-&gt;match([<span class="hljs-string">'GET'</span>, <span class="hljs-string">'POST'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-comment">// code ici</span>
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="any"></a><a href="#any" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>any</h3>
+<p>Permet d'associer tout les méthodes <code>http</code> sur l'URL spécifier.</p>
+<p>prototype de la methode <code>any</code>.</p>
+<pre><code class="hljs css language-php">$app-&gt;any(url, action);
+</code></pre>
+<table>
+<thead>
+<tr><th>paramêtre</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>url</td><td><code>String</code> - L'url de la route</td></tr>
+<tr><td>action</td><td><code>String</code> \</td><td><code>Array</code> \</td><td>Closure - L'action à lancer</td></tr>
+</tbody>
+</table>
+<pre><code class="hljs css language-php">$app-&gt;any(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-comment">// code ici</span>
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="prefix"></a><a href="#prefix" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>prefix</h3>
+<p>Souvent vous serez amener à grouper vos routes et effectuer un branchement simple pour bien orienté votre logique.
+Les URLs peuvent souvents se répéter comme ceci:</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'users'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-comment">// code ici</span>
+});
+
+$app-&gt;get(<span class="hljs-string">'users/:id'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($id)</span>
+</span>{
+  <span class="hljs-comment">// code ici</span>
+});
+
+$app-&gt;get(<span class="hljs-string">'users/:id/delete'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($id)</span>
+</span>{
+  <span class="hljs-comment">// code ici</span>
+});
+</code></pre>
+<p>Dans ce cas nous avons <code>users</code> qui se répéte plusieur fois. Comment bien organiser tout ça?
+La réponse est le préfixage de route. Alors la methodes <code>prefix</code> nous permet de grouper plusieur urls.</p>
+<p>prototype de le methode <code>prefix</code>.</p>
+<pre><code class="hljs css language-php">$app-&gt;prefix(url, action);
+</code></pre>
+<table>
+<thead>
+<tr><th>paramêtre</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>url</td><td><code>String</code> - l'URL à prefixer</td></tr>
+<tr><td>action</td><td><code>Closure</code> - Cette fonction prendra en paramêtre l'instance de l'application</td></tr>
+</tbody>
+</table>
+<p>Donc pour réorganiser le code précédent, il faut faire:</p>
+<pre><code class="hljs css language-php">$app-&gt;prefix(<span class="hljs-string">'/users'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($app)</span>
+</span>{
+  $app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
+  </span>{
+   <span class="hljs-comment">// code ici</span>
+  });
+  $app-&gt;get(<span class="hljs-string">'/:id'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($id)</span>
+  </span>{
+   <span class="hljs-comment">// code ici</span>
+  });
+  $app-&gt;get(<span class="hljs-string">'/:id/delete'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($id)</span>
+  </span>{
+   <span class="hljs-comment">// code ici</span>
+  });
+});
+</code></pre>
+<blockquote>
+<p>Notez qu'actuellement le préfixage ne peut pas d'imbriquer.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="personnalisation"></a><a href="#personnalisation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Personnalisation</h2>
+<p>Le routing vous permet aussi de personnaliser vos URLs. Voici la list des possibilités de personnalisation.</p>
+<ul>
+<li>Capturer des variables dans l'URL</li>
+<li>Ajouter des critères, des restrictions sur les urls</li>
+<li>Donner un nom au route</li>
+<li>Association de middleware</li>
+<li>La composition d'action</li>
+</ul>
+<p>Pour faire la personnalisation il faut utiliser l'enchainement de methode.
+Dans le exemple qui suit nous allons utiliser la methode <code>get</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="capturer-des-variables-dans-l-url"></a><a href="#capturer-des-variables-dans-l-url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Capturer des variables dans l'URL</h3>
+<p>Le routing vous permet de pouvoir capturer des variables dans urls.
+Pour le faire il faut imperativement utiliser la notation <code>:nom_variable</code>.
+Ensuite la variable capturé sera passer en paramètre à l'action (fonction à executer dans le cas où l'url est valide)
+quelque soit le nombre de variable.</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/:name'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($name)</span>
+</span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">'bonjour '</span> . $name;
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="ajouter-des-criteres-des-restrictions-sur-les-urls"></a><a href="#ajouter-des-criteres-des-restrictions-sur-les-urls" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ajouter des critères, des restrictions sur les urls</h3>
+<p>Parlant de capture de variable. Sécurisé ces variables est primordial. Alors le routing vous permet
+aussi d'ajouter des validateurs sur le variable. C'est la methode <code>where</code> qui s'en occupe.</p>
+<p>prototype de la methode <code>where</code>.</p>
+<pre><code class="hljs css language-php">where(name, rule);
+<span class="hljs-comment">// ou</span>
+where(<span class="hljs-keyword">array</span> rules);
+</code></pre>
+<table>
+<thead>
+<tr><th>paramêtre</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>name</td><td><code>String</code> - Le nom de la variable</td></tr>
+<tr><td>value</td><td><code>String</code> - Le critaire de validation</td></tr>
+<tr><td>rules</td><td><code>Array</code> - Tableau associatif dont la clé est la varibale à sécuriser et la valeur est le critaire de validation</td></tr>
+</tbody>
+</table>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/:name'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($name)</span>
+</span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">'bonjour '</span> . $name;
+})-&gt;where(<span class="hljs-string">'name'</span>, <span class="hljs-string">'[a-z]+'</span>);
+
+<span class="hljs-comment">// S'il y a plusieurs variables</span>
+$callable = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($name, $lastname, $number)</span>
+</span>{
+  <span class="hljs-keyword">return</span> sprIntegerf(<span class="hljs-string">'bonjour &lt;b&gt;%s %s&lt;/b&gt;, votre numéro est %s.'</span>, $name, $lastname, $number);
+};
+
+$app-&gt;get(<span class="hljs-string">'/:name/:lastname/:number'</span>, $callable)
+  -&gt;where([
+    <span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'[a-z]+'</span>,
+    <span class="hljs-string">'lastname'</span> =&gt; <span class="hljs-string">'[a-z]+'</span>,
+    <span class="hljs-string">'number'</span> =&gt; <span class="hljs-string">'\d+'</span>
+  ]);
+</code></pre>
+<blockquote>
+<p>Notez que <code>where</code> une methode de l'instance <code>Bow\Router\Route</code>.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="donner-un-nom-au-route"></a><a href="#donner-un-nom-au-route" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Donner un nom au route</h3>
+<p>Quand vous être dans le développement d'un gros projet, les routes deviendront nombreuses
+et la gestion visuel pour le développeur deviendra difficile, alors Bow vous permet de donner des noms à vos routes comme pour après les contacter plus facilement. La methode <code>name</code> associate à une instance de route vous permet de faire ça.</p>
+<p>prototype de la methode <code>name</code>.</p>
+<pre><code class="hljs css language-php">name(name);
+</code></pre>
+<table>
+<thead>
+<tr><th>paramêtre</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>name</td><td><code>String</code> - Le nom de la route</td></tr>
+</tbody>
+</table>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/:name'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($name)</span>
+</span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">'bonjour '</span> . $name;
+})-&gt;name(<span class="hljs-string">'hello'</span>);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="association-de-middleware"></a><a href="#association-de-middleware" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Association de middleware</h3>
+<p>Un middleware c'est un ou plusieurs actions qui ce placent entre la requete et l'action
+a executer. Tout les framework moderne en sont dotés.</p>
+<p>Plus d'information sur le sujet allez ce lien <a href="#documentation-middlewares">middleware</a></p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/:name'</span>, [<span class="hljs-string">'middleware'</span> =&gt; <span class="hljs-string">'ip'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($name)</span>
+</span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">'bonjour '</span> . $name;
+}])-&gt;name(<span class="hljs-string">'hello'</span>);
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="la-composition-d-action"></a><a href="#la-composition-d-action" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>La composition d'action</h4>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/:name'</span>, [
+  <span class="hljs-string">'middleware'</span> =&gt; <span class="hljs-string">'ip'</span>,
+  <span class="hljs-string">'controller'</span> =&gt; <span class="hljs-string">'NameController::action'</span>
+]);
+</code></pre>
+<blockquote>
+<p>N'hésitez pas à donner votre avis sur la qualité de la documentation ou proposez des correctifs.</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a><ul class="toc-headings"><li><a href="#prototype-du-routing">Prototype du routing</a></li></ul></li><li><a href="#liste-des-possibilites">Liste des possibilités</a></li><li><a href="#les-methods-de-maping">Les methods de maping</a><ul class="toc-headings"><li><a href="#get">get</a></li><li><a href="#post">post</a></li><li><a href="#put">put</a></li><li><a href="#delete">delete</a></li><li><a href="#patch">patch</a></li><li><a href="#options">options</a></li><li><a href="#match">match</a></li><li><a href="#any">any</a></li><li><a href="#prefix">prefix</a></li></ul></li><li><a href="#personnalisation">Personnalisation</a><ul class="toc-headings"><li><a href="#capturer-des-variables-dans-l-url">Capturer des variables dans l'URL</a></li><li><a href="#ajouter-des-criteres-des-restrictions-sur-les-urls">Ajouter des critères, des restrictions sur les urls</a></li><li><a href="#donner-un-nom-au-route">Donner un nom au route</a></li><li><a href="#association-de-middleware">Association de middleware</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Getting Started</a><a href="/docs/en/contribution.html">Do You want to contribute</a><a href="https://bowphp.github.io/api/master">API Reference (or other categories)</a></div><div><h5>Communité</h5><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://bowphp.slack.com/">Slack</a><a href="https://twitter.com/@franck_dakia" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>En plus</h5><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/bowphp/app/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Bowphp</section></footer></div></body></html>

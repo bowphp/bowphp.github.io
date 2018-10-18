@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>requests · Bow Framework</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# HTTP Request"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="requests · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.github.io/index.html"/><meta property="og:description" content="# HTTP Request"/><meta property="og:image" content="https://bowphp.github.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.github.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">Bow Framework</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/installation" target="_self">Documentation</a></li><li class=""><a href="https://bowphp.github.io/api/master" target="_self">API</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">requests</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="http-request"></a><a href="#http-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP Request</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#accéder-à-la-request">Accéder à la Request</a></li>
+<li><a href="#récupération-des-données">Récupération des données</a>
+<ul>
+<li><a href="#via-des-closures-de-route">Via des Closures de route</a></li>
+<li><a href="#via-un-controlleur">Via un controlleur</a></li>
+</ul></li>
+<li><a href="#Chemin-de-requête-et-méthode">Chemin de requête et méthode</a>
+<ul>
+<li><a href="#récupérer-le-chemin-de-requête">Récupérer le chemin de requête</a></li>
+<li><a href="#récupérer-la-methode-de-requête">Récupérer la methode de requête</a></li>
+<li><a href="#vérifier-si-la-requete-est-en-ajax">Vérifier si la requete est en AJAX</a></li>
+</ul></li>
+<li><a href="#récupérer-une-entrée">Récupérer une entrée</a></li>
+<li><a href="#fichier-uploader">Fichier uploader</a>
+<ul>
+<li><a href="#validation-des-téléchargements-réussis">Validation des téléchargements réussis</a></li>
+<li><a href="#savegarder-le-fichier">Savegarder le fichier</a></li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>Une requête HTTP c'est le message que l'utilisateur envoie à l'application Bow via son navigateur ou d'autre outil telque <code>curl</code>, <code>httpie</code> et autre.</p>
+<p>Ce message est traite par Bow à travers la classe [<code>Bow\Http\Request</code>]000(<a href="https://bowphp.github.com/api/master/Bow/Http/Request.html">https://bowphp.github.com/api/master/Bow/Http/Request.html</a>). Cette classe vous permet d'avoir les informations sur la requête envoie par l'utilisateur comme son adresse ip, le type du message, les information d'un formulaire etc...</p>
+<h2><a class="anchor" aria-hidden="true" id="acceder-a-la-request"></a><a href="#acceder-a-la-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Accéder à la Request</h2>
+<p>Pour capturer un message ou requête HTTP, vous pouvez premièrement utiliser le helper <code>request()</code> qui vous donne une instance de <a href="https://bowphp.github.com/api/master/Bow/Http/Request.html"><code>Bow\Http\Request</code></a>, deuxièmement vous pouvez passer par l'injecteur de dépendance via une action de contrôleur.</p>
+<h2><a class="anchor" aria-hidden="true" id="recuperation-des-donnees"></a><a href="#recuperation-des-donnees" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Récupération des données</h2>
+<p>En utilisant quelques méthodes simples, vous pouvez accéder à toutes les entrées utilisateur de votre application.</p>
+<h3><a class="anchor" aria-hidden="true" id="via-des-closures-de-route"></a><a href="#via-des-closures-de-route" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Via des Closures de route</h3>
+<ul>
+<li>Avec le helper <code>request</code>:</li>
+</ul>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
+</span>{
+  $request = request();
+
+  $name = $request-&gt;get(<span class="hljs-string">'name'</span>);
+  <span class="hljs-comment">//</span>
+});
+</code></pre>
+<ul>
+<li>Par l'injection de dépendance</li>
+</ul>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Request</span>;
+
+$app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Request $request)</span>
+</span>{
+  <span class="hljs-keyword">return</span> $request-&gt;get(<span class="hljs-string">'name'</span>);
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="via-un-controlleur"></a><a href="#via-un-controlleur" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Via un controlleur</h3>
+<p>Si votre méthode de contrôleur attend également une entrée d'un paramètre de route, vous devez répertorier les paramètres de votre route après vos autres dépendances. Par exemple, si votre route est défini comme suit:</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/users/:id'</span>, <span class="hljs-string">'UserController::show'</span>);
+</code></pre>
+<p>Vous pouvez toujours taper la requête <a href="https://bowphp.github.com/api/master/Bow/Http/Request.html">Bow\Http\Request</a> et accéder à l'id de votre paramètre de route en définissant votre méthode de contrôleur comme suit:</p>
+<pre><code class="hljs css language-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controllers</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controllers</span>\<span class="hljs-title">Controller</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">User</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Request</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span>
+</span>{
+  <span class="hljs-comment">/**
+   * Afficher le profil pour l'utilisateur donné
+   *
+   * <span class="hljs-doctag">@param</span> Request $reuest
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span><span class="hljs-params">(Request $reuest, $id)</span>
+  </span>{
+    $user = User::where(<span class="hljs-string">'id'</span>, $id)-&gt;first();
+
+    $user-&gt;name = $request-&gt;get(<span class="hljs-string">'name'</span>);
+
+    $user-&gt;save();
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;render(<span class="hljs-string">'user/profile'</span>, [<span class="hljs-string">'user'</span> =&gt; $user]);
+  }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="chemin-de-requete-et-methode"></a><a href="#chemin-de-requete-et-methode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Chemin de requête et méthode</h2>
+<h3><a class="anchor" aria-hidden="true" id="recuperer-le-chemin-de-requete"></a><a href="#recuperer-le-chemin-de-requete" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Récupérer le chemin de requête</h3>
+<p>La méthode <code>path</code> renvoie les informations de chemin de la requête. Ainsi, si la requête entrante est ciblée sur <code>http://example.com/bar/zar</code>, la méthode path retournera <code>bar/zar</code>:</p>
+<pre><code class="hljs css language-php">$uri = $request-&gt;path();
+</code></pre>
+<p>La méthode <code>is</code> vous permet de vérifier que le chemin de requête entrant correspond à un modèle donné. Vous pouvez utiliser le caractère <code>*</code> comme caractère générique lorsque vous utilisez cette méthode:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">if</span> ($request-&gt;is(<span class="hljs-string">'users/*'</span>)) {
+  <span class="hljs-comment">//</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="recuperer-la-methode-de-requete"></a><a href="#recuperer-la-methode-de-requete" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Récupérer la methode de requête</h3>
+<p>La méthode <code>method</code> retournera le verbe HTTP pour la requête. Vous pouvez utiliser les méthodes <code>isPost</code>, <code>isGet</code>, <code>isPut</code>, <code>isDelete</code>, <code>isOptions</code>, <code>isPutch</code> pour vérifier que le verbe HTTP correspond à une methode HTTP de la requête donnée:</p>
+<pre><code class="hljs css language-php">$method = $request-&gt;method();
+
+<span class="hljs-keyword">if</span> ($request-&gt;isPost()) {
+  <span class="hljs-comment">// code ici</span>
+}
+
+<span class="hljs-keyword">if</span> ($request-&gt;isGet()) {
+  <span class="hljs-comment">// code ici</span>
+}
+
+<span class="hljs-keyword">if</span> ($request-&gt;isPut()) {
+  <span class="hljs-comment">// code ici</span>
+}
+
+<span class="hljs-keyword">if</span> ($request-&gt;isDelete()) {
+  <span class="hljs-comment">// code ici</span>
+}
+
+<span class="hljs-keyword">if</span> ($request-&gt;isOptions()) {
+  <span class="hljs-comment">// code ici</span>
+}
+
+<span class="hljs-keyword">if</span> ($request-&gt;isPatch()) {
+  <span class="hljs-comment">// code ici</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="verifier-si-la-requete-est-en-ajax"></a><a href="#verifier-si-la-requete-est-en-ajax" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vérifier si la requete est en AJAX</h3>
+<p>Pour determiner si une requete a été envoyé via AJAX la methode <code>isAjax</code> vous permet de vérifier ça.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">if</span> ($request-&gt;isAjax()) {
+  <span class="hljs-comment">//</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="recuperer-une-entree"></a><a href="#recuperer-une-entree" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Récupérer une entrée</h3>
+<p>Souvent la requête envoyé par le client HTTP contient des données souvent demander pour actioner un mecanisme par exemple celui d'une inscription.</p>
+<p>Bow framework dans son démarrage optimise le donnée envoyés au serveur en remplaçant les valeur vide par <code>null</code> et supprimer les spaces blancs dans les valeurs de chaque champs avec la fonction php <code>trim</code>.</p>
+<pre><code class="hljs css language-php">$name = $request-&gt;get(<span class="hljs-string">'name'</span>);
+</code></pre>
+<p>ou</p>
+<pre><code class="hljs css language-php">$name = $request-&gt;name;
+</code></pre>
+<p>Ceci permet juste de récupérer le contenu du champ <code>name</code> d'un formulaire ou d'un url en fonction du type de requête.</p>
+<h3><a class="anchor" aria-hidden="true" id="recuperation-d-une-partie-des-donnees-d-entree"></a><a href="#recuperation-d-une-partie-des-donnees-d-entree" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Récupération d'une partie des données d'entrée</h3>
+<p>Si vous devez extraire un sous-ensemble des données d'entrée, vous pouvez utiliser les méthodes <code>ignore</code> et <code>only</code>. Ces deux méthodes acceptent un seul tableau ou une liste d'arguments dynamique:</p>
+<pre><code class="hljs css language-php">$input = $request-&gt;only([<span class="hljs-string">'name'</span>, <span class="hljs-string">'lastname'</span>]);
+
+$input = $request-&gt;only(<span class="hljs-string">'name'</span>, <span class="hljs-string">'lastname'</span>);
+
+$input = $request-&gt;ignore([<span class="hljs-string">'password'</span>]);
+
+$input = $request-&gt;ignore(<span class="hljs-string">'password'</span>);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="determiner-si-une-valeur-d-entree-est-presente"></a><a href="#determiner-si-une-valeur-d-entree-est-presente" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Déterminer si une valeur d'entrée est présente</h3>
+<p>Vous devez utiliser la méthode <code>has</code> pour déterminer si une valeur est présente sur la requête. La méthode <code>has</code> renvoie <code>true</code> si la valeur est présente dans la requête:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">if</span> ($request-&gt;has(<span class="hljs-string">'name'</span>)) {
+  <span class="hljs-comment">//</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="determiner-l-adresse-ip-de-client"></a><a href="#determiner-l-adresse-ip-de-client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Déterminer l'adresse IP de client</h3>
+<p>Souvent vous allez vouloir l'adresse IP du client qui à envoyer la requête, la methode <code>ip</code> permet comme son nom l'indique de récupérer l'adresse ip de client:</p>
+<pre><code class="hljs css language-php">$ip = $request-&gt;ip();
+
+<span class="hljs-keyword">if</span> ($ip == <span class="hljs-string">'xxx.xxx.xxx.xxx'</span>) {
+  <span class="hljs-comment">// code ici</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="determiner-le-port-de-client"></a><a href="#determiner-le-port-de-client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Déterminer le Port de client</h3>
+<p>La methode <code>port</code> permet comme son nom l'indique de récupérer le port de client:</p>
+<pre><code class="hljs css language-php">$port = $request-&gt;port();
+
+<span class="hljs-comment">// Code ici</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="determiner-le-protocol-de-client"></a><a href="#determiner-le-protocol-de-client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Déterminer le protocol de client</h3>
+<p>La methode <code>protocol</code> permet comme son nom l'indique de récupérer le protocol de client:</p>
+<pre><code class="hljs css language-php">$protocol = $request-&gt;protocol();
+<span class="hljs-comment">// Code ici</span>
+</code></pre>
+<p>Il y a aussi la methode <code>isProtocol</code> qui permet de faire de vérification sur le protocol:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">if</span> ($request-&gt;isProtocol(<span class="hljs-string">'http'</span>)) {
+  <span class="hljs-comment">// code ici</span>
+}
+</code></pre>
+<p>Et <code>isSecure</code> vous permet de vérifier si la requête est sécurisé.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">if</span> ($request-&gt;isSecure()) {
+  <span class="hljs-comment">// code ici</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="recuperer-les-entete-https"></a><a href="#recuperer-les-entete-https" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Récupérer les entête-https</h3>
+<p>Vous avez la possibilité de récupérer les entête-https du client avec la methode <code>getHeader</code> et <code>hasHeader</code> pour vérifier l'existance d'une entête-http.</p>
+<pre><code class="hljs css language-php">$header = $request-&gt;getHeader(<span class="hljs-string">'content-type'</span>);
+
+<span class="hljs-keyword">echo</span> $header;
+<span class="hljs-comment">// text/html</span>
+
+<span class="hljs-keyword">if</span> ($request-&gt;hasHeader(<span class="hljs-string">'x-proxy-key'</span>)) {
+  <span class="hljs-comment">// code ici</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="recuperer-le-ip-du-server"></a><a href="#recuperer-le-ip-du-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Récupérer le IP du server</h3>
+<p>Vous avez la possibilité de récupérer l'adresse IP de serveur sur lequel votre application Bow.</p>
+<pre><code class="hljs css language-php">$hostname = $request-&gt;hostname();
+
+<span class="hljs-keyword">echo</span> $hostname;
+<span class="hljs-comment">// exemple.com</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="recuperer-le-domaine-origin"></a><a href="#recuperer-le-domaine-origin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Récupérer le domaine Origin</h3>
+<p>Le domaine dit <code>origin</code> est l'adresse récupérer avec la methode <code>hostname</code> ensuite associé avec le protocol de la requête.</p>
+<pre><code class="hljs css language-php">$hostname = $request-&gt;origin();
+
+<span class="hljs-keyword">echo</span> $hostname;
+<span class="hljs-comment">// https://exemple.com</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="recuperer-le-temps-de-la-requete"></a><a href="#recuperer-le-temps-de-la-requete" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Récupérer le temps de la requête</h3>
+<p>Il est souvent interssent de voir combien de temps à faire une requête. La methode <code>time</code> nous permet de le faire et elle retourne un timestamp.</p>
+<pre><code class="hljs css language-php">$time = $request-&gt;time();
+
+<span class="hljs-keyword">echo</span> $time;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="fichier-uploader"></a><a href="#fichier-uploader" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fichier uploader</h2>
+<p>Souvent les requêtes sont associés à des fichiers envoyés par l'utilisateur, vous pouvez traiter ces fichiers sur <a href="https://bowphp.github.com/api/master/Bow/Http/Reqeust.html"><code>Bow\Http\Request</code></a> les methodes <code>file</code> et le helper du même nom.</p>
+<p>considérons le formulaire suivant:</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/upload"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">"multipart/form-data"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"photo"</span> <span class="hljs-attr">accept</span>=<span class="hljs-string">"image/png"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Uploader<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<p>Comment avoir accès au fichier envoyé ? Ici nous pouvons utiliser la methode <code>file</code> qui retourne <code>null</code> ou une instance de <a href="https://bowphp.github.com/api/master/Bow/Http/UploadFile.html[`Bow\Http\UploadFile`](https://bowphp.github.com/api/master/Bow/Http/UploadFile.html)"><code>Bow\Http\UploadFile</code></a>.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Request</span>;
+
+$app-&gt;post(<span class="hljs-string">'/upload'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Request $request)</span> </span>{
+  $file = $request-&gt;file(<span class="hljs-string">'photo'</span>);
+  <span class="hljs-comment">// ou</span>
+  $file = file(<span class="hljs-string">'photo'</span>);
+
+  debug($file);
+});
+</code></pre>
+<pre><code class="hljs css language-php"><span class="hljs-comment">// Debug output</span>
+UploadFile {<span class="hljs-comment">#92 ▼</span>
+  -file: <span class="hljs-keyword">array</span>:<span class="hljs-number">5</span> [▼
+    <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"23270116.png"</span>
+    <span class="hljs-string">"type"</span> =&gt; <span class="hljs-string">"image/png"</span>
+    <span class="hljs-string">"tmp_name"</span> =&gt; <span class="hljs-string">"/tmp/phpellwCx"</span>
+    <span class="hljs-string">"error"</span> =&gt; <span class="hljs-number">0</span>
+    <span class="hljs-string">"size"</span> =&gt; <span class="hljs-number">7388</span>
+  ]
+}
+</code></pre>
+<p>Vous pouvez déterminer si un fichier est présent sur la requête en utilisant la méthode <code>hasFile</code>:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">if</span> ($request-&gt;hasFile(<span class="hljs-string">'photo'</span>)) {
+  <span class="hljs-comment">// code ici</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="validation-des-telechargements-reussis"></a><a href="#validation-des-telechargements-reussis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Validation des téléchargements réussis</h3>
+<p>Vous pouvez vérifier qu'il n'y a pas eu de problèmes lors du téléchargement avec la méthode <code>isUploaded</code>:</p>
+<pre><code class="hljs css language-php">$file = $request-&gt;file(<span class="hljs-string">'photo'</span>);
+
+<span class="hljs-keyword">if</span> ($file-&gt;isUploaded()) {
+  <span class="hljs-comment">// Code ici</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="savegarder-le-fichier"></a><a href="#savegarder-le-fichier" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Savegarder le fichier</h3>
+<p>Cela consiste juste à déplacer le fichier uploader dans une autre dossier et ceci grace à la methode <code>moveTo</code>.</p>
+<pre><code class="hljs css language-php">$file = $request-&gt;file(<span class="hljs-string">'photo'</span>);
+
+$file-&gt;moveTo(<span class="hljs-string">"/path/to/your/store/directory"</span>, $filename = <span class="hljs-keyword">null</span>);
+</code></pre>
+<p>Si <code>$filename</code> est <code>null</code>, sa valeur sera le nom du fichier hasher avec la methode <a href="https://bowphp.github.io/api/master/Bow/Http/UploadFile.html#method_getHashName"><code>getHashName</code></a>.</p>
+<p>Souvent dans le cas où vous attendez des fichiers envoyé via un formulaire dont le champs est sous la forme <code>photo[]</code>. la methode <code>file</code> retourne une <a href="https://bowphp.github.com/api/master/Bow/Support/Collection.html"><code>Bow\Support\Collection</code></a>:</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/upload"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">"multipart/form-data"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Fichier 1: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"photo[]"</span> <span class="hljs-attr">accept</span>=<span class="hljs-string">"image/png"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Fichier 2: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"photo[]"</span> <span class="hljs-attr">accept</span>=<span class="hljs-string">"image/png"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Uploader<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<p>Dans cette exemple, la methode <code>file</code> retournera une <a href="https://bowphp.github.com/api/master/Bow/Support/Collection.html"><code>Bow\Support\Collection</code></a> qui contiendra pour chaque oruccencre une instance de <a href="https://bowphp.github.com/api/master/Bow/Http/UploadFile.html"><code>Bow\Http\UploadFile</code></a>.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Request</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">UploadFile</span>;
+
+$app-&gt;get(<span class="hljs-string">'/upload'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Request $request)</span>
+</span>{
+  $files = $request-&gt;file(<span class="hljs-string">'photo'</span>);
+
+  <span class="hljs-keyword">if</span> (!$files-&gt;isEmpty()) {
+    $files-&gt;each(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(UploadFile $file)</span> </span>{
+      $file-&gt;moveTo(<span class="hljs-string">"/path/to/your/store/directory"</span>);
+    });
+  }
+});
+</code></pre>
+<blockquote>
+<p>N'hésitez pas à donner votre avis sur la qualité de la documentation ou proposez des correctifs.</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#acceder-a-la-request">Accéder à la Request</a></li><li><a href="#recuperation-des-donnees">Récupération des données</a><ul class="toc-headings"><li><a href="#via-des-closures-de-route">Via des Closures de route</a></li><li><a href="#via-un-controlleur">Via un controlleur</a></li></ul></li><li><a href="#chemin-de-requete-et-methode">Chemin de requête et méthode</a><ul class="toc-headings"><li><a href="#recuperer-le-chemin-de-requete">Récupérer le chemin de requête</a></li><li><a href="#recuperer-la-methode-de-requete">Récupérer la methode de requête</a></li><li><a href="#verifier-si-la-requete-est-en-ajax">Vérifier si la requete est en AJAX</a></li><li><a href="#recuperer-une-entree">Récupérer une entrée</a></li><li><a href="#recuperation-d-une-partie-des-donnees-d-entree">Récupération d'une partie des données d'entrée</a></li><li><a href="#determiner-si-une-valeur-d-entree-est-presente">Déterminer si une valeur d'entrée est présente</a></li><li><a href="#determiner-l-adresse-ip-de-client">Déterminer l'adresse IP de client</a></li><li><a href="#determiner-le-port-de-client">Déterminer le Port de client</a></li><li><a href="#determiner-le-protocol-de-client">Déterminer le protocol de client</a></li><li><a href="#recuperer-les-entete-https">Récupérer les entête-https</a></li><li><a href="#recuperer-le-ip-du-server">Récupérer le IP du server</a></li><li><a href="#recuperer-le-domaine-origin">Récupérer le domaine Origin</a></li><li><a href="#recuperer-le-temps-de-la-requete">Récupérer le temps de la requête</a></li></ul></li><li><a href="#fichier-uploader">Fichier uploader</a><ul class="toc-headings"><li><a href="#validation-des-telechargements-reussis">Validation des téléchargements réussis</a></li><li><a href="#savegarder-le-fichier">Savegarder le fichier</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Getting Started</a><a href="/docs/en/contribution.html">Do You want to contribute</a><a href="https://bowphp.github.io/api/master">API Reference (or other categories)</a></div><div><h5>Communité</h5><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://bowphp.slack.com/">Slack</a><a href="https://twitter.com/@franck_dakia" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>En plus</h5><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/bowphp/app/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Bowphp</section></footer></div></body></html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>database · Bow Framework</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Database"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="database · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.github.io/index.html"/><meta property="og:description" content="# Database"/><meta property="og:image" content="https://bowphp.github.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.github.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">Bow Framework</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/installation" target="_self">Documentation</a></li><li class=""><a href="https://bowphp.github.io/api/master" target="_self">API</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">database</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="database"></a><a href="#database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Database</h1>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#connexion-multiple">Connexion à plusieur Base de donnée</a></li>
+</ul></li>
+<li><a href="#introduction">requête SQL Brute</a>
+<ul>
+<li><a href="#execution-select">Execution de requête Select</a></li>
+<li><a href="#execution-insert">Execution de requête Insert</a></li>
+<li><a href="#execution-update">Execution de requête Update</a></li>
+<li><a href="#execution-delete">Execution de requête Delete</a></li>
+</ul></li>
+<li><a href="#migration">Migration</a>
+<ul>
+<li><a href="#ajouter-une-migration">Ajouter une migration</a></li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>Bow rend l'interaction avec les bases de données extrêmement simple sur deux backends de bases de données en utilisant le <code>SQL brut</code>, <code>le générateur de requêtes courant</code> et l'ORM Barry.</p>
+<p>Actuellement, Bow prend en charge deux bases de données:</p>
+<ul>
+<li>MySQL</li>
+<li>SQLite</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="configuration"></a><a href="#configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h3>
+<p>La configuration de la base donnée de votre application se localise dans le fihcier <code>config/db.php</code>. Dans ce fichier, vous pouvez definir tous les connections de votre base de donnée, as well as specify which connection should be used by default. Un exemple en plus definir pour tous les supports de base de donnée est defini dans le fichier.</p>
+<h3><a class="anchor" aria-hidden="true" id="sqlite-configuration"></a><a href="#sqlite-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SQLite Configuration</h3>
+<p>Après avoir créé une nouvelle base de données SQLite à l'aide d'une commande telle que <code>touch storage/database.sqlite</code>, vous pouvez facilement configurer vos variables d'environnement (dans le fichier <code>.env.json</code>) pour qu'elles pointent vers cette base de données nouvellement créée à l'aide du chemin absolu de la base de données:</p>
+<pre><code class="hljs css language-text">"DB_DEFAULT": "seconds",
+...
+"SQLITE_DATABASE": "/absolute/path/to/database.sqlite",
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="connexion-a-plusieur-base-de-donnee"></a><a href="#connexion-a-plusieur-base-de-donnee" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Connexion à plusieur Base de donnée</h3>
+<p>Lorsque vous utilisez plusieurs connexions, vous pouvez accéder à chaque connexion via la méthode static de <code>connexion</code> sur la classe de la <a href="https://bowphp.github.com/api/master/Bow/Database/Database.html"><code>Bow\Database\Database</code></a>. Le nom transmis à la méthode de connexion doit correspondre à l'une des points de connexions répertoriées dans votre fichier de configuration <code>config/db.php</code>:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+$users = Database::connection(<span class="hljs-string">'seconds'</span>)-&gt;select(...);
+</code></pre>
+<p>Ou via le helper <code>db</code>:</p>
+<pre><code class="hljs css language-php">$users = db(<span class="hljs-string">'seconds'</span>)-&gt;select(...);
+</code></pre>
+<p>Une fois la configuration changé elle est directement appliquer sur la connexion des Models. Cliquer ici pour plus d'information sur les models.</p>
+<h2><a class="anchor" aria-hidden="true" id="requete-sql-brute"></a><a href="#requete-sql-brute" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>requête SQL Brute</h2>
+<p>Les requête brute ici sont les requêtes SQL ecrite litteralement sans passer par un query builder.
+Dans cette section nous allons utiliser une table nommer <code>pets</code> pour effectuer nos requête avec.</p>
+<p>Voici la description de la table <code>pets</code>:</p>
+<pre><code class="hljs css language-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`pets`</span> (<span class="hljs-keyword">id</span> <span class="hljs-built_in">int</span> primary <span class="hljs-keyword">key</span>, <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">200</span>), color <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>));
+</code></pre>
+<p>Alors notre table à comme colonne:</p>
+<table>
+<thead>
+<tr><th>Nom de la colonne</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>id</code></td><td>Ici la clé primaire</td></tr>
+<tr><td><code>name</code></td><td>Le nom du pet</td></tr>
+<tr><td><code>color</code></td><td>La couleur du pet</td></tr>
+</tbody>
+</table>
+<blockquote>
+<p>Pour information, un <code>pet</code> c'est un animal domestique</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="execution-de-requete-select"></a><a href="#execution-de-requete-select" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execution de requête Select</h3>
+<p>Pour executer une requête brute de type <code>SELECT</code> nous devrez utiliser la methode <code>Database::select</code> ou le helper <code>select</code>. On considère notre table <code>pets</code> et que nous sommes bien connectés à la base de donnée.</p>
+<p>Execution d'un requête pour optenir tous les informations de la table <code>pets</code>:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+$pets = Database::select(<span class="hljs-string">'select * from pets'</span>);
+</code></pre>
+<p>Via helper <code>select</code>:</p>
+<pre><code class="hljs css language-php">$pets = select(<span class="hljs-string">'select * from pets'</span>);
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="selection-conditionnel"></a><a href="#selection-conditionnel" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sélection conditionnel</h4>
+<p>Execution d'un requête pour optenir tous les informations de la table <code>pets</code> quand <code>id</code> égale à 1:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+$pet = Database::select(<span class="hljs-string">'select * from pets where id = :id'</span>, [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">1</span>]);
+</code></pre>
+<p>Via helper <code>select</code>:</p>
+<pre><code class="hljs css language-php">$pet = select(<span class="hljs-string">'select * from pets where id = :id'</span>, [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">1</span>]);
+</code></pre>
+<p>Notez que la valeur retournée par la methode <code>select</code> est un <code>array</code> ou <code>null</code> s'il y a aucune informations.
+Dans le cas ou c'est un <code>array</code> le contenu est de type <code>stClass</code> (plus d'information sur <a href="http://php.net/manual/fr/language.types.object.php">stClass</a>).</p>
+<h3><a class="anchor" aria-hidden="true" id="execution-de-requete-insert"></a><a href="#execution-de-requete-insert" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execution de requête Insert</h3>
+<p>Pour executer une requête brute de type <code>INSERT</code> nous devrez utiliser la methode <code>Database::insert</code> ou le helper <code>insert</code>. On considère toujour notre table <code>pets</code> et que nous sommes bien connectés à la base de donnée.</p>
+<p>Execution d'un requête pour inserer une information dans table <code>pets</code>:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+
+$pet = [
+  <span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">1</span>,
+  <span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Medor'</span>,
+  <span class="hljs-string">'color'</span> =&gt; <span class="hljs-string">'Green'</span>
+];
+
+$inserted = Database::insert(<span class="hljs-string">'insert into pets (id, name, color) values (:id, :name, :color);'</span>, $pet);
+</code></pre>
+<p>Via helper <code>insert</code>:</p>
+<pre><code class="hljs css language-php">$pet = [
+  <span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">2</span>,
+  <span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Mashmalo'</span>,
+  <span class="hljs-string">'color'</span> =&gt; <span class="hljs-string">'White'</span>
+];
+
+$inserted = insert(<span class="hljs-string">'insert into pets (id, name, color) values (:id, :name, :color);'</span>, $pet);
+</code></pre>
+<p>Notez que la valeur retournée par la methode <code>insert</code> est un <code>int</code> ou <code>number</code> qui est le nombre d'insertion.</p>
+<h4><a class="anchor" aria-hidden="true" id="insertion-multiple"></a><a href="#insertion-multiple" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Insertion multiple</h4>
+<p>Vous avez aussi la possibilité d'inserer plusieurs enregistrements en même temps.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+<span class="hljs-comment">// Liste de pets</span>
+$pets = [
+  [
+    <span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">1</span>,
+    <span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Medor'</span>,
+    <span class="hljs-string">'color'</span> =&gt; <span class="hljs-string">'Black'</span>
+  ],
+  [
+    <span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">2</span>,
+    <span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Milou'</span>,
+    <span class="hljs-string">'color'</span> =&gt; <span class="hljs-string">'Gay'</span>
+  ]
+];
+
+$inserted = Database::insert(<span class="hljs-string">'insert into pets (id, name, color) values (:id, :name, :color);'</span>, $pets);
+</code></pre>
+<p>Via helper <code>insert</code>:</p>
+<pre><code class="hljs css language-php">$updated = insert(<span class="hljs-string">'insert into pets (id, name, color) values (:id, :name, :color);'</span>, $pets);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="execution-de-requete-update"></a><a href="#execution-de-requete-update" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execution de requête Update</h3>
+<p>Pour executer une requête brute de type <code>UPDATE</code> nous devrez utiliser la methode <code>Database::update</code> ou le helper <code>update</code>. On considère toujour notre table <code>pets</code> et que nous sommes bien connectés à la base de donnée.</p>
+<p>Execution d'un requête de mettre à jour d'information dans table <code>pets</code>:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+
+$pet = [
+  <span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">1</span>,
+  <span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Medora'</span>,
+  <span class="hljs-string">'color'</span> =&gt; <span class="hljs-string">'Purple'</span>
+];
+
+$updated = Database::update(<span class="hljs-string">'update pets set id = :id, name=:name, color=:color where id = :id'</span>, $pet);
+</code></pre>
+<p>Via le helper <code>update</code>:</p>
+<pre><code class="hljs css language-php">$pet = [
+  <span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">2</span>,
+  <span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Spark'</span>,
+  <span class="hljs-string">'color'</span> =&gt; <span class="hljs-string">'Yellow'</span>
+];
+
+$updated = update(<span class="hljs-string">'update pets set id=:id, name=:name, color=:color where id = :id'</span>, $pet);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="execution-de-requete-delete"></a><a href="#execution-de-requete-delete" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execution de requête Delete</h3>
+<p>Pour executer une requête brute de type <code>DELETE</code> nous devrez utiliser la methode <code>Database::delete</code> ou le helper <code>delete</code>. On considère toujour notre table <code>pets</code> et que nous sommes bien connectés à la base de donnée.</p>
+<p>Execution d'un requête pour inserer une information dans table <code>pets</code>:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+$deleted = Database::delete(<span class="hljs-string">'delete from pets where id = :id'</span>, [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">1</span>]);
+</code></pre>
+<p>Via le helper <code>delete</code>:</p>
+<pre><code class="hljs css language-php">$deleted = delete(<span class="hljs-string">'delete from pets where id = :id'</span>, [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">2</span>]);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="execution-de-requete"></a><a href="#execution-de-requete" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execution de requête</h3>
+<p>Pour executer une requête brute autre que <code>SELECT</code>, <code>UPDATE</code>, <code>INSERT</code>, <code>DELETE</code>. Il y a une methode faite pour <code>Database::statement</code> ou le helper <code>statement</code>.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+Database::statement(<span class="hljs-string">'alter table `pets` add `owner` varchar(80) default null;'</span>);
+</code></pre>
+<p>Via le helper <code>statement</code>:</p>
+<pre><code class="hljs css language-php">statement(<span class="hljs-string">'alter table `pets` add `owner` varchar(80) default null;'</span>);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="migration"></a><a href="#migration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Migration</h2>
+<p>Les migrations sont un moyen pour versionner votre base de donnée qui évolue souvent avec les modifications de l'application.</p>
+<p>Les migrations sont sauvegardés dans le dossier <code>db/migration</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="ajouter-une-migration"></a><a href="#ajouter-une-migration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ajouter une migration</h3>
+<p>Pour ajouter une migration il faut passer par <code>php bow</code> avec la commande <code>add:migration</code> ensuite le nom de la migration(ex: <code>create_todos_table</code>). Bow créra un fichier du même nom précédé d'une date de création.</p>
+<p>Si vous voulez ajouter directement le nom de table dans la migration, ajouter le flag <code>--create=nom_de_table</code> ou <code>--table=nom_de_table</code>.</p>
+<pre><code class="hljs css language-bash">php bow add:migration create_todos_table --create=todos
+</code></pre>
+<p>Dans le fichier créé:</p>
+<pre><code class="hljs css language-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Migration</span>\<span class="hljs-title">Schema</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Migration</span>\<span class="hljs-title">Migration</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Migration</span>\<span class="hljs-title">TablePrinter</span> <span class="hljs-title">as</span> <span class="hljs-title">Printer</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CreatTodosTable</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Migration</span>
+</span>{
+  <span class="hljs-comment">/**
+   * create Table
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">up</span><span class="hljs-params">()</span>
+  </span>{
+    Schema::create(<span class="hljs-string">"users"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Printer $table)</span> </span>{
+      $table-&gt;increment(<span class="hljs-string">'id'</span>);
+      $table-&gt;timestamps();
+    });
+  }
+
+  <span class="hljs-comment">/**
+   * Drop Table
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">down</span><span class="hljs-params">()</span>
+  </span>{
+    Schema::drop(<span class="hljs-string">"users"</span>);
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="liste-de-methode"></a><a href="#liste-de-methode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Liste de méthode</h3>
+<table>
+<thead>
+<tr><th>Method</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>integer</code></td><td>Ajout une colonne de type <code>INT</code></td></tr>
+<tr><td><code>tinyInteger</code></td><td>Ajout une colonne de type <code>TINYINTEGER</code></td></tr>
+<tr><td><code>boolean</code></td><td>Ajout une colonne de type <code>TINYINTEGER</code></td></tr>
+<tr><td><code>smallInteger</code></td><td>Permet d'ajouter une colonne de type <code>SMALLINTEGER</code></td></tr>
+<tr><td><code>mediumInteger</code></td><td>Permet d'ajouter une colonne de type <code>MEDIUMINTEGER</code></td></tr>
+<tr><td><code>bigInteger</code></td><td>Permet d'ajouter une colonne de type</td></tr>
+<tr><td><code>float</code></td><td>Permet d'ajouter une colonne de type <code>FLOAT</code></td></tr>
+<tr><td><code>string</code></td><td>Permet d'ajouter une colonne de type <code>VARCHAR</code></td></tr>
+<tr><td><code>longText</code></td><td>Permet d'ajouter une colonne de type <code>LONGTEXT</code></td></tr>
+<tr><td><code>mediumText</code></td><td>Permet d'ajouter une colonne de type <code>MEDIUMTEXT</code></td></tr>
+<tr><td><code>tinyText</code></td><td>Permet d'ajouter une colonne de type <code>TINYTEXT</code></td></tr>
+<tr><td><code>text</code></td><td>Permet d'ajouter une colonne de type <code>TEXT</code></td></tr>
+<tr><td><code>binary</code></td><td>Permet d'ajouter une colonne de type <code>BINARY</code></td></tr>
+<tr><td><code>blob</code></td><td>Permet d'ajouter une colonne de type <code>BLOB</code></td></tr>
+<tr><td><code>tinyBlob</code></td><td>Permet d'ajouter une colonne de type <code>TINYBLOB</code></td></tr>
+<tr><td><code>longBlob</code></td><td>Permet d'ajouter une colonne de type <code>LONGBLOB</code></td></tr>
+<tr><td><code>mediumBlob</code></td><td>Permet d'ajouter une colonne de type <code>MEDIUMBLOB</code></td></tr>
+<tr><td><code>date</code></td><td>Permet d'ajouter une colonne de type <code>DATE</code></td></tr>
+<tr><td><code>year</code></td><td>Permet d'ajouter une colonne de type <code>YEAR</code></td></tr>
+<tr><td><code>time</code></td><td>Permet d'ajouter une colonne de type <code>TIME</code></td></tr>
+<tr><td><code>dateTime</code></td><td>Permet d'ajouter une colonne de type <code>DATETIME</code></td></tr>
+<tr><td><code>timestamps</code></td><td>Permet d'ajouter une colonne de type <code>TIMESTAMPS</code></td></tr>
+<tr><td><code>longInteger</code></td><td>Permet d'ajouter une colonne de type <code>LONGINTEGER</code></td></tr>
+<tr><td><code>character</code></td><td>Permet d'ajouter une colonne de type <code>CHARACTER</code></td></tr>
+<tr><td><code>enumerate</code></td><td>Permet d'ajouter une colonne de type <code>ENUMERATE</code></td></tr>
+<tr><td><code>increment</code></td><td>Permet d'ajouter une colonne de type <code>INCREMENT</code></td></tr>
+<tr><td><code>primary</code></td><td>Permet d'ajouter une colonne de type <code>PRIMARY</code></td></tr>
+<tr><td><code>indexe</code></td><td>Permet d'ajouter une colonne de type <code>INDEXE</code></td></tr>
+<tr><td><code>unique</code></td><td>Permet d'ajouter une colonne de type <code>UNIQUE</code></td></tr>
+</tbody>
+</table>
+<blockquote>
+<p>N'hésitez pas à donner votre avis sur la qualité de la documentation ou proposez des correctifs.</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a><ul class="toc-headings"><li><a href="#configuration">Configuration</a></li><li><a href="#sqlite-configuration">SQLite Configuration</a></li><li><a href="#connexion-a-plusieur-base-de-donnee">Connexion à plusieur Base de donnée</a></li></ul></li><li><a href="#requete-sql-brute">requête SQL Brute</a><ul class="toc-headings"><li><a href="#execution-de-requete-select">Execution de requête Select</a></li><li><a href="#execution-de-requete-insert">Execution de requête Insert</a></li><li><a href="#execution-de-requete-update">Execution de requête Update</a></li><li><a href="#execution-de-requete-delete">Execution de requête Delete</a></li><li><a href="#execution-de-requete">Execution de requête</a></li></ul></li><li><a href="#migration">Migration</a><ul class="toc-headings"><li><a href="#ajouter-une-migration">Ajouter une migration</a></li><li><a href="#liste-de-methode">Liste de méthode</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Getting Started</a><a href="/docs/en/contribution.html">Do You want to contribute</a><a href="https://bowphp.github.io/api/master">API Reference (or other categories)</a></div><div><h5>Communité</h5><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://bowphp.slack.com/">Slack</a><a href="https://twitter.com/@franck_dakia" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>En plus</h5><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/bowphp/app/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Bowphp</section></footer></div></body></html>
