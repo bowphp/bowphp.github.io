@@ -1,0 +1,15 @@
+{
+  "docs": {
+    "Demarrage": [
+      "installation",
+      "contribution"
+    ],
+    "Database": [
+      "geting-started"
+    ],
+    "Second Category": ["doc3"]
+  },
+  "docs-other": {
+    "First Category": ["doc4", "doc5"]
+  }
+}
