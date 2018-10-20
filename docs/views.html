@@ -84,19 +84,27 @@ Cette utilise la methode <code>parse</code>.</p>
 <tr><th>paramètre</th><th>type</th><th>description</th></tr>
 </thead>
 <tbody>
-<tr><td>view</td><td>String</td><td>Le chemin de la vue sachant dans le moteur se base sur le dossier des vues</td></tr>
-<tr><td>data</td><td>Array, Object</td><td>Les données a passé à la vue</td></tr>
-<tr><td>status</td><td>Integer</td><td>Le code http</td></tr>
+<tr><td><code>view</code></td><td><code>String</code></td><td>Le chemin de la vue sachant dans le moteur se base sur le dossier des vues</td></tr>
+<tr><td><code>data</code></td><td><code>Array</code>, <code>Object</code></td><td>Les données a passé à la vue</td></tr>
+<tr><td><code>status</code></td><td><code>Integer</code></td><td>Le code http</td></tr>
 </tbody>
 </table>
 <pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">View</span>\<span class="hljs-title">View</span>;
+
 <span class="hljs-keyword">echo</span> View::parse(<span class="hljs-string">'nom-de-la-vue-sans-extension'</span>);
 </code></pre>
-<p>Pour passer des variables a la vue</p>
+<p>Pour passer des variables à la vue</p>
 <pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">View</span>\<span class="hljs-title">View</span>;
-<span class="hljs-keyword">echo</span> View::parse(<span class="hljs-string">'nom-de-la-vue-sans-extension'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'bow'</span>], <span class="hljs-number">200</span>);
+
+<span class="hljs-keyword">echo</span> View::parse(
+  <span class="hljs-string">'nom-de-la-vue-sans-extension'</span>,
+  [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'bow'</span>],
+  <span class="hljs-number">200</span>
+);
 </code></pre>
+<blockquote>
 <p>Vous pouvez utiliser le helper <code>view</code> qui s'utilise de la même façon.</p>
+</blockquote>
 <p>Avec la vue suivante:</p>
 <pre><code class="hljs css language-twig"><span class="xml"><span class="hljs-comment">&lt;!-- View stored in components/views/greeting.twig --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
@@ -191,4 +199,4 @@ Mustache-PHP est une réécriture de pour PHP avec les mêmes fonctionnalités.<
 <blockquote>
 <p>N'hésitez pas à donner votre avis sur la qualité de la documentation ou proposez des correctifs.</p>
 </blockquote>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/i18n"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/storage"><span>Next</span><span class="arrow-next"> →</span></a></div><p style="font-size:12px;text-align:right"><strong>Last updated: </strong>2018-10-19 17:30:51</p></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#package-supplementaire">Package supplementaire</a></li><li><a href="#creation-de-vue">Création de vue</a><ul class="toc-headings"><li><a href="#utilisation">Utilisation</a></li></ul></li><li><a href="#vue-avec-twig">Vue avec Twig</a></li><li><a href="#vue-avec-pug-php">Vue avec Pug PHP</a></li><li><a href="#vue-avec-mustache-php">Vue avec Mustache PHP</a><ul class="toc-headings"><li><a href="#plugin">Plugin</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Getting Started</a><a href="/docs/en/contribution.html">Do You want to contribute</a><a href="https://bowphp.github.io/api/master">API Reference (or other categories)</a></div><div><h5>Communité</h5><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://bowphp.slack.com/">Slack</a><a href="https://twitter.com/@franck_dakia" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>En plus</h5><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/bowphp/app/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Franck DAKIA</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/i18n"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/storage"><span>Next</span><span class="arrow-next"> →</span></a></div><p style="font-size:12px;text-align:right"><strong>Last updated: </strong>2018-10-20 15:50:02</p></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#package-supplementaire">Package supplementaire</a></li><li><a href="#creation-de-vue">Création de vue</a><ul class="toc-headings"><li><a href="#utilisation">Utilisation</a></li></ul></li><li><a href="#vue-avec-twig">Vue avec Twig</a></li><li><a href="#vue-avec-pug-php">Vue avec Pug PHP</a></li><li><a href="#vue-avec-mustache-php">Vue avec Mustache PHP</a><ul class="toc-headings"><li><a href="#plugin">Plugin</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Getting Started</a><a href="/docs/en/contribution.html">Do You want to contribute</a><a href="https://bowphp.github.io/api/master">API Reference (or other categories)</a></div><div><h5>Communité</h5><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://bowphp.slack.com/">Slack</a><a href="https://twitter.com/@franck_dakia" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>En plus</h5><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/bowphp/app/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Franck DAKIA</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>

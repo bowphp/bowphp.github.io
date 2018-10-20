@@ -36,4 +36,52 @@
         </script></nav></div><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/bowphp/docs/edit/3.0/docs/cli.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">CLI Commands</h1></header><article><div><span><blockquote>
 <p>Section en rédaction</p>
 </blockquote>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/http-session"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/plugin"><span>Next</span><span class="arrow-next"> →</span></a></div><p style="font-size:12px;text-align:right"><strong>Last updated: </strong>2018-10-19 17:30:51</p></div></div><nav class="onPageNav docOnPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Getting Started</a><a href="/docs/en/contribution.html">Do You want to contribute</a><a href="https://bowphp.github.io/api/master">API Reference (or other categories)</a></div><div><h5>Communité</h5><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://bowphp.slack.com/">Slack</a><a href="https://twitter.com/@franck_dakia" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>En plus</h5><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/bowphp/app/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Franck DAKIA</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
+<p>Create create a user class</p>
+<pre><code class="hljs">[option]
+--no-plain              Create a plain controller [available in add:controller]
+-m                      Create a migration [available in add:model]
+--create                Create a migration for create table [available in add:migration]
+--table                 Create a migration for alter table [available in add:migration]
+
+* you can use --no-plain --with-model in same command
+
+$ php bow add:controller name [option]  For create a new controlleur
+$ php bow add:middleware name           For create a new middleware
+$ php bow add:service name              For create a new service
+$ php bow add:model name [option]       For create a new model
+$ php bow add:validation name           For create a new validator
+$ php bow add:seeder name [--n-seed=n]  For create a new table seeder
+$ php bow add:migration name            For create a new table migration
+$ php bow add help                      For display this
+</code></pre>
+<p>Generate create a resource and app key</p>
+<p>Option</p>
+<ul>
+<li>--model   Define the usable model</li>
+</ul>
+<pre><code class="hljs css language-sh">$ php bow generate:resource name             For create a new REST controller
+$ php bow generate:key                       For generate a new APP KEY
+$ php bow generate <span class="hljs-built_in">help</span>                      For display this
+</code></pre>
+<p>Migrate apply a migration in user model
+[option]
+--all                 Optionnel
+--display-sql         Display rendered sql code</p>
+<pre><code class="hljs">$ php bow migrate:up name [option]  Up the specify migration
+$ php bow migrate:down name         Down migration
+$ php bow migrate [--all]           Up all defined migration
+$ php bow migrate help              For display this
+</code></pre>
+<p>Run for launch repl and local server
+Option: run:server [--port=5000] [--host=localhost] [--php-settings=&quot;display_errors=on&quot;]
+Option: run:console [--include=filename.php]</p>
+<p>$ php bow run:console [option] Show psysh php REPL
+$ php bow run:server [option]  Start local developpement server</p>
+<p>Clear for clear cache information</p>
+<p>$ php bow clear:view        Clear view cached information
+$ php bow clear:cache       Clear cache information
+$ php bow clear:all         Clear all cache information</p>
+<p>Make table seeding
+$ php bow seed:all               Make seeding for all
+$ php bow seed:table table_name  Make seeding for one table</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/http-session"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/plugin"><span>Next</span><span class="arrow-next"> →</span></a></div><p style="font-size:12px;text-align:right"><strong>Last updated: </strong>2018-10-20 15:50:02</p></div></div><nav class="onPageNav docOnPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Getting Started</a><a href="/docs/en/contribution.html">Do You want to contribute</a><a href="https://bowphp.github.io/api/master">API Reference (or other categories)</a></div><div><h5>Communité</h5><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://bowphp.slack.com/">Slack</a><a href="https://twitter.com/@franck_dakia" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>En plus</h5><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/bowphp/app/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Franck DAKIA</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
