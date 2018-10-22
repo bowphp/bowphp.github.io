@@ -3,6 +3,7 @@
 <url> <loc>https://bowphp.github.io/help</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/en/help" /> </url>
 <url> <loc>https://bowphp.github.io/index</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/en/index" /> </url>
 <url> <loc>https://bowphp.github.io/users</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/en/users" /> </url>
+<url> <loc>https://bowphp.github.io/docs/blade</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/blade" /> </url>
 <url> <loc>https://bowphp.github.io/docs/cli</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/cli" /> </url>
 <url> <loc>https://bowphp.github.io/docs/contribution</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/contribution" /> </url>
 <url> <loc>https://bowphp.github.io/docs/controlleur</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/controlleur" /> </url>
@@ -16,12 +17,15 @@
 <url> <loc>https://bowphp.github.io/docs/mixfile</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/mixfile" /> </url>
 <url> <loc>https://bowphp.github.io/docs/orm</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/orm" /> </url>
 <url> <loc>https://bowphp.github.io/docs/plugin</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/plugin" /> </url>
+<url> <loc>https://bowphp.github.io/docs/policier</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/policier" /> </url>
 <url> <loc>https://bowphp.github.io/docs/http-request</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/http-request" /> </url>
 <url> <loc>https://bowphp.github.io/docs/http-response</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/http-response" /> </url>
 <url> <loc>https://bowphp.github.io/docs/routing</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/routing" /> </url>
 <url> <loc>https://bowphp.github.io/docs/seeding</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/seeding" /> </url>
 <url> <loc>https://bowphp.github.io/docs/http-session</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/http-session" /> </url>
+<url> <loc>https://bowphp.github.io/docs/sms</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/sms" /> </url>
 <url> <loc>https://bowphp.github.io/docs/storage</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/storage" /> </url>
 <url> <loc>https://bowphp.github.io/docs/structure</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/structure" /> </url>
+<url> <loc>https://bowphp.github.io/docs/tintin</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/tintin" /> </url>
 <url> <loc>https://bowphp.github.io/docs/views</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/views" /> </url>
 </urlset>
