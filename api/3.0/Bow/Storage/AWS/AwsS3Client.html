@@ -23,12 +23,6 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                    <form action="#" method="GET">
-                <select id="version-switcher" name="version">
-                                            <option value="../../../../3.0/index.html" data-version="3.0">3.0 branch</option>
-                                            <option value="../../../../master/index.html" data-version="master">master branch</option>
-                                    </select>
-            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -224,7 +218,7 @@
                     mixed
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_store">store</a>(array $file, string $location, int $size, array $extension, callable $cb)
+                    <a href="#method_store">store</a>(array $file, string $location, array $option = [])
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -761,7 +755,7 @@
                     <h3 id="method_store">
         <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Storage/AWS/AwsS3Client.php#L146">line 146</a></div>
         <code>                    mixed
-    <strong>store</strong>(array $file, string $location, int $size, array $extension, callable $cb)
+    <strong>store</strong>(array $file, string $location, array $option = [])
         </code>
     </h3>
     <div class="details">
@@ -775,7 +769,7 @@
                     <tr>
                 <td>array</td>
                 <td>$file</td>
-                <td>information sur le fichier, $_FILES</td>
+                <td></td>
             </tr>
                     <tr>
                 <td>string</td>
@@ -783,18 +777,8 @@
                 <td></td>
             </tr>
                     <tr>
-                <td>int</td>
-                <td>$size</td>
-                <td></td>
-            </tr>
-                    <tr>
                 <td>array</td>
-                <td>$extension</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>callable</td>
-                <td>$cb</td>
+                <td>$option</td>
                 <td></td>
             </tr>
             </table>
