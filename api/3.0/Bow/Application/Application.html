@@ -137,7 +137,7 @@
                     <a href="../../Bow/Application/Application.html"><abbr title="Bow\Application\Application">Application</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_middleware">middleware</a>($middlewares)
+                    <a href="#method_middleware">middleware</a>(array $middlewares)
         
                                             <p>Permet d'associer un middleware global sur une url</p>                </div>
                 <div class="col-md-2"></div>
@@ -492,7 +492,7 @@ dans la réponse de la réquête.</p>                </div>
                     <h3 id="method_middleware">
         <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L210">line 210</a></div>
         <code>                    <a href="../../Bow/Application/Application.html"><abbr title="Bow\Application\Application">Application</abbr></a>
-    <strong>middleware</strong>($middlewares)
+    <strong>middleware</strong>(array $middlewares)
         </code>
     </h3>
     <div class="details">
@@ -506,7 +506,7 @@ dans la réponse de la réquête.</p>                </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>array</td>
                 <td>$middlewares</td>
                 <td></td>
             </tr>
@@ -570,7 +570,7 @@ dans la réponse de la réquête.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_get">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L285">line 285</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L281">line 281</a></div>
         <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
     <strong>get</strong>(string $path, callable|string|array $cb)
         </code>
@@ -615,7 +615,7 @@ dans la réponse de la réquête.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_post">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L297">line 297</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L293">line 293</a></div>
         <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
     <strong>post</strong>(string $path, callable|string|array $cb)
         </code>
@@ -660,7 +660,7 @@ dans la réponse de la réquête.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_any">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L324">line 324</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L320">line 320</a></div>
         <code>                    <a href="../../Bow/Application/Application.html"><abbr title="Bow\Application\Application">Application</abbr></a>
     <strong>any</strong>(string $path, callable|string|array $cb)
         </code>
@@ -714,7 +714,7 @@ dans la réponse de la réquête.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_delete">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L340">line 340</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L336">line 336</a></div>
         <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
     <strong>delete</strong>(string $path, callable|string|array $cb)
         </code>
@@ -759,7 +759,7 @@ dans la réponse de la réquête.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_put">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L352">line 352</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L348">line 348</a></div>
         <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
     <strong>put</strong>(string $path, callable|string|array $cb)
         </code>
@@ -804,7 +804,7 @@ dans la réponse de la réquête.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_patch">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L364">line 364</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L360">line 360</a></div>
         <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
     <strong>patch</strong>(string $path, callable|string|array $cb)
         </code>
@@ -849,7 +849,7 @@ dans la réponse de la réquête.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_options">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L376">line 376</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L372">line 372</a></div>
         <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
     <strong>options</strong>(string $path, callable $cb)
         </code>
@@ -894,7 +894,7 @@ dans la réponse de la réquête.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_code">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L388">line 388</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L384">line 384</a></div>
         <code>                    <a href="../../Bow/Application/Application.html"><abbr title="Bow\Application\Application">Application</abbr></a>
     <strong>code</strong>(int $code, callable $cb)
         </code>
@@ -939,7 +939,7 @@ dans la réponse de la réquête.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_match">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L403">line 403</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L399">line 399</a></div>
         <code>                    <a href="../../Bow/Application/Application.html"><abbr title="Bow\Application\Application">Application</abbr></a>
     <strong>match</strong>(array $methods, string $path, callable|string|array $cb)
         </code>
@@ -989,7 +989,7 @@ dans la réponse de la réquête.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_send">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L474">line 474</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L470">line 470</a></div>
         <code>                    mixed
     <strong>send</strong>()
         </code>
@@ -1028,7 +1028,7 @@ dans la réponse de la réquête.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_disableXpoweredBy">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L586">line 586</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L580">line 580</a></div>
         <code>                    void
     <strong>disableXpoweredBy</strong>()
         </code>
@@ -1059,7 +1059,7 @@ dans la réponse de la réquête.</p>                                           
             </div>
                     <div class="method-item">
                     <h3 id="method_rest">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L601">line 601</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L595">line 595</a></div>
         <code>                    <a href="../../Bow/Application/Application.html"><abbr title="Bow\Application\Application">Application</abbr></a>
     <strong>rest</strong>(string $url, string|array $controller_name, array $where = [])
         </code>
@@ -1118,7 +1118,7 @@ dans la réponse de la réquête.</p>                                           
             </div>
                     <div class="method-item">
                     <h3 id="method___call">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L651">line 651</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L645">line 645</a></div>
         <code>                    mixed
     <strong>__call</strong>(string $method, array $param)
         </code>
@@ -1172,7 +1172,7 @@ dans la réponse de la réquête.</p>                                           
             </div>
                     <div class="method-item">
                     <h3 id="method_abort">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L674">line 674</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L668">line 668</a></div>
         <code>                    void
     <strong>abort</strong>($code = 500, $message = &#039;&#039;, array $headers = [])
         </code>
@@ -1231,7 +1231,7 @@ dans la réponse de la réquête.</p>                                           
             </div>
                     <div class="method-item">
                     <h3 id="method_container">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L697">line 697</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L691">line 691</a></div>
         <code>                    <a href="../../Bow/Support/Capsule.html"><abbr title="Bow\Support\Capsule">Capsule</abbr></a>|mixed
     <strong>container</strong>(null $name = null, callable $callable = null)
         </code>
@@ -1285,7 +1285,7 @@ dans la réponse de la réquête.</p>                                           
             </div>
                     <div class="method-item">
                     <h3 id="method___invoke">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L723">line 723</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/3.0/src/Application/Application.php#L717">line 717</a></div>
         <code>                    <a href="../../Bow/Support/Capsule.html"><abbr title="Bow\Support\Capsule">Capsule</abbr></a>
     <strong>__invoke</strong>(array ...$params)
         </code>

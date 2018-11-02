@@ -23,12 +23,6 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                    <form action="#" method="GET">
-                <select id="version-switcher" name="version">
-                                            <option value="../../../3.0/index.html" data-version="3.0">3.0 branch</option>
-                                            <option value="../../../master/index.html" data-version="master">master branch</option>
-                                    </select>
-            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -228,7 +222,7 @@
                     static&nbsp;string
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_unique">unique</a>(string $type)
+                    <a href="#method_unique">unique</a>(string $type = &#039;integer&#039;)
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -623,7 +617,7 @@
                     <h3 id="method_unique">
         <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Faker.php#L173">line 173</a></div>
         <code>        static            string
-    <strong>unique</strong>(string $type)
+    <strong>unique</strong>(string $type = &#039;integer&#039;)
         </code>
     </h3>
     <div class="details">

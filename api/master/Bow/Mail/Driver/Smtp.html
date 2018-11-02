@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Database\Migration\Migration | Bow Framework API</title>
+    <title>Bow\Mail\Driver\Smtp | Bow Framework API</title>
 
             <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:Bow_Database_Migration_Migration" data-root-path="../../../">
+    <body id="class" data-name="class:Bow_Mail_Driver_Smtp" data-root-path="../../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -66,49 +66,31 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../../Bow/Database.html">Database</a></li><li class="backslash">\</li><li><a href="../../../Bow/Database/Migration.html">Migration</a></li><li class="backslash">\</li><li>Migration</li>
+                        <li><a href="../../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../../Bow/Mail.html">Mail</a></li><li class="backslash">\</li><li><a href="../../../Bow/Mail/Driver.html">Driver</a></li><li class="backslash">\</li><li>Smtp</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            Migration
+            Smtp
                 
         </h1>
     </div>
 
-    <p>abstract     class
-    <strong>Migration</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Database/Migration/Migration.php">View source</a>)
+    <p>    class
+    <strong>Smtp</strong>        implements
+        <a href="../../../Bow/Mail/Send.html"><abbr title="Bow\Mail\Send">Send</abbr></a>        (<a href="https://github.com/bowphp/framework/blob/master/src/Mail/Driver/Smtp.php">View source</a>)
 </p>
 
         
     
 
+            <div class="description">
+            <p>Class Smtp</p>                                </div>
     
     
     
-            <h2>Properties</h2>
-
-            <table class="table table-condensed">
-                    <tr>
-                <td class="type" id="property_table">
-                    static                    protected                                        string
-                </td>
-                <td>$table</td>
-                <td class="last">Le nom de la table.</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type" id="property_marks">
-                    static                    protected                                        array
-                </td>
-                <td>$marks</td>
-                <td class="last">Le marsque</td>
-                <td></td>
-            </tr>
-            </table>
-
     
             <h2>Methods</h2>
 
@@ -118,19 +100,19 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_up">up</a>()
+                    <a href="#method___construct">__construct</a>(array $param)
         
-                                            <p>Crér ou Met à jour une table</p>                </div>
+                                            <p>Constructor</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    mixed
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_down">down</a>()
+                    <a href="#method_send">send</a>(<a href="../../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a> $message)
         
-                                            <p>Supprimer ou Met à jour une table</p>                </div>
+                                            <p>Lance l'envoie de mail</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -140,10 +122,10 @@
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method_up">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Migration/Migration.php#L24">line 24</a></div>
-        <code>    abstract                
-    <strong>up</strong>()
+                    <h3 id="method___construct">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Driver/Smtp.php#L67">line 67</a></div>
+        <code>                    
+    <strong>__construct</strong>(array $param)
         </code>
     </h3>
     <div class="details">
@@ -151,8 +133,18 @@
     
 
                     <div class="method-description">
-                                    <p>Crér ou Met à jour une table</p>                                                </div>
+                                    <p>Constructor</p>                                                </div>
                 <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$param</td>
+                <td></td>
+            </tr>
+            </table>
+
             
             
             
@@ -161,10 +153,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_down">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Migration/Migration.php#L29">line 29</a></div>
-        <code>    abstract                
-    <strong>down</strong>()
+                    <h3 id="method_send">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Driver/Smtp.php#L98">line 98</a></div>
+        <code>                    mixed
+    <strong>send</strong>(<a href="../../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a> $message)
         </code>
     </h3>
     <div class="details">
@@ -172,10 +164,42 @@
     
 
                     <div class="method-description">
-                                    <p>Supprimer ou Met à jour une table</p>                                                </div>
+                                    <p>Lance l'envoie de mail</p>                                                </div>
                 <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a></td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
             
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Bow/Mail/Exception/SocketException.html"><abbr title="Bow\Mail\Exception\SocketException">SocketException</abbr></a></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a target="_blank" href="http://php.net/ErrorException">ErrorException</a></td>
+                <td></td>
+            </tr>
+            </table>
+
             
                     </div>
     </div>

@@ -23,12 +23,6 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                    <form action="#" method="GET">
-                <select id="version-switcher" name="version">
-                                            <option value="../../../3.0/index.html" data-version="3.0">3.0 branch</option>
-                                            <option value="../../../master/index.html" data-version="master">master branch</option>
-                                    </select>
-            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -91,8 +85,6 @@
         
     
 
-            <div class="description">
-            <p>Class Mail</p>                                </div>
     
     
     
@@ -107,18 +99,27 @@
                 <div class="col-md-8 type">
                     <a href="#method___construct">__construct</a>(array $config = [])
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Mail constructor</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;<a href="../../Bow/Mail/SimpleMail.html"><abbr title="Bow\Mail\SimpleMail">SimpleMail</abbr></a>|<a href="../../Bow/Mail/Smtp.html"><abbr title="Bow\Mail\Smtp">Smtp</abbr></a>
+                    static&nbsp;<a href="../../Bow/Mail/Driver/SimpleMail.html"><abbr title="Bow\Mail\Driver\SimpleMail">SimpleMail</abbr></a>|<a href="../../Bow/Mail/Driver/Smtp.html"><abbr title="Bow\Mail\Driver\Smtp">Smtp</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_configure">configure</a>(array $config = [])
         
                                             <p>Configure la classe Mail</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;<a href="../../Bow/Mail/Driver/Smtp.html"><abbr title="Bow\Mail\Driver\Smtp">Smtp</abbr></a>|<a href="../../Bow/Mail/Driver/SimpleMail.html"><abbr title="Bow\Mail\Driver\SimpleMail">SimpleMail</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getInstance">getInstance</a>()
+        
+                                            <p>Get mail instance</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -144,7 +145,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;<a href="../../Bow/Mail/SimpleMail.html"><abbr title="Bow\Mail\SimpleMail">SimpleMail</abbr></a>|<a href="../../Bow/Mail/Smtp.html"><abbr title="Bow\Mail\Smtp">Smtp</abbr></a>
+                    static&nbsp;<a href="../../Bow/Mail/Driver/SimpleMail.html"><abbr title="Bow\Mail\Driver\SimpleMail">SimpleMail</abbr></a>|<a href="../../Bow/Mail/Driver/Smtp.html"><abbr title="Bow\Mail\Driver\Smtp">Smtp</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_setDriver">setDriver</a>($driver)
@@ -170,7 +171,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Mail.php#L36">line 36</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Mail.php#L35">line 35</a></div>
         <code>                    
     <strong>__construct</strong>(array $config = [])
         </code>
@@ -179,6 +180,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Mail constructor</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -192,6 +195,15 @@
 
             
             
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Mail/Exception/MailException.html"><abbr title="Bow\Mail\Exception\MailException">MailException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
             
                     </div>
     </div>
@@ -199,8 +211,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_configure">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Mail.php#L48">line 48</a></div>
-        <code>        static            <a href="../../Bow/Mail/SimpleMail.html"><abbr title="Bow\Mail\SimpleMail">SimpleMail</abbr></a>|<a href="../../Bow/Mail/Smtp.html"><abbr title="Bow\Mail\Smtp">Smtp</abbr></a>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Mail.php#L47">line 47</a></div>
+        <code>        static            <a href="../../Bow/Mail/Driver/SimpleMail.html"><abbr title="Bow\Mail\Driver\SimpleMail">SimpleMail</abbr></a>|<a href="../../Bow/Mail/Driver/Smtp.html"><abbr title="Bow\Mail\Driver\Smtp">Smtp</abbr></a>
     <strong>configure</strong>(array $config = [])
         </code>
     </h3>
@@ -226,7 +238,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Mail/SimpleMail.html"><abbr title="Bow\Mail\SimpleMail">SimpleMail</abbr></a>|<a href="../../Bow/Mail/Smtp.html"><abbr title="Bow\Mail\Smtp">Smtp</abbr></a></td>
+            <td><a href="../../Bow/Mail/Driver/SimpleMail.html"><abbr title="Bow\Mail\Driver\SimpleMail">SimpleMail</abbr></a>|<a href="../../Bow/Mail/Driver/Smtp.html"><abbr title="Bow\Mail\Driver\Smtp">Smtp</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -247,8 +259,38 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_getInstance">
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Mail.php#L75">line 75</a></div>
+        <code>        static            <a href="../../Bow/Mail/Driver/Smtp.html"><abbr title="Bow\Mail\Driver\Smtp">Smtp</abbr></a>|<a href="../../Bow/Mail/Driver/SimpleMail.html"><abbr title="Bow\Mail\Driver\SimpleMail">SimpleMail</abbr></a>
+    <strong>getInstance</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get mail instance</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Mail/Driver/Smtp.html"><abbr title="Bow\Mail\Driver\Smtp">Smtp</abbr></a>|<a href="../../Bow/Mail/Driver/SimpleMail.html"><abbr title="Bow\Mail\Driver\SimpleMail">SimpleMail</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_send">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Mail.php#L74">line 74</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Mail.php#L83">line 83</a></div>
         <code>        static            
     <strong>send</strong>($view, $bind, <a target="_blank" href="http://php.net/Closure">Closure</a> $cb)
         </code>
@@ -287,7 +329,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_raw">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Mail.php#L102">line 102</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Mail.php#L111">line 111</a></div>
         <code>        static            mixed
     <strong>raw</strong>(string|array $to, string $subject, string $data, array $headers = [])
         </code>
@@ -343,8 +385,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setDriver">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Mail.php#L125">line 125</a></div>
-        <code>        static            <a href="../../Bow/Mail/SimpleMail.html"><abbr title="Bow\Mail\SimpleMail">SimpleMail</abbr></a>|<a href="../../Bow/Mail/Smtp.html"><abbr title="Bow\Mail\Smtp">Smtp</abbr></a>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Mail.php#L135">line 135</a></div>
+        <code>        static            <a href="../../Bow/Mail/Driver/SimpleMail.html"><abbr title="Bow\Mail\Driver\SimpleMail">SimpleMail</abbr></a>|<a href="../../Bow/Mail/Driver/Smtp.html"><abbr title="Bow\Mail\Driver\Smtp">Smtp</abbr></a>
     <strong>setDriver</strong>($driver)
         </code>
     </h3>
@@ -370,7 +412,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Mail/SimpleMail.html"><abbr title="Bow\Mail\SimpleMail">SimpleMail</abbr></a>|<a href="../../Bow/Mail/Smtp.html"><abbr title="Bow\Mail\Smtp">Smtp</abbr></a></td>
+            <td><a href="../../Bow/Mail/Driver/SimpleMail.html"><abbr title="Bow\Mail\Driver\SimpleMail">SimpleMail</abbr></a>|<a href="../../Bow/Mail/Driver/Smtp.html"><abbr title="Bow\Mail\Driver\Smtp">Smtp</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -392,7 +434,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___call">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Mail.php#L144">line 144</a></div>
+        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Mail.php#L154">line 154</a></div>
         <code>                    mixed
     <strong>__call</strong>(string $name, array $arguments)
         </code>
