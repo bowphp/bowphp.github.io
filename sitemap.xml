@@ -3,12 +3,14 @@
 <url> <loc>https://bowphp.github.io/help</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/en/help" /> </url>
 <url> <loc>https://bowphp.github.io/index</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/en/index" /> </url>
 <url> <loc>https://bowphp.github.io/users</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/en/users" /> </url>
+<url> <loc>https://bowphp.github.io/docs/container</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/container" /> </url>
 <url> <loc>https://bowphp.github.io/docs/contribution</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/contribution" /> </url>
 <url> <loc>https://bowphp.github.io/docs/controleur</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/controleur" /> </url>
 <url> <loc>https://bowphp.github.io/docs/csrf-protection</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/csrf-protection" /> </url>
 <url> <loc>https://bowphp.github.io/docs/database</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/database" /> </url>
 <url> <loc>https://bowphp.github.io/docs/helpers</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/helpers" /> </url>
 <url> <loc>https://bowphp.github.io/docs/installation</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/installation" /> </url>
+<url> <loc>https://bowphp.github.io/docs/lifecycle</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/lifecycle" /> </url>
 <url> <loc>https://bowphp.github.io/docs/i18n</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/i18n" /> </url>
 <url> <loc>https://bowphp.github.io/docs/mail</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/mail" /> </url>
 <url> <loc>https://bowphp.github.io/docs/middleware</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/middleware" /> </url>
