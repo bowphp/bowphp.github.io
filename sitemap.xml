@@ -10,7 +10,6 @@
 <url> <loc>https://bowphp.github.io/docs/controleur</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/controleur" /> </url>
 <url> <loc>https://bowphp.github.io/docs/csrf-protection</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/csrf-protection" /> </url>
 <url> <loc>https://bowphp.github.io/docs/database</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/database" /> </url>
-<url> <loc>https://bowphp.github.io/docs/helpers</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/helpers" /> </url>
 <url> <loc>https://bowphp.github.io/docs/installation</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/installation" /> </url>
 <url> <loc>https://bowphp.github.io/docs/i18n</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/i18n" /> </url>
 <url> <loc>https://bowphp.github.io/docs/mail</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/mail" /> </url>
