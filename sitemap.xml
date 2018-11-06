@@ -31,4 +31,5 @@
 <url> <loc>https://bowphp.github.io/docs/structure</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/structure" /> </url>
 <url> <loc>https://bowphp.github.io/docs/tintin</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/tintin" /> </url>
 <url> <loc>https://bowphp.github.io/docs/views</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/views" /> </url>
+<url> <loc>https://bowphp.github.io/docs/what-new</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/what-new" /> </url>
 </urlset>
