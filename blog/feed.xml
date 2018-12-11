@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Bow Framework Blog</title>
+        <link>https://bowphp.github.io/blog</link>
+        <description>The best place to stay up-to-date with the latest Bow Framework news and events.</description>
+        <lastBuildDate>Wed, 05 Dec 2018 06:00:00 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>Feed for Node.js</generator>
+        <image>
+            <title>Bow Framework Blog</title>
+            <url>https://bowphp.github.io/img/bow.jpg</url>
+            <link>https://bowphp.github.io/blog</link>
+        </image>
+        <copyright>Copyright © 2018 Franck DAKIA</copyright>
+        <item>
+            <link>https://bowphp.github.io/blog/2018/12/05/une-applocation-simple-todo-bow.html</link>
+            <guid>https://bowphp.github.io/blog/2018/12/05/une-applocation-simple-todo-bow.html</guid>
+            <pubDate>Wed, 05 Dec 2018 06:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
