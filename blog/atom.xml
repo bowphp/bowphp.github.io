@@ -2,19 +2,34 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://bowphp.github.io/blog</id>
     <title>Bow Framework Blog</title>
-    <updated>2018-12-05T06:00:00Z</updated>
+    <updated>2018-12-06T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://bowphp.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Bow Framework news and events.</subtitle>
     <logo>https://bowphp.github.io/img/bow.jpg</logo>
     <rights>Copyright © 2018 Franck DAKIA</rights>
     <entry>
-        <title type="html"/>
+        <title type="html"><![CDATA[Démarrez avec Tintin Template]]></title>
+        <id>https://bowphp.github.io/blog/2018/12/06/demarrer-avec-tintin.html</id>
+        <link href="https://bowphp.github.io/blog/2018/12/06/demarrer-avec-tintin.html">
+        </link>
+        <updated>2018-12-06T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<p>Tintin est un template PHP qui se veut très simple et extensible. Il peut être utilisable dans n'importe quel projet PHP.</p> <blockquote> <p>En rédaction</p> </blockquote> ]]></summary>
+        <author>
+            <name>Franck DAKIA</name>
+            <uri>https://twitter.com/franck_dakia</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Une Todo avec Bow]]></title>
         <id>https://bowphp.github.io/blog/2018/12/05/une-applocation-simple-todo-bow.html</id>
         <link href="https://bowphp.github.io/blog/2018/12/05/une-applocation-simple-todo-bow.html">
         </link>
         <updated>2018-12-05T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<blockquote> <p>En rédaction</p> </blockquote> ]]></summary>
         <author>
+            <name>Franck DAKIA</name>
+            <uri>https://twitter.com/franck_dakia</uri>
         </author>
     </entry>
 </feed>

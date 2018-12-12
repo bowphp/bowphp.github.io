@@ -4,7 +4,7 @@
         <title>Bow Framework Blog</title>
         <link>https://bowphp.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Bow Framework news and events.</description>
-        <lastBuildDate>Wed, 05 Dec 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 06 Dec 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -14,9 +14,18 @@
         </image>
         <copyright>Copyright © 2018 Franck DAKIA</copyright>
         <item>
+            <title><![CDATA[Démarrez avec Tintin Template]]></title>
+            <link>https://bowphp.github.io/blog/2018/12/06/demarrer-avec-tintin.html</link>
+            <guid>https://bowphp.github.io/blog/2018/12/06/demarrer-avec-tintin.html</guid>
+            <pubDate>Thu, 06 Dec 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Tintin est un template PHP qui se veut très simple et extensible. Il peut être utilisable dans n'importe quel projet PHP.</p> <blockquote> <p>En rédaction</p> </blockquote> ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Une Todo avec Bow]]></title>
             <link>https://bowphp.github.io/blog/2018/12/05/une-applocation-simple-todo-bow.html</link>
             <guid>https://bowphp.github.io/blog/2018/12/05/une-applocation-simple-todo-bow.html</guid>
             <pubDate>Wed, 05 Dec 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[<blockquote> <p>En rédaction</p> </blockquote> ]]></description>
         </item>
     </channel>
 </rss>
