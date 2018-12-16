@@ -81,7 +81,11 @@ $users = Database::connection(<span class="hljs-string">'seconds'</span>)-&gt;se
 <p>Les requête brute ici sont les requêtes SQL écrite littéralement sans passer par un Query Builder.
 Dans cette section nous allons utiliser une table nommer <code>pets</code> pour effectuer nos requête avec.</p>
 <p>Voici la description de la table <code>pets</code>:</p>
-<pre><code class="hljs css language-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`pets`</span> (<span class="hljs-keyword">id</span> <span class="hljs-built_in">int</span> primary <span class="hljs-keyword">key</span>, <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">200</span>), color <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>));
+<pre><code class="hljs css language-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`pets`</span> (
+  <span class="hljs-keyword">id</span> <span class="hljs-built_in">int</span> primary <span class="hljs-keyword">key</span>, 
+  <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">200</span>), 
+  color <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>)
+);
 </code></pre>
 <p>Alors notre table à comme colonne:</p>
 <table>
@@ -101,6 +105,7 @@ Dans cette section nous allons utiliser une table nommer <code>pets</code> pour 
 <p>Pour executer une requête brute de type <code>SELECT</code> nous devrez utiliser la méthode <code>Database::select</code> ou le helper <code>select</code>. On considère notre table <code>pets</code> et que nous sommes bien connectés à la base de donnée.</p>
 <p>Execution d'un requête pour optenir tous les informations de la table <code>pets</code>:</p>
 <pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+
 $pets = Database::select(<span class="hljs-string">'select * from `pets`'</span>);
 </code></pre>
 <p>Via helper <code>select</code>:</p>
@@ -109,6 +114,7 @@ $pets = Database::select(<span class="hljs-string">'select * from `pets`'</span>
 <h4><a class="anchor" aria-hidden="true" id="selection-conditionnel"></a><a href="#selection-conditionnel" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sélection conditionnel</h4>
 <p>Execution d'un requête pour optenir tous les informations de la table <code>pets</code> quand <code>id</code> égale à 1:</p>
 <pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+
 $pet = Database::select(<span class="hljs-string">'select * from `pets` where id = :id'</span>, [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">1</span>]);
 </code></pre>
 <p>Via helper <code>select</code>:</p>
@@ -142,6 +148,7 @@ $inserted = insert(<span class="hljs-string">'insert into `pets` (id, name, colo
 <h4><a class="anchor" aria-hidden="true" id="insertion-multiple"></a><a href="#insertion-multiple" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Insertion multiple</h4>
 <p>Vous avez aussi la possibilité d'inserer plusieurs enregistrements en même temps.</p>
 <pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+
 <span class="hljs-comment">// Liste de pets</span>
 $pets = [
   [
@@ -156,10 +163,16 @@ $pets = [
   ]
 ];
 
-$inserted = Database::insert(<span class="hljs-string">'insert into `pets` (id, name, color) values (:id, :name, :color);'</span>, $pets);
+$inserted = Database::insert(
+  <span class="hljs-string">'insert into `pets` (id, name, color) values (:id, :name, :color);'</span>,
+  $pets
+);
 </code></pre>
 <p>Via helper <code>insert</code>:</p>
-<pre><code class="hljs css language-php">$updated = insert(<span class="hljs-string">'insert into `pets` (id, name, color) values (:id, :name, :color);'</span>, $pets);
+<pre><code class="hljs css language-php">$updated = insert(
+  <span class="hljs-string">'insert into `pets` (id, name, color) values (:id, :name, :color);'</span>,
+  $pets
+);
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="execution-de-requete-update"></a><a href="#execution-de-requete-update" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execution de requête Update</h3>
 <p>Pour executer une requête brute de type <code>UPDATE</code> nous devrez utiliser la méthode <code>Database::update</code> ou le helper <code>update</code>. On considère toujour notre table <code>pets</code> et que nous sommes bien connectés à la base de donnée.</p>
@@ -172,7 +185,10 @@ $pet = [
   <span class="hljs-string">'color'</span> =&gt; <span class="hljs-string">'Purple'</span>
 ];
 
-$updated = Database::update(<span class="hljs-string">'update `pets` set id = :id, name=:name, color=:color where id = :id'</span>, $pet);
+$updated = Database::update(
+  <span class="hljs-string">'update `pets` set id = :id, name=:name, color=:color where id = :id'</span>,
+  $pet
+);
 </code></pre>
 <p>Via le helper <code>update</code>:</p>
 <pre><code class="hljs css language-php">$pet = [
@@ -181,20 +197,31 @@ $updated = Database::update(<span class="hljs-string">'update `pets` set id = :i
   <span class="hljs-string">'color'</span> =&gt; <span class="hljs-string">'Yellow'</span>
 ];
 
-$updated = update(<span class="hljs-string">'update `pets` set id=:id, name=:name, color=:color where id = :id'</span>, $pet);
+$updated = update(
+  <span class="hljs-string">'update `pets` set id=:id, name=:name, color=:color where id = :id'</span>,
+  $pet
+);
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="execution-de-requete-delete"></a><a href="#execution-de-requete-delete" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execution de requête Delete</h3>
 <p>Pour executer une requête brute de type <code>DELETE</code> nous devrez utiliser la méthode <code>Database::delete</code> ou le helper <code>delete</code>. On considère toujour notre table <code>pets</code> et que nous sommes bien connectés à la base de donnée.</p>
 <p>Execution d'un requête pour inserer une information dans table <code>pets</code>:</p>
 <pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
-$deleted = Database::delete(<span class="hljs-string">'delete from `pets` where id = :id'</span>, [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">1</span>]);
+
+$deleted = Database::delete(
+  <span class="hljs-string">'delete from `pets` where id = :id'</span>,
+  [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">1</span>]
+);
 </code></pre>
 <p>Via le helper <code>delete</code>:</p>
-<pre><code class="hljs css language-php">$deleted = delete(<span class="hljs-string">'delete from `pets` where id = :id'</span>, [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">2</span>]);
+<pre><code class="hljs css language-php">$deleted = delete(
+  <span class="hljs-string">'delete from `pets` where id = :id'</span>,
+  [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">2</span>]
+);
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="execution-de-requete"></a><a href="#execution-de-requete" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execution de requête</h3>
-<p>Pour executer une requête brute autre que <code>SELECT</code>, <code>UPDATE</code>, <code>INSERT</code>, <code>DELETE</code>. Il y a une méthode faite pour <code>Database::statement</code> ou le helper <code>statement</code>.</p>
+<p>Pour exécuter une requête brute autre que <code>SELECT</code>, <code>UPDATE</code>, <code>INSERT</code>, <code>DELETE</code>. Il y a une méthode faite pour <code>Database::statement</code> ou le helper <code>statement</code>.</p>
 <pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+
 Database::statement(<span class="hljs-string">'alter table `pets` add `owner` varchar(80) default null;'</span>);
 </code></pre>
 <p>Via le helper <code>statement</code>:</p>
@@ -203,7 +230,9 @@ Database::statement(<span class="hljs-string">'alter table `pets` add `owner` va
 <h2><a class="anchor" aria-hidden="true" id="database-transactions"></a><a href="#database-transactions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Database Transactions</h2>
 <p>Vous pouvez utiliser la méthode de <code>startTransaction</code> sur la classe <code>Database</code> pour exécuter un ensemble d'opérations dans une transaction de base de données.</p>
 <p>Si vous passez une <code>Closure</code> et qu'une exception est levée dans la fonction de rappel de la transaction, la transaction sera automatiquement annulée. Si la <code>Closure</code> s'exécute correctement, la transaction sera automatiquement validée. Vous n'avez pas à vous soucier de l'annulation manuelle ou de la validation lorsque vous utilisez la méthode de transaction:</p>
-<pre><code class="hljs css language-php">Database::startTransaction(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+
+Database::startTransaction(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
   Database::update(<span class="hljs-string">'update users set votes = :votes'</span>, [<span class="hljs-string">'votes'</span> =&gt; <span class="hljs-number">1</span>]);
 
   Database::delete(<span class="hljs-string">'delete from posts'</span>);
@@ -211,34 +240,84 @@ Database::statement(<span class="hljs-string">'alter table `pets` add `owner` va
 </code></pre>
 <p>Via le helper <code>db_transaction</code>:</p>
 <pre><code class="hljs css language-php">db_transaction(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-  Database::update(<span class="hljs-string">'update users set votes = :votes'</span>, [<span class="hljs-string">'votes'</span> =&gt; <span class="hljs-number">1</span>]);
+  update(<span class="hljs-string">'update users set votes = :votes'</span>, [<span class="hljs-string">'votes'</span> =&gt; <span class="hljs-number">1</span>]);
 
-  Database::delete(<span class="hljs-string">'delete from posts'</span>);
+  delete(<span class="hljs-string">'delete from posts'</span>);
 });
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="utilisation-manuel-des-transaction"></a><a href="#utilisation-manuel-des-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Utilisation manuel des transaction</h3>
 <p>Vous pouvez aussi utiliser manuelement le système de transaction.
 Pour démarrer la transaction avec la méthode:</p>
-<pre><code class="hljs css language-php">Database::startTransaction();
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+
+Database::startTransaction();
 <span class="hljs-comment">// Ou</span>
 db_transaction();
 </code></pre>
 <p>Vous pouvez annuler la transaction avec la méthode:</p>
-<pre><code class="hljs css language-php">Database::rollback();
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+
+Database::rollback();
 <span class="hljs-comment">// Ou</span>
 db_rollback();
 </code></pre>
 <p>Vous pouvez valider la transaction avec la méthode:</p>
-<pre><code class="hljs css language-php">Database::commit();
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+
+Database::commit();
 <span class="hljs-comment">// Ou</span>
 db_commit();
 </code></pre>
 <p>Avec la méthode <code>inTransaction</code> vous pouvez vérifier si la base de donnée est en transaction:</p>
-<pre><code class="hljs css language-php">Database::inTransaction()
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+
+Database::inTransaction()
 <span class="hljs-comment">// Ou</span>
 db_transaction_started()
 </code></pre>
+<h2><a class="anchor" aria-hidden="true" id="query-builder-contructeur-de-sql-a-la-volee"></a><a href="#query-builder-contructeur-de-sql-a-la-volee" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query Builder (Contructeur de sql à la volée)</h2>
+<p>Bow fourni un api lié à la construction de requête. Avec la méthode <code>table</code> permet de construire une requête <code>sql</code> en se basant sur la nom de la table et retour une instance de <a href="https://bowphp.github.io/api/master/Bow/Database/QueryBuilder.html"><code>Bow\Database\QueryBuilder::class</code></a>.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
+
+$builder = Database::table(<span class="hljs-string">'pets'</span>);
+<span class="hljs-comment">// =&gt; Instance \Bow\Database\QueryBuilder::class</span>
+</code></pre>
+<p>Sur l'instance de la <code>QueryBuilder</code> de Bow, il y a plusieurs méthodes qui vont vous permettre de construire une requête SQL.
+Par exemple la methode <code>toSql</code> qui permet d'affichez la requête construite.</p>
+<pre><code class="hljs css language-php">$builder-&gt;toSql();
+<span class="hljs-comment">// select * from `pets`</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="recupere-les-informations"></a><a href="#recupere-les-informations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Recupéré les informations</h2>
+<p>Pour recupérer les informations avec le builder, vous devez utiliser le méthode <code>get</code> qui retourne une collection, <code>first</code> qui lui retourne <code>null</code> ou un objet <code>stdclass</code> et <code>last</code> qui se comporte comme <code>first</code> sauf qu'il retourne plutôt le dernier élément du résultat de l'exécution de la requête.</p>
+<h3><a class="anchor" aria-hidden="true" id="exemple-avec-get"></a><a href="#exemple-avec-get" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple avec <code>get</code>:</h3>
+<pre><code class="hljs css language-php">$builder = Database::table(<span class="hljs-string">'pets'</span>);
+
+$pets = $builder-&gt;get();
+
+<span class="hljs-keyword">if</span> (count($pets) &gt; <span class="hljs-number">0</span>) {
+  <span class="hljs-comment">// Code ici</span>
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-comment">// Vide</span>
+}
+</code></pre>
+<blockquote>
+<p>Notez que vous pouvez passer un tableau à <code>get</code> qui est une liste des colonnes de la projection comme ceci <code>$builder-&gt;get(['name'])</code>.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="exemple-avec-first"></a><a href="#exemple-avec-first" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple avec <code>first</code>:</h3>
+<pre><code class="hljs css language-php">$pet = $builder-&gt;first();
+
+<span class="hljs-keyword">if</span> (is_null($pet)) {
+  <span class="hljs-comment">// Vide</span>
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-keyword">echo</span> $pet-&gt;name;
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="exemple-avec-last"></a><a href="#exemple-avec-last" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple avec <code>last</code>:</h3>
+<pre><code class="hljs css language-php">$pet = $builder-&gt;last();
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="ajoutez-des-restrictions"></a><a href="#ajoutez-des-restrictions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ajoutez des restrictions</h2>
+<p>Avec le builder vous pouvez ajouter des restrictions sur le</p>
 <blockquote>
 <p>N'hésitez pas à donner votre avis sur la qualité de la documentation ou proposez des correctifs.</p>
 </blockquote>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/i18n"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/orm"><span>Next</span><span class="arrow-next"> →</span></a></div><p style="font-size:12px;text-align:right"><strong>Last updated: </strong>2018-12-11 22:46:44</p></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a><ul class="toc-headings"><li><a href="#configuration">Configuration</a></li><li><a href="#sqlite-configuration">SQLite Configuration</a></li><li><a href="#connexion-a-plusieur-base-de-donnee">Connexion à plusieur Base de donnée</a></li></ul></li><li><a href="#requete-sql-brute">requête SQL Brute</a><ul class="toc-headings"><li><a href="#execution-de-requete-select">Execution de requête Select</a></li><li><a href="#execution-de-requete-insert">Execution de requête Insert</a></li><li><a href="#execution-de-requete-update">Execution de requête Update</a></li><li><a href="#execution-de-requete-delete">Execution de requête Delete</a></li><li><a href="#execution-de-requete">Execution de requête</a></li></ul></li><li><a href="#database-transactions">Database Transactions</a><ul class="toc-headings"><li><a href="#utilisation-manuel-des-transaction">Utilisation manuel des transaction</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Commencer</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.github.io/api/master">API Reference</a></div><div><h5>Communité</h5><a href="http://ayiyikoh.org/" target="_blank" rel="noreferrer noopener">@ayiyikoh</a><a href="https://codedivoire.slack.com/">@Codedivoire</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://bowphp.slack.com/">Slack</a><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2018 Franck DAKIA</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/i18n"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/orm"><span>Next</span><span class="arrow-next"> →</span></a></div><p style="font-size:12px;text-align:right"><strong>Last updated: </strong>2018-12-16 22:50:59</p></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a><ul class="toc-headings"><li><a href="#configuration">Configuration</a></li><li><a href="#sqlite-configuration">SQLite Configuration</a></li><li><a href="#connexion-a-plusieur-base-de-donnee">Connexion à plusieur Base de donnée</a></li></ul></li><li><a href="#requete-sql-brute">requête SQL Brute</a><ul class="toc-headings"><li><a href="#execution-de-requete-select">Execution de requête Select</a></li><li><a href="#execution-de-requete-insert">Execution de requête Insert</a></li><li><a href="#execution-de-requete-update">Execution de requête Update</a></li><li><a href="#execution-de-requete-delete">Execution de requête Delete</a></li><li><a href="#execution-de-requete">Execution de requête</a></li></ul></li><li><a href="#database-transactions">Database Transactions</a><ul class="toc-headings"><li><a href="#utilisation-manuel-des-transaction">Utilisation manuel des transaction</a></li></ul></li><li><a href="#query-builder-contructeur-de-sql-a-la-volee">Query Builder (Contructeur de sql à la volée)</a></li><li><a href="#recupere-les-informations">Recupéré les informations</a><ul class="toc-headings"><li><a href="#exemple-avec-get">Exemple avec <code>get</code>:</a></li><li><a href="#exemple-avec-first">Exemple avec <code>first</code>:</a></li><li><a href="#exemple-avec-last">Exemple avec <code>last</code>:</a></li></ul></li><li><a href="#ajoutez-des-restrictions">Ajoutez des restrictions</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Commencer</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.github.io/api/master">API Reference</a></div><div><h5>Communité</h5><a href="http://ayiyikoh.org/" target="_blank" rel="noreferrer noopener">@ayiyikoh</a><a href="https://codedivoire.slack.com/">@Codedivoire</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://bowphp.slack.com/">Slack</a><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2018 Franck DAKIA</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
