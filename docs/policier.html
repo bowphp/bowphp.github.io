@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Policier · Bow Framework</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="- [Introduction](#introduction)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Policier · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.github.io/index.html"/><meta property="og:description" content="- [Introduction](#introduction)"/><meta property="og:image" content="https://bowphp.github.io/img/bow.jpg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.github.io/img/bow.jpg"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://bowphp.github.io/blog/atom.xml" title="Bow Framework Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://bowphp.github.io/blog/feed.xml" title="Bow Framework Blog RSS Feed"/><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Policier · Bow Framework</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="- [title: Policier](#title-policier)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Policier · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.github.io/index.html"/><meta property="og:description" content="- [title: Policier](#title-policier)"/><meta property="og:image" content="https://bowphp.github.io/img/bow.jpg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.github.io/img/bow.jpg"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://bowphp.github.io/blog/atom.xml" title="Bow Framework Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://bowphp.github.io/blog/feed.xml" title="Bow Framework Blog RSS Feed"/><script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -34,32 +34,40 @@
               }
             });
         </script></nav></div><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/bowphp/docs/edit/3.0/docs/policier.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Policier</h1></header><article><div><span><ul>
-<li><a href="#introduction">Introduction</a></li>
+<li><a href="#title-policier">title: Policier</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#configuration">Configuration</a></li>
-<li><a href="#usage">Usage</a>
+<li><a href="#utilisation">Utilisation</a>
 <ul>
-<li><a href="##mise-à-jour-ou-récupération-de-la-configuration">Mise à jour ou Récupération de la configuration</a>
+<li><a href="#mise-%C3%A0-jour-ou-r%C3%A9cup%C3%A9ration-de-la-configuration">Mise à jour ou Récupération de la configuration</a>
 <ul>
-<li><a href="#mise-à-jour-de-la-configuration">Mise à jour de la Configuration</a></li>
-<li><a href="#récupération-de-la-configuration">Récupération de la Configuration</a></li>
+<li><a href="#mise-%C3%A0-jour-de-la-configuration">Mise à jour de la Configuration</a></li>
+<li><a href="#r%C3%A9cup%C3%A9ration-de-la-configuration">Récupération de la Configuration</a></li>
 </ul></li>
 <li><a href="#encoder-un-token">Encoder un Token</a></li>
-<li><a href="#decoder-un-token">Décoder un Token</a></li>
+<li><a href="#d%C3%A9coder-un-token">Décoder un Token</a></li>
 <li><a href="#transformer-un-token">Transformer un Token</a></li>
-<li><a href="#vérifier-un-token">Vérifier un Token</a></li>
+<li><a href="#v%C3%A9rifier-un-token">Vérifier un Token</a></li>
 <li><a href="#valider-un-token">Valider un Token</a></li>
 </ul></li>
 <li><a href="#bow-framework-et-policier">Bow Framework et Policier</a>
 <ul>
-<li><a href="#personnalisation-du-middleware">Personnalisation du Middleware</a></li>
+<li><a href="#personnalisation-du-middleware">Personnalisation du Middleware</a>
+<ul>
 <li><a href="#publier-le-middleware">Publier le middleware</a></li>
 </ul></li>
+</ul></li>
+<li><a href="#laravel-et-policier">Laravel et Policier</a>
+<ul>
+<li><a href="#publier-le-service-provider-de-policier">Publier le Service provider de Policier</a></li>
+<li><a href="#publier-la-facade-de-policier">Publier la Facade de Policier</a></li>
+<li><a href="#publier-le-middleware-de-policer">Publier le Middleware de Policer</a></li>
+<li><a href="#utilisation-du-middleware">Utilisation du middleware</a></li>
+</ul></li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
-<p>Policier permet de valider la requête via <a href="https://jwt.io">JWT</a>.</p>
+<p>La police permet de valider la demande via <a href="https://jwt.io">JWT</a></p>
 <h2><a class="anchor" aria-hidden="true" id="installation"></a><a href="#installation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h2>
-<p>Pour installer Policier, vous devez utiliser <code>composer</code> (Gestionnaire de paquets PHP) comme ceci.</p>
+<p>Pour installer la stratégie d'installation, vous devez utiliser <code>composer</code> (gestionnaire de paquets PHP) comme ceci.</p>
 <pre><code class="hljs css language-bash">composer require bowphp/policier
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="configuration"></a><a href="#configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h2>
@@ -115,24 +123,19 @@
      * Chemin vers votre clé publique
      */</span>
     <span class="hljs-string">"public"</span> =&gt; <span class="hljs-keyword">null</span>
-  ],
-    
-  <span class="hljs-comment">/**
-   * Nom du middleware Policier
-   */</span>
-  <span class="hljs-string">'middleware_name'</span> =&gt; <span class="hljs-string">'api'</span>,
+  ]
 ];
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="usage"></a><a href="#usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h2>
+<h2><a class="anchor" aria-hidden="true" id="utilisation"></a><a href="#utilisation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Utilisation</h2>
 <p>Policier est très simple d'utilisation et possède une API claire. La configuration retourne une singleton.</p>
-<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Jwt</span>\<span class="hljs-title">Policier</span>;
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Policier</span>\<span class="hljs-title">Policier</span>;
 
 $configure = <span class="hljs-keyword">require</span> <span class="hljs-string">"/path/to/config/file.php"</span>;
 
 $policier = Policier::configure($configure);
 </code></pre>
 <p>Vous pouvez aussi faire comme ceci:</p>
-<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Jwt</span>\<span class="hljs-title">Policier</span>;
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Policier</span>\<span class="hljs-title">Policier</span>;
 
 $configure = <span class="hljs-keyword">require</span> <span class="hljs-string">"/path/to/config/file.php"</span>;
 
@@ -143,7 +146,7 @@ $policier = Policier::getInstance();
 <p>Après la configuration, vous pouvez utiliser le helper <code>policier</code>:</p>
 <pre><code class="hljs css language-php">policier($action, ...$args);
 </code></pre>
-<p>La valeur <code>$action</code> doit être l'une de ces valeurs: <code>encode</code>, <code>decode</code>, <code>parse</code>, <code>verify</code>, <code>validate</code>.</p>
+<p>La valeur d'action doit être l'une de ces valeurs: <code>encode</code>, <code>decode</code>, <code>parse</code>, <code>verify</code>, <code>validate</code>.</p>
 <h3><a class="anchor" aria-hidden="true" id="mise-a-jour-ou-recuperation-de-la-configuration"></a><a href="#mise-a-jour-ou-recuperation-de-la-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mise à jour ou Récupération de la configuration</h3>
 <h4><a class="anchor" aria-hidden="true" id="mise-a-jour-de-la-configuration"></a><a href="#mise-a-jour-de-la-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mise à jour de la Configuration</h4>
 <p>Vous pouvez mettre à jour la configuration de base avec la méthode <code>setConfig</code>:</p>
@@ -171,7 +174,7 @@ $token-&gt;getToken(); <span class="hljs-comment">// Token value</span>
 <span class="hljs-keyword">echo</span> $token;
 <span class="hljs-comment">//=&gt; eyJ0eXAiOiJKV1QiLCJhbGciOiI6IjEifQ.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJqdGkiOi.l7v0bS0rqnK1IeRGRBTFIH5s2TN9KtgD7BLivApq</span>
 </code></pre>
-<p><code>$token</code> est une instance de <code>Bow\Jwt\Token</code> et implémente la méthode magique <code>__toString</code>. Vous pouvez obtenir la date d'expiration avec <code>expiredIn</code> et <code>getToken</code> pour prendre la valeur du token.</p>
+<p><code>$token</code> est une instance de <code>Policier\Token</code> et implémente la méthode magique <code>__toString</code>. Vous pouvez obtenir l'heure d'expiration avec <code>expiredIn</code> et <code>getToken</code> pour prendre la valeur du token.</p>
 <p>Via l'assistant:</p>
 <pre><code class="hljs css language-php">policier(<span class="hljs-string">'encode'</span>, $id, $claims);
 </code></pre>
@@ -186,16 +189,6 @@ $result[<span class="hljs-string">'headers'</span>];
 <p>Via l'assistant:</p>
 <pre><code class="hljs css language-php">policier(<span class="hljs-string">'decode'</span>, $token);
 </code></pre>
-<p>Le résultat du décodage est un tableau associatif possédant deux clés:</p>
-<table>
-<thead>
-<tr><th>Paramètre</th><th>Description</th></tr>
-</thead>
-<tbody>
-<tr><td><strong>headers</strong></td><td>Les entêtes tel que <code>exp</code></td></tr>
-<tr><td><strong>claims</strong></td><td>Contient les informations que vous avez fournir pour l'encodage</td></tr>
-</tbody>
-</table>
 <h3><a class="anchor" aria-hidden="true" id="transformer-un-token"></a><a href="#transformer-un-token" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transformer un Token</h3>
 <pre><code class="hljs css language-php">$token = $policier-&gt;parse($token);
 
@@ -254,13 +247,22 @@ $validated = $policier-&gt;validate($token, $claims);
 policier(<span class="hljs-string">'validate'</span>, $token, $claims);
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="bow-framework-et-policier"></a><a href="#bow-framework-et-policier" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bow Framework et Policier</h2>
-<p>Si vous utilisez <a href="https://github.com/bowphp/app">Bow Framework</a>, vous pouvez utiliser le plugin de configuration <code>Bow\Jwt\PolicierConfiguration::class</code> qui lie automatiquement le middleware <code>Bow\Jwt\PolicierMiddleware::class</code>. Ce middleware est utilisable via l'alias <code>api</code>.</p>
+<p>Si vous utilisez <a href="https://github.com/bowphp/app">Bow Framework</a>, vous pouvez utiliser le plugin de configuration <code>Policier\Bow\PolicierConfiguration::class</code> et le middleware <code>Policier\Bow\PolicierMiddleware::class</code>.</p>
 <p>Relier la configuration sur <code>app\Kernel\Loader.php</code>:</p>
-<pre><code class="hljs css language-php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">configurations</span><span class="hljs-params">()</span>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">middlewares</span><span class="hljs-params">()</span>
 </span>{
   <span class="hljs-keyword">return</span> [
     ...
-    Bow\Jwt\PolicierConfiguration::class,
+    <span class="hljs-string">'policier'</span> =&gt; \Policier\Bow\PolicierMiddleware::class,
+    ...
+  ];
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">configurations</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">return</span> [
+    ...
+    \Policier\Bow\PolicierConfiguration::class,
     ...
   ];
 }
@@ -268,22 +270,22 @@ policier(<span class="hljs-string">'validate'</span>, $token, $claims);
 <p>Utilisez le middleware:</p>
 <pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/api'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
   $token  = policier()-&gt;getToken();
-})-&gt;middleware(<span class="hljs-string">'api'</span>);
+})-&gt;middleware(<span class="hljs-string">'policier'</span>);
 </code></pre>
-<p>Le token a été analysé dans l'instance de Policier dans un processus middleware via la méthode <code>plug</code>. Avant l'exécution du middleware, vous pouvez:</p>
+<p>Le token a été analysé dans l'instance de Policier dans le processus middleware via la méthode <code>plug</code>. Après l'exécution du middleware, vous pouvez:</p>
 <ul>
 <li>Obtenez le token avec <code>getToken</code></li>
-<li>Décoder le token avec <code>getDecodeToken</code> - <a href="#decode-token">More information of token parsed</a></li>
-<li>Analyser le token avec <code>getParsedToken</code> - <a href="#parse-token">More information of token parsed</a></li>
+<li><a href="#decode-token">Décoder</a> le token avec <code>getDecodeToken</code></li>
+<li><a href="#parse-token">Analyser</a> le token avec <code>getParsedToken</code></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="personnalisation-du-middleware"></a><a href="#personnalisation-du-middleware" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Personnalisation du Middleware</h3>
-<p>Notez que vous pouvez créer un autre middleware qui étendra le middleware par defaut <code>Bow\Jwt\PolicierMiddleware::class</code>. Ce qui vous donne la possibilité de changer les messages d'erreur en surchargant les methodes <code>getUnauthorizedMessage</code>, <code>getExpirateMessage</code>, <code>getExpirateCode</code> et <code>getUnauthorizedCode</code>.</p>
+<p>Notez que vous pouvez créer un autre middleware qui étendra le middleware par defaut <code>Policier\Bow\PolicierMiddleware::class</code>. Ce qui vous donne la possibilité de changer les messages d'erreur en surchargant les methodes <code>getUnauthorizedMessage</code>, <code>getExpirateMessage</code>, <code>getExpirateCode</code> et <code>getUnauthorizedCode</code>.</p>
 <pre><code class="hljs css language-bash">php bow add:middleware CustomPolicierMiddleware
 </code></pre>
-<p>et ensuite vous pouvez faire ceci:</p>
+<p>Et ensuite vous pouvez faire ceci:</p>
 <pre><code class="hljs css language-php">
 <span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Request</span>;
-<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Jwt</span>\<span class="hljs-title">PolicierMiddleware</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">Policier</span>\<span class="hljs-title">Bow</span>\<span class="hljs-title">PolicierMiddleware</span>;
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomPolicierMiddleware</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">PolicierMiddleware</span>
 </span>{
@@ -301,7 +303,7 @@ policier(<span class="hljs-string">'validate'</span>, $token, $claims);
   }
 
   <span class="hljs-comment">/**
-   * Obtenir le message d'erreur
+   * Obtenir le message d'expiration du token
    *
    * <span class="hljs-doctag">@return</span> array
    */</span>
@@ -335,18 +337,101 @@ policier(<span class="hljs-string">'validate'</span>, $token, $claims);
   }
 }
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="publier-le-middleware"></a><a href="#publier-le-middleware" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publier le middleware</h3>
+<h4><a class="anchor" aria-hidden="true" id="publier-le-middleware"></a><a href="#publier-le-middleware" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publier le middleware</h4>
 <p>Pour publier le middleware personnalisé et écraser celui par defaut de Policier c'est très simple, il suffit seulement d'ajouter le middleware dans le fichier <code>app/Kernel/Loader.php</code> avec la clé <code>api</code>.</p>
-<pre><code class="hljs css language-php">publuc <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">middlewares</span><span class="hljs-params">()</span>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">middlewares</span><span class="hljs-params">()</span>
 </span>{
   <span class="hljs-keyword">return</span> [
     ...
-    <span class="hljs-string">'api'</span> =&gt; \App\Middleware\CustomPolicierMiddleware::class,
+    <span class="hljs-string">'policier'</span> =&gt; \App\Middleware\CustomPolicierMiddleware::class,
     ...
   ];
 }
 </code></pre>
+<h2><a class="anchor" aria-hidden="true" id="laravel-et-policier"></a><a href="#laravel-et-policier" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Laravel et Policier</h2>
+<p>Si vous utilisez <a href="https://github.com/laravel/laravel">Laravel</a>, vous pouvez charger le service provider <code>Policier\Laravel\PolicierServiceProvider::class</code> et lié le middleware <code>Policier\Laravel\PolicierMiddleware::class</code>. La liaison peut être faire n'import quel nom, ici <code>jwt</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="publier-le-service-provider-de-policier"></a><a href="#publier-le-service-provider-de-policier" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publier le Service provider de Policier</h3>
+<pre><code class="hljs css language-php"><span class="hljs-string">"providers"</span> =&gt; [
+  \Policier\Laravel\PolicierServiceProvider::class,
+]
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="publier-la-facade-de-policier"></a><a href="#publier-la-facade-de-policier" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publier la Facade de Policier</h3>
+<pre><code class="hljs css language-php"><span class="hljs-string">"aliases"</span> =&gt; [
+  <span class="hljs-string">'Policier'</span> =&gt; \Policier\Laravel\Policier::class,
+]
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="publier-le-middleware-de-policer"></a><a href="#publier-le-middleware-de-policer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publier le Middleware de Policer</h3>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">protected</span> $routeMiddleware = [
+  <span class="hljs-string">'policier'</span> =&gt; \Policier\Laravel\PolicierMiddleware::class,
+]
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="utilisation-du-middleware"></a><a href="#utilisation-du-middleware" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Utilisation du middleware</h3>
+<pre><code class="hljs css language-php">Route::get(<span class="hljs-string">'/api'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  $token = policier()-&gt;getToken();
+})-&gt;middleware(<span class="hljs-string">'jwt'</span>);
+</code></pre>
+<blockquote>
+<p>Vous pouvez aussi modifer les messages d'erreurs et code http de ces message en etendant le middleware comme nous avons faire avec Bow Framework.</p>
+</blockquote>
+<pre><code class="hljs css language-bash">php artisan make:middleware CustomPolicierMiddleware
+</code></pre>
+<p>et ensuite vous pouvez faire ceci:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Middleware</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">Policier</span>\<span class="hljs-title">Laravel</span>\<span class="hljs-title">PolicierMiddleware</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomPolicierMiddleware</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">PolicierMiddleware</span>
+</span>{
+  <span class="hljs-comment">/**
+   * Obtenir le message d'erreur
+   *
+   * <span class="hljs-doctag">@return</span> array
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUnauthorizedMessage</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> [
+      <span class="hljs-string">'message'</span> =&gt; <span class="hljs-string">'unauthorized'</span>,
+      <span class="hljs-string">'error'</span> =&gt; <span class="hljs-keyword">true</span>
+    ];
+  }
+
+  <span class="hljs-comment">/**
+   * Obtenir le message d'expiration du token
+   *
+   * <span class="hljs-doctag">@return</span> array
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getExpirationMessage</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> [
+      <span class="hljs-string">'message'</span> =&gt; <span class="hljs-string">'token is expired'</span>,
+      <span class="hljs-string">'expired'</span> =&gt; <span class="hljs-keyword">true</span>,
+      <span class="hljs-string">'error'</span> =&gt; <span class="hljs-keyword">true</span>
+    ];
+  }
+
+  <span class="hljs-comment">/**
+   * Obtenir le code de réponse non autorisé
+   *
+   * <span class="hljs-doctag">@return</span> int
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUnauthorizedStatusCode</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-number">403</span>;
+  }
+
+  <span class="hljs-comment">/**
+   * Obtenir le code de réponse
+   *
+   * <span class="hljs-doctag">@return</span> int
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getExpirationStatusCode</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-number">403</span>;
+  }
+}
+</code></pre>
+<p>Vous devez publier le middleware dans le fichier <code>app\Http\Kernel.php</code>.</p>
 <blockquote>
 <p>N'hésitez pas à donner votre avis sur la qualité de la documentation ou proposez des correctifs.</p>
 </blockquote>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/tintin"><span class="arrow-prev">← </span><span>Previous</span></a></div><p style="font-size:12px;text-align:right"><strong>Last updated: </strong>2018-12-16 22:50:59</p></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#installation">Installation</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#usage">Usage</a><ul class="toc-headings"><li><a href="#mise-a-jour-ou-recuperation-de-la-configuration">Mise à jour ou Récupération de la configuration</a></li><li><a href="#encoder-un-token">Encoder un Token</a></li><li><a href="#decoder-un-token">Décoder un Token</a></li><li><a href="#transformer-un-token">Transformer un Token</a></li><li><a href="#verifier-un-token">Vérifier un Token</a></li><li><a href="#valider-un-token">Valider un Token</a></li></ul></li><li><a href="#bow-framework-et-policier">Bow Framework et Policier</a><ul class="toc-headings"><li><a href="#personnalisation-du-middleware">Personnalisation du Middleware</a></li><li><a href="#publier-le-middleware">Publier le middleware</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Commencer</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.github.io/api/master">API Reference</a></div><div><h5>Communité</h5><a href="http://ayiyikoh.org/" target="_blank" rel="noreferrer noopener">@ayiyikoh</a><a href="https://codedivoire.slack.com/">@Codedivoire</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://bowphp.slack.com/">Slack</a><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2018 Franck DAKIA</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/tintin"><span class="arrow-prev">← </span><span>Previous</span></a></div><p style="font-size:12px;text-align:right"><strong>Last updated: </strong>2018-12-24 19:59:08</p></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#installation">Installation</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#utilisation">Utilisation</a><ul class="toc-headings"><li><a href="#mise-a-jour-ou-recuperation-de-la-configuration">Mise à jour ou Récupération de la configuration</a></li><li><a href="#encoder-un-token">Encoder un Token</a></li><li><a href="#decoder-un-token">Décoder un Token</a></li><li><a href="#transformer-un-token">Transformer un Token</a></li><li><a href="#verifier-un-token">Vérifier un Token</a></li><li><a href="#valider-un-token">Valider un Token</a></li></ul></li><li><a href="#bow-framework-et-policier">Bow Framework et Policier</a><ul class="toc-headings"><li><a href="#personnalisation-du-middleware">Personnalisation du Middleware</a></li></ul></li><li><a href="#laravel-et-policier">Laravel et Policier</a><ul class="toc-headings"><li><a href="#publier-le-service-provider-de-policier">Publier le Service provider de Policier</a></li><li><a href="#publier-la-facade-de-policier">Publier la Facade de Policier</a></li><li><a href="#publier-le-middleware-de-policer">Publier le Middleware de Policer</a></li><li><a href="#utilisation-du-middleware">Utilisation du middleware</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Commencer</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.github.io/api/master">API Reference</a></div><div><h5>Communité</h5><a href="http://ayiyikoh.org/" target="_blank" rel="noreferrer noopener">@ayiyikoh</a><a href="https://codedivoire.slack.com/">@Codedivoire</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://bowphp.slack.com/">Slack</a><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2018 Franck DAKIA</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>

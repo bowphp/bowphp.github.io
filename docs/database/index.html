@@ -279,22 +279,25 @@ db_transaction_started()
 <p>Bow fourni un api lié à la construction de requête. Avec la méthode <code>table</code> permet de construire une requête <code>sql</code> en se basant sur la nom de la table et retour une instance de <a href="https://bowphp.github.io/api/master/Bow/Database/QueryBuilder.html"><code>Bow\Database\QueryBuilder::class</code></a>.</p>
 <pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>;
 
-$builder = Database::table(<span class="hljs-string">'pets'</span>);
+$builder = Database::table(<span class="hljs-string">'users'</span>);
 <span class="hljs-comment">// =&gt; Instance \Bow\Database\QueryBuilder::class</span>
+</code></pre>
+<p>Vous pouvez aussi utiliser le helper <code>table</code>:</p>
+<pre><code class="hljs css language-php">$builder = table(<span class="hljs-string">'users'</span>);
 </code></pre>
 <p>Sur l'instance de la <code>QueryBuilder</code> de Bow, il y a plusieurs méthodes qui vont vous permettre de construire une requête SQL.
 Par exemple la methode <code>toSql</code> qui permet d'affichez la requête construite.</p>
 <pre><code class="hljs css language-php">$builder-&gt;toSql();
-<span class="hljs-comment">// select * from `pets`</span>
+<span class="hljs-comment">// select * from `users`</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="recupere-les-informations"></a><a href="#recupere-les-informations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Recupéré les informations</h2>
 <p>Pour recupérer les informations avec le builder, vous devez utiliser le méthode <code>get</code> qui retourne une collection, <code>first</code> qui lui retourne <code>null</code> ou un objet <code>stdclass</code> et <code>last</code> qui se comporte comme <code>first</code> sauf qu'il retourne plutôt le dernier élément du résultat de l'exécution de la requête.</p>
 <h3><a class="anchor" aria-hidden="true" id="exemple-avec-get"></a><a href="#exemple-avec-get" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple avec <code>get</code>:</h3>
-<pre><code class="hljs css language-php">$builder = Database::table(<span class="hljs-string">'pets'</span>);
+<pre><code class="hljs css language-php">$builder = Database::table(<span class="hljs-string">'users'</span>);
 
-$pets = $builder-&gt;get();
+$users = $builder-&gt;get();
 
-<span class="hljs-keyword">if</span> (count($pets) &gt; <span class="hljs-number">0</span>) {
+<span class="hljs-keyword">if</span> (count($users) &gt; <span class="hljs-number">0</span>) {
   <span class="hljs-comment">// Code ici</span>
 } <span class="hljs-keyword">else</span> {
   <span class="hljs-comment">// Vide</span>
@@ -304,21 +307,26 @@ $pets = $builder-&gt;get();
 <p>Notez que vous pouvez passer un tableau à <code>get</code> qui est une liste des colonnes de la projection comme ceci <code>$builder-&gt;get(['name'])</code>.</p>
 </blockquote>
 <h3><a class="anchor" aria-hidden="true" id="exemple-avec-first"></a><a href="#exemple-avec-first" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple avec <code>first</code>:</h3>
-<pre><code class="hljs css language-php">$pet = $builder-&gt;first();
+<pre><code class="hljs css language-php">$user = $builder-&gt;first();
 
-<span class="hljs-keyword">if</span> (is_null($pet)) {
+<span class="hljs-keyword">if</span> (is_null($user)) {
   <span class="hljs-comment">// Vide</span>
 } <span class="hljs-keyword">else</span> {
-  <span class="hljs-keyword">echo</span> $pet-&gt;name;
+  <span class="hljs-keyword">echo</span> $user-&gt;name;
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="exemple-avec-last"></a><a href="#exemple-avec-last" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple avec <code>last</code>:</h3>
-<pre><code class="hljs css language-php">$pet = $builder-&gt;last();
+<pre><code class="hljs css language-php">$user = $builder-&gt;last();
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="ajoutez-des-restrictions"></a><a href="#ajoutez-des-restrictions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ajoutez des restrictions</h2>
-<p>Avec le builder vous pouvez ajouter des restrictions sur la construction de la requête avec la méthode <code>where</code>.</p>
-<pre><code class="hljs css language-php">$pet = $builder-&gt;where(<span class="hljs-string">'id'</span>, <span class="hljs-number">1</span>)-&gt;first();
+<p>Avec le builder vous pouvez ajouter des restrictions sur la construction de la requête SQL avec la méthode <code>where</code>.</p>
+<pre><code class="hljs css language-php">$sql = $builder-&gt;where(<span class="hljs-string">'id'</span>, <span class="hljs-number">1</span>)-&gt;toSql();
+<span class="hljs-comment">// =&gt; select * from `users` where id = 1;</span>
+
+$sql = $builder-&gt;where(<span class="hljs-string">'id'</span>, <span class="hljs-string">'!='</span>, <span class="hljs-number">1</span>)-&gt;toSql();
+<span class="hljs-comment">// =&gt; select * from `users` where id != 1;</span>
 </code></pre>
+<p>voici la liste de methode d'ajout de restriction</p>
 <blockquote>
 <p>N'hésitez pas à donner votre avis sur la qualité de la documentation ou proposez des correctifs.</p>
 </blockquote>

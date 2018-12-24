@@ -35,24 +35,28 @@
             });
         </script></nav></div><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/bowphp/docs/edit/3.0/docs/contribution.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Guide de Contribution</h1></header><article><div><span><ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#decoupage-du-projet">Découpage du projet</a></li>
-<li><a href="#comment-faire-les-commits">Comment faire les commits</a></li>
+<li><a href="#processus-de-contribution">Processus de contribution</a></li>
+<li><a href="#format-des-messages-de-commit">Format des messages de commit</a></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
-<p>Pour participer au projet il faut:</p>
+<p>Les contributions sont les bienvenues et seront entièrement créditées. Si vous voulez contribuer au projet, veuillez d'abord discuter
+des changements que vous voulez apporter via email, en créant une issue sur github, avec les responsables du dépôt avant
+de coder votre solution.</p>
+<p>Veuillez s'il vous plaît vous conformer au code de conduite lors de vos interactions sur ce projet.</p>
+<p>Nous acceptons les contributions via Pull Request sur <a href="https://github.com">GitHub</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="processus-de-contribution"></a><a href="#processus-de-contribution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Processus de contribution</h2>
 <ul>
-<li>Fork le projet afin qu'il soit parmi les répertoires de votre compte github ex: <code>https://github.com/votre-compte/app</code></li>
-<li>Cloner le projet depuis votre compte github <code>git clone https://github.com/votre-crompte/app</code></li>
-<li>Créer un branche qui aura pour nom le résumé de votre modification <code>git branch branche-de-vos-traveaux</code></li>
-<li>Faire une publication sur votre dépot <code>git push origin branche-de-vos-traveaux</code></li>
-<li>Enfin faire un <a href="https://www.thinkful.com/learn/github-pull-request-tutorial/Keep-Tabs-on-the-Project#Time-to-Submit-Your-First-PR">pull-request</a></li>
+<li>Fork le projet</li>
+<li>Créez une branche avec un nom descriptif de vos modifications</li>
+<li>Utilisez des messages de commits descriptifs</li>
+<li>Ajoutez des test unitaires</li>
+<li>Documentez vos modifications - Assurez vous que la documentation est mise à jour selon vos modifications</li>
+<li>Un pull request par fonctionnalité - Si vous voulez faire plus d'une chose, faites plusieurs pull requests</li>
+<li>Mettez à jour la version - Nous suivons le schema SemVer</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="decoupage-du-projet"></a><a href="#decoupage-du-projet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Découpage du projet</h2>
-<p>Le projet Bow Framework est découper en sous projet. Alors chaque participant poura participer sur la section dans laquelle il se sens le mieux.</p>
-<p>Imaginons que vous êtes plus confortable avec la construction des Routing. Il suffit de vous concentrer sur <code>src/Routing</code>. Notez que les sections sont faites pour être indépendant et donc possède leur propre configuration du style <code>SectionConfiguration</code> et qui implément l'interface <code>Bow\Configuration\Configuration</code>.</p>
-<h2><a class="anchor" aria-hidden="true" id="comment-faire-les-commits"></a><a href="#comment-faire-les-commits" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comment faire les commits</h2>
-<p>Les commits permettent de valider vos modifications. Mais dans le projet Bow, il y a une façon d'écrire le message de commit. Prenons un exemple, vous avez travailler sur la section <code>src/Session</code> et vous voulez valider vos modification.</p>
-<p>Pour le faire, regardons un peu la nomenclature d'un message de commit:</p>
+<h2><a class="anchor" aria-hidden="true" id="format-des-messages-de-commit"></a><a href="#format-des-messages-de-commit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Format des messages de commit</h2>
+<p>Pour faciliter la maintenance du dépôt, Bow utilise un format pour les messages de commits. Veuillez vous référer à
+l'exemple suivant:</p>
 <pre><code class="hljs css language-sh">git commit
 </code></pre>
 <p>Dans votre éditeur</p>
@@ -60,14 +64,14 @@
 
 Description
 </code></pre>
-<p>Dans notre exemple précédant nous allons donc faire:</p>
+<p>Si la modification affecte une section:</p>
 <pre><code class="hljs css language-sh">git commit -m <span class="hljs-string">"[session] modification message"</span>
 </code></pre>
-<p>La modification peut aussi affecté un élément dans un section:</p>
+<p>Si la modification affecte un élément dans une section:</p>
 <pre><code class="hljs css language-sh">git commit -m <span class="hljs-string">"[http:request] bug fix #40"</span>
 </code></pre>
-<p>Dans le cas ou votre modification affecte plusieur section ? Vous donnez un message et un description des modifications sous forme de liste à puce.</p>
+<p>Dans le cas où vos modifications affectent plusieurs sections, ajoutez une description avec votre commit sous forme de liste à puce.</p>
 <blockquote>
 <p>Notez que les messages de commit doivent être en anglais.</p>
 </blockquote>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/structure"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/routing"><span>Next</span><span class="arrow-next"> →</span></a></div><p style="font-size:12px;text-align:right"><strong>Last updated: </strong>2018-12-12 08:59:18</p></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#decoupage-du-projet">Découpage du projet</a></li><li><a href="#comment-faire-les-commits">Comment faire les commits</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Commencer</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.github.io/api/master">API Reference</a></div><div><h5>Communité</h5><a href="http://ayiyikoh.org/" target="_blank" rel="noreferrer noopener">@ayiyikoh</a><a href="https://codedivoire.slack.com/">@Codedivoire</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://bowphp.slack.com/">Slack</a><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2018 Franck DAKIA</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/structure"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/routing"><span>Next</span><span class="arrow-next"> →</span></a></div><p style="font-size:12px;text-align:right"><strong>Last updated: </strong>2018-12-17 15:50:59</p></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#processus-de-contribution">Processus de contribution</a></li><li><a href="#format-des-messages-de-commit">Format des messages de commit</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Commencer</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.github.io/api/master">API Reference</a></div><div><h5>Communité</h5><a href="http://ayiyikoh.org/" target="_blank" rel="noreferrer noopener">@ayiyikoh</a><a href="https://codedivoire.slack.com/">@Codedivoire</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://bowphp.slack.com/">Slack</a><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2018 Franck DAKIA</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
