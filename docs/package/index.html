@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Package · Bow Framework</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Introduction"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Package · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.github.io/index.html"/><meta property="og:description" content="## Introduction"/><meta property="og:image" content="https://bowphp.github.io/img/bow.jpg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.github.io/img/bow.jpg"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://bowphp.github.io/blog/atom.xml" title="Bow Framework Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://bowphp.github.io/blog/feed.xml" title="Bow Framework Blog RSS Feed"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-127753823-1', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-127753823-1"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/script.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/bow.jpg" alt="Bow Framework"/><h2 class="headerTitleWithLogo">Bow Framework</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/installation" target="_self">DOCUMENTATION</a></li><li class=""><a href="https://bowphp.github.io/api/master" target="_self">API</a></li><li class=""><a href="/users" target="_self">USER</a></li><li class=""><a href="/blog/" target="_self">BLOG</a></li><li class=""><a href="https://github.com/bowphp" target="_self">GITHUB</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Misc</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Démarrage</h3><ul><li class="navListItem"><a class="navItem" href="/docs/installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/docs/configuration">Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/structure">Structure</a></li><li class="navListItem"><a class="navItem" href="/docs/contribution">Guide de Contribution</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guide</h3><ul><li class="navListItem"><a class="navItem" href="/docs/routing">Routing</a></li><li class="navListItem"><a class="navItem" href="/docs/controleur">Contrôleurs</a></li><li class="navListItem"><a class="navItem" href="/docs/middleware">Middleware</a></li><li class="navListItem"><a class="navItem" href="/docs/views">Vues</a></li><li class="navListItem"><a class="navItem" href="/docs/storage">Storage</a></li><li class="navListItem"><a class="navItem" href="/docs/mail">Mail</a></li><li class="navListItem"><a class="navItem" href="/docs/i18n">i18n</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Base de donnée</h3><ul><li class="navListItem"><a class="navItem" href="/docs/database">Démarrage</a></li><li class="navListItem"><a class="navItem" href="/docs/orm">Barry ORM</a></li><li class="navListItem"><a class="navItem" href="/docs/migration">Migration</a></li><li class="navListItem"><a class="navItem" href="/docs/seeding">Seeding</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Http</h3><ul><li class="navListItem"><a class="navItem" href="/docs/http-request">HTTP Request</a></li><li class="navListItem"><a class="navItem" href="/docs/csrf-protection">CSRF Protection</a></li><li class="navListItem"><a class="navItem" href="/docs/http-response">HTTP Response</a></li><li class="navListItem"><a class="navItem" href="/docs/http-session">HTTP Session</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Misc</h3><ul><li class="navListItem navListItemActive"><a class="navItem" href="/docs/package">Package</a></li><li class="navListItem"><a class="navItem" href="/docs/frontend">Frontend</a></li><li class="navListItem"><a class="navItem" href="/docs/tintin">Tintin Template</a></li><li class="navListItem"><a class="navItem" href="/docs/policier">Policier</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/bowphp/docs/edit/3.0/docs/package.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Package</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>Ce système permet d'étendre votre application, de gréffer des package externe dans une application Bow.</p>
+<h2><a class="anchor" aria-hidden="true" id="creation-de-plugin"></a><a href="#creation-de-plugin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Création de plugin</h2>
+<p>Si vous avez une application Bow, il vous suffit de faire la création via <code>php bow</code> et lancer la commande <code>add:configuration</code> ensuite vous donnez le nom de votre configuration:</p>
+<pre><code class="hljs css language-bash">php bow add:configuration PluginConfiguration
+</code></pre>
+<p>Le fichier <code>PluginConfiguration.php</code> sera créé dans le dossier <code>app/Configurations</code> qui contient deux méthode <code>create</code> et <code>run</code>.</p>
+<ul>
+<li><code>create</code> permet d'initialiser le package</li>
+<li><code>run</code> permet de lancer d'initialisation le package.</li>
+</ul>
+<p>Dans l'initialisation des packages c'est la methode create qui ce lancera avant pour tous le autre packages qui seront defini au dessus dans votre configuration ensuite la methode run sera sera dans le meme orde.</p>
+<blockquote>
+<p>N'Essayez pas de contacter un package ici si vous attendez qu'il soit dabort configurer.</p>
+</blockquote>
+<p>Dans le fichier de configuration, Bow va injecté le <a href="https://fr.wikipedia.org/wiki/Injection_de_d%C3%A9pendances">DIC</a> et sera accéssible via la proprété <code>$this-&gt;container</code>. Plus d'information sur le <a href="/docs/container">DIC</a> de Bow.</p>
+<h3><a class="anchor" aria-hidden="true" id="exemple-de-creation"></a><a href="#exemple-de-creation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple de création</h3>
+<p>Vous allons faire un plugin aui va vérifier un email, alors on crée la configuration avec le nom <code>EmailCheckerConfiguration</code>:</p>
+<blockquote>
+<p>Notez que c'est un exemple pour vous montrez comment vous ici prendre, cet exemple dans un vrai projet aurai pu être traiter autrement.</p>
+</blockquote>
+<pre><code class="hljs css language-bash">php bow add:configuration EmailCheckerConfiguration
+</code></pre>
+<p>Dans le dossier <code>app</code> nous allons ajouter un dossier <code>Package</code> dans ce dossier, nous allons encore ajouter le fichier <code>EmailCheckController.php</code>:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Package</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Request</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Support</span>\<span class="hljs-title">Str</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmailCheckController</span>
+</span>{
+  <span class="hljs-comment">/**
+   * Check the email
+   *
+   * <span class="hljs-doctag">@param</span> Request $request
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__invoke</span><span class="hljs-params">(Request $request)</span>
+  </span>{
+    $email = $request-&gt;get(<span class="hljs-string">'email'</span>);
+
+    <span class="hljs-keyword">if</span> (Str::isMail($email)) {
+      $response = [
+        <span class="hljs-string">'message'</span> =&gt; <span class="hljs-string">'ok'</span>,
+        <span class="hljs-string">'error'</span> =&gt; <span class="hljs-keyword">true</span>
+      ];
+    } <span class="hljs-keyword">else</span> {
+      $response = [
+        <span class="hljs-string">'message'</span> =&gt; <span class="hljs-string">'C\'est un mauvais email !'</span>,
+        <span class="hljs-string">'error'</span> =&gt; <span class="hljs-keyword">false</span>
+      ];
+    }
+
+    <span class="hljs-keyword">return</span> $response;
+  }
+}
+</code></pre>
+<p>Vous allons maintenant créer note configuration:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Configurations</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Configuration</span>\<span class="hljs-title">Loader</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Configuration</span>\<span class="hljs-title">Configuration</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmailCheckController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Configuration</span>
+</span>{
+  <span class="hljs-comment">/**
+   * Permet de lancement de configuration
+   *
+   * <span class="hljs-doctag">@param</span> Loader $config
+   * <span class="hljs-doctag">@return</span> void
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">create</span><span class="hljs-params">(Loader $config)</span>
+  </span>{
+    <span class="hljs-keyword">$this</span>-&gt;container-&gt;make(<span class="hljs-string">'app'</span>)-&gt;post(
+      <span class="hljs-string">'/email/checker'</span>, \App\Package\EmailCheckController::class
+    );
+  }
+}
+</code></pre>
+<p>Allons notre application Bow Framework avec la commande <code>php bow run:server</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="testons-notre-package"></a><a href="#testons-notre-package" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Testons notre package</h3>
+<p>Avec <code>curl</code> nous allons tester notre code:</p>
+<pre><code class="hljs css language-bash">curl -X POST -d <span class="hljs-string">"email=exemple@exemple.com"</span> http://localhost:5000/email/checker
+<span class="hljs-comment"># {"message": "Ok", "error": false}</span>
+</code></pre>
+<blockquote>
+<p>N'hésitez pas à donner votre avis sur la qualité de la documentation ou proposez des correctifs.</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/http-session"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/frontend"><span>Next</span><span class="arrow-next"> →</span></a></div><p style="font-size:12px;text-align:right"><strong>Last updated: </strong>2018-12-25 14:40:03</p></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#creation-de-plugin">Création de plugin</a><ul class="toc-headings"><li><a href="#exemple-de-creation">Exemple de création</a></li><li><a href="#testons-notre-package">Testons notre package</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation.html">Commencer</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.github.io/api/master">API Reference</a></div><div><h5>Communité</h5><a href="http://ayiyikoh.org/" target="_blank" rel="noreferrer noopener">@ayiyikoh</a><a href="https://codedivoire.slack.com/">@Codedivoire</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://bowphp.slack.com/">Slack</a><a href="/blog">Blog</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2018 Franck DAKIA</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
