@@ -21,6 +21,7 @@
 <url> <loc>https://bowphp.github.io/docs/orm</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/orm" /> </url>
 <url> <loc>https://bowphp.github.io/docs/package</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/package" /> </url>
 <url> <loc>https://bowphp.github.io/docs/policier</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/policier" /> </url>
+<url> <loc>https://bowphp.github.io/docs/query-build</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/query-build" /> </url>
 <url> <loc>https://bowphp.github.io/docs/http-request</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/http-request" /> </url>
 <url> <loc>https://bowphp.github.io/docs/http-response</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/http-response" /> </url>
 <url> <loc>https://bowphp.github.io/docs/routing</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://bowphp.github.io/docs/routing" /> </url>
