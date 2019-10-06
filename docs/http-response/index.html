@@ -92,14 +92,14 @@
 <h2><a class="anchor" aria-hidden="true" id="envoye-une-reponse"></a><a href="#envoye-une-reponse" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Envoyé une réponse</h2>
 <h3><a class="anchor" aria-hidden="true" id="une-chaine-de-caractere"></a><a href="#une-chaine-de-caractere" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Une chaine de caractère</h3>
 <p>Une réponse HTTP peut être une chaine de caractère.</p>
-<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> 
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
 </span>{
   <span class="hljs-keyword">return</span> <span class="hljs-string">"Hello, world"</span>;
 });
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="une-collection-et-un-tableau-ou-un-object"></a><a href="#une-collection-et-un-tableau-ou-un-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Une Collection et Un tableau ou un Object</h3>
 <p>Une réponse HTTP peut être une instance de <a href="https://bowphp.github.io/api/master/Bow/Support/Collection.html"><code>Bow\Support\Collection</code></a>.</p>
-<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/array'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> 
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/array'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span>
 </span>{
   <span class="hljs-keyword">return</span> [<span class="hljs-number">10</span>, <span class="hljs-number">2</span>, <span class="hljs-number">12</span>, <span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Dakia'</span>];
 });
@@ -138,7 +138,7 @@ $app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><
 });
 </code></pre>
 <p>Pour plus d'information sur les code HTTP. Consultez ce <a href="https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP">lien</a>.</p>
-<p>Si dans votre API, la requête a été traitée avec succès et que vous n'avez pas d’information à renvoyer. Il est préférable de lui retourne un <code>204</code> qu'un <code>200</code> :tada:.</p>
+<p>Si dans votre API, la requête a été traitée avec succès et que vous n'avez pas d’information à renvoyer. Il est préférable de lui retourne un <strong>204</strong> qu'un <strong>200</strong> :tada:.</p>
 <h3><a class="anchor" aria-hidden="true" id="ajouter-une-entete-http"></a><a href="#ajouter-une-entete-http" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ajouter une entête HTTP</h3>
 <p>Souvent vous serez amener à ajouter d'autre entête HTTP à votre réponse HTTP. La méthode <code>addHeader</code> et <code>withHeaders</code> vous permet de le faire.</p>
 <pre><code class="hljs css language-php">$response-&gt;addHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json'</span>);
@@ -156,12 +156,12 @@ $app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><
 </code></pre>
 <table>
 <thead>
-<tr><th>paramêtre</th><th>Type</th></tr>
+<tr><th>Paramètre</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>$data</td><td><code>Array</code>, <code>stdClass</code>, <code>Iterable</code>, <code>JsonSerializable</code> - Les données à sérialiser</td></tr>
-<tr><td>$code</td><td><code>Int</code> - Le code du status HTTP</td></tr>
-<tr><td>$headers</td><td><code>Array</code> - Les entêtes à ajouter sur le réponse</td></tr>
+<tr><td>$data</td><td><strong>Array</strong>, <code>stdClass</code>, <code>Iterable</code>, <code>JsonSerializable</code></td><td>Les données à sérialiser</td></tr>
+<tr><td>$code</td><td><strong>Int</strong></td><td>Le code du status HTTP</td></tr>
+<tr><td>$headers</td><td><strong>Array</strong></td><td>Les entêtes à ajouter sur le réponse</td></tr>
 </tbody>
 </table>
 <h3><a class="anchor" aria-hidden="true" id="exemple-denvoye-de-json"></a><a href="#exemple-denvoye-de-json" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple d'envoye de JSON</h3>
@@ -185,17 +185,12 @@ $app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><
 <h3><a class="anchor" aria-hidden="true" id="protototype-de-la-methode-render"></a><a href="#protototype-de-la-methode-render" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Protototype de la méthode <code>render</code></h3>
 <pre><code class="hljs css language-php">$response-&gt;render($name, $data, $code, $headers);
 </code></pre>
-<table>
-<thead>
-<tr><th>paramêtre</th><th>Type</th></tr>
-</thead>
-<tbody>
-<tr><td>$name</td><td><code>String</code> - Le nom d'une vue à rendre</td></tr>
-<tr><td>$data</td><td><code>Array</code> - Les données à envoyer à la vue</td></tr>
-<tr><td>$code</td><td><code>Int</code> - Le code du status HTTP</td></tr>
-<tr><td>$headers</td><td><code>Array</code> - Les entêtes à ajouter à la réponse</td></tr>
-</tbody>
-</table>
+<p>| Paramètre | Type | Description |
+|----------|------|
+| $name  | <strong>String</strong> - Le nom d'une vue à rendre |
+| $data  | <strong>Array</strong> - Les données à envoyer à la vue |
+| $code  | <strong>Int</strong> - Le code du status HTTP |
+| $headers  | <strong>Array</strong> - Les entêtes à ajouter à la réponse |</p>
 <h3><a class="anchor" aria-hidden="true" id="exemple-denvoye-de-vue"></a><a href="#exemple-denvoye-de-vue" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple d'envoye de vue</h3>
 <p>Exemple:</p>
 <pre><code class="hljs css language-php">$users = User::where(<span class="hljs-string">'id'</span>, <span class="hljs-string">'!='</span>, <span class="hljs-number">2</span>)-&gt;get();
@@ -211,13 +206,13 @@ $app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><
 </code></pre>
 <table>
 <thead>
-<tr><th>paramêtre</th><th>Type</th></tr>
+<tr><th>Paramètre</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>$file</td><td><code>String</code> - Le chemin absolu du fichier</td></tr>
-<tr><td>$filename</td><td><code>String</code> - Le nouveau du fichier par defaut est <code>null</code></td></tr>
-<tr><td>$headers</td><td><code>Array</code> - Les entêtes à ajouter à la réponse</td></tr>
-<tr><td>$disposition</td><td><code>String</code> - Indiquant si le contenu devrait être affiché en ligne dans le navigateur, c'est-à-dire en tant que page Web, ou en pièce jointe téléchargé et enregistré localement.</td></tr>
+<tr><td>$file</td><td><strong>String</strong></td><td>Le chemin absolu du fichier</td></tr>
+<tr><td>$filename</td><td><strong>String</strong></td><td>Le nouveau du fichier par defaut est <strong>null</strong></td></tr>
+<tr><td>$headers</td><td><strong>Array</strong></td><td>Les entêtes à ajouter à la réponse</td></tr>
+<tr><td>$disposition</td><td><strong>String</strong></td><td>Indiquant si le contenu devrait être affiché en ligne dans le navigateur, c'est-à-dire en tant que page Web, ou en pièce jointe téléchargé et enregistré localement.</td></tr>
 </tbody>
 </table>
 <p>Plus d'information sur l'entête <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Content-Disposition"><code>Content-Disposition</code></a>.</p>
@@ -236,10 +231,10 @@ $app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><
 <h4><a class="anchor" aria-hidden="true" id="prototype-de-to"></a><a href="#prototype-de-to" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prototype de <code>to</code></h4>
 <table>
 <thead>
-<tr><th>paramêtre</th><th>Type</th></tr>
+<tr><th>Paramètre</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>$path</td><td><code>String</code> - L'URL de rédirection</td></tr>
+<tr><td>$path</td><td><strong>String</strong></td><td>L'URL de rédirection</td></tr>
 </tbody>
 </table>
 <pre><code class="hljs css language-php"><span class="hljs-keyword">return</span> redirect()-&gt;to(<span class="hljs-string">'/users'</span>);
@@ -251,10 +246,10 @@ $app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><
 <h4><a class="anchor" aria-hidden="true" id="prototype-de-back"></a><a href="#prototype-de-back" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prototype de <code>back</code></h4>
 <table>
 <thead>
-<tr><th>paramêtre</th><th>Type</th></tr>
+<tr><th>Paramètre</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td>$status_code</td><td><code>Int</code> - Le code HTTP de la réponse par defaut est égale à <code>302</code></td></tr>
+<tr><td>$status_code</td><td><strong>Int</strong> - Le code HTTP de la réponse par defaut est égale à <code>302</code></td></tr>
 </tbody>
 </table>
 <pre><code class="hljs css language-php"><span class="hljs-keyword">return</span> redirect()-&gt;back();
