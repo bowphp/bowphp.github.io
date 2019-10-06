@@ -64,28 +64,42 @@
             });
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">HTTP Response</h1></header><article><div><span><ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#envoye-un-response">Envoyé un résponse</a>
+<li><a href="#envoy%c3%a9-une-r%c3%a9ponse">Envoyé une réponse</a>
 <ul>
-<li><a href="#une-chaine-de-caractère">Une chaine de caractère</a></li>
-<li><a href="#une-collection-et-une-tableau-ou-un-object">Une Collection et Une tableau ou un Object</a></li>
-<li><a href="un-model-de-barry-orm">Un Model de Barry ORM</a></li>
+<li><a href="#une-chaine-de-caract%c3%a8re">Une chaine de caractère</a></li>
+<li><a href="#une-collection-et-un-tableau-ou-un-object">Une Collection et Un tableau ou un Object</a></li>
+<li><a href="#un-mod%c3%a8le-barry">Un modèle Barry</a></li>
 </ul></li>
-<li><a href="#modification-de-reponse">Modification de réponse</a>
+<li><a href="#modification-de-r%c3%a9ponse">Modification de réponse</a>
 <ul>
-<li><a href="#modification-du-code-d-erreur">Modification du code d'erreur</a></li>
-<li><a href="#ajouter-une-entête-http">Ajouter une entête http</a></li>
+<li><a href="#modification-du-code-derreur">Modification du code d'erreur</a></li>
+<li><a href="#ajouter-une-ent%c3%aate-http">Ajouter une entête HTTP</a></li>
 </ul></li>
-<li><a href="#envoyer-un-json">Envoyer un json</a>
+<li><a href="#envoyer-un-json">Envoyer un JSON</a>
 <ul>
-<li><a href="#protototype-de-la-methode-json">Protototype de la méthode json</a></li>
-<li><a href="#exemple-d-envoye-de-json">Exemple d'envoye de JSON</a></li>
+<li><a href="#protototype-de-la-m%c3%a9thode-json">Protototype de la méthode <code>json</code></a></li>
+<li><a href="#exemple-denvoye-de-json">Exemple d'envoye de JSON</a></li>
 </ul></li>
-<li><a href="#envoyer-une-reponse-depuis-les-vues">Envoyer une reponse depuis les vues</a>
+<li><a href="#envoyer-une-r%c3%a9ponse-depuis-les-vues">Envoyer une réponse depuis les vues</a>
 <ul>
-<li><a href="#protototype-de-la-methode-render">Protototype de la méthode render</a></li>
-<li><a href="#exemple-d-envoye-de-vue">Exemple d'envoye de vue</a></li>
+<li><a href="#protototype-de-la-m%c3%a9thode-render">Protototype de la méthode <code>render</code></a></li>
+<li><a href="#exemple-denvoye-de-vue">Exemple d'envoye de vue</a></li>
+<li><a href="#t%c3%a9l%c3%a9charger-un-fichier">Télécharger un fichier</a></li>
+<li><a href="#protototype-de-la-m%c3%a9thode-download">Protototype de la méthode <code>download</code></a></li>
+<li><a href="#exemple-de-t%c3%a9l%c3%a9charge">Exemple de télécharge</a></li>
 </ul></li>
-<li><a href="#redirection">Redirection</a></li>
+<li><a href="#redirection">Redirection</a>
+<ul>
+<li><a href="#redirection-avec-to">Redirection avec <code>to</code></a>
+<ul>
+<li><a href="#prototype-de-to">Prototype de <code>to</code></a></li>
+</ul></li>
+<li><a href="#redirection-avec-back">Redirection avec <code>back</code></a>
+<ul>
+<li><a href="#prototype-de-back">Prototype de <code>back</code></a></li>
+</ul></li>
+<li><a href="#redirection-avec-des-informations">Redirection avec des informations</a></li>
+</ul></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
 <p>Tous les routes et contrôleurs doivent retourner une réponse à renvoyer à l'utilisateur. Bow fournit plusieurs façons différentes de renvoyer des réponses. La réponse la plus élémentaire est le retour d'une chaîne depuis une route ou un contrôleur. Bow convertira automatiquement la chaîne en une réponse HTTP complète.</p>
