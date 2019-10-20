@@ -64,7 +64,21 @@
             });
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Tutoriel</h1></header><article><div><span><ul>
 <li><a href="#introduction">Introduction</a></li>
+<li><a href="#des-pages-statiques">Des pages statiques</a>
+<ul>
+<li><a href="#exeminons-le-code-par-defaut-dans-le-framework">Exeminons le code par defaut dans le framework</a></li>
+<li><a href="#cr%c3%a9ons-notre-premier-contr%c3%b4leur">Créons notre premier contrôleur</a></li>
+<li><a href="#ajout-de-logique-au-contr%c3%b4leur">Ajout de logique au contrôleur</a></li>
+<li><a href="#routing">Routing</a></li>
+</ul></li>
+<li><a href="#la-section-nouvelles">La section Nouvelles</a>
+<ul>
+<li><a href="#mise-en-place-de-votre-mod%c3%a8le">Mise en place de votre modèle</a></li>
+</ul></li>
+<li><a href="#cr%c3%a9ez-des-%c3%a9l%c3%a9ments-dactualit%c3%a9">Créez des éléments d'actualité</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
 </ul>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
 <p>Ce tutoriel a pour but de vous présenter Bow Framework et les principes de base de l’architecture MVC. Il vous montrera comment une application Bow Framework de base est construite étape par étape.</p>
 <p>Dans ce tutoriel, vous allez créer une application d'actualités de base. Vous commencerez par écrire le code pouvant charger des pages statiques. Vous allez ensuite créer une section de nouvelles qui lit les nouvelles d'une base de données. Enfin, vous allez ajouter un formulaire pour créer des éléments d’actualité dans la base de données.</p>
 <p>Ce tutoriel portera principalement sur:</p>
@@ -82,5 +96,127 @@
 <li>Créez des éléments d'actualité, qui introduiront des opérations de base de données plus avancées et la validation des formulaires.</li>
 <li>Conclusion, qui vous donnera des indications sur des lectures complémentaires et d’autres ressources.</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/structure"><span class="arrow-prev">← </span><span>Structure</span></a><a class="docs-next button" href="/docs/contribution"><span>Guide de Contribution</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation">Commencer</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.github.io/api/master">API Reference</a></div><div><h5>Communité</h5><a href="http://ayiyikoh.org/" target="_blank" rel="noreferrer noopener">@ayiyikoh</a><a href="https://codedivoire.slack.com/">@Codedivoire</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://bowphp.slack.com/">Slack</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2019 Franck DAKIA</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
+<h2><a class="anchor" aria-hidden="true" id="des-pages-statiques"></a><a href="#des-pages-statiques" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Des pages statiques</h2>
+<p>Remarque: Ce tutoriel suppose que vous avez installé le <a href="/docs/installation">framework</a> dans votre environnement de développement.</p>
+<h3><a class="anchor" aria-hidden="true" id="exeminons-le-code-par-defaut-dans-le-framework"></a><a href="#exeminons-le-code-par-defaut-dans-le-framework" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exeminons le code par defaut dans le framework</h3>
+<p>Dans le code de base de l'application, quand vous lancez le serveur de développement. Rendez-vous sur le page <code>http://localhost:5000</code>.</p>
+<blockquote>
+<p>Ici le port 5000 est celui par défaut dans l'application.</p>
+</blockquote>
+<p>Vous aurez une page d'accueil présentant le framework. Alors cette page ne sort pas de nul part mais est stocké dans le dossier <code>frontend/templates</code> qui héberge tout les vues de votre application.</p>
+<p>Dans ce dossier vous verez le fichier <code>layout.tintin.php</code> et <code>welcome.tintin.php</code> (Ne vous laissez par intimider par l'extension <code>tintin.php</code>, nous allons revenir dessus dans la suite).</p>
+<p>Dans le fichier <code>welcome.tintin.php</code>. Modifiez le contenu de la section comme ceci:</p>
+<pre><code class="hljs css language-html">#block('content')
+  Ah, bow c'est top.
+#endblock
+</code></pre>
+<p>En actualisons la page. Normalement si tout c'est bien passé vous verrez le message <code>Ah, bow c'est top.</code> affiché.</p>
+<blockquote>
+<p>Défi: Prenez le temps pour manipuler les vues et observer le fichier <code>routes/app.php</code> et <code>app/Controller/WelcomeController</code>.</p>
+</blockquote>
+<p>Dans le fichier <code>routes/app.php</code> vous avez certainement remarquer le contenu:</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">return</span> response()-&gt;view(<span class="hljs-string">'welcome'</span>);
+});
+</code></pre>
+<p>En fait le <code>$app-&gt;get('/')</code> c'est qu'on appel une route. et ensuite la fonction, le <code>function () {...</code> c'est une action associé à la route.</p>
+<p>Donc tout fois que dans le navigateur l'utilisateur entrera la route <strong>/</strong>. L'application Bow va détecté la route correspondante et lancé l'action associé.</p>
+<blockquote>
+<p>Cette fonction s'appel le routage ou routing en anglais.</p>
+</blockquote>
+<p>Alors dans l'action. Il y a une instruction et sera exécuté en même temps que l'action:</p>
+<pre><code class="hljs css language-php">response()-&gt;view(<span class="hljs-string">'welcome'</span>);
+</code></pre>
+<p>Cette méthode en réalité charge la vue <code>welcome</code> et et pour fini, l'action renvoie la réponse à l'utilisateur.</p>
+<p>Un dernier truc avant de terminer cette section. Ajout ce morceau de code dans le fichier <code>route/app.php</code>:</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/:name'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($name)</span> </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">"Bonjour "</span>.$name;
+});
+</code></pre>
+<p>Dans le navigateur entrons l'url suivant <code>http://localhost:5000/franck</code>. Vous devrez voir afficher le contenu suivant <code>Bonjour franck</code>.</p>
+<p>Ici vous remarquez certainement le <code>:name</code>. C'est ce qu'on l'appel un paramêtre url. Bow Framework ici capture la chaine qui est à la suite de <code>/</code> pour note cas c'est <code>franck</code> et le sauvegarde dans une variable que vous pouvez utiliser en paramètre de l'action. C'est super n'est pas !</p>
+<h3><a class="anchor" aria-hidden="true" id="creons-notre-premier-controleur"></a><a href="#creons-notre-premier-controleur" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Créons notre premier contrôleur</h3>
+<p>Assez parlé on continue notre tutoriel. La première chose à faire est de configurer un contrôleur pour gérer les pages statiques.</p>
+<p>Un contrôleur est simplement une classe qui aide à déléguer le travail. C'est le contre de votre application web.</p>
+<blockquote>
+<p>Pour des contrôleurs ? C'est juste une question de bien organiser les choses et aussi de respecter le parten SRP (Single Responsibility Principle)</p>
+</blockquote>
+<p>Pour ajouter une contrôleur dans votre application vous pouvez utiliser l'assistant <code>php bow</code> et ici nous allons créer une contrôleur nommer <code>ActualityController</code>.</p>
+<pre><code class="hljs css language-bash">php bow add:controller ActualityController
+</code></pre>
+<p>Normalement vous devez avoir une contrôleur <code>ActualityController</code> dans le dossier <code>app/Controller</code>. Regardons un peu son contenu:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controller</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controller</span>\<span class="hljs-title">Controller</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Request</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ActualityController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span>
+</span>{
+  <span class="hljs-comment">//</span>
+}
+</code></pre>
+<blockquote>
+<p>Vous pouvez supprimer le contrôleur <code>app\Controller\WelcomeController</code> et l'ignorer.</p>
+</blockquote>
+<p>Ensuite ajoutez une méthode dans le contrôler que nous allons appelé <code>showView</code>.
+Donc notre contrôleur deviendra:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controller</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controller</span>\<span class="hljs-title">Controller</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Request</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ActualityController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span>
+</span>{
+  <span class="hljs-comment">/**
+   * Show view page
+   *
+   * <span class="hljs-doctag">@return</span> mixed
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showIndex</span><span class="hljs-params">()</span>
+  </span>{
+
+  }
+}
+</code></pre>
+<p>Maintenant que vous avez créé votre première méthode, il est temps de créer des modèles de page de base. Nous allons créer deux &quot;vues&quot; (un layout) qui sera la page modèle et une page pour afficher la vue en temps que tel.</p>
+<blockquote>
+<p>Supprimez le content du dossier <code>frontend/templates</code> sauf le dossier <code>errors</code>.</p>
+</blockquote>
+<p>Créez la page principe (layout) dans <strong>frontend/templates/layout.tintin.php</strong> (Cette page existe peut être déjà par défaut):</p>
+<pre><code class="hljs css language-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Page Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Bienvenue sur mon site<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="ajout-de-logique-au-controleur"></a><a href="#ajout-de-logique-au-controleur" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ajout de logique au contrôleur</h3>
+<p>Pour l'instant la méthode n'accepte pas de paramètre (dans la suite nous verrons comment injecter des informations à la méthode). Les vues statiques seront situés dans le répertoire <code>frontend/templates</code> (pour le rappel). Entrons le code suivant dans la fonction <code>showView</code>:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showView</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">return</span> view(<span class="hljs-string">'layout'</span>);
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="routing"></a><a href="#routing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Routing</h3>
+<p>Nous avons parlé un temps soit peut des routes des applications.</p>
+<p>Ouvrez le fichier de routage situé dans <code>routes/app.php</code> et ajoutez les deux lignes suivantes. Supprimez tout autre code définissant une route et ajoutons le code suivant:</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/'</span>, <span class="hljs-string">'ActualityController::showView'</span>);
+</code></pre>
+<p>Pour rappel, Bow Framework lit ses règles de routage de haut en bas et achemine la demande vers la première règle correspondante. Chaque règle est une expression régulière (à gauche) mappée sur un contrôleur et un nom de méthode séparés par des &quot;::&quot; (à droite).</p>
+<p>Lorsqu'une requête arrive, Bow Framework recherche la première correspondance et appelle le contrôleur et la méthode appropriés, éventuellement avec des arguments.</p>
+<blockquote>
+<p>Vous trouverez plus d'informations sur le routage dans la <a href="/docs/routing">documentation</a> de routage URI.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="la-section-nouvelles"></a><a href="#la-section-nouvelles" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>La section Nouvelles</h2>
+<p>Dans la dernière section, nous avons passé en revue quelques concepts de base du Framework en écrivant une classe qui comprend des pages statiques. Nous avons nettoyé l'URI en ajoutant des règles de routage personnalisées. Il est maintenant temps d’introduire du contenu dynamique et de commencer à utiliser une base de données.</p>
+<h3><a class="anchor" aria-hidden="true" id="mise-en-place-de-votre-modele"></a><a href="#mise-en-place-de-votre-modele" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mise en place de votre modèle</h3>
+<p>Au lieu d'écrire les opérations de base de données directement dans le contrôleur, les requêtes doivent être placées dans un modèle afin de pouvoir être facilement réutilisées ultérieurement. Les modèles sont l'endroit où vous récupérez, insérez et mettez à jour des informations dans votre base de données ou dans d'autres magasins de données. Ils représentent vos données.</p>
+<p>Ouvrez le répertoire <code>app/Model</code>, vous verrez un fichier <code>User.php</code> c'est une modèle. Pour ajouter un modèle dans notre application nous allons utiliser <code>php bow</code>.</p>
+<pre><code class="hljs css language-bash">php bow add:model Actuality
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="creez-des-elements-dactualite"></a><a href="#creez-des-elements-dactualite" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Créez des éléments d'actualité</h2>
+<h2><a class="anchor" aria-hidden="true" id="conclusion"></a><a href="#conclusion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conclusion</h2>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/structure"><span class="arrow-prev">← </span><span>Structure</span></a><a class="docs-next button" href="/docs/contribution"><span>Guide de Contribution</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#des-pages-statiques">Des pages statiques</a><ul class="toc-headings"><li><a href="#exeminons-le-code-par-defaut-dans-le-framework">Exeminons le code par defaut dans le framework</a></li><li><a href="#creons-notre-premier-controleur">Créons notre premier contrôleur</a></li><li><a href="#ajout-de-logique-au-controleur">Ajout de logique au contrôleur</a></li><li><a href="#routing">Routing</a></li></ul></li><li><a href="#la-section-nouvelles">La section Nouvelles</a><ul class="toc-headings"><li><a href="#mise-en-place-de-votre-modele">Mise en place de votre modèle</a></li></ul></li><li><a href="#creez-des-elements-dactualite">Créez des éléments d'actualité</a></li><li><a href="#conclusion">Conclusion</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation">Commencer</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.github.io/api/master">API Reference</a></div><div><h5>Communité</h5><a href="http://ayiyikoh.org/" target="_blank" rel="noreferrer noopener">@ayiyikoh</a><a href="https://codedivoire.slack.com/">@Codedivoire</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://bowphp.slack.com/">Slack</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2019 Franck DAKIA</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
