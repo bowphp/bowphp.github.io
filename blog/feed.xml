@@ -12,7 +12,7 @@
             <url>http://bowphp.com/img/bow.jpg</url>
             <link>http://bowphp.com/blog</link>
         </image>
-        <copyright>Copyright © 2020 Franck DAKIA</copyright>
+        <copyright>Copyright © 2020 &lt;a href="https://github.com/papac"&gt;Franck DAKIA&lt;/a&gt;</copyright>
         <item>
             <title><![CDATA[Démarrez avec Tintin Template]]></title>
             <link>http://bowphp.com/blog/2018/12/06/demarrer-avec-tintin.html</link>
