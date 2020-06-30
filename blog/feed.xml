@@ -2,28 +2,28 @@
 <rss version="2.0">
     <channel>
         <title>Bow Framework Blog</title>
-        <link>http://bowphp.com/blog</link>
+        <link>https://bowphp.com/blog</link>
         <description>The best place to stay up-to-date with the latest Bow Framework news and events.</description>
         <lastBuildDate>Thu, 06 Dec 2018 06:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
             <title>Bow Framework Blog</title>
-            <url>http://bowphp.com/img/bow.jpg</url>
-            <link>http://bowphp.com/blog</link>
+            <url>https://bowphp.com/img/bow.jpg</url>
+            <link>https://bowphp.com/blog</link>
         </image>
         <copyright>Copyright © 2020 &lt;a href="https://github.com/papac"&gt;Franck DAKIA&lt;/a&gt;</copyright>
         <item>
             <title><![CDATA[Démarrez avec Tintin Template]]></title>
-            <link>http://bowphp.com/blog/2018/12/06/demarrer-avec-tintin.html</link>
-            <guid>http://bowphp.com/blog/2018/12/06/demarrer-avec-tintin.html</guid>
+            <link>https://bowphp.com/blog/2018/12/06/demarrer-avec-tintin.html</link>
+            <guid>https://bowphp.com/blog/2018/12/06/demarrer-avec-tintin.html</guid>
             <pubDate>Thu, 06 Dec 2018 06:00:00 GMT</pubDate>
             <description><![CDATA[<p>Tintin est un template PHP qui se veut très simple et extensible. Il peut être utilisable dans n'importe quel projet PHP.</p> <blockquote> <p>En rédaction</p> </blockquote> ]]></description>
         </item>
         <item>
             <title><![CDATA[Une Todo avec Bow]]></title>
-            <link>http://bowphp.com/blog/2018/12/05/une-applocation-simple-todo-bow.html</link>
-            <guid>http://bowphp.com/blog/2018/12/05/une-applocation-simple-todo-bow.html</guid>
+            <link>https://bowphp.com/blog/2018/12/05/une-applocation-simple-todo-bow.html</link>
+            <guid>https://bowphp.com/blog/2018/12/05/une-applocation-simple-todo-bow.html</guid>
             <pubDate>Wed, 05 Dec 2018 06:00:00 GMT</pubDate>
             <description><![CDATA[<blockquote> <p>En rédaction</p> </blockquote> ]]></description>
         </item>

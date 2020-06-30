@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://bowphp.com/blog</id>
+    <id>https://bowphp.com/blog</id>
     <title>Bow Framework Blog</title>
     <updated>2018-12-06T06:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://bowphp.com/blog"/>
+    <link rel="alternate" href="https://bowphp.com/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Bow Framework news and events.</subtitle>
-    <logo>http://bowphp.com/img/bow.jpg</logo>
+    <logo>https://bowphp.com/img/bow.jpg</logo>
     <rights>Copyright © 2020 &lt;a href="https://github.com/papac"&gt;Franck DAKIA&lt;/a&gt;</rights>
     <entry>
         <title type="html"><![CDATA[Démarrez avec Tintin Template]]></title>
-        <id>http://bowphp.com/blog/2018/12/06/demarrer-avec-tintin.html</id>
-        <link href="http://bowphp.com/blog/2018/12/06/demarrer-avec-tintin.html"/>
+        <id>https://bowphp.com/blog/2018/12/06/demarrer-avec-tintin.html</id>
+        <link href="https://bowphp.com/blog/2018/12/06/demarrer-avec-tintin.html"/>
         <updated>2018-12-06T06:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>Tintin est un template PHP qui se veut très simple et extensible. Il peut être utilisable dans n'importe quel projet PHP.</p> <blockquote> <p>En rédaction</p> </blockquote> ]]></summary>
         <author>
@@ -22,8 +22,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Une Todo avec Bow]]></title>
-        <id>http://bowphp.com/blog/2018/12/05/une-applocation-simple-todo-bow.html</id>
-        <link href="http://bowphp.com/blog/2018/12/05/une-applocation-simple-todo-bow.html"/>
+        <id>https://bowphp.com/blog/2018/12/05/une-applocation-simple-todo-bow.html</id>
+        <link href="https://bowphp.com/blog/2018/12/05/une-applocation-simple-todo-bow.html"/>
         <updated>2018-12-05T06:00:00.000Z</updated>
         <summary type="html"><![CDATA[<blockquote> <p>En rédaction</p> </blockquote> ]]></summary>
         <author>
