@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>📑 Migration · Bow Framework</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="- [Introduction](#introduction)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="📑 Migration · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.com/"/><meta property="og:description" content="- [Introduction](#introduction)"/><meta property="og:image" content="https://bowphp.com/img/bow.jpg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.com/img/bow.jpg"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-97409420-1', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97409420-1"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/script.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/bow.jpg" alt="Bow Framework"/><h2 class="headerTitleWithLogo">Bow Framework</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/installation" target="_self">Documentation</a></li><li class=""><a href="/sponsors" target="_self">Sponsors</a></li><li class=""><a href="https://bowphp.com/api/master" target="_self">API</a></li><li class=""><a href="https://github.com/bowphp" target="_self">Github</a></li><li class=""><a href="https://join.slack.com/t/bowphp/shared_invite/zt-9c90n2iv-Rx1zdUG0YRAnDULhgELD0g" target="_self">Rejoignez-nous</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/bowphp/docs/edit/4.0/docs/en/migration.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">📑 Migration</h1></header><article><div><span><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#ajouter-une-migration">Ajouter une migration</a></li>
+<li><a href="#structure-de-migration">Structure de migration</a></li>
+<li><a href="#exécuter-des-migrations">Exécuter des migrations</a></li>
+<li><a href="#faire-reculer-les-migrations">Faire reculer les migrations</a></li>
+<li><a href="#création-de-table">Création de table</a></li>
+<li><a href="#connexion-à-la-base-de-données-et-options-de-table">Connexion à la base de données et options de table</a></li>
+<li><a href="#renommer--supprimer-des-tables">Renommer / Supprimer des tables</a></li>
+<li><a href="#créer-des-colonnes">Créer des colonnes</a></li>
+<li><a href="#api-de-migration">Api de migration</a>
+<ul>
+<li><a href="#examinons-ensemble">Examinons ensemble</a></li>
+<li><a href="#liste-des-helpers">Liste des helpers</a></li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>Les migrations sont un moyen pour versionner votre base de donnée qui évolue souvent avec les modifications de l'application.</p>
+<p>Les migrations sont sauvegardés dans le dossier <code>migration</code>.</p>
+<h2><a class="anchor" aria-hidden="true" id="ajouter-une-migration"></a><a href="#ajouter-une-migration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ajouter une migration</h2>
+<p>Pour ajouter une migration il faut passer par <code>php bow</code> avec la commande <code>add:migration</code> ensuite le nom de la migration(ex: <code>createTodosTable</code>). Bow créra un fichier du même nom précédé d'une date de création.</p>
+<pre><code class="hljs css language-bash">php bow add:migration create_todos_table
+</code></pre>
+<p>Les options <code>--table</code> et <code>--create</code> peuvent également être utilisées pour indiquer le nom de la table et indiquer si la migration créera une nouvelle table. Ces options pré-remplissent le fichier de raccord de migration généré avec la table spécifiée:</p>
+<p>Si vous voulez ajouter directement le nom de table dans la migration, ajouter le flag <code>--create=nom_de_la_table</code> ou <code>--table=nom_de_la_table</code>.</p>
+<pre><code class="hljs css language-bash">php bow add:migration create_todos_table --create=todos
+
+php bow add:migration create_todos_table --table=todos
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="structure-de-migration"></a><a href="#structure-de-migration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Structure de migration</h2>
+<p>Une classe de migration contient deux méthodes: <code>up</code> et <code>rollback</code>. La méthode <code>up</code> sert à ajouter de nouvelles tables, colonnes ou index à votre base de données, tandis que la méthode <code>rollback</code> doit inverser les opérations effectuées par la méthode <code>up</code>.</p>
+<p>Par exemple, la migration créé précédement:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Migration</span>\<span class="hljs-title">Migration</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Migration</span>\<span class="hljs-title">SQLGenerator</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Version20190929153939CreatTodosTable</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Migration</span>
+</span>{
+  <span class="hljs-comment">/**
+   * Create Table
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">up</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">$this</span>-&gt;create(<span class="hljs-string">"users"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(SQLGenerator $table)</span> </span>{
+      $table-&gt;addIncrement(<span class="hljs-string">'id'</span>);
+      $table-&gt;addTimestamps();
+    });
+  }
+
+  <span class="hljs-comment">/**
+   * Drop Table
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rollback</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">$this</span>-&gt;dropIfExists(<span class="hljs-string">"users"</span>);
+  }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="exécuter-des-migrations"></a><a href="#exécuter-des-migrations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exécuter des migrations</h2>
+<p>Pour exécuter toutes vos migrations en attente, exécutez la commande <code>migration:migrate</code> de la commande Bow:</p>
+<pre><code class="hljs css language-bash">php bow migration:migrate
+</code></pre>
+<p>Vous pouvez aussi utiliser le racourci <code>migrate</code>.</p>
+<pre><code class="hljs css language-bash">php bow migrate
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="faire-reculer-les-migrations"></a><a href="#faire-reculer-les-migrations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Faire reculer les migrations</h2>
+<p>Pour annuler la dernière opération de migration, vous pouvez utiliser la commande d'annulation. Cette commande annule le dernier &quot;lot&quot; de migrations, qui peut inclure plusieurs fichiers de migration:</p>
+<pre><code class="hljs css language-bash">php artisan migration:rollback
+</code></pre>
+<p>La commande <code>migration:reset</code> annule toutes les migrations de votre application:</p>
+<pre><code class="hljs css language-bash">php artisan migration:reset
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="création-de-table"></a><a href="#création-de-table" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Création de table</h2>
+<p>Pour créer une nouvelle table de base de données, utilisez la méthode <code>create</code>. La méthode <code>create</code> accepte deux arguments. Le premier est le nom de la table, tandis que le second est une clôture qui reçoit un objet <code>\Bow\Database\Migration\SQLGenerator::class</code> pouvant être utilisé pour définir la nouvelle table:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">$this</span>-&gt;create(<span class="hljs-string">"users"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(SQLGenerator $table)</span> </span>{
+  $table-&gt;addIncrement(<span class="hljs-string">'id'</span>);
+  $table-&gt;addTimestamps();
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="connexion-à-la-base-de-données-et-options-de-table"></a><a href="#connexion-à-la-base-de-données-et-options-de-table" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Connexion à la base de données et options de table</h2>
+<p>Si vous souhaitez effectuer une opération de schéma sur une connexion à une base de données autre que la connexion par défaut, utilisez la méthode de <code>connection</code> suivante:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">$this</span>-&gt;connection(<span class="hljs-string">'name'</span>)-&gt;create(<span class="hljs-string">"users"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(SQLGenerator $table)</span> </span>{
+  $table-&gt;addIncrement(<span class="hljs-string">'id'</span>);
+  $table-&gt;addTimestamps();
+});
+</code></pre>
+<p>Vous pouvez utiliser les commandes suivantes dans le générateur de schéma pour définir les options de la table:</p>
+<table>
+<thead>
+<tr><th>Paramètre</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>$table-&gt;withEngine('InnoDB')</strong></td><td>Ici, on modifie le système de storage</td></tr>
+<tr><td><strong>$table-&gt;withCharset('utf8')</strong></td><td>Ici, on modifie l'encodage</td></tr>
+<tr><td><strong>$table-&gt;withCollation('utf8_unicode_ci')</strong></td><td>Ici, Spécifier un classement par défaut pour la table</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="renommer--supprimer-des-tables"></a><a href="#renommer--supprimer-des-tables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Renommer / Supprimer des tables</h2>
+<p>Pour renommer une table de base de données existante, utilisez la méthode <code>renameTable</code>:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">up</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">$this</span>-&gt;renameTable($from, $to);
+}
+</code></pre>
+<p>Pour supprimer une table existante, vous pouvez utiliser les méthodes drop ou <code>dropIfExists</code>:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rollback</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">$this</span>-&gt;drop(<span class="hljs-string">'users'</span>);
+  
+  <span class="hljs-keyword">$this</span>-&gt;dropIfExists(<span class="hljs-string">'users'</span>);
+}
+</code></pre>
+<blockquote>
+<p>Avant de renommer une table, vous devez vérifier que toutes les contraintes de clé étrangère sur la table ont un nom explicite dans vos fichiers de migration au lieu de laisser Laravel attribuer un nom basé sur une convention. Sinon, le nom de la contrainte de clé étrangère fera référence à l'ancien nom de la table.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="créer-des-colonnes"></a><a href="#créer-des-colonnes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Créer des colonnes</h2>
+<p>La méthode de <code>alter</code> sur <code>Bow\Database\Migration\Migration::class</code> peut être utilisée pour mettre à jour des tables existantes. Comme la méthode <code>create</code>, la méthode <code>alter</code> accepte deux arguments: le nom de la table et une clôture qui reçoit une instance de <code>\Bow\Database\Migration\SQLGenerator::class</code> que vous pouvez utiliser pour ajouter des colonnes à la table:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">up</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">$this</span>-&gt;alter(<span class="hljs-string">'users'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(SQLGenerator $table)</span> </span>{
+    $table-&gt;addString(<span class="hljs-string">'name'</span>);
+  });
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="api-de-migration"></a><a href="#api-de-migration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Api de migration</h2>
+<p>Notons pour l'instant que tous ces méthodes sont en réalité des helpers de la méthode <code>addColumn</code> de <code>\Bow\Database\Migration\SQLGenerator::class</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="examinons-ensemble"></a><a href="#examinons-ensemble" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examinons ensemble</h3>
+<p>Prototype de la méthode <code>addColumn</code>.</p>
+<pre><code class="hljs css language-php">$table-&gt;addColumn(string $column_name, string $column_type, <span class="hljs-keyword">array</span> $column_attributes);
+</code></pre>
+<table>
+<thead>
+<tr><th>Paramètre</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>$column_name</td><td><strong>String</strong></td><td>Le nom de la colonne de la table</td></tr>
+<tr><td>$column_type</td><td><strong>String</strong></td><td>Le type de la colonne de la table</td></tr>
+<tr><td>$column_attributes</td><td><strong>Array</strong></td><td>Les différents attributes de la colonne en fonction du type</td></tr>
+</tbody>
+</table>
+<p>Liste des attributes: <strong>unique</strong>, <strong>primary</strong>, <strong>index</strong>, <strong>increment</strong>, <strong>default</strong>, <strong>size</strong>, <strong>nullable</strong>, <strong>unsigned</strong>.</p>
+<table>
+<thead>
+<tr><th>Paramètre</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>unique</td><td><strong>Boolean</strong></td><td>Ajout UNIQUE sur la description de la colonne</td></tr>
+<tr><td>primary</td><td><strong>Boolean</strong></td><td>Define la colonne comme une clé primaire. Ajout PRIMARY AUTO sur la description de la colonne</td></tr>
+<tr><td>index</td><td><strong>Boolean</strong></td><td>Definie la colonne comme une INDEX</td></tr>
+<tr><td>increment</td><td><strong>Boolean</strong></td><td>Definie la colonne comme une AUTO INCREMENT</td></tr>
+<tr><td>size</td><td><strong>Integer</strong></td><td>Definie la taille de la colonne</td></tr>
+<tr><td>nullable</td><td><strong>Boolean</strong></td><td>La colonne pourra avoir une valeur nul</td></tr>
+<tr><td>unsigned</td><td><strong>Boolean</strong></td><td>Seulement pour les colonnes de type nombre. Elle define la colonne comme non signé</td></tr>
+<tr><td>default</td><td><strong>Mixed</strong></td><td>Ajout une valeur par defaut à la colonne si une valeur n'est pas ajouté</td></tr>
+</tbody>
+</table>
+<p>Regardons ensemble cette exemple:</p>
+<pre><code class="hljs css language-php">$table-&gt;addColumn(<span class="hljs-string">'id'</span>, <span class="hljs-string">'int'</span>, [
+  <span class="hljs-string">'primary'</span> =&gt; <span class="hljs-keyword">true</span>,
+  <span class="hljs-string">'increment'</span> =&gt; <span class="hljs-keyword">true</span>,
+  <span class="hljs-string">'size'</span> =&gt; <span class="hljs-number">11</span>
+]);
+
+$table-&gt;addColumn(<span class="hljs-string">'price'</span>, <span class="hljs-string">'int'</span>, [
+  <span class="hljs-string">'size'</span> =&gt; <span class="hljs-number">11</span>,
+  <span class="hljs-string">'unsigned'</span> =&gt; <span class="hljs-keyword">true</span>
+]);
+
+$table-&gt;addColumn(<span class="hljs-string">'name'</span>, <span class="hljs-string">'string'</span>, [
+  <span class="hljs-string">'nullable'</span> =&gt; <span class="hljs-keyword">true</span>,
+  <span class="hljs-string">'default'</span> =&gt; <span class="hljs-string">'Franck DAKIA'</span>,
+  <span class="hljs-string">'size'</span> =&gt; <span class="hljs-number">200</span>
+]);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="liste-des-helpers"></a><a href="#liste-des-helpers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Liste des helpers</h3>
+<p>Bien entendu, le générateur de schéma contient divers types de colonnes que vous pouvez spécifier lors de la construction de vos tables:</p>
+<table>
+<thead>
+<tr><th>Commande</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>$table-&gt;addIncrement('id')</td><td>Incrémentation automatique de la colonne équivalente à INTEGER (clé primaire).</td></tr>
+<tr><td>$table-&gt;addBigIncrement('id')</td><td>Incrémentation automatique de la colonne équivalente à BIGINT (clé primaire).</td></tr>
+<tr><td>$table-&gt;addMediumIncrement('id')</td><td>Incrémentation automatique de la colonne équivalente à MEDIUMINT (clé primaire).</td></tr>
+<tr><td>$table-&gt;addString('name', $attr = [])</td><td>Colonne équivalente à VARCGAR.</td></tr>
+<tr><td>$table-&gt;addInteger('price', $attr = [])</td><td>Colonne équivalente à INTEGER.</td></tr>
+<tr><td>$table-&gt;addBigInteger('price', $attr = [])</td><td>Colonne équivalente à BIGINT.</td></tr>
+<tr><td>$table-&gt;addDouble('price', $attr = [])</td><td>Colonne équivalente à DOUBLE.</td></tr>
+<tr><td>$table-&gt;addTinyInteger('status', $attr = [])</td><td>Colonne équivalente à TINYINT</td></tr>
+<tr><td>$table-&gt;addMediumInteger('status', $attr = [])</td><td>Colonne équivalente à MEDIUMINT</td></tr>
+<tr><td>$table-&gt;addBoolean('column')</td><td>Colonne équivalente à BOOLEAN</td></tr>
+<tr><td>$table-&gt;addFloat('column')</td><td>Colonne équivalente à FLOAT</td></tr>
+<tr><td>$table-&gt;addFloatPrimary('column')</td><td>Colonne équivalente à FLOAT (clé primaire)</td></tr>
+<tr><td>$table-&gt;addDouble('column')</td><td>Colonne équivalente à DOUBLE</td></tr>
+<tr><td>$table-&gt;addDoublePrimary('column')</td><td>Colonne équivalente à DOUBLE (clé primaire)</td></tr>
+<tr><td>$table-&gt;addUuid('uuid')</td><td>Colonne équivalente à UUID</td></tr>
+<tr><td>$table-&gt;addBinary('uuid')</td><td>Colonne équivalente à BINARY</td></tr>
+<tr><td>$table-&gt;addIpAddress('uuid')</td><td>Colonne équivalente à IP</td></tr>
+<tr><td>$table-&gt;addMacAddress('uuid')</td><td>Colonne équivalente à MAC</td></tr>
+<tr><td>$table-&gt;addDatetime('date_column')</td><td>Colonne équivalente à DATETIME</td></tr>
+<tr><td>$table-&gt;addDate('date_column')</td><td>Colonne équivalente à DATE</td></tr>
+<tr><td>$table-&gt;addTime('date_column')</td><td>Colonne équivalente à TIME</td></tr>
+<tr><td>$table-&gt;addYear('date_column')</td><td>Colonne équivalente à YEAR</td></tr>
+<tr><td>$table-&gt;addTimestamp('date_column')</td><td>Colonne équivalente à TIMESTAMP</td></tr>
+<tr><td>$table-&gt;addTimestamps()</td><td>Ajout les colonnes <code>updated_at</code> et <code>created_at</code> en TIMESTAMP</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="il-manque-quelque-chose-"></a><a href="#il-manque-quelque-chose-" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Il manque quelque chose ?</h2>
+<p>Si vous rencontrez des problèmes avec la documentation ou si vous avez des suggestions pour améliorer la documentation ou le projet en général, veuillez déposer une issue pour nous, ou envoyer un tweet mentionnant le compte Twitter @BowFramework ou sur directement sur le <a href="https://github.com/bowphp/docs/issues">github</a>.</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 10/05/2021</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#ajouter-une-migration">Ajouter une migration</a></li><li><a href="#structure-de-migration">Structure de migration</a></li><li><a href="#exécuter-des-migrations">Exécuter des migrations</a></li><li><a href="#faire-reculer-les-migrations">Faire reculer les migrations</a></li><li><a href="#création-de-table">Création de table</a></li><li><a href="#connexion-à-la-base-de-données-et-options-de-table">Connexion à la base de données et options de table</a></li><li><a href="#renommer--supprimer-des-tables">Renommer / Supprimer des tables</a></li><li><a href="#créer-des-colonnes">Créer des colonnes</a></li><li><a href="#api-de-migration">Api de migration</a><ul class="toc-headings"><li><a href="#examinons-ensemble">Examinons ensemble</a></li><li><a href="#liste-des-helpers">Liste des helpers</a></li></ul></li><li><a href="#il-manque-quelque-chose-">Il manque quelque chose ?</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation">Commencer Bow Framework</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.com/api/master">API Reference</a></div><div><h5>Communautés</h5><a href="https://discord.gg/yhnQhJ4" target="_blank">Galsen Dev</a><a href="https://codedivoire.slack.com" target="_blank">CodeDivoire</a><a href="https://discord.gg/yhnQhJ4" target="_blank">Code Learning Club</a><a href="http://ayiyikoh.org/" target="_blank">Ayiyikoh FabLab</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://join.slack.com/t/bowphp/shared_invite/zt-9c90n2iv-Rx1zdUG0YRAnDULhgELD0g">Slack</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2021 développé avec 💚 par <a href="https://github.com/papac">Franck DAKIA</a></section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>

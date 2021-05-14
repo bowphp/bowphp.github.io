@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>👨🏽‍✈️ Contrôleurs · Bow Framework</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="- [Introduction](#introduction)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="👨🏽‍✈️ Contrôleurs · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.com/"/><meta property="og:description" content="- [Introduction](#introduction)"/><meta property="og:image" content="https://bowphp.com/img/bow.jpg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.com/img/bow.jpg"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-97409420-1', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97409420-1"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/script.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/bow.jpg" alt="Bow Framework"/><h2 class="headerTitleWithLogo">Bow Framework</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/installation" target="_self">Documentation</a></li><li class=""><a href="/sponsors" target="_self">Sponsors</a></li><li class=""><a href="https://bowphp.com/api/master" target="_self">API</a></li><li class=""><a href="https://github.com/bowphp" target="_self">Github</a></li><li class=""><a href="https://join.slack.com/t/bowphp/shared_invite/zt-9c90n2iv-Rx1zdUG0YRAnDULhgELD0g" target="_self">Rejoignez-nous</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/bowphp/docs/edit/4.0/docs/en/controller.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">👨🏽‍✈️ Contrôleurs</h1></header><article><div><span><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#contrôleur-basic">Contrôleur basic</a>
+<ul>
+<li><a href="#définir-un-contrôleur">Définir un contrôleur</a></li>
+<li><a href="#contrôleur-et-espaces-de-noms">Contrôleur et espaces de noms</a></li>
+<li><a href="#contrôleur-et-middleware">Contrôleur et Middleware</a></li>
+</ul></li>
+<li><a href="#contrôleur-rest">Contrôleur REST</a>
+<ul>
+<li><a href="#définir-un-contrôleur-rest">Définir un contrôleur rest</a></li>
+<li><a href="#utilisons-notre-contrôleur-rest">Utilisons notre contrôleur REST</a>
+<ul>
+<li><a href="#prototype-de-la-méthode-rest">Prototype de la méthode <code>rest</code></a></li>
+<li><a href="#utilisation-simple">Utilisation simple</a></li>
+<li><a href="#utilisation-avec-les-contraintes">Utilisation avec les contraintes</a></li>
+<li><a href="#utilisation-via-un-tableau-comme-action">Utilisation via un tableau comme action</a></li>
+<li><a href="#ignore-des-méthodes">Ignore des méthodes</a></li>
+<li><a href="#url-et-action">Url et Action</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#il-manque-quelque-chose-">Il manque quelque chose ?</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>Les contrôleurs sont des moyens pour simplifier l'organisation de vos projet.</p>
+<p>Au lieu de définir toute la logique de gestion des requête en tant que <code>closure</code> dans les fichiers de routage, vous pouvez organiser ce comportement à l'aide de classe de contrôleur. Les contrôleurs peuvent regrouper la logique de traitement des requêtes associée en une seule classe.</p>
+<p>Les contrôleurs sont stockés dans le répertoire <code>app/Controllers</code>.</p>
+<script id="asciicast-1r0hZPnP5wY5fCPcxNXtLTQ4r" src="https://asciinema.org/a/1r0hZPnP5wY5fCPcxNXtLTQ4r.js" data-speed="2" data-rows="20" async></script>
+<h2><a class="anchor" aria-hidden="true" id="configuration"></a><a href="#configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h2>
+<p>Vous avez la possibilité de modifier le <code>namespace</code> des contrôleurs et des middlewares. Pour ce faire ouvrez le fichier <code>app\Kernel.php</code>. La méthode <code>middlewares</code> permet à Bow de savoir quel est le bon <code>namespace</code> à ajouter sur le contrôleur lors de l'execution de la réquête ou lors de la génération de contrôleur ou de middleware par le lanceur de tache <code>php bow</code>.</p>
+<p>Imaginez que vous avez une application pour la gestion des Bus d'une école et que vous voulez grouper tout vos contrôleurs dans le <code>App\Bus\Controllers</code>. Alors comment faire ça ?</p>
+<p>Voici le code que cela pourrait donnée:</p>
+<pre><code class="hljs css language-php"><span class="hljs-comment"># Dans le fichier `app\Kernel.php`</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">namespaces</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">return</span> [
+    <span class="hljs-string">"controller"</span> =&gt; <span class="hljs-string">"App\\Bus\\Controllers"</span>,
+    ...
+  ]
+}
+</code></pre>
+<p>Ensuite il faudra aussi changer un peu la configuration du lancer de tache:</p>
+<pre><code class="hljs css language-php"><span class="hljs-comment"># Dans le fichier `bow`</span>
+$command = <span class="hljs-keyword">new</span> Bow\Console\Command(<span class="hljs-keyword">__DIR__</span>);
+...
+$command-&gt;setControllerDirectory(<span class="hljs-keyword">__DIR__</span>.<span class="hljs-string">'/app/Bus/Controllers'</span>);
+</code></pre>
+<blockquote>
+<p>Visitez ce <a href="/docs/en/structure">lien</a> pour plus d'information sur la personnalisation de la structure de l'application.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="contrôleur-basic"></a><a href="#contrôleur-basic" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contrôleur basic</h2>
+<h3><a class="anchor" aria-hidden="true" id="définir-un-contrôleur"></a><a href="#définir-un-contrôleur" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Définir un contrôleur</h3>
+<p>Voici un exemple de classe de contrôleur de base. Notez que le contrôleur hérite de la classe <code>App\Controllers\Controller</code> de base. Cette classe de base fournit quelques méthodes pratiques telles que la méthode du <code>render</code>, qui peut être utilisée pour compiler une vue.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controllers</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controllers</span>\<span class="hljs-title">Controller</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>\<span class="hljs-title">User</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span>
+</span>{
+  <span class="hljs-comment">/**
+   * Afficher le profil pour l'utilisateur donné.
+   *
+   * <span class="hljs-doctag">@param</span> int $id
+   * <span class="hljs-doctag">@return</span> mixed
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span><span class="hljs-params">($id)</span>
+  </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;render(<span class="hljs-string">'user/profile'</span>, [<span class="hljs-string">'user'</span> =&gt; User::findOrFail($id)]);
+  }
+}
+</code></pre>
+<p>Vous pouvez définir une route dans le fichier <code>routes/app.php</code> vers cette action de contrôleur comme suit:</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'user/:id'</span>, <span class="hljs-string">'UserController::show'</span>);
+</code></pre>
+<p>Désormais, lorsqu'une demande correspond à l'URI de la route spécifiée, la méthode <code>show</code> de la classe <code>UserController</code> sera exécutée. Bien entendu, les paramètres de la route seront également transmis à la méthode.</p>
+<p>Vous pouvez générer un contrôleur en utilisant la commande <code>add:controller</code> de <code>php bow</code>:</p>
+<pre><code class="hljs css language-bash">php bow add:controller UserController
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="contrôleur-et-espaces-de-noms"></a><a href="#contrôleur-et-espaces-de-noms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contrôleur et espaces de noms</h3>
+<p>Il est très important de noter que nous n’avons pas eu besoin de spécifier le <code>namespace</code> du contrôleur complet lors de la définition de la route du contrôleur. Étant donné que <code>public/index.php</code> charge vos fichiers de route dans un groupe de routage contenant le <code>namespace</code>, nous avons uniquement spécifié la partie du nom de classe qui vient après la partie <code>App\Controllers</code> de le <code>namespace</code>.</p>
+<p>Si vous choisissez d'imbriquer vos contrôleurs plus profondément dans le répertoire <code>App\Controllers</code>, utilisez le nom de classe spécifique relatif à le <code>namespace</code> racine <code>App\Controllers</code>. Donc, si votre classe de contrôleur complète est <code>App\Controllers\Photo\AdminController</code>, vous devez enregistrer les routes sur le contrôleur comme suit:</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'/foo'</span>, <span class="hljs-string">'Photo\AdminController::action'</span>);
+</code></pre>
+<p>Vous pouvez générer un contrôleur en utilisant la commande <code>add:controller</code> de <code>php bow</code>:</p>
+<pre><code class="hljs css language-bash">php bow add:controller Photo/AdminController
+</code></pre>
+<blockquote>
+<p>Remarquez bien le nom du dossier c'est en camel case. Le framework crééra le namespace approprié pour la classe <code>AdminController</code> et qui sera <code>namepsace App\Controllers\Photo;</code>. Vous trouverez le controller dans un dossier <code>app/Controllers/Photo/AdminController</code>.</p>
+</blockquote>
+<p>Plus d'information sur le <a href="/docs/en/routing">routing</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="contrôleur-et-middleware"></a><a href="#contrôleur-et-middleware" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contrôleur et Middleware</h3>
+<p>Les middlewares peuvent être assigner à la route du contrôleur dans vos fichiers de route. Les middleware sont stockés dans le dossier <code>app\Middlewares</code>. Pour plus d'information sur les middlewares, visitez ce <a href="/docs/en/middleware">lien</a>.</p>
+<p>Exemple:</p>
+<pre><code class="hljs css language-php">$app-&gt;get(<span class="hljs-string">'profile'</span>, <span class="hljs-string">'UserController::show'</span>)-&gt;middleware(<span class="hljs-string">'auth'</span>);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="contrôleur-rest"></a><a href="#contrôleur-rest" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contrôleur REST</h2>
+<p>Les contrôleur REST sont un moyen simple pour mettre en place un API Rest. Cette approche, vous permet de vous concentrez sur votre logique et laisser le Framework géré le routage pour vous.</p>
+<h3><a class="anchor" aria-hidden="true" id="définir-un-contrôleur-rest"></a><a href="#définir-un-contrôleur-rest" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Définir un contrôleur rest</h3>
+<p>Pour définir un nouveau contrôleur Rest, nous devez utiliser le lancer de tache <code>php bow</code> avec la commande <code>generate:resource</code> dans votre console ou invite de commande :sunglasses:.</p>
+<pre><code class="hljs css language-bash">php bow generate:resource PetController
+</code></pre>
+<p>Un contrôleur nommé <code>PetController</code> sera donc créé. Ce qui fait ça particularité c'est qu'il y a déjà des méthodes prédéfinir en lui et ces méthodes doivent rester telles quelles.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controllers</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controllers</span>\<span class="hljs-title">Controller</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>\<span class="hljs-title">Pet</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PetController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span>
+</span>{
+  <span class="hljs-comment">/**
+   * Point d'entré
+   *
+   * <span class="hljs-doctag">@return</span> void
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">index</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-comment">// Codez Ici</span>
+  }
+
+  <span class="hljs-comment">/**
+   * Permet d'afficher la vue permettant de créer une résource.
+   *
+   * <span class="hljs-doctag">@return</span> void
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">create</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-comment">// Codez Ici</span>
+  }
+
+  <span class="hljs-comment">/**
+   * Permet d'ajouter une nouvelle résource dans la base d'information
+   *
+   * <span class="hljs-doctag">@return</span> void
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">store</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-comment">// Codez Ici</span>
+  }
+
+  <span class="hljs-comment">/**
+   * Permet de récupérer un information précise avec un identifiant.
+   *
+   * <span class="hljs-doctag">@param</span> mixed $id
+   * <span class="hljs-doctag">@return</span> void
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span><span class="hljs-params">($id)</span>
+  </span>{
+    <span class="hljs-comment">// Codez Ici</span>
+  }
+
+  <span class="hljs-comment">/**
+   * Mise à jour d'un ressource en utilisant paramètre du GET
+   *
+   * <span class="hljs-doctag">@param</span> mixed $id
+   * <span class="hljs-doctag">@return</span> void
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">edit</span><span class="hljs-params">($id)</span>
+  </span>{
+    <span class="hljs-comment">// Codez Ici</span>
+  }
+
+  <span class="hljs-comment">/**
+   * Mise à jour d'une résource
+   *
+   * <span class="hljs-doctag">@param</span> mixed $id
+   * <span class="hljs-doctag">@return</span> void
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span><span class="hljs-params">($id)</span>
+  </span>{
+    <span class="hljs-comment">// Codez Ici</span>
+  }
+
+  <span class="hljs-comment">/**
+   * Permet de supprimer une resource
+   *
+   * <span class="hljs-doctag">@param</span> mixed $id
+   * <span class="hljs-doctag">@return</span> void
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">destroy</span><span class="hljs-params">($id)</span>
+  </span>{
+    <span class="hljs-comment">// Codez Ici</span>
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="utilisons-notre-contrôleur-rest"></a><a href="#utilisons-notre-contrôleur-rest" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Utilisons notre contrôleur REST</h3>
+<p>Pour utiliser le contrôleur Rest vous avez juste à utiliser le méthode <code>rest</code> sur la variable globale <code>$app</code> dans vos fichiers de <a href="/docs/en/routing">routing</a>.</p>
+<h4><a class="anchor" aria-hidden="true" id="prototype-de-la-méthode-rest"></a><a href="#prototype-de-la-méthode-rest" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prototype de la méthode <code>rest</code></h4>
+<pre><code class="hljs css language-php">$app-&gt;rest(url, action, where = []);
+</code></pre>
+<table>
+<thead>
+<tr><th>paramete</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>url</code></td><td><code>String</code>, <code>Array</code> - Le nom de la route</td></tr>
+<tr><td><code>action</code></td><td><code>String</code> -  Le nom de la route</td></tr>
+<tr><td><code>where</code></td><td><code>Array</code> - Contrainte sur la varible <code>id</code></td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="utilisation-simple"></a><a href="#utilisation-simple" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Utilisation simple</h4>
+<p>Et ça donne ceci:</p>
+<pre><code class="hljs css language-php">$app-&gt;rest(<span class="hljs-string">'pets'</span>, <span class="hljs-string">'PetController'</span>);
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="utilisation-avec-les-contraintes"></a><a href="#utilisation-avec-les-contraintes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Utilisation avec les contraintes</h4>
+<p>Avec une contrainte ça donne ceci:</p>
+<pre><code class="hljs css language-php">$app-&gt;rest(<span class="hljs-string">'pets'</span>, <span class="hljs-string">'PetController'</span>, [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-string">'\d+'</span>]);
+</code></pre>
+<p>Ici la contrainte s'applique sur tous les méthodes. Mais, vous avez aussi la possibilité de restreindre les contraintes sur des méthodes comme ceci:</p>
+<pre><code class="hljs css language-php">$app-&gt;rest(<span class="hljs-string">'pets'</span>, <span class="hljs-string">'PetController'</span>, [
+  <span class="hljs-string">'show'</span> =&gt; [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-string">'\d+'</span>],
+  <span class="hljs-string">'edit'</span> =&gt; [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-string">'[a-z]+'</span>],
+]);
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="utilisation-via-un-tableau-comme-action"></a><a href="#utilisation-via-un-tableau-comme-action" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Utilisation via un tableau comme action</h4>
+<p>Dans le cas ou <code>action</code> est un <code>array</code> voici les clés/valeurs possible.</p>
+<pre><code class="hljs css language-php">$action = [
+  <span class="hljs-string">'controller'</span> =&gt; <span class="hljs-string">'PetController'</span>,
+  <span class="hljs-string">'ignores'</span> =&gt; [<span class="hljs-string">'index'</span>, <span class="hljs-string">'create'</span>],
+];
+
+$app-&gt;rest(<span class="hljs-string">'pets'</span>, $action, [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-string">'\d+'</span>]);
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="ignore-des-méthodes"></a><a href="#ignore-des-méthodes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ignore des méthodes</h4>
+<p>La valeur de <code>ignores</code> sear une liste de méthode/url qui seront ignorées par le <code>routeur</code>. Alors, dans l'exemple précédent les méthodes <code>index</code> et <code>create</code> seront indisponibles.</p>
+<h4><a class="anchor" aria-hidden="true" id="url-et-action"></a><a href="#url-et-action" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Url et Action</h4>
+<p>En considerant la définition Rest suivant:</p>
+<pre><code class="hljs css language-php">$action = [
+  <span class="hljs-string">'controller'</span> =&gt; <span class="hljs-string">'PetController'</span>,
+  <span class="hljs-string">'ignores'</span> =&gt; [<span class="hljs-string">'index'</span>, <span class="hljs-string">'create'</span>],
+];
+
+$app-&gt;rest(<span class="hljs-string">'pets'</span>, $action, [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-string">'\d+'</span>]);
+</code></pre>
+<table>
+<thead>
+<tr><th>URL</th><th>Méthode HTTP</th><th>Nom de la route</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>/pets</code></td><td><code>GET</code></td><td><code>pets.index</code></td><td>Retourne la liste des pets</td></tr>
+<tr><td><code>/pets</code></td><td><code>POST</code></td><td><code>pets.store</code></td><td>Permet d'ajouter un autre pet</td></tr>
+<tr><td><code>/pets/:id</code></td><td><code>GET</code></td><td><code>pets.show</code></td><td>Afficher un seul pet</td></tr>
+<tr><td><code>/pets/:id</code></td><td><code>PUT/PATCH</code></td><td><code>pets.update</code></td><td>Permet de mettre à jour les informations d'un pet</td></tr>
+<tr><td><code>/pets/:id</code></td><td><code>DELETE</code></td><td><code>pets.delete</code></td><td>Ceci va supprimer un pet</td></tr>
+<tr><td><code>/pets/create</code></td><td><code>GET</code></td><td><code>pets.create</code></td><td>Permet d'afficher le formulaire d'ajout</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="il-manque-quelque-chose-"></a><a href="#il-manque-quelque-chose-" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Il manque quelque chose ?</h2>
+<p>Si vous rencontrez des problèmes avec la documentation ou si vous avez des suggestions pour améliorer la documentation ou le projet en général, veuillez déposer une issue pour nous, ou envoyer un tweet mentionnant le compte Twitter @BowFramework ou sur directement sur le <a href="https://github.com/bowphp/docs/issues">github</a>.</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 10/05/2021</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#contrôleur-basic">Contrôleur basic</a><ul class="toc-headings"><li><a href="#définir-un-contrôleur">Définir un contrôleur</a></li><li><a href="#contrôleur-et-espaces-de-noms">Contrôleur et espaces de noms</a></li><li><a href="#contrôleur-et-middleware">Contrôleur et Middleware</a></li></ul></li><li><a href="#contrôleur-rest">Contrôleur REST</a><ul class="toc-headings"><li><a href="#définir-un-contrôleur-rest">Définir un contrôleur rest</a></li><li><a href="#utilisons-notre-contrôleur-rest">Utilisons notre contrôleur REST</a></li></ul></li><li><a href="#il-manque-quelque-chose-">Il manque quelque chose ?</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation">Commencer Bow Framework</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.com/api/master">API Reference</a></div><div><h5>Communautés</h5><a href="https://discord.gg/yhnQhJ4" target="_blank">Galsen Dev</a><a href="https://codedivoire.slack.com" target="_blank">CodeDivoire</a><a href="https://discord.gg/yhnQhJ4" target="_blank">Code Learning Club</a><a href="http://ayiyikoh.org/" target="_blank">Ayiyikoh FabLab</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://join.slack.com/t/bowphp/shared_invite/zt-9c90n2iv-Rx1zdUG0YRAnDULhgELD0g">Slack</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2021 développé avec 💚 par <a href="https://github.com/papac">Franck DAKIA</a></section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>

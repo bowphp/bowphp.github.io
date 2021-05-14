@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>🧩 ORM Barry · Bow Framework</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1 align=&quot;center&quot;&gt;"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="🧩 ORM Barry · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.com/"/><meta property="og:description" content="&lt;h1 align=&quot;center&quot;&gt;"/><meta property="og:image" content="https://bowphp.com/img/bow.jpg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.com/img/bow.jpg"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-97409420-1', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97409420-1"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/script.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/bow.jpg" alt="Bow Framework"/><h2 class="headerTitleWithLogo">Bow Framework</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/installation" target="_self">Documentation</a></li><li class=""><a href="/sponsors" target="_self">Sponsors</a></li><li class=""><a href="https://bowphp.com/api/master" target="_self">API</a></li><li class=""><a href="https://github.com/bowphp" target="_self">Github</a></li><li class=""><a href="https://join.slack.com/t/bowphp/shared_invite/zt-9c90n2iv-Rx1zdUG0YRAnDULhgELD0g" target="_self">Rejoignez-nous</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/bowphp/docs/edit/4.0/docs/en/orm.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">🧩 ORM Barry</h1></header><article><div><span><p><h1 align="center">
+<img src="https://raw.githubusercontent.com/bowphp/arts/master/barry.jpg" width="150px">
+<br>BARRY ORM
+</h1></p>
+<p align="center">BARRY c'est l'ORM (<strong>Object Relation Mapping</strong>) intégré dans Bow Framework.</p>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>Un ORM c'est une façon de rélier les tables entre elles en utilisant des classes. Ici chaque enregistrement d'une table représentera un Objet qui peut être en rélation avec d'autre enregistrement. C'est ce qu'on appel en anglais <strong>The Object Relation Mapping</strong> et en français ben, Mappage de rélation en Objet :wink:.</p>
+<p>L'ORM BARRY inclus avec Bow Framework fournit une implémentation ActiveRecord belle et simple pour travailler avec votre base de données. Chaque table de base de données a un &quot;modèle&quot; correspondant qui est utilisé pour interagir avec cette table. Les modèles vous permettent de rechercher des données dans vos tables, ainsi que d'insérer de nouveaux enregistrements dans la table.</p>
+<p>Dans tout bon Framework qui se respect, il y a un système de ORM et qui posséde un nom super mignon. Celui de Bow se nomme <strong>BARRY</strong>, n'est pas mignon ça :smile:.</p>
+<blockquote>
+<p>Avant de commencer, assurez-vous de configurer une connexion à la base de données dans <code>config/database.php</code>.</p>
+</blockquote>
+<p>Avant de continuer veuillez ajouter une migration:</p>
+<pre><code class="hljs css language-bash">php bow add:migration CreateTodoTable
+</code></pre>
+<p>Ensuite modifiez la migration:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">up</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">$this</span>-&gt;create(<span class="hljs-string">"todos"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(SQLGenerator $table)</span> </span>{
+    $table-&gt;addIncrement(<span class="hljs-string">'id'</span>);
+    $table-&gt;addString(<span class="hljs-string">'title'</span>);
+    $table-&gt;addString(<span class="hljs-string">'status'</span>, <span class="hljs-number">0</span>);
+    $table-&gt;addInteger(<span class="hljs-string">'budget'</span>, <span class="hljs-number">0</span>);
+    $table-&gt;addTimestamps();
+  });
+}
+</code></pre>
+<p>En fin de faire la migration:</p>
+<pre><code class="hljs css language-bash">php bow migration:migrate
+</code></pre>
+<blockquote>
+<p>Cette migration sera utilisé pour vous permettre de faire directement les tests sur le modèle <code>App\Models\Todo::class</code>.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="ajouter-un-model"></a><a href="#ajouter-un-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ajouter un model</h2>
+<p>Pour ajouter un modêle il faut utiliser la ligne de commande <code>php bow</code> avec la commande <code>add:model</code> suivi du nom du model.</p>
+<pre><code class="hljs css language-bash">php bow add:model Todo
+</code></pre>
+<p>Après création du modele, un fichier du meme nom sera créer, dans note cas <code>Todo.php</code>, à la racine du dossier <code>app/Models</code>.</p>
+<p>Voici un aperçu du fichier:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Barry</span>\<span class="hljs-title">Model</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Todo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Model</span>
+</span>{
+  <span class="hljs-comment">//</span>
+}
+</code></pre>
+<blockquote>
+<p>Avant d'utiliser le model vérifier que vous avez configurer votre base de donnée</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="nom-de-table"></a><a href="#nom-de-table" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nom de Table</h3>
+<p>Notez que nous n'avons pas indiqué à BARRY quelle table utiliser pour notre modèle Todo. Par convention, le &quot;snake case&quot;, le nom pluriel de la classe sera utilisé comme nom de table à moins qu'un autre nom ne soit explicitement spécifié.</p>
+<p>Vous pouvez spécifier manuellement un nom de table en définissant une propriété de table sur votre modèle:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Barry</span>\<span class="hljs-title">Model</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Todo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Model</span>
+</span>{
+  <span class="hljs-comment">/**
+   * Définissez la table associée au modèle.
+   *
+   * <span class="hljs-doctag">@var</span> string
+   */</span>
+  <span class="hljs-keyword">protected</span> $table = <span class="hljs-string">'tbl_todos'</span>;
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="clés-primaires"></a><a href="#clés-primaires" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clés primaires</h3>
+<p>BARRY supposera également que chaque table a une colonne de clé primaire nommée id. Vous pouvez définir une propriété <code>$primary_key</code> protégée pour remplacer cette convention:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Barry</span>\<span class="hljs-title">Model</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Todo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Model</span>
+</span>{
+  <span class="hljs-comment">/**
+   * La clé primaire associée à la table.
+   *
+   * <span class="hljs-doctag">@var</span> string
+   */</span>
+  <span class="hljs-keyword">protected</span> $primary_key = <span class="hljs-string">'id_todo'</span>;
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="récupérer-les-données"></a><a href="#récupérer-les-données" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Récupérer les données</h2>
+<p>Une fois que vous avez créé un modèle et sa table de base de données associée, vous êtes prêt à commencer à récupérer les données de votre base de données. Considérez chaque modèle BARRY comme un puissant <a href="./query-build.md">générateur de requêtes</a> vous permettant d'interroger couramment la table de base de données associée au modèle.</p>
+<p>Par exemple:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>\<span class="hljs-title">Todo</span>;
+
+$todos = Todo::all();
+
+<span class="hljs-keyword">foreach</span> ($todos <span class="hljs-keyword">as</span> $todo) {
+  <span class="hljs-keyword">echo</span> $todo-&gt;title;
+}
+</code></pre>
+<p>La méthode <code>find</code> et <code>findBy</code> permet aussi de récupérer les informations:</p>
+<pre><code class="hljs css language-php"><span class="hljs-comment">// Avec find</span>
+$todo = Todo::find(<span class="hljs-number">1</span>);
+
+<span class="hljs-comment">// Avec findBy</span>
+$todo = Todo::findBy(<span class="hljs-string">'id'</span>, <span class="hljs-number">1</span>);
+</code></pre>
+<blockquote>
+<p>La méthode peut aussi retourner <code>null</code> dans le case ou il y a aucun enrégistrement trouvé</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="ajout-de-contraintes-supplémentaires"></a><a href="#ajout-de-contraintes-supplémentaires" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ajout de contraintes supplémentaires</h2>
+<p>La méthode BARRY <code>all</code> retournera tous les résultats dans le tableau du modèle. Étant donné que chaque modèle BARRY sert de <a href="./query-build.md">générateur de requêtes</a>, vous pouvez également ajouter des contraintes aux requêtes, puis utiliser la méthode get pour récupérer les résultats:</p>
+<pre><code class="hljs css language-php">$flights = App\Models\Todo::where(<span class="hljs-string">'status'</span>, <span class="hljs-string">'done'</span>)
+            -&gt;orderBy(<span class="hljs-string">'titie'</span>, <span class="hljs-string">'desc'</span>)
+            -&gt;take(<span class="hljs-number">10</span>)
+            -&gt;get();
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="récupération-dagrégats"></a><a href="#récupération-dagrégats" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Récupération d'agrégats</h2>
+<p>Vous pouvez également utiliser les méthodes <code>count</code>, <code>sum</code>, <code>max</code> et d'autres méthodes d'agrégation fournies par le <a href="./query-build.md">générateur de requêtes</a>. Ces méthodes renvoient la valeur scalaire appropriée au lieu d'une instance de modèle complète:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>\<span class="hljs-title">Todo</span>;
+
+$count = Todo::where(<span class="hljs-string">'status'</span>, <span class="hljs-string">'done'</span>)-&gt;count();
+
+$max = Todo::where(<span class="hljs-string">'status'</span>, <span class="hljs-string">'done'</span>)-&gt;max(<span class="hljs-string">'budget'</span>);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="insertion-et-mise-à-jour-de-modèles"></a><a href="#insertion-et-mise-à-jour-de-modèles" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Insertion et mise à jour de modèles</h2>
+<h3><a class="anchor" aria-hidden="true" id="insert"></a><a href="#insert" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>INSERT</h3>
+<p>Pour créer un nouvel enregistrement dans la base de données, créez une nouvelle instance de modèle, définissez des attributs sur le modèle, puis appelez la méthode de sauvegarde:</p>
+<pre><code class="hljs css language-php">
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Controllers</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controllers</span>\<span class="hljs-title">Controller</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>\<span class="hljs-title">Todo</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Request</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span>
+</span>{
+  <span class="hljs-comment">/**
+   * Créez une nouvelle instance de todo.
+   *
+   * <span class="hljs-doctag">@param</span> Request $request
+   * <span class="hljs-doctag">@return</span> mixed
+   */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">store</span><span class="hljs-params">(Request $request)</span>
+  </span>{
+    <span class="hljs-comment">// Validez la demande...</span>
+
+    $todo = <span class="hljs-keyword">new</span> Todo;
+
+    $todo-&gt;title = $request-&gt;get(<span class="hljs-string">'title'</span>);
+    $todo-&gt;budget = $request-&gt;get(<span class="hljs-string">'budget'</span>, <span class="hljs-number">0</span>);
+    $todo-&gt;status = <span class="hljs-string">'pending'</span>;
+
+    $todo-&gt;save();
+  }
+}
+</code></pre>
+<p>Dans cet exemple, nous affectons le paramètre de nom de la requête HTTP entrante à les attributs <code>title</code>, <code>budget</code> de l'instance de modèle <code>App\Models\Todo</code>. Lorsque nous appelons la méthode <code>save</code>, un enregistrement sera inséré dans la base de données. Les horodatages <code>created_at</code> et <code>updated_at</code> seront automatiquement définis lorsque la méthode de sauvegarde sera appelée, il n'est donc pas nécessaire de les définir manuellement.</p>
+<h3><a class="anchor" aria-hidden="true" id="insert-via-create"></a><a href="#insert-via-create" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Insert via CREATE</h3>
+<p>Les objets Active Record peuvent être créés à partir d'un hachage, d'un bloc ou avoir leurs attributs définis manuellement après la création. La nouvelle méthode renverra un nouvel objet tandis que <code>create</code> renverra l'objet et l'enregistrera dans la base de données.</p>
+<p>Par exemple, étant donné un utilisateur modèle avec des attributs de nom et d'occupation, l'appel de la méthode create créera et enregistrera un nouvel enregistrement dans la base de données:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>\<span class="hljs-title">Todo</span>;
+
+$user = Todo::create([
+  <span class="hljs-string">'title'</span> =&gt; <span class="hljs-string">'Acheter un ticket metro'</span>,
+  <span class="hljs-string">'budget'</span> =&gt; <span class="hljs-number">2000</span>,
+  <span class="hljs-string">'status'</span> =&gt; <span class="hljs-string">'pending'</span>,
+]);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="update"></a><a href="#update" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>UPDATE</h3>
+<p>La méthode <code>save</code> peut également être utilisée pour mettre à jour des modèles qui existent déjà dans la base de données. Pour mettre à jour un modèle, vous devez le récupérer, définir les attributs que vous souhaitez mettre à jour, puis appeler la méthode <code>save</code>. Encore une fois, l'horodatage <code>updated_at</code> sera automatiquement mis à jour, il n'est donc pas nécessaire de définir manuellement sa valeur:</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>\<span class="hljs-title">Todo</span>;
+
+$todo = Todo::find(<span class="hljs-number">1</span>);
+
+$todo-&gt;title = <span class="hljs-string">'Shopping pour Franck'</span>;
+
+$todo-&gt;save();
+</code></pre>
+<p>Ou bien vous pouvez aussi utiliser la methode <code>update</code>. Seulement vous dévez definir les conditions pour ainsi limiter l'impact de la mise à jour.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>\<span class="hljs-title">Todo</span>;
+
+Todo::where(<span class="hljs-string">'status'</span>, <span class="hljs-string">'done'</span>)
+  -&gt;update([<span class="hljs-string">'title'</span> =&gt; <span class="hljs-string">'Achat de ticket d\'avion'</span>]);
+</code></pre>
+<p>La méthode <code>update</code> attend un tableau de paires de colonnes et de valeurs représentant les colonnes à mettre à jour.</p>
+<h2><a class="anchor" aria-hidden="true" id="suppression-de-donnée"></a><a href="#suppression-de-donnée" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Suppression de donnée</h2>
+<p>De même, une fois récupéré, un objet Active Record peut être détruit, ce qui le supprime de la base de données.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>\<span class="hljs-title">Todo</span>;
+
+$todo = Todo::find(<span class="hljs-number">1</span>);
+$todo-&gt;delete();
+</code></pre>
+<p>Si vous souhaitez supprimer plusieurs enregistrements en masse, vous pouvez utiliser la méthode <code>destroyBy</code> ou <code>truncate</code>:</p>
+<pre><code class="hljs css language-php"><span class="hljs-comment">// Delete all todo by id</span>
+Todo::deleteBy(<span class="hljs-string">'id'</span>, <span class="hljs-string">'David'</span>);
+
+<span class="hljs-comment">// delete all todo</span>
+Todo::truncate();
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="il-manque-quelque-chose-"></a><a href="#il-manque-quelque-chose-" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Il manque quelque chose ?</h2>
+<p>Si vous rencontrez des problèmes avec la documentation ou si vous avez des suggestions pour améliorer la documentation ou le projet en général, veuillez déposer une issue pour nous, ou envoyer un tweet mentionnant le compte Twitter @BowFramework ou sur directement sur le <a href="https://github.com/bowphp/docs/issues">github</a>.</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 10/05/2021</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#ajouter-un-model">Ajouter un model</a><ul class="toc-headings"><li><a href="#nom-de-table">Nom de Table</a></li><li><a href="#clés-primaires">Clés primaires</a></li></ul></li><li><a href="#récupérer-les-données">Récupérer les données</a></li><li><a href="#ajout-de-contraintes-supplémentaires">Ajout de contraintes supplémentaires</a></li><li><a href="#récupération-dagrégats">Récupération d'agrégats</a></li><li><a href="#insertion-et-mise-à-jour-de-modèles">Insertion et mise à jour de modèles</a><ul class="toc-headings"><li><a href="#insert">INSERT</a></li><li><a href="#insert-via-create">Insert via CREATE</a></li><li><a href="#update">UPDATE</a></li></ul></li><li><a href="#suppression-de-donnée">Suppression de donnée</a></li><li><a href="#il-manque-quelque-chose-">Il manque quelque chose ?</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation">Commencer Bow Framework</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.com/api/master">API Reference</a></div><div><h5>Communautés</h5><a href="https://discord.gg/yhnQhJ4" target="_blank">Galsen Dev</a><a href="https://codedivoire.slack.com" target="_blank">CodeDivoire</a><a href="https://discord.gg/yhnQhJ4" target="_blank">Code Learning Club</a><a href="http://ayiyikoh.org/" target="_blank">Ayiyikoh FabLab</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://join.slack.com/t/bowphp/shared_invite/zt-9c90n2iv-Rx1zdUG0YRAnDULhgELD0g">Slack</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2021 développé avec 💚 par <a href="https://github.com/papac">Franck DAKIA</a></section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>

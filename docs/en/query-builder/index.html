@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>🏗 SQL Builder · Bow Framework</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="- [Introduction](#introduction)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="🏗 SQL Builder · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.com/"/><meta property="og:description" content="- [Introduction](#introduction)"/><meta property="og:image" content="https://bowphp.com/img/bow.jpg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.com/img/bow.jpg"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-97409420-1', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97409420-1"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/script.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/bow.jpg" alt="Bow Framework"/><h2 class="headerTitleWithLogo">Bow Framework</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/installation" target="_self">Documentation</a></li><li class=""><a href="/sponsors" target="_self">Sponsors</a></li><li class=""><a href="https://bowphp.com/api/master" target="_self">API</a></li><li class=""><a href="https://github.com/bowphp" target="_self">Github</a></li><li class=""><a href="https://join.slack.com/t/bowphp/shared_invite/zt-9c90n2iv-Rx1zdUG0YRAnDULhgELD0g" target="_self">Rejoignez-nous</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/bowphp/docs/edit/4.0/docs/en/query-builder.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">🏗 SQL Builder</h1></header><article><div><span><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#recupéré-les-informations">Recupéré les informations</a>
+<ul>
+<li><a href="#exemple-avec-get">Exemple avec <code>get</code></a></li>
+<li><a href="#exemple-avec-first">Exemple avec <code>first</code></a></li>
+<li><a href="#exemple-avec-last">Exemple avec <code>last</code></a></li>
+<li><a href="#ajoutez-des-restrictions">Ajoutez des restrictions</a>
+<ul>
+<li><a href="#restriction-simple">Restriction simple</a></li>
+<li><a href="#la-clause-or">La clause OR</a></li>
+</ul></li>
+<li><a href="#clauses-additionnelles">Clauses additionnelles</a>
+<ul>
+<li><a href="#wherenull--wherenotnull">whereNull / whereNotNull</a></li>
+<li><a href="#wherein--wherenotin">whereIn / whereNotIn</a></li>
+<li><a href="#wherebetween--wherenotbetween">whereBetween / whereNotBetween</a></li>
+</ul></li>
+<li><a href="#ordonner-grouper-et-limiter">Ordonner, Grouper, et limiter</a>
+<ul>
+<li><a href="#orderby">orderBy</a></li>
+<li><a href="#groupby-et-having">groupBy et having</a></li>
+<li><a href="#jump-et-take">jump et take</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#aggregates">Aggregates</a>
+<ul>
+<li><a href="#déterminer-si-des-enregistrements-existent">Déterminer si des enregistrements existent</a></li>
+<li><a href="#spécification-dune-clause-de-sélection">Spécification d'une clause de sélection</a></li>
+<li><a href="#insertion-dinformation">Insertion d'information</a></li>
+<li><a href="#mise-à-jour">Mise à jour</a></li>
+<li><a href="#supprimer-un-enregistrement">Supprimer un enregistrement</a></li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>Bow fourni un api lié à la construction de requête. Avec la méthode <code>table</code> permet de construire une requête <code>sql</code> en se basant sur la nom de la table et retour une instance de <a href="https://bowphp.com/api/master/Bow/Database/QueryBuilder.html"><code>Bow\Database\QueryBuilder::class</code></a>.</p>
+<pre><code class="hljs css language-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Bow</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Database</span>
+
+$<span class="hljs-title">builder</span> = <span class="hljs-title">Database</span>::<span class="hljs-title">table</span>('<span class="hljs-title">users</span>');
+<span class="hljs-comment">// =&gt; Instance \Bow\Database\QueryBuilder::class</span>
+</code></pre>
+<p>Vous pouvez aussi utiliser le helper <code>table</code>:</p>
+<pre><code class="hljs css language-php">$builder = table(<span class="hljs-string">'users'</span>);
+</code></pre>
+<p>Sur l'instance de la <code>QueryBuilder</code> de Bow, il y a plusieurs méthodes qui vont vous permettre de construire une requête SQL.
+Par exemple la methode <code>toSql</code> qui permet d'affichez la requête construite.</p>
+<pre><code class="hljs css language-php">$builder-&gt;toSql();
+<span class="hljs-comment">// select * from `users`</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="recupéré-les-informations"></a><a href="#recupéré-les-informations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Recupéré les informations</h2>
+<p>Pour recupérer les informations avec le builder, vous devez utiliser le méthode <code>get</code> qui retourne une collection, <code>first</code> qui lui retourne <code>null</code> ou un objet <code>stdclass</code> et <code>last</code> qui se comporte comme <code>first</code> sauf qu'il retourne plutôt le dernier élément du résultat de l'exécution de la requête.</p>
+<h3><a class="anchor" aria-hidden="true" id="exemple-avec-get"></a><a href="#exemple-avec-get" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple avec <code>get</code></h3>
+<pre><code class="hljs css language-php">$builder = Database::table(<span class="hljs-string">'users'</span>);
+
+$users = $builder-&gt;get();
+
+<span class="hljs-keyword">foreach</span> ($users <span class="hljs-keyword">as</span> $user) {
+  <span class="hljs-keyword">echo</span> $user-&gt;name;
+}
+</code></pre>
+<blockquote>
+<p>Notez que vous pouvez passer un tableau à <code>get</code> qui est une liste des colonnes de la projection comme ceci <code>$builder-&gt;get(['name'])</code>.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="exemple-avec-first"></a><a href="#exemple-avec-first" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple avec <code>first</code></h3>
+<pre><code class="hljs css language-php">$user = table(<span class="hljs-string">'users'</span>)-&gt;first();
+
+<span class="hljs-comment">// Vide</span>
+is_null($user)
+<span class="hljs-comment">// Ok</span>
+<span class="hljs-keyword">echo</span> $user-&gt;name;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="exemple-avec-last"></a><a href="#exemple-avec-last" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exemple avec <code>last</code></h3>
+<pre><code class="hljs css language-php">$user = $builder-&gt;last();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="ajoutez-des-restrictions"></a><a href="#ajoutez-des-restrictions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ajoutez des restrictions</h3>
+<h4><a class="anchor" aria-hidden="true" id="restriction-simple"></a><a href="#restriction-simple" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Restriction simple</h4>
+<p>Avec le builder, vous pouvez ajouter des restrictions simple sur la construction de la requête SQL avec la méthode <code>where</code>.</p>
+<pre><code class="hljs css language-php">$users = table(<span class="hljs-string">'users'</span>)-&gt;where(<span class="hljs-string">'id'</span>, <span class="hljs-number">1</span>)-&gt;get();
+
+$users = table(<span class="hljs-string">'users'</span>)-&gt;where(<span class="hljs-string">'id'</span>, <span class="hljs-string">'!='</span>, <span class="hljs-number">1</span>)-&gt;get();
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="la-clause-or"></a><a href="#la-clause-or" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>La clause OR</h4>
+<p>Vous pouvez enchainer la restriction en ajoutant un <code>or</code> dans votre requête. La méthode <code>orWhere</code> vous permet de faire cela:</p>
+<pre><code class="hljs css language-php">$users = table(<span class="hljs-string">'users'</span>)-&gt;where(<span class="hljs-string">'id'</span>, <span class="hljs-number">1</span>)-&gt;orWhere(<span class="hljs-string">'name'</span>, <span class="hljs-string">'Papac'</span>)-&gt;get();
+</code></pre>
+<p>Vous pouvez voir le resultat de la construction de la requête avec la méthode <code>toSql</code>.</p>
+<pre><code class="hljs css language-php">$sql = table(<span class="hljs-string">'users'</span>)-&gt;where(<span class="hljs-string">'id'</span>, <span class="hljs-number">1</span>)-&gt;orWhere(<span class="hljs-string">'id'</span>, <span class="hljs-number">1</span>)-&gt;toSql();
+<span class="hljs-comment">// =&gt; select * from `users` where id = 1 or id = 3;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="clauses-additionnelles"></a><a href="#clauses-additionnelles" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clauses additionnelles</h3>
+<h4><a class="anchor" aria-hidden="true" id="wherenull--wherenotnull"></a><a href="#wherenull--wherenotnull" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>whereNull / whereNotNull</h4>
+<p>La méthode <code>whereNull</code> vérifie que la valeur de la colonne donnée est <code>NULL</code>:</p>
+<pre><code class="hljs css language-php">$users = table(<span class="hljs-string">'users'</span>)-&gt;whereNull(<span class="hljs-string">'name'</span>)-&gt;get();
+</code></pre>
+<p>La méthode <code>whereNotNull</code> vérifie que la valeur de la colonne n'est pas <code>NULL</code>:</p>
+<pre><code class="hljs css language-php">$users = table(<span class="hljs-string">'users'</span>)-&gt;whereNotNull(<span class="hljs-string">'age'</span>)-&gt;get();
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="wherein--wherenotin"></a><a href="#wherein--wherenotin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>whereIn / whereNotIn</h4>
+<p>La méthode <code>whereIn</code> vérifie que la valeur d'une colonne donnée est contenue dans le tableau donné:</p>
+<pre><code class="hljs css language-php">$users = table(<span class="hljs-string">'users'</span>)-&gt;whereIn(<span class="hljs-string">'age'</span>, [<span class="hljs-number">27</span>, <span class="hljs-number">30</span>])-&gt;get();
+</code></pre>
+<p>La méthode <code>whereNotIn</code> vérifie que la valeur de la colonne donnée n'est pas contenue dans le tableau donné:</p>
+<pre><code class="hljs css language-php">$users = table(<span class="hljs-string">'users'</span>)-&gt;whereNotIn(<span class="hljs-string">'age'</span>, [<span class="hljs-number">27</span>, <span class="hljs-number">30</span>])-&gt;get();
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="wherebetween--wherenotbetween"></a><a href="#wherebetween--wherenotbetween" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>whereBetween / whereNotBetween</h4>
+<p>La méthode <code>whereBetween</code> vérifie que la valeur d'une colonne est comprise entre deux valeurs:</p>
+<pre><code class="hljs css language-php">$users = table(<span class="hljs-string">'users'</span>)-&gt;whereBetween(<span class="hljs-string">'votes'</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">100</span>])-&gt;get();
+</code></pre>
+<p>La méthode <code>whereNotBetween</code> vérifie que la valeur d'une colonne se situe en dehors de deux valeurs:</p>
+<pre><code class="hljs css language-php">$users = table(<span class="hljs-string">'users'</span>)-&gt;whereNotBetween(<span class="hljs-string">'votes'</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">100</span>])-&gt;get();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="ordonner-grouper-et-limiter"></a><a href="#ordonner-grouper-et-limiter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ordonner, Grouper, et limiter</h3>
+<h4><a class="anchor" aria-hidden="true" id="orderby"></a><a href="#orderby" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>orderBy</h4>
+<p>La méthode <code>orderBy</code> vous permet de trier le résultat de la requête en fonction d'une colonne donnée. Le premier argument de la méthode <code>orderBy</code> devrait être la colonne que vous souhaitez trier, tandis que le second argument contrôle le sens du tri et peut être <code>asc</code> ou <code>desc</code>:</p>
+<pre><code class="hljs css language-php">$users = table(<span class="hljs-string">'users'</span>)-&gt;orderBy(<span class="hljs-string">'name'</span>, <span class="hljs-string">'desc'</span>)-&gt;get();
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="groupby-et-having"></a><a href="#groupby-et-having" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>groupBy et having</h4>
+<p>Les méthodes <code>groupBy</code> et <code>having</code> peuvent être utilisées pour regrouper les résultats de la requête. La signature de la méthode <code>having</code> est similaire à celle de la méthode <code>where</code>:</p>
+<pre><code class="hljs css language-php">$users = table(<span class="hljs-string">'orders'</span>)
+  -&gt;groupBy(<span class="hljs-string">'price'</span>)
+  -&gt;having(<span class="hljs-string">'price'</span>, <span class="hljs-string">'&gt;'</span>, <span class="hljs-number">100</span>)
+  -&gt;get();
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="jump-et-take"></a><a href="#jump-et-take" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>jump et take</h4>
+<p>Pour limiter le nombre de résultats renvoyés par la requête ou pour ignorer un nombre donné de résultats dans la requête, vous pouvez utiliser les méthodes <code>jump</code> (pour ignorer) et <code>take</code> (pour renvoyer un nombre):</p>
+<pre><code class="hljs css language-php">$users = DB::table(<span class="hljs-string">'users'</span>)-&gt;jump(<span class="hljs-number">10</span>)-&gt;take(<span class="hljs-number">5</span>)-&gt;get();
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="aggregates"></a><a href="#aggregates" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Aggregates</h2>
+<p>Le générateur de requêtes fournit également une variété de méthodes d'agrégation telles que <code>count</code>, <code>max</code>, <code>min</code>, <code>avg</code> et <code>sum</code>. Vous pouvez appeler n'importe laquelle de ces méthodes après avoir construit votre requête.</p>
+<pre><code class="hljs css language-php">$users = table(<span class="hljs-string">'users'</span>)-&gt;count();
+
+$price = table(<span class="hljs-string">'orders'</span>)-&gt;max(<span class="hljs-string">'price'</span>);
+
+$avg = table(<span class="hljs-string">'orders'</span>)-&gt;avg(<span class="hljs-string">'price'</span>);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="déterminer-si-des-enregistrements-existent"></a><a href="#déterminer-si-des-enregistrements-existent" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Déterminer si des enregistrements existent</h3>
+<p>Au lieu d'utiliser la méthode <code>count</code> pour déterminer s'il existe des enregistrements correspondant aux contraintes de votre requête, vous pouvez utiliser la méthode <code>exists</code>:</p>
+<pre><code class="hljs css language-php">$exists = table(<span class="hljs-string">'users'</span>)-&gt;where(<span class="hljs-string">'id'</span>, <span class="hljs-number">1</span>)-&gt;exists();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="spécification-dune-clause-de-sélection"></a><a href="#spécification-dune-clause-de-sélection" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spécification d'une clause de sélection</h3>
+<p>Bien entendu, il se peut que vous ne souhaitiez pas toujours sélectionner toutes les colonnes d'une table de base de données. À l'aide de la méthode <code>select</code>, vous pouvez spécifier une clause select personnalisée pour la requête:</p>
+<pre><code class="hljs css language-php">$price = table(<span class="hljs-string">'orders'</span>)-&gt;select(<span class="hljs-string">'price'</span>)-&gt;get();
+<span class="hljs-comment">// Ou séléctionnez plusieurs colonne</span>
+$price = table(<span class="hljs-string">'orders'</span>)-&gt;select([<span class="hljs-string">'id'</span>, <span class="hljs-string">'price'</span>])-&gt;get();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="insertion-dinformation"></a><a href="#insertion-dinformation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Insertion d'information</h3>
+<p>Le générateur de requêtes fournit également une méthode <code>insert</code> pour insérer des enregistrements dans la table de base de données. La méthode insert accepte un tableau de noms de colonnes et de valeurs:</p>
+<pre><code class="hljs css language-php">table(<span class="hljs-string">'users'</span>)-&gt;insert(
+  [<span class="hljs-string">'email'</span> =&gt; <span class="hljs-string">'exemple@gmail.com'</span>, <span class="hljs-string">'age'</span> =&gt; <span class="hljs-number">27</span>]
+);
+</code></pre>
+<p>Vous pouvez même insérer plusieurs enregistrements dans la table avec un seul appel à insérer en transmettant un tableau de tableaux. Chaque tableau représente une ligne à insérer dans la table:</p>
+<h3><a class="anchor" aria-hidden="true" id="mise-à-jour"></a><a href="#mise-à-jour" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mise à jour</h3>
+<p>Bien entendu, en plus d'insérer des enregistrements dans la base de données, le générateur de requêtes peut également mettre à jour des enregistrements existants à l'aide de la méthode <code>update</code>. La méthode update, comme la méthode <code>insert</code>, accepte un tableau de paires de colonnes et de valeurs contenant les colonnes à mettre à jour. Vous pouvez contraindre la requête de mise à jour à l'aide de clauses <code>where</code>:</p>
+<pre><code class="hljs css language-php">table(<span class="hljs-string">'users'</span>)-&gt;where(<span class="hljs-string">'id'</span>, <span class="hljs-number">1</span>)-&gt;update(
+  [<span class="hljs-string">'email'</span> =&gt; <span class="hljs-string">'exemple@gmail.com'</span>, <span class="hljs-string">'age'</span> =&gt; <span class="hljs-number">27</span>]
+);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="supprimer-un-enregistrement"></a><a href="#supprimer-un-enregistrement" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Supprimer un enregistrement</h3>
+<p>Le générateur de requêtes peut également être utilisé pour supprimer des enregistrements de la table via la méthode <code>delete</code>. Vous pouvez contraindre des instructions delete en ajoutant des clauses where avant d'appeler la méthode <code>delete</code>:</p>
+<pre><code class="hljs css language-php">table(<span class="hljs-string">'users'</span>)-&gt;delete();
+
+table(<span class="hljs-string">'users'</span>)-&gt;where(<span class="hljs-string">'age'</span>, <span class="hljs-string">'&gt;'</span>, <span class="hljs-number">27</span>)-&gt;delete();
+</code></pre>
+<p>Si vous souhaitez vider la table entière, ce qui supprimera toutes les lignes et réinitialisera l'ID d'auto-incrémentation à zéro, vous pouvez utiliser la méthode <code>truncate</code>:</p>
+<pre><code class="hljs css language-php">table(<span class="hljs-string">'pets'</span>)-&gt;truncate();
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="il-manque-quelque-chose-"></a><a href="#il-manque-quelque-chose-" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Il manque quelque chose ?</h2>
+<p>Si vous rencontrez des problèmes avec la documentation ou si vous avez des suggestions pour améliorer la documentation ou le projet en général, veuillez déposer une issue pour nous, ou envoyer un tweet mentionnant le compte Twitter @BowFramework ou sur directement sur le <a href="https://github.com/bowphp/docs/issues">github</a>.</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 10/05/2021</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#recupéré-les-informations">Recupéré les informations</a><ul class="toc-headings"><li><a href="#exemple-avec-get">Exemple avec <code>get</code></a></li><li><a href="#exemple-avec-first">Exemple avec <code>first</code></a></li><li><a href="#exemple-avec-last">Exemple avec <code>last</code></a></li><li><a href="#ajoutez-des-restrictions">Ajoutez des restrictions</a></li><li><a href="#clauses-additionnelles">Clauses additionnelles</a></li><li><a href="#ordonner-grouper-et-limiter">Ordonner, Grouper, et limiter</a></li></ul></li><li><a href="#aggregates">Aggregates</a><ul class="toc-headings"><li><a href="#déterminer-si-des-enregistrements-existent">Déterminer si des enregistrements existent</a></li><li><a href="#spécification-dune-clause-de-sélection">Spécification d'une clause de sélection</a></li><li><a href="#insertion-dinformation">Insertion d'information</a></li><li><a href="#mise-à-jour">Mise à jour</a></li><li><a href="#supprimer-un-enregistrement">Supprimer un enregistrement</a></li></ul></li><li><a href="#il-manque-quelque-chose-">Il manque quelque chose ?</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation">Commencer Bow Framework</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.com/api/master">API Reference</a></div><div><h5>Communautés</h5><a href="https://discord.gg/yhnQhJ4" target="_blank">Galsen Dev</a><a href="https://codedivoire.slack.com" target="_blank">CodeDivoire</a><a href="https://discord.gg/yhnQhJ4" target="_blank">Code Learning Club</a><a href="http://ayiyikoh.org/" target="_blank">Ayiyikoh FabLab</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://join.slack.com/t/bowphp/shared_invite/zt-9c90n2iv-Rx1zdUG0YRAnDULhgELD0g">Slack</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2021 développé avec 💚 par <a href="https://github.com/papac">Franck DAKIA</a></section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>

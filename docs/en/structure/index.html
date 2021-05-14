@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>⚙️ App Structure · Bow Framework</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="- [Structure globale](#structure-globale)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="⚙️ App Structure · Bow Framework"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bowphp.com/"/><meta property="og:description" content="- [Structure globale](#structure-globale)"/><meta property="og:image" content="https://bowphp.com/img/bow.jpg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://bowphp.com/img/bow.jpg"/><link rel="shortcut icon" href="/img/bow.jpg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-97409420-1', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97409420-1"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/script.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/bow.jpg" alt="Bow Framework"/><h2 class="headerTitleWithLogo">Bow Framework</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/installation" target="_self">Documentation</a></li><li class=""><a href="/sponsors" target="_self">Sponsors</a></li><li class=""><a href="https://bowphp.com/api/master" target="_self">API</a></li><li class=""><a href="https://github.com/bowphp" target="_self">Github</a></li><li class=""><a href="https://join.slack.com/t/bowphp/shared_invite/zt-9c90n2iv-Rx1zdUG0YRAnDULhgELD0g" target="_self">Rejoignez-nous</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/bowphp/docs/edit/4.0/docs/en/structure.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">⚙️ App Structure</h1></header><article><div><span><ul>
+<li><a href="#structure-globale">Structure globale</a></li>
+<li><a href="#dossier-app">Dossier app</a></li>
+<li><a href="#dossier-frontend">Dossier frontend</a></li>
+<li><a href="#dossiers-migrations-et-seeders">Dossiers migrations et seeders</a></li>
+<li><a href="#dossier-var">Dossier var</a></li>
+<li><a href="#dossier-tests">Dossier tests</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="structure-globale"></a><a href="#structure-globale" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Structure globale</h2>
+<p>Bow Framework se conforme au modèle <em>MVC</em> (<em>M</em>odèle <em>V</em>ue <em>C</em>ontrôleur).</p>
+<table>
+<thead>
+<tr><th>Dossier</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>app</strong></td><td>Contient la logique principale de votre application. Presque toutes les classes de votre application seront dans ce dossier</td></tr>
+<tr><td><strong>frontend</strong></td><td>Contient les scripts et fichiers de styles de l'application. Il contient entre autre le dossier <code>js</code>, <code>sass</code>, <code>lang</code>. C'est là que vous allez mettre vos fichiers static et ensuite les compiler</td></tr>
+<tr><td><strong>templates</strong></td><td>Contient les vues de votre application</td></tr>
+<tr><td><strong>config</strong></td><td>Contient les différents fichier de configuration des composants de l'application.</td></tr>
+<tr><td><strong>migrations</strong></td><td>Dossier dans lequel sera sauvegardé les migrations de votre application</td></tr>
+<tr><td><strong>seeders</strong></td><td>Dossier dans lequel sera sauvegardé les seeding de votre application</td></tr>
+<tr><td><strong>public</strong></td><td>Le front contrôleur et les fichiers compilés sont stockés dans ce dossier.</td></tr>
+<tr><td><strong>routes</strong></td><td>Contient les routes de votre applications</td></tr>
+<tr><td><strong>var</strong></td><td>Contient le dossier dans lequel est sauvegardé les <code>cache</code>, les <code>log</code> et le stockage de fichier télécharger via le système de <code>Storage</code> de Bow.</td></tr>
+<tr><td><strong>tests</strong></td><td>Contient les tests de l'application.</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="dossier-app"></a><a href="#dossier-app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dossier app</h2>
+<p>C'est votre répertoire de travail sur bow. C'est là que vous allez insérer tous les fichiers de votre application.</p>
+<p>Ici vous retrouverez les dossiers suivants:</p>
+<ul>
+<li><strong>Configurations</strong>: Dossier dans lequel sera sauvegardé les Configuration personnalisés de l'application.</li>
+<li><strong>Controllers</strong>: Dossier dans lequel sera sauvegardé les contrôleurs de l'application.</li>
+<li><strong>Middlewares</strong>: Dossier dans lequel sera sauvegardé les middlewares de l'application.</li>
+<li><strong>Models</strong>: Dossier dans lequel sera sauvegardé les modèles de l'application.</li>
+<li><strong>Validations</strong>: Dossier dans lequel sera sauvegardé les validations de l'application.</li>
+<li><strong>Exceptions</strong>: Dossier dans lequel sera sauvegardé les exceptions personnalisés de l'application.</li>
+<li><strong>Services</strong>: Dossier dans lequel sera sauvegardé les services générés par Bow Console.</li>
+</ul>
+<p>Vous trouverez aussi les fichiers suivants:</p>
+<ul>
+<li><strong>Kernel.php</strong>: La configuration du lanceur de l'application.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="dossier-frontend"></a><a href="#dossier-frontend" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dossier frontend</h2>
+<p>C'est là que vous allez insérer tous les fichiers qui sont utilisé dans les vues de votre application. Vous y retrouverez les dossiers suivant:</p>
+<ul>
+<li><strong>js</strong>: Votre fichier <code>Javascript</code> seront sauvegardés ici.</li>
+<li><strong>sass</strong>: Votre ficher scss seront sauvegardés ici.</li>
+<li><strong>lang</strong>: Dossier dans lequel les locales de votre application seront sauvegardés.</li>
+</ul>
+<blockquote>
+<p>Consultez la section <a href="./frontend">webpack.mix.js</a></p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="dossiers-migrations-et-seeders"></a><a href="#dossiers-migrations-et-seeders" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dossiers migrations et seeders</h2>
+<ul>
+<li><strong>migrations</strong>: Regroupe tout les fichiers de migration de la base de donnée.</li>
+<li><strong>seeders</strong>: Regroupe tout les fichiers permettant d'entrer des données de test dans votre base de données.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="dossier-var"></a><a href="#dossier-var" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dossier var</h2>
+<p>Ici, Bow va stocker les fichiers de log et le cache de votre application. Vous y retrouverez les dossiers suivant:</p>
+<ul>
+<li><strong>storage</strong>: Dossier dans lequel l'application sauvegarde les fichiers téléchargé de l'application</li>
+<li><strong>logs</strong>: Dossier dans lequel est sauvegardé les logs de l'application.</li>
+<li><strong>session</strong>: Dossier dans lequel est sauvegardé les fichiers de session de l'application.</li>
+<li><strong>cache</strong>: Dossier dans lequel l'application sauvegarde les caches de l'application</li>
+<li><strong>view</strong>: Dossier dans lequel l'application sauvegarde le cache de compilation des vues</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="dossier-tests"></a><a href="#dossier-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dossier tests</h2>
+<p>Ici, vous allez stocker vos fichiers de test unity. Et par soucie de bien faire nous avons:</p>
+<ul>
+<li><strong>Http</strong>: Vos sauvegarder vos fichiers de test Http seront ici</li>
+<li><strong>view</strong>: Vos fichiers de test Unity seront ici</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="il-manque-quelque-chose-"></a><a href="#il-manque-quelque-chose-" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Il manque quelque chose ?</h2>
+<p>Si vous rencontrez des problèmes avec la documentation ou si vous avez des suggestions pour améliorer la documentation ou le projet en général, veuillez déposer une issue pour nous, ou envoyer un tweet mentionnant le compte Twitter @BowFramework ou sur directement sur le <a href="https://github.com/bowphp/docs/issues">github</a>.</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 10/05/2021</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#structure-globale">Structure globale</a></li><li><a href="#dossier-app">Dossier app</a></li><li><a href="#dossier-frontend">Dossier frontend</a></li><li><a href="#dossiers-migrations-et-seeders">Dossiers migrations et seeders</a></li><li><a href="#dossier-var">Dossier var</a></li><li><a href="#dossier-tests">Dossier tests</a></li><li><a href="#il-manque-quelque-chose-">Il manque quelque chose ?</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/bow.jpg" alt="Bow Framework" width="66" height="58"/></a><div><h5>Documentation</h5><a href="/docs/en/installation">Commencer Bow Framework</a><a href="/docs/en/contribution.html">Voulez-vous contribuer ?</a><a href="https://bowphp.com/api/master">API Reference</a></div><div><h5>Communautés</h5><a href="https://discord.gg/yhnQhJ4" target="_blank">Galsen Dev</a><a href="https://codedivoire.slack.com" target="_blank">CodeDivoire</a><a href="https://discord.gg/yhnQhJ4" target="_blank">Code Learning Club</a><a href="http://ayiyikoh.org/" target="_blank">Ayiyikoh FabLab</a></div><div><h5>En plus</h5><a href="https://twitter.com/@bowFramework" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://join.slack.com/t/bowphp/shared_invite/zt-9c90n2iv-Rx1zdUG0YRAnDULhgELD0g">Slack</a><a href="https://github.com/bowphp">GitHub</a></div></section><section class="copyright">Copyright © 2021 développé avec 💚 par <a href="https://github.com/papac">Franck DAKIA</a></section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>

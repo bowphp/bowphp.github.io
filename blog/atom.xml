@@ -7,7 +7,7 @@
     <link rel="alternate" href="https://bowphp.com/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Bow Framework news and events.</subtitle>
     <logo>https://bowphp.com/img/bow.jpg</logo>
-    <rights>Copyright © 2020 &lt;a href="https://github.com/papac"&gt;Franck DAKIA&lt;/a&gt;</rights>
+    <rights>Copyright © 2021 développé avec 💚 par &lt;a href="https://github.com/papac"&gt;Franck DAKIA&lt;/a&gt;</rights>
     <entry>
         <title type="html"><![CDATA[Démarrez avec Tintin Template]]></title>
         <id>https://bowphp.com/blog/2018/12/06/demarrer-avec-tintin.html</id>
@@ -16,7 +16,6 @@
         <summary type="html"><![CDATA[<p>Tintin est un template PHP qui se veut très simple et extensible. Il peut être utilisable dans n'importe quel projet PHP.</p> <blockquote> <p>En rédaction</p> </blockquote> ]]></summary>
         <author>
             <name>Franck DAKIA</name>
-            <email/>
             <uri>https://twitter.com/franck_dakia</uri>
         </author>
     </entry>
@@ -28,7 +27,6 @@
         <summary type="html"><![CDATA[<blockquote> <p>En rédaction</p> </blockquote> ]]></summary>
         <author>
             <name>Franck DAKIA</name>
-            <email/>
             <uri>https://twitter.com/franck_dakia</uri>
         </author>
     </entry>
