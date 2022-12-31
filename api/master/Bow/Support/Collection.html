@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Support\Collection | Bow Framework API</title>
+    <title>Bow\Support\Collection | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Support_Collection" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Support_Collection" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,243 +97,241 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Support.html">Support</a></li><li class="backslash">\</li><li>Collection</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Collection
-                
-        </h1>
+        <h1>Collection    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>Collection</strong>        implements
-        <a target="_blank" href="http://php.net/Countable">Countable</a>, <a target="_blank" href="http://php.net/JsonSerializable">JsonSerializable</a>, <a target="_blank" href="http://php.net/IteratorAggregate">IteratorAggregate</a>, <a target="_blank" href="http://php.net/ArrayAccess">ArrayAccess</a>        (<a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php">View source</a>)
+    
+    <p>        classe
+    <strong>Collection</strong>        implémente        <a target="_blank" rel="noopener" href="https://www.php.net/Countable">Countable</a>, <a target="_blank" rel="noopener" href="https://www.php.net/JsonSerializable">JsonSerializable</a>, <a target="_blank" rel="noopener" href="https://www.php.net/IteratorAggregate">IteratorAggregate</a>, <a target="_blank" rel="noopener" href="https://www.php.net/ArrayAccess">ArrayAccess</a>        (<a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php">Voir la source</a>)
 </p>
 
         
     
+        
 
+            
+        
     
-    
-    
-            <h2>Properties</h2>
+            <h2>Propriétés</h2>
 
             <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_storage">
                                         protected                                        array
-                </td>
+                                                                                
+                                    </td>
                 <td>$storage</td>
-                <td class="last"></td>
+                <td class="last"><p>The collection store</p></td>
                 <td></td>
             </tr>
             </table>
 
     
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(array $arr = [])
+                <div class="col-md-8">
+                    <a href="#method___construct">__construct</a>(array $storage = [])
         
-                                            <p>Constructeur d'instance.</p>                </div>
+                                            <p><p>Collection constructor</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_first">first</a>()
         
-                                            <p>Le premier element de la liste</p>                </div>
+                                            <p><p>The first element of the list</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_last">last</a>()
         
-                                            <p>Le dernier element de la liste</p>                </div>
+                                            <p><p>The last element of the list</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    boolean
+                    bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_has">has</a>(string $key, bool $strict = false)
         
-                                            <p>has, vérifie l'existance une clé dans la colléction de session</p>                </div>
+                                            <p><p>Check existence of a key in the session collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    boolean
+                    bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_isEmpty">isEmpty</a>()
         
-                                            <p>isEmpty, vérifie si une colléction est vide.</p>                </div>
+                                            <p><p>Check if a collection is empty.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_get">get</a>(string $key, mixed $default = null)
+                <div class="col-md-8">
+                    <a href="#method_get">get</a>(string $key = null, mixed $default = null)
         
-                                            <p>get, permet de récupérer une valeur ou la colléction de valeur.</p>                </div>
+                                            <p><p>Allows to recover a value or value collection.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_values">values</a>()
         
-                                            <p>retourne la liste des valeurs de la collection</p>                </div>
+                                            <p><p>Get the list of values of collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_keys">keys</a>()
         
-                                            <p>retourne la liste des clés de la collection</p>                </div>
+                                            <p><p>Get the list of keys of collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     int
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_count">count</a>()
         
-                                            <p>Quand on appelera la fonction count sur un object collection.</p>                </div>
+                                            <p><p>Count the collection element.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_collectionify">collectionify</a>(string $key)
         
-                                            <p>collectionify, permet de récupérer une valeur ou la colléction de valeur sous forme
-d'instance de collection.</p>                </div>
+                                            <p><p>To retrieve a value or value collection form d'instance de collection.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_delete">delete</a>(string $key)
         
-                                            <p>delete, supprime une entrée dans la colléction</p>                </div>
+                                            <p><p>Delete an entry in the collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_set">set</a>(string $key, mixed $value)
+                <div class="col-md-8">
+                    <a href="#method_set">set</a>(mixed $key, mixed $value)
         
-                                            <p>set, modifie une entrée dans la colléction ou l'ajout si non</p>                </div>
+                                            <p><p>Modify an entry in the collection or the addition if not</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_each">each</a>(callable $cb)
         
-                                            <p>each parcour l'ensemble des valeurs de la collection</p>                </div>
+                                            <p><p>Browse all the values of the collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_merge">merge</a>(<a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>|array $array)
         
-                                            <p>fusion la collection avec un tableau ou une autre collection</p>                </div>
+                                            <p><p>Merge the collection with a painting or other collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_map">map</a>(callable $cb)
         
-                                            <p>map</p>                </div>
+                                            <p>Map</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_filter">filter</a>(callable $cb)
         
-                                            <p>filter</p>                </div>
+                                            <p>Filter</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    array
+                    mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_fill">fill</a>(mixed $data, int $offset)
         
-                                            <p>Fill</p>                </div>
+                                            <p><p>Fill storage</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_reduce">reduce</a>(callable $cb, mixed $next = null)
         
-                                            <p>reduce</p>                </div>
+                                            <p>Reduce</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_implode">implode</a>($sep)
+                <div class="col-md-8">
+                    <a href="#method_implode">implode</a>(string $sep)
         
                                             <p>Implode</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    int
+                    <abbr title="Bow\Support\int|float">int|float</abbr>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_sum">sum</a>(callable $cb = null)
         
                                             <p>Sum</p>                </div>
@@ -309,20 +339,20 @@ d'instance de collection.</p>                </div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <abbr title="Bow\Support\number">number</abbr>
+                    <abbr title="Bow\Support\int|float">int|float</abbr>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_max">max</a>(callable $cb = null)
+                <div class="col-md-8">
+                    <a href="#method_max">max</a>(callable|null $cb = null)
         
                                             <p>Max</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <abbr title="Bow\Support\number">number</abbr>
+                    int|float
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_min">min</a>(callable $cb = null)
+                <div class="col-md-8">
+                    <a href="#method_min">min</a>(callable|null $cb = null)
         
                                             <p>Max</p>                </div>
                 <div class="col-md-2"></div>
@@ -331,140 +361,138 @@ d'instance de collection.</p>                </div>
                 <div class="col-md-2 type">
                     <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_excepts">excepts</a>(array $except)
         
-                                            <p>Permet de retourne la liste de clé
-et retourne une instance de Collection.</p>                </div>
+                                            <p><p>Returns the key list and return an instance of Collection.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_ignores">ignores</a>(array $ignores)
         
-                                            <p>Permet d'ignorer la clé que l'on lui donne
-et retourne une instance de Collection.</p>                </div>
+                                            <p><p>Ignore the key that is given to it and return an instance of Collection.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_reverse">reverse</a>()
         
-                                            <p>reverse</p>                </div>
+                                            <p><p>Reverse collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    boolean
+                    bool
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_update">update</a>(string|integer $key, mixed $data, boolean $overide = false)
+                <div class="col-md-8">
+                    <a href="#method_update">update</a>(mixed $key, mixed $data, bool $override = false)
         
-                                            <p>update, met à jour une valeur existant dans la collection</p>                </div>
+                                            <p><p>Update an existing value in the collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a target="_blank" href="http://php.net/Generator">Generator</a>
+                    <a target="_blank" rel="noopener" href="https://www.php.net/Generator">Generator</a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_yieldify">yieldify</a>()
         
-                                            <p>yieldify, lance un générateur</p>                </div>
+                                            <p><p>Launches the collection content as generator</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_toJson">toJson</a>(int $option = 0)
         
-                                            <p>Retourne les données au format JSON</p>                </div>
+                                            <p><p>Get the data in JSON format</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     int
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_length">length</a>()
         
-                                            <p>length, longeur de la collection</p>                </div>
+                                            <p><p>Length of the collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_shift">shift</a>()
         
-                                            <p>Supprime le premier élément de la collection</p>                </div>
+                                            <p><p>Deletes the first item in the collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_pop">pop</a>()
         
-                                            <p>Supprime le dernier élément de la collection</p>                </div>
+                                            <p><p>Deletes the last item in the collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_toArray">toArray</a>()
         
-                                            <p>Retourne les éléments de la collection sous format de table;</p>                </div>
+                                            <p><p>Returns the elements of the collection in table format</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    mixed
+                    array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_all">all</a>()
         
-                                            <p>Retourne les éléments de la collection</p>                </div>
+                                            <p><p>Returns the elements of the collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    mixed
+                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_push">push</a>(mixed $value, int|string $key = null)
+                <div class="col-md-8">
+                    <a href="#method_push">push</a>(mixed $value, mixed $key = null)
         
-                                            <p>Ajout après le dernier élément de la collection</p>                </div>
+                                            <p><p>Add after the last item in the collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method___get">__get</a>(string $name)
+                <div class="col-md-8">
+                    <a href="#method___get">__get</a>(mixed $name)
         
                                             <p>__get</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method___set">__set</a>($name, $value)
+                <div class="col-md-8">
+                    <a href="#method___set">__set</a>(mixed $name, mixed $value)
         
                                             <p>__set</p>                </div>
                 <div class="col-md-2"></div>
@@ -473,18 +501,18 @@ et retourne une instance de Collection.</p>                </div>
                 <div class="col-md-2 type">
                     bool
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method___isset">__isset</a>($name)
+                <div class="col-md-8">
+                    <a href="#method___isset">__isset</a>(mixed $name)
         
                                             <p>__isset</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method___unset">__unset</a>($name)
+                <div class="col-md-8">
+                    <a href="#method___unset">__unset</a>(mixed $name)
         
                                             <p>__unset</p>                </div>
                 <div class="col-md-2"></div>
@@ -493,7 +521,7 @@ et retourne une instance de Collection.</p>                </div>
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method___toString">__toString</a>()
         
                                             <p>__toString</p>                </div>
@@ -501,9 +529,9 @@ et retourne une instance de Collection.</p>                </div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_jsonSerialize">jsonSerialize</a>()
         
                                             <p>jsonSerialize</p>                </div>
@@ -511,9 +539,9 @@ et retourne une instance de Collection.</p>                </div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <a target="_blank" rel="noopener" href="https://www.php.net/ArrayIterator">ArrayIterator</a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getIterator">getIterator</a>()
         
                                             <p>getIterator</p>                </div>
@@ -523,76 +551,74 @@ et retourne une instance de Collection.</p>                </div>
                 <div class="col-md-2 type">
                     bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_offsetExists">offsetExists</a>(mixed $offset)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>offsetExists</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_offsetGet">offsetGet</a>(mixed $offset)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>offsetGet</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_offsetSet">offsetSet</a>(mixed $offset, mixed $value)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>offsetSet</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_offsetUnset">offsetUnset</a>(mixed $offset)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>offsetUnset</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L17">line 17</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L23">à la ligne 23</a></div>
         <code>                    
-    <strong>__construct</strong>(array $arr = [])
+    <strong>__construct</strong>(array $storage = [])
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Constructeur d'instance.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Collection constructor</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>array</td>
-                <td>$arr</td>
+                <td>$storage</td>
                 <td></td>
             </tr>
             </table>
 
+            
             
             
             
@@ -602,20 +628,21 @@ et retourne une instance de Collection.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_first">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L27">line 27</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L33">à la ligne 33</a></div>
         <code>                    mixed
     <strong>first</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Le premier element de la liste</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>The first element of the list</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -626,26 +653,28 @@ et retourne une instance de Collection.</p>                </div>
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_last">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L37">line 37</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L43">à la ligne 43</a></div>
         <code>                    array
     <strong>last</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Le dernier element de la liste</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>The last element of the list</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -656,50 +685,52 @@ et retourne une instance de Collection.</p>                </div>
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_has">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L54">line 54</a></div>
-        <code>                    boolean
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L59">à la ligne 59</a></div>
+        <code>                    bool
     <strong>has</strong>(string $key, bool $strict = false)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>has, vérifie l'existance une clé dans la colléction de session</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Check existence of a key in the session collection</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$key</td>
-                <td>La clé de l'élément
-                       récherché</td>
+                <td></td>
             </tr>
                     <tr>
                 <td>bool</td>
                 <td>$strict</td>
-                <td>Quand $val est a true alors :has vas vérifie $key non pas comment une cle mais un valeur.</td>
+                <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>boolean</td>
+            <td>bool</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -708,28 +739,30 @@ et retourne une instance de Collection.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isEmpty">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L74">line 74</a></div>
-        <code>                    boolean
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L78">à la ligne 78</a></div>
+        <code>                    bool
     <strong>isEmpty</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>isEmpty, vérifie si une colléction est vide.</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Check if a collection is empty.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>boolean</td>
+            <td>bool</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -738,19 +771,20 @@ et retourne une instance de Collection.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_get">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L97">line 97</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L101">à la ligne 101</a></div>
         <code>                    mixed
-    <strong>get</strong>(string $key, mixed $default = null)
+    <strong>get</strong>(string $key = null, mixed $default = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>get, permet de récupérer une valeur ou la colléction de valeur.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Allows to recover a value or value collection.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -766,7 +800,7 @@ et retourne une instance de Collection.</p>                </div>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -777,26 +811,28 @@ et retourne une instance de Collection.</p>                </div>
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_values">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L119">line 119</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L129">à la ligne 129</a></div>
         <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
     <strong>values</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>retourne la liste des valeurs de la collection</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the list of values of collection</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -805,6 +841,7 @@ et retourne une instance de Collection.</p>                </div>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -813,20 +850,21 @@ et retourne une instance de Collection.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_keys">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L135">line 135</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L145">à la ligne 145</a></div>
         <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
     <strong>keys</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>retourne la liste des clés de la collection</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the list of keys of collection</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -837,26 +875,28 @@ et retourne une instance de Collection.</p>                </div>
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_count">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L151">line 151</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L161">à la ligne 161</a></div>
         <code>                    int
     <strong>count</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Quand on appelera la fonction count sur un object collection.</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Count the collection element.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -867,66 +907,27 @@ et retourne une instance de Collection.</p>                </div>
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_collectionify">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L164">line 164</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L172">à la ligne 172</a></div>
         <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
     <strong>collectionify</strong>(string $key)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>collectionify, permet de récupérer une valeur ou la colléction de valeur sous forme
-d'instance de collection.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$key</td>
-                <td>La clé de l'élément</td>
-            </tr>
-            </table>
-
             
-                            <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_delete">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L186">line 186</a></div>
-        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
-    <strong>delete</strong>(string $key)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>delete, supprime une entrée dans la colléction</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>To retrieve a value or value collection form d'instance de collection.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -937,7 +938,7 @@ d'instance de collection.</p>                                                </d
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -948,29 +949,73 @@ d'instance de collection.</p>                                                </d
 
             
             
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_delete">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L193">à la ligne 193</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>delete</strong>(string $key)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Delete an entry in the collection</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_set">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L201">line 201</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L207">à la ligne 207</a></div>
         <code>                    mixed
-    <strong>set</strong>(string $key, mixed $value)
+    <strong>set</strong>(mixed $key, mixed $value)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>set, modifie une entrée dans la colléction ou l'ajout si non</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Modify an entry in the collection or the addition if not</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>mixed</td>
                 <td>$key</td>
                 <td></td>
             </tr>
@@ -982,7 +1027,7 @@ d'instance de collection.</p>                                                </d
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -993,25 +1038,27 @@ d'instance de collection.</p>                                                </d
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_each">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L221">line 221</a></div>
-        <code>                    
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L227">à la ligne 227</a></div>
+        <code>                    void
     <strong>each</strong>(callable $cb)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>each parcour l'ensemble des valeurs de la collection</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Browse all the values of the collection</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1022,6 +1069,16 @@ d'instance de collection.</p>                                                </d
             </table>
 
             
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
             
             
                     </div>
@@ -1030,19 +1087,20 @@ d'instance de collection.</p>                                                </d
             </div>
                     <div class="method-item">
                     <h3 id="method_merge">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L236">line 236</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L241">à la ligne 241</a></div>
         <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
     <strong>merge</strong>(<a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>|array $array)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>fusion la collection avec un tableau ou une autre collection</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Merge the collection with a painting or other collection</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1053,7 +1111,7 @@ d'instance de collection.</p>                                                </d
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1067,11 +1125,12 @@ d'instance de collection.</p>                                                </d
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a target="_blank" href="http://php.net/ErrorException">ErrorException</a></td>
+                <td><a target="_blank" rel="noopener" href="https://www.php.net/ErrorException">ErrorException</a></td>
                 <td></td>
             </tr>
             </table>
 
+            
             
                     </div>
     </div>
@@ -1079,19 +1138,20 @@ d'instance de collection.</p>                                                </d
             </div>
                     <div class="method-item">
                     <h3 id="method_map">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L256">line 256</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L269">à la ligne 269</a></div>
         <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
     <strong>map</strong>(callable $cb)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>map</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>Map</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1102,7 +1162,7 @@ d'instance de collection.</p>                                                </d
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1111,6 +1171,7 @@ d'instance de collection.</p>                                                </d
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1119,19 +1180,20 @@ d'instance de collection.</p>                                                </d
             </div>
                     <div class="method-item">
                     <h3 id="method_filter">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L276">line 276</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L289">à la ligne 289</a></div>
         <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
     <strong>filter</strong>(callable $cb)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>filter</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>Filter</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1142,7 +1204,7 @@ d'instance de collection.</p>                                                </d
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1153,25 +1215,27 @@ d'instance de collection.</p>                                                </d
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_fill">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L297">line 297</a></div>
-        <code>                    array
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L309">à la ligne 309</a></div>
+        <code>                    mixed
     <strong>fill</strong>(mixed $data, int $offset)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Fill</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Fill storage</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1187,15 +1251,16 @@ d'instance de collection.</p>                                                </d
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>array</td>
+            <td>mixed</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1204,19 +1269,20 @@ d'instance de collection.</p>                                                </d
             </div>
                     <div class="method-item">
                     <h3 id="method_reduce">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L318">line 318</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L329">à la ligne 329</a></div>
         <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
     <strong>reduce</strong>(callable $cb, mixed $next = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>reduce</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>Reduce</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1232,7 +1298,7 @@ d'instance de collection.</p>                                                </d
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1243,36 +1309,38 @@ d'instance de collection.</p>                                                </d
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_implode">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L333">line 333</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L346">à la ligne 346</a></div>
         <code>                    string
-    <strong>implode</strong>($sep)
+    <strong>implode</strong>(string $sep)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Implode</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>Implode</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$sep</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1283,25 +1351,27 @@ d'instance de collection.</p>                                                </d
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_sum">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L345">line 345</a></div>
-        <code>                    int
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L357">à la ligne 357</a></div>
+        <code>                    <abbr title="Bow\Support\int|float">int|float</abbr>
     <strong>sum</strong>(callable $cb = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Sum</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>Sum</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1312,15 +1382,16 @@ d'instance de collection.</p>                                                </d
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>int</td>
+            <td><abbr title="Bow\Support\int|float">int|float</abbr></td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1329,38 +1400,40 @@ d'instance de collection.</p>                                                </d
             </div>
                     <div class="method-item">
                     <h3 id="method_max">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L369">line 369</a></div>
-        <code>                    <abbr title="Bow\Support\number">number</abbr>
-    <strong>max</strong>(callable $cb = null)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L383">à la ligne 383</a></div>
+        <code>                    <abbr title="Bow\Support\int|float">int|float</abbr>
+    <strong>max</strong>(callable|null $cb = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Max</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>Max</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>callable</td>
+                <td>callable|null</td>
                 <td>$cb</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><abbr title="Bow\Support\number">number</abbr></td>
+            <td><abbr title="Bow\Support\int|float">int|float</abbr></td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1369,38 +1442,40 @@ d'instance de collection.</p>                                                </d
             </div>
                     <div class="method-item">
                     <h3 id="method_min">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L380">line 380</a></div>
-        <code>                    <abbr title="Bow\Support\number">number</abbr>
-    <strong>min</strong>(callable $cb = null)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L394">à la ligne 394</a></div>
+        <code>                    int|float
+    <strong>min</strong>(callable|null $cb = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Max</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>Max</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>callable</td>
+                <td>callable|null</td>
                 <td>$cb</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><abbr title="Bow\Support\number">number</abbr></td>
+            <td>int|float</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1409,31 +1484,31 @@ d'instance de collection.</p>                                                </d
             </div>
                     <div class="method-item">
                     <h3 id="method_excepts">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L419">line 419</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L434">à la ligne 434</a></div>
         <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
     <strong>excepts</strong>(array $except)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Permet de retourne la liste de clé
-et retourne une instance de Collection.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Returns the key list and return an instance of Collection.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$except</td>
-                <td>Liste des éléments à ignorer</td>
+                <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1442,6 +1517,7 @@ et retourne une instance de Collection.</p>                                     
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1450,31 +1526,31 @@ et retourne une instance de Collection.</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method_ignores">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L439">line 439</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L456">à la ligne 456</a></div>
         <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
     <strong>ignores</strong>(array $ignores)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Permet d'ignorer la clé que l'on lui donne
-et retourne une instance de Collection.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Ignore the key that is given to it and return an instance of Collection.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$ignores</td>
-                <td>Liste des éléments à ignorer</td>
+                <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1483,6 +1559,7 @@ et retourne une instance de Collection.</p>                                     
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1491,20 +1568,21 @@ et retourne une instance de Collection.</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method_reverse">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L457">line 457</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L477">à la ligne 477</a></div>
         <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
     <strong>reverse</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>reverse</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Reverse collection</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1515,29 +1593,31 @@ et retourne une instance de Collection.</p>                                     
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_update">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L470">line 470</a></div>
-        <code>                    boolean
-    <strong>update</strong>(string|integer $key, mixed $data, boolean $overide = false)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L490">à la ligne 490</a></div>
+        <code>                    bool
+    <strong>update</strong>(mixed $key, mixed $data, bool $override = false)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>update, met à jour une valeur existant dans la collection</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Update an existing value in the collection</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string|integer</td>
+                <td>mixed</td>
                 <td>$key</td>
                 <td></td>
             </tr>
@@ -1547,22 +1627,23 @@ et retourne une instance de Collection.</p>                                     
                 <td></td>
             </tr>
                     <tr>
-                <td>boolean</td>
-                <td>$overide</td>
+                <td>bool</td>
+                <td>$override</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>boolean</td>
+            <td>bool</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1571,28 +1652,30 @@ et retourne une instance de Collection.</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method_yieldify">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L496">line 496</a></div>
-        <code>                    <a target="_blank" href="http://php.net/Generator">Generator</a>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L516">à la ligne 516</a></div>
+        <code>                    <a target="_blank" rel="noopener" href="https://www.php.net/Generator">Generator</a>
     <strong>yieldify</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>yieldify, lance un générateur</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Launches the collection content as generator</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a target="_blank" href="http://php.net/Generator">Generator</a></td>
+            <td><a target="_blank" rel="noopener" href="https://www.php.net/Generator">Generator</a></td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1601,19 +1684,20 @@ et retourne une instance de Collection.</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method_toJson">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L511">line 511</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L539">à la ligne 539</a></div>
         <code>                    string
     <strong>toJson</strong>(int $option = 0)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Retourne les données au format JSON</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Get the data in JSON format</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1624,7 +1708,7 @@ et retourne une instance de Collection.</p>                                     
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1635,26 +1719,28 @@ et retourne une instance de Collection.</p>                                     
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_length">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L521">line 521</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L549">à la ligne 549</a></div>
         <code>                    int
     <strong>length</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>length, longeur de la collection</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Length of the collection</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1665,26 +1751,28 @@ et retourne une instance de Collection.</p>                                     
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_shift">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L531">line 531</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L559">à la ligne 559</a></div>
         <code>                    mixed
     <strong>shift</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Supprime le premier élément de la collection</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Deletes the first item in the collection</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1693,6 +1781,7 @@ et retourne une instance de Collection.</p>                                     
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1701,20 +1790,21 @@ et retourne une instance de Collection.</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method_pop">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L543">line 543</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L571">à la ligne 571</a></div>
         <code>                    mixed
     <strong>pop</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Supprime le dernier élément de la collection</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Deletes the last item in the collection</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1725,26 +1815,28 @@ et retourne une instance de Collection.</p>                                     
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L553">line 553</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L581">à la ligne 581</a></div>
         <code>                    array
     <strong>toArray</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Retourne les éléments de la collection sous format de table;</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Returns the elements of the collection in table format</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1755,34 +1847,37 @@ et retourne une instance de Collection.</p>                                     
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_all">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L573">line 573</a></div>
-        <code>                    mixed
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L604">à la ligne 604</a></div>
+        <code>                    array
     <strong>all</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Retourne les éléments de la collection</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Returns the elements of the collection</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
+            <td>array</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1791,19 +1886,20 @@ et retourne une instance de Collection.</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method_push">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L585">line 585</a></div>
-        <code>                    mixed
-    <strong>push</strong>(mixed $value, int|string $key = null)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L616">à la ligne 616</a></div>
+        <code>                    <a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a>
+    <strong>push</strong>(mixed $value, mixed $key = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Ajout après le dernier élément de la collection</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Add after the last item in the collection</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1812,22 +1908,23 @@ et retourne une instance de Collection.</p>                                     
                 <td></td>
             </tr>
                     <tr>
-                <td>int|string</td>
+                <td>mixed</td>
                 <td>$key</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
+            <td><a href="../../Bow/Support/Collection.html"><abbr title="Bow\Support\Collection">Collection</abbr></a></td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1836,30 +1933,31 @@ et retourne une instance de Collection.</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method___get">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L620">line 620</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L650">à la ligne 650</a></div>
         <code>                    mixed
-    <strong>__get</strong>(string $name)
+    <strong>__get</strong>(mixed $name)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>__get</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>__get</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>mixed</td>
                 <td>$name</td>
-                <td>La clé</td>
+                <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1870,38 +1968,50 @@ et retourne une instance de Collection.</p>                                     
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method___set">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L631">line 631</a></div>
-        <code>                    
-    <strong>__set</strong>($name, $value)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L662">à la ligne 662</a></div>
+        <code>                    void
+    <strong>__set</strong>(mixed $name, mixed $value)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>__set</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>__set</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$name</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$value</td>
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -1912,30 +2022,31 @@ et retourne une instance de Collection.</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method___isset">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L642">line 642</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L673">à la ligne 673</a></div>
         <code>                    bool
-    <strong>__isset</strong>($name)
+    <strong>__isset</strong>(mixed $name)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>__isset</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>__isset</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$name</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1946,33 +2057,45 @@ et retourne une instance de Collection.</p>                                     
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method___unset">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L652">line 652</a></div>
-        <code>                    
-    <strong>__unset</strong>($name)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L684">à la ligne 684</a></div>
+        <code>                    void
+    <strong>__unset</strong>(mixed $name)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>__unset</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>__unset</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$name</td>
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -1983,20 +2106,21 @@ et retourne une instance de Collection.</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method___toString">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L662">line 662</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L694">à la ligne 694</a></div>
         <code>                    string
     <strong>__toString</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>__toString</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p>__toString</p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -2007,24 +2131,36 @@ et retourne une instance de Collection.</p>                                     
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_jsonSerialize">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L670">line 670</a></div>
-        <code>                    
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L704">à la ligne 704</a></div>
+        <code>                    string
     <strong>jsonSerialize</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>jsonSerialize</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p>jsonSerialize</p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
             
@@ -2034,18 +2170,29 @@ et retourne une instance de Collection.</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method_getIterator">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L678">line 678</a></div>
-        <code>                    
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L714">à la ligne 714</a></div>
+        <code>                    <a target="_blank" rel="noopener" href="https://www.php.net/ArrayIterator">ArrayIterator</a>
     <strong>getIterator</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>getIterator</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p>getIterator</p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a target="_blank" rel="noopener" href="https://www.php.net/ArrayIterator">ArrayIterator</a></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
             
@@ -2055,17 +2202,20 @@ et retourne une instance de Collection.</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method_offsetExists">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L687">line 687</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L725">à la ligne 725</a></div>
         <code>                    bool
     <strong>offsetExists</strong>(mixed $offset)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>offsetExists</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -2076,7 +2226,7 @@ et retourne une instance de Collection.</p>                                     
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -2087,23 +2237,27 @@ et retourne une instance de Collection.</p>                                     
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_offsetGet">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L696">line 696</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L736">à la ligne 736</a></div>
         <code>                    mixed
     <strong>offsetGet</strong>(mixed $offset)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>offsetGet</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -2114,7 +2268,7 @@ et retourne une instance de Collection.</p>                                     
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -2125,23 +2279,27 @@ et retourne une instance de Collection.</p>                                     
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_offsetSet">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L705">line 705</a></div>
-        <code>                    
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L748">à la ligne 748</a></div>
+        <code>                    void
     <strong>offsetSet</strong>(mixed $offset, mixed $value)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>offsetSet</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -2157,6 +2315,16 @@ et retourne une instance de Collection.</p>                                     
             </table>
 
             
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
             
             
                     </div>
@@ -2165,17 +2333,20 @@ et retourne une instance de Collection.</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method_offsetUnset">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L713">line 713</a></div>
-        <code>                    
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Collection.php#L759">à la ligne 759</a></div>
+        <code>                    void
     <strong>offsetUnset</strong>(mixed $offset)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>offsetUnset</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -2186,6 +2357,16 @@ et retourne une instance de Collection.</p>                                     
             </table>
 
             
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
             
             
                     </div>
@@ -2195,12 +2376,8 @@ et retourne une instance de Collection.</p>                                     
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

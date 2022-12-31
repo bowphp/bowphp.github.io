@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Mail\Message | Bow Framework API</title>
+    <title>Bow\Mail\Message | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Mail_Message" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Mail_Message" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,35 +97,34 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Mail.html">Mail</a></li><li class="backslash">\</li><li>Message</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Message
-                
-        </h1>
+        <h1>Message    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>Message</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php">View source</a>)
+    
+    <p>        classe
+    <strong>Message</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php">Voir la source</a>)
 </p>
 
         
     
+        
 
-    
-    
-            <h2>Constants</h2>
-
-            <table class="table table-condensed">
+            
+        
+            <h2>Constantes</h2>    <table class="table table-condensed">
                     <tr>
-                <td>END</td>
+                <td>
+                                                                                                                        END
+                                    </td>
                 <td class="last">
-                    <p><em></em></p>
+                    <p><em><p>The mail end of line</p></em></p>
                     <p></p>
                 </td>
             </tr>
@@ -101,292 +132,291 @@
 
     
     
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method___construct">__construct</a>(bool $boundary = true)
         
-                                            <p>Construction d'une instance de SimpleMail</p>                </div>
+                                            <p><p>Message Constructor.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setDefaultHeader">setDefaultHeader</a>()
         
-                                            <p>Définir les entête par défaut</p>                </div>
+                                            <p><p>Set the default header</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_addHeader">addHeader</a>(string $key, string $value)
         
-                                            <p>Ajout des entêtes personnel</p>                </div>
+                                            <p><p>Add personal headers</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_to">to</a>(string $to, string $name = null)
+                <div class="col-md-8">
+                    <a href="#method_to">to</a>(string $to, string|null $name = null)
         
-                                            <p>to, définir le récépteur</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <abbr title="Bow\Mail\$this">$this</abbr>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_toList">toList</a>(array $list_desc)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p><p>Define the receiver</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
+                    <a href="#method_toList">toList</a>(array $sendTo)
+        
+                                            <p><p>Define the receiver in list</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
+                </div>
+                <div class="col-md-8">
                     <a href="#method_addFile">addFile</a>(string $file)
         
-                                            <p>addFile, Permet d'ajout un fichier d'attachement</p>                </div>
+                                            <p><p>Add an attachment file</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_compileHeaders">compileHeaders</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p><p>Compile the mail header</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_subject">subject</a>(string $subject)
         
-                                            <p>subject, Définit le suject du mail</p>                </div>
+                                            <p><p>Define the subject of the mail</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_from">from</a>(string $from, string $name = null)
+                <div class="col-md-8">
+                    <a href="#method_from">from</a>(string $from, string|null $name = null)
         
-                                            <p>from, définir l'expéditeur du mail</p>                </div>
+                                            <p><p>Define the sender of the mail</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_html">html</a>($html)
+                <div class="col-md-8">
+                    <a href="#method_html">html</a>(string $html)
         
-                                            <p>toHtml, définir le type de contenu en text/html</p>                </div>
+                                            <p><p>Define the type of content in text/html</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_text">text</a>(string $text)
         
-                                            <p>toText, définir le corps du message</p>                </div>
+                                            <p><p>Add message body</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_addBcc">addBcc</a>(string $mail, string $name = null)
+                <div class="col-md-8">
+                    <a href="#method_addBcc">addBcc</a>(string $mail, string|null $name = null)
         
-                                            <p>Adds blind carbon copy</p>                </div>
+                                            <p><p>Adds blind carbon copy</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_addCc">addCc</a>(string $mail, string $name = null)
+                <div class="col-md-8">
+                    <a href="#method_addCc">addCc</a>(string $mail, string|null $name = null)
         
-                                            <p>Adds carbon copy</p>                </div>
+                                            <p><p>Add carbon copy</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_addReplyTo">addReplyTo</a>($mail, $name = null)
+                <div class="col-md-8">
+                    <a href="#method_addReplyTo">addReplyTo</a>(string $mail, string|null $name = null)
         
-                                            <p>Adds Reply-To</p>                </div>
+                                            <p><p>Add Reply-To</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_setBoundary">setBoundary</a>($boundary)
+                <div class="col-md-8">
+                    <a href="#method_setBoundary">setBoundary</a>(string $boundary)
         
-                                            <p>Modifie la valeur de la frontière</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_addReturnPath">addReturnPath</a>($mail, $name = null)
-        
-                                            <p>Adds Return-Path</p>                </div>
+                                            <p><p>Change the value of the boundary</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
+                    <a href="#method_addReturnPath">addReturnPath</a>(string $mail, string|null $name = null)
+        
+                                            <p><p>Add Return-Path</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
+                </div>
+                <div class="col-md-8">
                     <a href="#method_addPriority">addPriority</a>(int $priority)
         
-                                            <p>Sets email priority.</p>                </div>
+                                            <p><p>Set email priority.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_setMessage">setMessage</a>($message, string $type = &#039;text/html&#039;)
+                <div class="col-md-8">
+                    <a href="#method_setMessage">setMessage</a>(string $message, string $type = &#039;text/html&#039;)
         
-                                            <p>Modifir le message du mail</p>                </div>
+                                            <p><p>Edit the mail message</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getHeaders">getHeaders</a>()
         
-                                            <p>Récupère les entêtes</p>                </div>
+                                            <p><p>Get the headers</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getTo">getTo</a>()
         
-                                            <p>Récupère la liste des récepteurs</p>                </div>
+                                            <p><p>Get the list of receivers</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    string
+                    string|null
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getSubject">getSubject</a>()
         
-                                            <p>Récupère l'objet du mail</p>                </div>
+                                            <p><p>Get the subject of the email</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getFrom">getFrom</a>()
         
-                                            <p>Récupère l'expéditeur</p>                </div>
+                                            <p><p>Get the sender</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getMessage">getMessage</a>()
         
-                                            <p>Récupère le message du mail</p>                </div>
+                                            <p><p>Get the email message</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getCharset">getCharset</a>()
         
-                                            <p>Récupère l'encodage du mail</p>                </div>
+                                            <p><p>Get the email encoding</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getType">getType</a>()
         
-                                            <p>Récupère le type de contenu</p>                </div>
+                                            <p><p>Get Content-Type</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    boolean
+                    bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_fromIsDefined">fromIsDefined</a>()
         
-                                            <p>Récupère la valeur d'une variable qui permet de vérifier qu'un expéditeur est enrégistré</p>                </div>
+                                            <p><p>Get the value of a variable that verifies that a sender is registered</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L79">line 79</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L94">à la ligne 94</a></div>
         <code>                    
     <strong>__construct</strong>(bool $boundary = true)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Construction d'une instance de SimpleMail</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Message Constructor.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -399,24 +429,36 @@
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setDefaultHeader">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L90">line 90</a></div>
-        <code>                    
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L108">à la ligne 108</a></div>
+        <code>                    void
     <strong>setDefaultHeader</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Définir les entête par défaut</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the default header</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
             
@@ -426,19 +468,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addHeader">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L107">line 107</a></div>
-        <code>                    
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L125">à la ligne 125</a></div>
+        <code>                    void
     <strong>addHeader</strong>(string $key, string $value)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Ajout des entêtes personnel</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Add personal headers</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -454,6 +497,16 @@
             </table>
 
             
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
             
             
                     </div>
@@ -462,19 +515,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_to">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L120">line 120</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L138">à la ligne 138</a></div>
         <code>                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
-    <strong>to</strong>(string $to, string $name = null)
+    <strong>to</strong>(string $to, string|null $name = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>to, définir le récépteur</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Define the receiver</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -483,14 +537,14 @@
                 <td></td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>string|null</td>
                 <td>$name</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -501,42 +555,47 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_toList">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L131">line 131</a></div>
-        <code>                    <abbr title="Bow\Mail\$this">$this</abbr>
-    <strong>toList</strong>(array $list_desc)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L151">à la ligne 151</a></div>
+        <code>                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
+    <strong>toList</strong>(array $sendTo)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Define the receiver in list</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>array</td>
-                <td>$list_desc</td>
+                <td>$sendTo</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><abbr title="Bow\Mail\$this">$this</abbr></td>
+            <td><a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a></td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -545,19 +604,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addFile">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L175">line 175</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L192">à la ligne 192</a></div>
         <code>                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
     <strong>addFile</strong>(string $file)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>addFile, Permet d'ajout un fichier d'attachement</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Add an attachment file</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -568,7 +628,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -588,24 +648,28 @@
             </table>
 
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_compileHeaders">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L189">line 189</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L208">à la ligne 208</a></div>
         <code>                    string
     <strong>compileHeaders</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Compile the mail header</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -616,25 +680,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_subject">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L214">line 214</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L234">à la ligne 234</a></div>
         <code>                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
     <strong>subject</strong>(string $subject)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>subject, Définit le suject du mail</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Define the subject of the mail</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -645,7 +711,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -654,6 +720,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -662,19 +729,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_from">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L228">line 228</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L248">à la ligne 248</a></div>
         <code>                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
-    <strong>from</strong>(string $from, string $name = null)
+    <strong>from</strong>(string $from, string|null $name = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>from, définir l'expéditeur du mail</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Define the sender of the mail</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -683,14 +751,14 @@
                 <td></td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>string|null</td>
                 <td>$name</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -699,6 +767,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -707,30 +776,31 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_html">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L241">line 241</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L261">à la ligne 261</a></div>
         <code>                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
-    <strong>html</strong>($html)
+    <strong>html</strong>(string $html)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>toHtml, définir le type de contenu en text/html</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Define the type of content in text/html</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$html</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -741,25 +811,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_text">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L253">line 253</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L272">à la ligne 272</a></div>
         <code>                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
     <strong>text</strong>(string $text)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>toText, définir le corps du message</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Add message body</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -770,7 +842,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -779,6 +851,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -787,19 +860,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addBcc">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L281">line 281</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L303">à la ligne 303</a></div>
         <code>                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
-    <strong>addBcc</strong>(string $mail, string $name = null)
+    <strong>addBcc</strong>(string $mail, string|null $name = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Adds blind carbon copy</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Adds blind carbon copy</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -808,14 +882,14 @@
                 <td></td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>string|null</td>
                 <td>$name</td>
                 <td>[optional]</td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -824,6 +898,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -832,19 +907,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addCc">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L297">line 297</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L320">à la ligne 320</a></div>
         <code>                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
-    <strong>addCc</strong>(string $mail, string $name = null)
+    <strong>addCc</strong>(string $mail, string|null $name = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Adds carbon copy</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Add carbon copy</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -853,14 +929,14 @@
                 <td></td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>string|null</td>
                 <td>$name</td>
                 <td>[optional]</td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -869,6 +945,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -877,35 +954,36 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addReplyTo">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L313">line 313</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L337">à la ligne 337</a></div>
         <code>                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
-    <strong>addReplyTo</strong>($mail, $name = null)
+    <strong>addReplyTo</strong>(string $mail, string|null $name = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Adds Reply-To</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Add Reply-To</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$mail</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string|null</td>
                 <td>$name</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -916,33 +994,45 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setBoundary">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L326">line 326</a></div>
-        <code>            protected        
-    <strong>setBoundary</strong>($boundary)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L351">à la ligne 351</a></div>
+        <code>            protected        void
+    <strong>setBoundary</strong>(string $boundary)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Modifie la valeur de la frontière</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Change the value of the boundary</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$boundary</td>
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -953,35 +1043,36 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addReturnPath">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L339">line 339</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L364">à la ligne 364</a></div>
         <code>                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
-    <strong>addReturnPath</strong>($mail, $name = null)
+    <strong>addReturnPath</strong>(string $mail, string|null $name = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Adds Return-Path</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Add Return-Path</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$mail</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string|null</td>
                 <td>$name</td>
-                <td></td>
+                <td><p>= null</p></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -992,25 +1083,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_addPriority">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L354">line 354</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L380">à la ligne 380</a></div>
         <code>                    <a href="../../Bow/Mail/Message.html"><abbr title="Bow\Mail\Message">Message</abbr></a>
     <strong>addPriority</strong>(int $priority)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Sets email priority.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Set email priority.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1021,7 +1114,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1032,29 +1125,31 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setMessage">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L367">line 367</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L393">à la ligne 393</a></div>
         <code>                    
-    <strong>setMessage</strong>($message, string $type = &#039;text/html&#039;)
+    <strong>setMessage</strong>(string $message, string $type = &#039;text/html&#039;)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Modifir le message du mail</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Edit the mail message</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$message</td>
                 <td></td>
             </tr>
@@ -1068,26 +1163,28 @@
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getHeaders">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L379">line 379</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L405">à la ligne 405</a></div>
         <code>                    array
     <strong>getHeaders</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Récupère les entêtes</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the headers</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1096,6 +1193,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1104,20 +1202,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getTo">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L389">line 389</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L415">à la ligne 415</a></div>
         <code>                    array
     <strong>getTo</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Récupère la liste des récepteurs</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the list of receivers</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1128,34 +1227,37 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getSubject">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L399">line 399</a></div>
-        <code>                    string
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L425">à la ligne 425</a></div>
+        <code>                    string|null
     <strong>getSubject</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Récupère l'objet du mail</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the subject of the email</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>string|null</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1164,20 +1266,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getFrom">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L409">line 409</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L435">à la ligne 435</a></div>
         <code>                    string
     <strong>getFrom</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Récupère l'expéditeur</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the sender</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1186,6 +1289,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1194,20 +1298,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getMessage">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L419">line 419</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L445">à la ligne 445</a></div>
         <code>                    string
     <strong>getMessage</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Récupère le message du mail</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the email message</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1216,6 +1321,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1224,20 +1330,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getCharset">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L429">line 429</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L455">à la ligne 455</a></div>
         <code>                    string
     <strong>getCharset</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Récupère l'encodage du mail</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the email encoding</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1246,6 +1353,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1254,20 +1362,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getType">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L439">line 439</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L465">à la ligne 465</a></div>
         <code>                    string
     <strong>getType</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Récupère le type de contenu</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get Content-Type</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1278,34 +1387,37 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_fromIsDefined">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L449">line 449</a></div>
-        <code>                    boolean
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Mail/Message.php#L475">à la ligne 475</a></div>
+        <code>                    bool
     <strong>fromIsDefined</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Récupère la valeur d'une variable qui permet de vérifier qu'un expéditeur est enrégistré</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the value of a variable that verifies that a sender is registered</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>boolean</td>
+            <td>bool</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1315,12 +1427,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

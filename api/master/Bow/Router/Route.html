@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Router\Route | Bow Framework API</title>
+    <title>Bow\Router\Route | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Router_Route" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Router_Route" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,165 +97,165 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Router.html">Router</a></li><li class="backslash">\</li><li>Route</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Route
-                
-        </h1>
+        <h1>Route    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>Route</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php">View source</a>)
+    
+    <p>        classe
+    <strong>Route</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php">Voir la source</a>)
 </p>
 
         
     
+        
 
+            
+        
     
     
-    
-    
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(string $path, callable $cb)
+                <div class="col-md-8">
+                    <a href="#method___construct">__construct</a>(string $path, mixed $cb)
         
-                                            <p>Contructeur</p>                </div>
+                                            <p><p>Route constructor</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getPath">getPath</a>()
         
-                                            <p>Récupère le chemin de la route courante</p>                </div>
+                                            <p><p>Get the path of the current road</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getAction">getAction</a>()
         
-                                            <p>Récupère l'action a executé sur la route courante</p>                </div>
+                                            <p><p>Get the action executed on the current route</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_middleware">middleware</a>(array|string $middleware)
+                <div class="col-md-8">
+                    <a href="#method_middleware">middleware</a>(<abbr title="Bow\Router\array|string">array|string</abbr> $middleware)
         
-                                            <p>Ajout middleware</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    bool
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_match">match</a>(string $uri)
-        
-                                            <p>Permet de vérifier si l'url de la réquête est
-conforme à celle définir par le routeur</p>                </div>
+                                            <p><p>Add middleware</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_where">where</a>(array|string $where, string $regex_constraint = null)
+                <div class="col-md-8">
+                    <a href="#method_where">where</a>(<abbr title="Bow\Router\array|string">array|string</abbr> $where, string $regex_constraint = null)
         
-                                            <p>Lance une personnalisation de route.</p>                </div>
+                                            <p><p>Add the url rules</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_call">call</a>()
         
-                                            <p>Fonction permettant de lancer les fonctions de rappel.</p>                </div>
+                                            <p><p>Function to launch callback functions where the rule have matching.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_name">name</a>(string $name)
         
-                                            <p>Permet de donner un nom à la route</p>                </div>
+                                            <p><p>To give a name to the road</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getName">getName</a>()
         
-                                            <p>Récupère le nom de la route</p>                </div>
+                                            <p><p>Get the name of the route</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_getParamters">getParamters</a>()
+                <div class="col-md-8">
+                    <a href="#method_getParameters">getParameters</a>()
         
-                                            <p>Récupère les paramètres</p>                </div>
+                                            <p><p>Get the settings</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string|null
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_getParamter">getParamter</a>(string $key)
+                <div class="col-md-8">
+                    <a href="#method_getParameter">getParameter</a>(string $key)
         
-                                            <p>Récupère un élément des paramètres</p>                </div>
+                                            <p><p>Get a parameter element</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_match">match</a>(string $uri)
+        
+                                            <p><p>Lets check if the url of the query is
+conform to that defined by the router</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L70">line 70</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L77">à la ligne 77</a></div>
         <code>                    
-    <strong>__construct</strong>(string $path, callable $cb)
+    <strong>__construct</strong>(string $path, mixed $cb)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Contructeur</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Route constructor</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -232,7 +264,7 @@ conforme à celle définir par le routeur</p>                </div>
                 <td></td>
             </tr>
                     <tr>
-                <td>callable</td>
+                <td>mixed</td>
                 <td>$cb</td>
                 <td></td>
             </tr>
@@ -250,26 +282,28 @@ conforme à celle définir par le routeur</p>                </div>
             </table>
 
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getPath">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L86">line 86</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L93">à la ligne 93</a></div>
         <code>                    string
     <strong>getPath</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Récupère le chemin de la route courante</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the path of the current road</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -280,26 +314,28 @@ conforme à celle définir par le routeur</p>                </div>
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getAction">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L96">line 96</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L103">à la ligne 103</a></div>
         <code>                    mixed
     <strong>getAction</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Récupère l'action a executé sur la route courante</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the action executed on the current route</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -310,36 +346,38 @@ conforme à celle définir par le routeur</p>                </div>
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_middleware">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L107">line 107</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L114">à la ligne 114</a></div>
         <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
-    <strong>middleware</strong>(array|string $middleware)
+    <strong>middleware</strong>(<abbr title="Bow\Router\array|string">array|string</abbr> $middleware)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Ajout middleware</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Add middleware</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>array|string</td>
+                <td><abbr title="Bow\Router\array|string">array|string</abbr></td>
                 <td>$middleware</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -350,46 +388,6 @@ conforme à celle définir par le routeur</p>                </div>
 
             
             
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_match">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L137">line 137</a></div>
-        <code>                    bool
-    <strong>match</strong>(string $uri)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Permet de vérifier si l'url de la réquête est
-conforme à celle définir par le routeur</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$uri</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>bool</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
             
                     </div>
     </div>
@@ -397,23 +395,24 @@ conforme à celle définir par le routeur</p>                                   
             </div>
                     <div class="method-item">
                     <h3 id="method_where">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L244">line 244</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L143">à la ligne 143</a></div>
         <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
-    <strong>where</strong>(array|string $where, string $regex_constraint = null)
+    <strong>where</strong>(<abbr title="Bow\Router\array|string">array|string</abbr> $where, string $regex_constraint = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Lance une personnalisation de route.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Add the url rules</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>array|string</td>
+                <td><abbr title="Bow\Router\array|string">array|string</abbr></td>
                 <td>$where</td>
                 <td></td>
             </tr>
@@ -425,7 +424,7 @@ conforme à celle définir par le routeur</p>                                   
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -436,26 +435,28 @@ conforme à celle définir par le routeur</p>                                   
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_call">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L263">line 263</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L162">à la ligne 162</a></div>
         <code>                    mixed
     <strong>call</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Fonction permettant de lancer les fonctions de rappel.</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Function to launch callback functions where the rule have matching.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -475,25 +476,27 @@ conforme à celle définir par le routeur</p>                                   
             </table>
 
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_name">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L292">line 292</a></div>
-        <code>                    
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L191">à la ligne 191</a></div>
+        <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
     <strong>name</strong>(string $name)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Permet de donner un nom à la route</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>To give a name to the road</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -504,6 +507,16 @@ conforme à celle définir par le routeur</p>                                   
             </table>
 
             
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
             
             
                     </div>
@@ -512,20 +525,21 @@ conforme à celle définir par le routeur</p>                                   
             </div>
                     <div class="method-item">
                     <h3 id="method_getName">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L309">line 309</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L210">à la ligne 210</a></div>
         <code>                    string
     <strong>getName</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Récupère le nom de la route</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the name of the route</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -536,26 +550,28 @@ conforme à celle définir par le routeur</p>                                   
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_getParamters">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L319">line 319</a></div>
+                    <h3 id="method_getParameters">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L220">à la ligne 220</a></div>
         <code>                    array
-    <strong>getParamters</strong>()
+    <strong>getParameters</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Récupère les paramètres</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the settings</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -566,25 +582,27 @@ conforme à celle définir par le routeur</p>                                   
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_getParamter">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L330">line 330</a></div>
+                    <h3 id="method_getParameter">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L231">à la ligne 231</a></div>
         <code>                    string|null
-    <strong>getParamter</strong>(string $key)
+    <strong>getParameter</strong>(string $key)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Récupère un élément des paramètres</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Get a parameter element</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -595,7 +613,7 @@ conforme à celle définir par le routeur</p>                                   
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -606,6 +624,50 @@ conforme à celle définir par le routeur</p>                                   
 
             
             
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_match">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Route.php#L243">à la ligne 243</a></div>
+        <code>                    bool
+    <strong>match</strong>(string $uri)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Lets check if the url of the query is
+conform to that defined by the router</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$uri</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
                     </div>
     </div>
 
@@ -613,12 +675,8 @@ conforme à celle définir par le routeur</p>                                   
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

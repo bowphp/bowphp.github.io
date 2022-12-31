@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Router\Router | Bow Framework API</title>
+    <title>Bow\Router\Router | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Router_Router" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Router_Router" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,553 +97,370 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Router.html">Router</a></li><li class="backslash">\</li><li>Router</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Router
-                
-        </h1>
+        <h1>Router    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>Router</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php">View source</a>)
+    
+    <p>        classe
+    <strong>Router</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php">Voir la source</a>)
 </p>
 
         
     
+        
+
+            
+        
+    
+            <h2>Propriétés</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_error_code">
+                                        protected                                        array
+                                                                                
+                                    </td>
+                <td>$error_code</td>
+                <td class="last"><p>Define the functions related to an http
+code executed if this code is up</p></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_middlewares">
+                                        protected                                        array
+                                                                                
+                                    </td>
+                <td>$middlewares</td>
+                <td class="last"><p>Define the global middleware</p></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_prefix">
+                                        protected                                        string
+                                                                                
+                                    </td>
+                <td>$prefix</td>
+                <td class="last"><p>Define the routing prefix</p></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_special_method">
+                                        protected                                        string
+                                                                                
+                                    </td>
+                <td>$special_method</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_current">
+                                        protected                                        array
+                                                                                
+                                    </td>
+                <td>$current</td>
+                <td class="last"><p>Method Http current.</p></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_auto_csrf">
+                                        protected                                        bool
+                                                                                
+                                    </td>
+                <td>$auto_csrf</td>
+                <td class="last"><p>Define the auto csrf check status.</p></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_routes">
+                    static                    protected                                        array
+                                                                                
+                                    </td>
+                <td>$routes</td>
+                <td class="last"><p>Route collection.</p></td>
+                <td></td>
+            </tr>
+            </table>
 
     
-    
-    
-    
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(<a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a> $config, <abbr title="Bow\Router\Collection">Collection</abbr> $collection)
+                <div class="col-md-8">
+                    <a href="#method___construct">__construct</a>(string $method, string|null $magic_method = null, string $base_route = &#039;&#039;, array $middlewares = [])
         
-                                            <p>Router constructor.</p>                </div>
+                                            <p><p>Router constructor</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <abbr title="Bow\Router\Collection">Collection</abbr>
+                    void
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_getCollection">getCollection</a>()
+                <div class="col-md-8">
+                    <a href="#method_setBaseRoute">setBaseRoute</a>(string $base_route)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p><p>Set the base route</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
+                    void
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_get">get</a>(string $path, callable|array $cb)
+                <div class="col-md-8">
+                    <a href="#method_setAutoCsrf">setAutoCsrf</a>(bool $auto_csrf)
         
-                                            <p>get, route de type GET ou bien retourne les variable ajoutés dans Bow</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_post">post</a>(string $path, callable $cb)
-        
-                                            <p>post, route de type POST</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_any">any</a>(string $path, callable $cb)
-        
-                                            <p>any, route de tout type GET|POST|DELETE|PUT|OPTIONS|PATCH</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_delete">delete</a>(string $path, callable $cb)
-        
-                                            <p>delete, route de tout type DELETE</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_put">put</a>(string $path, callable $cb)
-        
-                                            <p>put, route de tout type PUT</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_patch">patch</a>(string $path, callable $cb)
-        
-                                            <p>patch, route de tout type PATCH</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_options">options</a>(string $path, callable $cb)
-        
-                                            <p>patch, route de tout type PATCH</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_match">match</a>(array $methods, string $path, callable $cb = null)
-        
-                                            <p>match, route de tout type de method</p>                </div>
+                                            <p><p>Set auto CSRF status
+Note: Disable only you run on test env</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_group">group</a>(string $prefix, callable $cb)
+                <div class="col-md-8">
+                    <a href="#method_prefix">prefix</a>(string $prefix, callable $cb)
         
-                                            <p>mount, ajoute un branchement.</p>                </div>
+                                            <p><p>Add a prefix on the roads</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_middleware">middleware</a>(array $middlewares)
+        
+                                            <p><p>Allows to associate a global middleware on an route</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_route">route</a>(array $definition)
+        
+                                            <p><p>Route mapper</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_any">any</a>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        
+                                            <p><p>Add a route for</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_get">get</a>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        
+                                            <p><p>Add a GET route</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_post">post</a>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        
+                                            <p><p>Add a POST route</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_delete">delete</a>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        
+                                            <p><p>Add a DELETE route</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_put">put</a>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        
+                                            <p><p>Add a PUT route</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_patch">patch</a>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        
+                                            <p><p>Add a PATCH route</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_options">options</a>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        
+                                            <p><p>Add a OPTIONS route</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_code">code</a>(int $code, <abbr title="Bow\Router\callable|array|string">callable|array|string</abbr> $cb)
+        
+                                            <p><p>Launch a callback function for each HTTP error code.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_match">match</a>(array $methods, string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        
+                                            <p><p>Match route de tout type de method</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getSpecialMethod">getSpecialMethod</a>()
+        
+                                            <p><p>Retrieve the define special method</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasSpecialMethod">hasSpecialMethod</a>()
+        
+                                            <p><p>Check user define the special method</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getRoutes">getRoutes</a>()
+        
+                                            <p><p>Get the route collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L41">line 41</a></div>
-        <code>                    
-    <strong>__construct</strong>(<a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a> $config, <abbr title="Bow\Router\Collection">Collection</abbr> $collection)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L89">à la ligne 89</a></div>
+        <code>            protected        
+    <strong>__construct</strong>(string $method, string|null $magic_method = null, string $base_route = &#039;&#039;, array $middlewares = [])
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Router constructor.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a></td>
-                <td>$config</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td><abbr title="Bow\Router\Collection">Collection</abbr></td>
-                <td>$collection</td>
-                <td></td>
-            </tr>
-            </table>
-
             
-            
-            
-                    </div>
-    </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getCollection">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L53">line 53</a></div>
-        <code>                    <abbr title="Bow\Router\Collection">Collection</abbr>
-    <strong>getCollection</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><abbr title="Bow\Router\Collection">Collection</abbr></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_get">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L67">line 67</a></div>
-        <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
-    <strong>get</strong>(string $path, callable|array $cb)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>get, route de type GET ou bien retourne les variable ajoutés dans Bow</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Router constructor</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
-                <td>$path</td>
+                <td>$method</td>
                 <td></td>
             </tr>
                     <tr>
-                <td>callable|array</td>
-                <td>$cb</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_post">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L80">line 80</a></div>
-        <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
-    <strong>post</strong>(string $path, callable $cb)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>post, route de type POST</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$path</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>callable</td>
-                <td>$cb</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_any">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L91">line 91</a></div>
-        <code>                    
-    <strong>any</strong>(string $path, callable $cb)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>any, route de tout type GET|POST|DELETE|PUT|OPTIONS|PATCH</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$path</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>callable</td>
-                <td>$cb</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_delete">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L106">line 106</a></div>
-        <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
-    <strong>delete</strong>(string $path, callable $cb)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>delete, route de tout type DELETE</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$path</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>callable</td>
-                <td>$cb</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_put">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L119">line 119</a></div>
-        <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
-    <strong>put</strong>(string $path, callable $cb)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>put, route de tout type PUT</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$path</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>callable</td>
-                <td>$cb</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_patch">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L132">line 132</a></div>
-        <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
-    <strong>patch</strong>(string $path, callable $cb)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>patch, route de tout type PATCH</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$path</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>callable</td>
-                <td>$cb</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_options">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L144">line 144</a></div>
-        <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
-    <strong>options</strong>(string $path, callable $cb)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>patch, route de tout type PATCH</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$path</td>
+                <td>string|null</td>
+                <td>$magic_method</td>
                 <td></td>
             </tr>
                     <tr>
-                <td>callable</td>
-                <td>$cb</td>
+                <td>string</td>
+                <td>$base_route</td>
                 <td></td>
             </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_match">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L156">line 156</a></div>
-        <code>                    
-    <strong>match</strong>(array $methods, string $path, callable $cb = null)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>match, route de tout type de method</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
                     <tr>
                 <td>array</td>
-                <td>$methods</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$path</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>callable</td>
-                <td>$cb</td>
+                <td>$middlewares</td>
                 <td></td>
             </tr>
             </table>
+
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setBaseRoute">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L106">à la ligne 106</a></div>
+        <code>                    void
+    <strong>setBaseRoute</strong>(string $base_route)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Set the base route</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$base_route</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -621,20 +470,64 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_group">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L170">line 170</a></div>
-        <code>                    <a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a>
-    <strong>group</strong>(string $prefix, callable $cb)
+                    <h3 id="method_setAutoCsrf">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L117">à la ligne 117</a></div>
+        <code>                    void
+    <strong>setAutoCsrf</strong>(bool $auto_csrf)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>mount, ajoute un branchement.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Set auto CSRF status
+Note: Disable only you run on test env</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$auto_csrf</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_prefix">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L130">à la ligne 130</a></div>
+        <code>                    <a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a>
+    <strong>prefix</strong>(string $prefix, callable $cb)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Add a prefix on the roads</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -650,7 +543,58 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_middleware">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L157">à la ligne 157</a></div>
+        <code>                    <a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a>
+    <strong>middleware</strong>(array $middlewares)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Allows to associate a global middleware on an route</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$middlewares</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -661,6 +605,591 @@
 
             
             
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_route">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L180">à la ligne 180</a></div>
+        <code>                    void
+    <strong>route</strong>(array $definition)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Route mapper</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$definition</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Router/Exception/RouterException.html"><abbr title="Bow\Router\Exception\RouterException">RouterException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_any">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L229">à la ligne 229</a></div>
+        <code>                    <a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a>
+    <strong>any</strong>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Add a route for</p></p>                <p><p>GET, POST, DELETE, PUT, OPTIONS, PATCH</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Bow\Router\callable|string|array">callable|string|array</abbr></td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_get">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L245">à la ligne 245</a></div>
+        <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
+    <strong>get</strong>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Add a GET route</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Bow\Router\callable|string|array">callable|string|array</abbr></td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_post">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L257">à la ligne 257</a></div>
+        <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
+    <strong>post</strong>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Add a POST route</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Bow\Router\callable|string|array">callable|string|array</abbr></td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_delete">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L279">à la ligne 279</a></div>
+        <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
+    <strong>delete</strong>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Add a DELETE route</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Bow\Router\callable|string|array">callable|string|array</abbr></td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_put">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L291">à la ligne 291</a></div>
+        <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
+    <strong>put</strong>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Add a PUT route</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Bow\Router\callable|string|array">callable|string|array</abbr></td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_patch">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L303">à la ligne 303</a></div>
+        <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
+    <strong>patch</strong>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Add a PATCH route</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Bow\Router\callable|string|array">callable|string|array</abbr></td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_options">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L315">à la ligne 315</a></div>
+        <code>                    <a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a>
+    <strong>options</strong>(string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Add a OPTIONS route</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Bow\Router\callable|string|array">callable|string|array</abbr></td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Router/Route.html"><abbr title="Bow\Router\Route">Route</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_code">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L328">à la ligne 328</a></div>
+        <code>                    <a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a>
+    <strong>code</strong>(int $code, <abbr title="Bow\Router\callable|array|string">callable|array|string</abbr> $cb)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Launch a callback function for each HTTP error code.</p></p>                <p><p>When the define code match with response code.</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$code</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Bow\Router\callable|array|string">callable|array|string</abbr></td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_match">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L343">à la ligne 343</a></div>
+        <code>                    <a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a>
+    <strong>match</strong>(array $methods, string $path, <abbr title="Bow\Router\callable|string|array">callable|string|array</abbr> $cb)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Match route de tout type de method</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$methods</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Bow\Router\callable|string|array">callable|string|array</abbr></td>
+                <td>$cb</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Router/Router.html"><abbr title="Bow\Router\Router">Router</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getSpecialMethod">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L412">à la ligne 412</a></div>
+        <code>            protected        string
+    <strong>getSpecialMethod</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Retrieve the define special method</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasSpecialMethod">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L422">à la ligne 422</a></div>
+        <code>            protected        bool
+    <strong>hasSpecialMethod</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check user define the special method</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getRoutes">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Router/Router.php#L432">à la ligne 432</a></div>
+        <code>                    array
+    <strong>getRoutes</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the route collection</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
                     </div>
     </div>
 
@@ -668,12 +1197,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

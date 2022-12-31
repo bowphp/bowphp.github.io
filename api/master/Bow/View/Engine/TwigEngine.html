@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\View\Engine\TwigEngine | Bow Framework API</title>
+    <title>Bow\View\Engine\TwigEngine | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../../css/sami.css">
-        <script src="../../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../../js/bootstrap.min.js"></script>
-        <script src="../../../js/typeahead.min.js"></script>
-        <script src="../../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../../fonts/doctum-font.css">
+        <script src="../../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../../doctum.js"></script>
+        <script async defer src="../../../js/bootstrap.min.js"></script>
+        <script async defer src="../../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_View_Engine_TwigEngine" data-root-path="../../../">
+    <body id="class" data-name="class:Bow_View_Engine_TwigEngine" data-root-path="../../../" data-search-index-url="../../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../../classes.html">Classes</a></li>
-                                            <li><a href="../../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../../traits.html">Traits</a></li>
-                    <li><a href="../../../doc-index.html">Index</a></li>
-                    <li><a href="../../../search.html">Search</a></li>
+                    <li><a href="../../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,137 +97,153 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../../Bow/View.html">View</a></li><li class="backslash">\</li><li><a href="../../../Bow/View/Engine.html">Engine</a></li><li class="backslash">\</li><li>TwigEngine</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            TwigEngine
-                
-        </h1>
+        <h1>TwigEngine    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>TwigEngine</strong>        extends <a href="../../../Bow/View/EngineAbstract.html"><abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a>        (<a href="https://github.com/bowphp/framework/blob/master/src/View/Engine/TwigEngine.php">View source</a>)
+    
+    <p>        classe
+    <strong>TwigEngine</strong>        étends <a href="../../../Bow/View/EngineAbstract.html"><abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a>        (<a href="https://github.com/bowphp/framework/blob/master/src/View/Engine/TwigEngine.php">Voir la source</a>)
 </p>
 
         
     
+        
 
-    
-    
-            <h2>Constants</h2>
-
-            <table class="table table-condensed">
+            
+        
+            <h2>Constantes</h2>    <table class="table table-condensed">
                     <tr>
-                <td>HELPERS</td>
+                <td>
+                                                            protected                                                            HELPERS
+                                    </td>
                 <td class="last">
-                    <p><em>Liste des helpers</em></p>
+                    <p><em><p>The helper lists</p></em></p>
                     <p></p>
                 </td>
             </tr>
             </table>
 
     
-            <h2>Properties</h2>
+            <h2>Propriétés</h2>
 
             <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_name">
                                         protected                                        string
-                </td>
+                                                                                
+                                    </td>
                 <td>$name</td>
-                <td class="last"></td>
+                <td class="last"><p>The engine name</p></td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type" id="property_config">
-                                        protected                                        <a href="../../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a>
-                </td>
+                                        protected                                        array
+                                                                                
+                                    </td>
                 <td>$config</td>
-                <td class="last"></td>
-                <td><small>from&nbsp;<a href="../../../Bow/View/EngineAbstract.html#property_config"><abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a></small></td>
+                <td class="last"><p>The configuration loader</p></td>
+                <td><small>depuis&nbsp;<a href="../../../Bow/View/EngineAbstract.html#property_config">
+<abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a></small></td>
             </tr>
             </table>
 
     
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    mixed
+                    string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_render">render</a>(string $filename, array $data = [])
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p><p>Make template rendering</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_checkParseFile">checkParseFile</a>(string $filename, bool $extended = true)
         
-                                            <p>Permet de verifier le fichier à parser</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../../../Bow/View/EngineAbstract.html#method_checkParseFile"><abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a></small></div>
+                                            <p><p>Check the parsed file</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../../Bow/View/EngineAbstract.html#method_checkParseFile">
+<abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    mixed
+                    string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getName">getName</a>()
         
-                                            <p>Permet de retourne le nom de template charge</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../../../Bow/View/EngineAbstract.html#method_getName"><abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a></small></div>
+                                            <p><p>Get the engine name</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../../Bow/View/EngineAbstract.html#method_getName">
+<abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    bool
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(<a href="../../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a> $config)
+                <div class="col-md-8">
+                    <a href="#method_fileExists">fileExists</a>(string $filename)
         
-                                            <p>TwigEngine constructor.</p>                </div>
+                                            <p><p>Check if the define file exists</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../../Bow/View/EngineAbstract.html#method_fileExists">
+<abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method___construct">__construct</a>(array $config)
+        
+                                            <p><p>TwigEngine constructor.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    Twig_Environment|Twig_Loader_Filesystem
+                    <abbr title="Twig\Environment">Environment</abbr>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getTemplate">getTemplate</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p><p>The get engine instance</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_render">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/Engine/TwigEngine.php#L70">line 70</a></div>
-        <code>                    mixed
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/View/Engine/TwigEngine.php#L73">à la ligne 73</a></div>
+        <code>                    string
     <strong>render</strong>(string $filename, array $data = [])
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Make template rendering</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -211,25 +259,17 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
+            <td>string</td>
             <td></td>
         </tr>
     </table>
 
             
-                            <h4>Exceptions</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            </table>
-
+            
             
                     </div>
     </div>
@@ -237,19 +277,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_checkParseFile">
-        <div class="location">in <a href="../../../Bow/View/EngineAbstract.html#method_checkParseFile"><abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a> at         <a href="https://github.com/bowphp/framework/blob/master/src/View/EngineAbstract.php#L76">line 76</a></div>
+        <div class="location">dans <a href="../../../Bow/View/EngineAbstract.html#method_checkParseFile">
+<abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/View/EngineAbstract.php#L86">à la ligne 86</a></div>
         <code>            protected        string
     <strong>checkParseFile</strong>(string $filename, bool $extended = true)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Permet de verifier le fichier à parser</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Check the parsed file</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -265,7 +307,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -285,34 +327,81 @@
             </table>
 
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getName">
-        <div class="location">in <a href="../../../Bow/View/EngineAbstract.html#method_getName"><abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a> at         <a href="https://github.com/bowphp/framework/blob/master/src/View/EngineAbstract.php#L114">line 114</a></div>
-        <code>                    mixed
+        <div class="location">dans <a href="../../../Bow/View/EngineAbstract.html#method_getName">
+<abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/View/EngineAbstract.php#L110">à la ligne 110</a></div>
+        <code>                    string
     <strong>getName</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Permet de retourne le nom de template charge</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get the engine name</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
+            <td>string</td>
             <td></td>
         </tr>
     </table>
 
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_fileExists">
+        <div class="location">dans <a href="../../../Bow/View/EngineAbstract.html#method_fileExists">
+<abbr title="Bow\View\EngineAbstract">EngineAbstract</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/View/EngineAbstract.php#L121">à la ligne 121</a></div>
+        <code>                    bool
+    <strong>fileExists</strong>(string $filename)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check if the define file exists</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$filename</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
             
             
                     </div>
@@ -321,27 +410,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/Engine/TwigEngine.php#L25">line 25</a></div>
-        <code>                    
-    <strong>__construct</strong>(<a href="../../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a> $config)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/View/Engine/TwigEngine.php#L33">à la ligne 33</a></div>
+        <code>                    void
+    <strong>__construct</strong>(array $config)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>TwigEngine constructor.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>TwigEngine constructor.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="../../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a></td>
+                <td>array</td>
                 <td>$config</td>
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -352,26 +452,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getTemplate">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/View/Engine/TwigEngine.php#L80">line 80</a></div>
-        <code>                    Twig_Environment|Twig_Loader_Filesystem
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/View/Engine/TwigEngine.php#L85">à la ligne 85</a></div>
+        <code>                    <abbr title="Twig\Environment">Environment</abbr>
     <strong>getTemplate</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>The get engine instance</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>Twig_Environment|Twig_Loader_Filesystem</td>
+            <td><abbr title="Twig\Environment">Environment</abbr></td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -381,12 +485,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

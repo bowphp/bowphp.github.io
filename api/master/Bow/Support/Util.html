@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Support\Util | Bow Framework API</title>
+    <title>Bow\Support\Util | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Support_Util" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Support_Util" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,105 +97,105 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Support.html">Support</a></li><li class="backslash">\</li><li>Util</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Util
-                
-        </h1>
+        <h1>Util    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>Util</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Support/Util.php">View source</a>)
+    
+    <p>        classe
+    <strong>Util</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Support/Util.php">Voir la source</a>)
 </p>
 
         
     
+        
 
+            
+        
     
     
-    
-    
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;void
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_debug">debug</a>()
         
-                                            <p>Lance un var_dump sur les variables passées en paramètre.</p>                </div>
+                                            <p><p>Run a var_dump on the variables passed in parameter.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;void
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_dd">dd</a>(string $var)
+                <div class="col-md-8">
+                    <a href="#method_dd">dd</a>(mixed $var)
         
-                                            <p>Lance un var_dump sur les variables passées en paramètre.</p>                </div>
+                                            <p><p>Run a var_dump on the variables passed in parameter.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_sep">sep</a>()
         
-                                            <p>sep, séparateur \r\n or \n</p>                </div>
+                                            <p><p>sep, separator \r\n or \n</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_rangeField">rangeField</a>($data)
+                <div class="col-md-8">
+                    <a href="#method_rangeField">rangeField</a>(array $data)
         
-                                            <p>rangeField, fonction permettant de sécuriser les données.</p>                </div>
+                                            <p><p>Function to secure the data.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_add2points">add2points</a>(array $data, bool $byKey = false)
         
-                                            <p>Formateur de donnée. key => :value</p>                </div>
+                                            <p><p>Data trainer. key =&gt; :value</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_debug">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Util.php#L23">line 23</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Util.php#L25">à la ligne 25</a></div>
         <code>        static            void
     <strong>debug</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Lance un var_dump sur les variables passées en paramètre.</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Run a var_dump on the variables passed in parameter.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -172,6 +204,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -180,30 +213,31 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_dd">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Util.php#L65">line 65</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Util.php#L70">à la ligne 70</a></div>
         <code>        static            void
-    <strong>dd</strong>(string $var)
+    <strong>dd</strong>(mixed $var)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Lance un var_dump sur les variables passées en paramètre.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Run a var_dump on the variables passed in parameter.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>mixed</td>
                 <td>$var</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -214,26 +248,28 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_sep">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Util.php#L77">line 77</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Util.php#L82">à la ligne 82</a></div>
         <code>        static            string
     <strong>sep</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>sep, séparateur \r\n or \n</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>sep, separator \r\n or \n</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -244,44 +280,47 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_rangeField">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Util.php#L100">line 100</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Util.php#L105">à la ligne 105</a></div>
         <code>        static            string
-    <strong>rangeField</strong>($data)
+    <strong>rangeField</strong>(array $data)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>rangeField, fonction permettant de sécuriser les données.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Function to secure the data.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>array</td>
                 <td>$data</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td>$field</td>
+            <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -290,19 +329,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_add2points">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Util.php#L125">line 125</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Util.php#L126">à la ligne 126</a></div>
         <code>        static            array
     <strong>add2points</strong>(array $data, bool $byKey = false)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Formateur de donnée. key => :value</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Data trainer. key =&gt; :value</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -318,15 +358,16 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>$resultat</td>
+            <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -336,12 +377,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

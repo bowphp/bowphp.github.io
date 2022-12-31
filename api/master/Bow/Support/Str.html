@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Support\Str | Bow Framework API</title>
+    <title>Bow\Support\Str | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Support_Str" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Support_Str" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,58 +97,57 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Support.html">Support</a></li><li class="backslash">\</li><li>Str</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Str
-                
-        </h1>
+        <h1>Str    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>Str</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php">View source</a>)
+    
+    <p>        classe
+    <strong>Str</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php">Voir la source</a>)
 </p>
 
         
     
+        
 
+            
+        
     
     
-    
-    
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;array|string
+                    static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_upper">upper</a>(string $str)
         
-                                            <p>upper case</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    static&nbsp;array|string
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_lower">lower</a>(string $str)
-        
-                                            <p>lower case</p>                </div>
+                                            <p><p>upper case</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
+                    <a href="#method_lower">lower</a>(string $str)
+        
+                                            <p><p>lower case</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string
+                </div>
+                <div class="col-md-8">
                     <a href="#method_camel">camel</a>(string $str)
         
                                             <p>camel</p>                </div>
@@ -126,28 +157,28 @@
                 <div class="col-md-2 type">
                     static&nbsp;mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_snake">snake</a>(string $str, string $delimiter = &#039;_&#039;)
         
-                                            <p>Snake case</p>                </div>
+                                            <p><p>Snake case</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_plurial">plurial</a>(string $str)
         
-                                            <p>Get str plurial</p>                </div>
+                                            <p><p>Get str plurial</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_slice">slice</a>(string $str, $start, null $end = null)
+                <div class="col-md-8">
+                    <a href="#method_slice">slice</a>(string $str, int $start, int|null $end = null)
         
                                             <p>slice</p>                </div>
                 <div class="col-md-2"></div>
@@ -156,8 +187,8 @@
                 <div class="col-md-2 type">
                     static&nbsp;array
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_split">split</a>(string $pattern, string $str, null $limit = null)
+                <div class="col-md-8">
+                    <a href="#method_split">split</a>(string $pattern, string $str, string|null $limit = null)
         
                                             <p>split</p>                </div>
                 <div class="col-md-2"></div>
@@ -166,17 +197,17 @@
                 <div class="col-md-2 type">
                     static&nbsp;int
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_pos">pos</a>(string $search, string $string, int $offset = 0)
         
-                                            <p>Get the string position</p>                </div>
+                                            <p><p>Get the string position</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_contains">contains</a>(string $search, string $str)
         
                                             <p>Contains</p>                </div>
@@ -186,8 +217,8 @@
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_replace">replace</a>($pattern, $replaceBy, $str)
+                <div class="col-md-8">
+                    <a href="#method_replace">replace</a>(string $pattern, string $replaceBy, string $str)
         
                                             <p>replace</p>                </div>
                 <div class="col-md-2"></div>
@@ -196,8 +227,8 @@
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_capitalize">capitalize</a>($str)
+                <div class="col-md-8">
+                    <a href="#method_capitalize">capitalize</a>(string $str)
         
                                             <p>capitalize</p>                </div>
                 <div class="col-md-2"></div>
@@ -206,187 +237,197 @@
                 <div class="col-md-2 type">
                     static&nbsp;int
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_len">len</a>($str)
+                <div class="col-md-8">
+                    <a href="#method_len">len</a>(string $str)
         
-                                            <p>len, retourne la taille d'une chaine.</p>                </div>
+                                            <p>Len</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;array
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_wordify">wordify</a>($str, $sep = &#039; &#039;)
+                <div class="col-md-8">
+                    <a href="#method_wordify">wordify</a>(string $str, string $sep = &#039; &#039;)
         
-                                            <p>wordify</p>                </div>
+                                            <p>Wordify</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_repeat">repeat</a>($str, $number)
+                <div class="col-md-8">
+                    <a href="#method_repeat">repeat</a>(string $str, int $number)
         
-                                            <p>repeat, réperte la chaine de caractère dans une nombre déterminé</p>                </div>
+                                            <p><p>Lists the string of characters in a specified number</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_randomize">randomize</a>(int $size = 16)
         
-                                            <p>randomize</p>                </div>
+                                            <p>Randomize</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_slugify">slugify</a>(string $str, string $delimiter = &#039;-&#039;)
         
-                                            <p>slugify créateur de slug en utilisant un chaine simple.</p>                </div>
+                                            <p><p>slugify slug creator using a simple chain.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_unSlugify">unSlugify</a>(string $str)
         
-                                            <p>unslugify créateur de slug en utilisant un chaine simple.</p>                </div>
+                                            <p><p>unslugify, Lets you undo a slug</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_isMail">isMail</a>(string $email)
         
-                                            <p>Vérifier si le mail est un mail valide.</p>                </div>
+                                            <p><p>Check if the email is a valid email.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_isDomain">isDomain</a>(string $domain)
         
-                                            <p>Vérifie si la chaine est un domaine</p>                </div>
+                                            <p><p>Check if the string is a domain</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;bool
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_isAlphaNum">isAlphaNum</a>($str)
+                <div class="col-md-8">
+                    <a href="#method_isAlphaNum">isAlphaNum</a>(string $str)
         
-                                            <p>Vérifie si la chaine est en alphanumeric</p>                </div>
+                                            <p><p>Check if the string is in alphanumeric</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_isNumeric">isNumeric</a>(string $str)
         
-                                            <p>Vérifie si la chaine est en numeric</p>                </div>
+                                            <p><p>Check if the string is in numeric</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_isAlpha">isAlpha</a>(string $str)
         
-                                            <p>Vérifie si la chaine est en alpha</p>                </div>
+                                            <p><p>Check if the string is in alpha</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_isSlug">isSlug</a>(string $str)
         
-                                            <p>Vérifie si la chaine est en format slug</p>                </div>
+                                            <p><p>Check if the string is in slug format</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_isUpper">isUpper</a>(string $str)
         
-                                            <p>Vérifie si la chaine est en majiscule</p>                </div>
+                                            <p><p>Check if the string is in uppercase</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_isLower">isLower</a>(string $str)
         
-                                            <p>Vérifie si la chaine est en miniscule</p>                </div>
+                                            <p><p>Check if the string is lowercase</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;int
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_count">count</a>(string $pattern, string $str)
         
-                                            <p>Retourne le nombre caractère dans une chaine.</p>                </div>
+                                            <p><p>Returns the number of characters in a string.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getWords">getWords</a>(string $words, int $len)
         
-                                            <p>Retourne un nombre détermine de mots dans une chaine de caractère.</p>                </div>
+                                            <p><p>Returns a determined number of words in a string.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_shuffleWords">shuffleWords</a>(string $words)
         
-                                            <p>Retourne une chaine de caractère dont les mots sont mélangés.</p>                </div>
+                                            <p><p>Returns a string of words whose words are mixed.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;
+                    static&nbsp;void
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_forceInUTF8">forceInUTF8</a>()
         
-                                            <p>Permet de forcer l'encodage en utf-8</p>                </div>
+                                            <p><p>Enables to force the encoding in utf-8</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_fixUTF8">fixUTF8</a>(string $garbled_utf8_string)
+        
+                                            <p><p>Enables to force the encoding in utf-8</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method___call">__call</a>(string $method, array $arguments)
         
                                             <p>__call</p>                </div>
@@ -395,24 +436,25 @@
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_upper">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L13">line 13</a></div>
-        <code>        static            array|string
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L18">à la ligne 18</a></div>
+        <code>        static            string
     <strong>upper</strong>(string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>upper case</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>upper case</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -423,87 +465,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>array|string</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_lower">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L28">line 28</a></div>
-        <code>        static            array|string
-    <strong>lower</strong>(string $str)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>lower case</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$str</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>array|string</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_camel">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L43">line 43</a></div>
-        <code>        static            string
-    <strong>camel</strong>(string $str)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>camel</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$str</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -514,25 +476,111 @@
 
             
             
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_lower">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L31">à la ligne 31</a></div>
+        <code>        static            string
+    <strong>lower</strong>(string $str)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>lower case</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$str</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_camel">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L44">à la ligne 44</a></div>
+        <code>        static            string
+    <strong>camel</strong>(string $str)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p>camel</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$str</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_snake">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L69">line 69</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L69">à la ligne 69</a></div>
         <code>        static            mixed
     <strong>snake</strong>(string $str, string $delimiter = &#039;_&#039;)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Snake case</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Snake case</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -548,7 +596,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -559,25 +607,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_plurial">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L86">line 86</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L86">à la ligne 86</a></div>
         <code>        static            string
     <strong>plurial</strong>(string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Get str plurial</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Get str plurial</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -588,7 +638,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -597,6 +647,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -605,19 +656,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_slice">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L101">line 101</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L107">à la ligne 107</a></div>
         <code>        static            string
-    <strong>slice</strong>(string $str, $start, null $end = null)
+    <strong>slice</strong>(string $str, int $start, int|null $end = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>slice</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>slice</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -626,19 +678,19 @@
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>int</td>
                 <td>$start</td>
                 <td></td>
             </tr>
                     <tr>
-                <td>null</td>
+                <td>int|null</td>
                 <td>$end</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -649,25 +701,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_split">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L127">line 127</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L132">à la ligne 132</a></div>
         <code>        static            array
-    <strong>split</strong>(string $pattern, string $str, null $limit = null)
+    <strong>split</strong>(string $pattern, string $str, string|null $limit = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>split</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>split</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -681,14 +735,14 @@
                 <td></td>
             </tr>
                     <tr>
-                <td>null</td>
+                <td>string|null</td>
                 <td>$limit</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -699,25 +753,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_pos">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L141">line 141</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L145">à la ligne 145</a></div>
         <code>        static            int
     <strong>pos</strong>(string $search, string $string, int $offset = 0)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Get the string position</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Get the string position</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -738,7 +794,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -749,25 +805,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_contains">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L154">line 154</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L157">à la ligne 157</a></div>
         <code>        static            bool
     <strong>contains</strong>(string $search, string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Contains</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>Contains</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -783,7 +841,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -794,46 +852,48 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_replace">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L172">line 172</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L174">à la ligne 174</a></div>
         <code>        static            string
-    <strong>replace</strong>($pattern, $replaceBy, $str)
+    <strong>replace</strong>(string $pattern, string $replaceBy, string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>replace</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>replace</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$pattern</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$replaceBy</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$str</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -842,6 +902,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -850,30 +911,31 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_capitalize">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L184">line 184</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L185">à la ligne 185</a></div>
         <code>        static            string
-    <strong>capitalize</strong>($str)
+    <strong>capitalize</strong>(string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>capitalize</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>capitalize</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$str</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -884,36 +946,38 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_len">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L196">line 196</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L196">à la ligne 196</a></div>
         <code>        static            int
-    <strong>len</strong>($str)
+    <strong>len</strong>(string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>len, retourne la taille d'une chaine.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>Len</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$str</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -924,41 +988,43 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_wordify">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L209">line 209</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L208">à la ligne 208</a></div>
         <code>        static            array
-    <strong>wordify</strong>($str, $sep = &#039; &#039;)
+    <strong>wordify</strong>(string $str, string $sep = &#039; &#039;)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>wordify</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>Wordify</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$str</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$sep</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -969,41 +1035,43 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_repeat">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L222">line 222</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L220">à la ligne 220</a></div>
         <code>        static            string
-    <strong>repeat</strong>($str, $number)
+    <strong>repeat</strong>(string $str, int $number)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>repeat, réperte la chaine de caractère dans une nombre déterminé</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Lists the string of characters in a specified number</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$str</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>int</td>
                 <td>$number</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1014,25 +1082,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_randomize">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L234">line 234</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L231">à la ligne 231</a></div>
         <code>        static            string
     <strong>randomize</strong>(int $size = 16)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>randomize</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>Randomize</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1043,7 +1113,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1054,25 +1124,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_slugify">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L247">line 247</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L244">à la ligne 244</a></div>
         <code>        static            string
     <strong>slugify</strong>(string $str, string $delimiter = &#039;-&#039;)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>slugify créateur de slug en utilisant un chaine simple.</p>                    <p>eg: 'je suis un chaine de caractere' => 'je-suis-un-chaine-de-caractere'</p>                            </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>slugify slug creator using a simple chain.</p></p>                <p><p>eg: 'I am a string of character' =&gt; 'i-am-a-chain-of-character'</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1088,7 +1160,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1099,25 +1171,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_unSlugify">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L260">line 260</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L261">à la ligne 261</a></div>
         <code>        static            string
     <strong>unSlugify</strong>(string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>unslugify créateur de slug en utilisant un chaine simple.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>unslugify, Lets you undo a slug</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1128,7 +1202,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1139,25 +1213,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_isMail">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L273">line 273</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L274">à la ligne 274</a></div>
         <code>        static            bool
     <strong>isMail</strong>(string $email)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Vérifier si le mail est un mail valide.</p>                    <p>eg: dakiafranck@gmail.com => true</p>                            </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Check if the email is a valid email.</p></p>                <p><p>eg: example@email.com =&gt; true</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1168,7 +1244,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1179,26 +1255,28 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_isDomain">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L295">line 295</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L295">à la ligne 295</a></div>
         <code>        static            bool
     <strong>isDomain</strong>(string $domain)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Vérifie si la chaine est un domaine</p>                    <p>eg: http://exemple.com => true
-eg: http:/exemple.com => false</p>                            </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Check if the string is a domain</p></p>                <p><p>eg: <a href="http://exemple.com">http://exemple.com</a> =&gt; true
+eg: http:/exemple.com =&gt; false</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1209,7 +1287,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1223,11 +1301,12 @@ eg: http:/exemple.com => false</p>                            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a target="_blank" href="http://php.net/ErrorException">ErrorException</a></td>
+                <td><a target="_blank" rel="noopener" href="https://www.php.net/ErrorException">ErrorException</a></td>
                 <td></td>
             </tr>
             </table>
 
+            
             
                     </div>
     </div>
@@ -1235,30 +1314,31 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isAlphaNum">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L311">line 311</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L314">à la ligne 314</a></div>
         <code>        static            bool
-    <strong>isAlphaNum</strong>($str)
+    <strong>isAlphaNum</strong>(string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Vérifie si la chaine est en alphanumeric</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Check if the string is in alphanumeric</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$str</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1272,11 +1352,12 @@ eg: http:/exemple.com => false</p>                            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a target="_blank" href="http://php.net/ErrorException">ErrorException</a></td>
+                <td><a target="_blank" rel="noopener" href="https://www.php.net/ErrorException">ErrorException</a></td>
                 <td></td>
             </tr>
             </table>
 
+            
             
                     </div>
     </div>
@@ -1284,19 +1365,20 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isNumeric">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L328">line 328</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L330">à la ligne 330</a></div>
         <code>        static            bool
     <strong>isNumeric</strong>(string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Vérifie si la chaine est en numeric</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Check if the string is in numeric</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1307,7 +1389,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1321,11 +1403,12 @@ eg: http:/exemple.com => false</p>                            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a target="_blank" href="http://php.net/ErrorException">ErrorException</a></td>
+                <td><a target="_blank" rel="noopener" href="https://www.php.net/ErrorException">ErrorException</a></td>
                 <td></td>
             </tr>
             </table>
 
+            
             
                     </div>
     </div>
@@ -1333,19 +1416,20 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isAlpha">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L345">line 345</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L346">à la ligne 346</a></div>
         <code>        static            bool
     <strong>isAlpha</strong>(string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Vérifie si la chaine est en alpha</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Check if the string is in alpha</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1356,7 +1440,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1370,11 +1454,12 @@ eg: http:/exemple.com => false</p>                            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a target="_blank" href="http://php.net/ErrorException">ErrorException</a></td>
+                <td><a target="_blank" rel="noopener" href="https://www.php.net/ErrorException">ErrorException</a></td>
                 <td></td>
             </tr>
             </table>
 
+            
             
                     </div>
     </div>
@@ -1382,19 +1467,20 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isSlug">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L361">line 361</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L362">à la ligne 362</a></div>
         <code>        static            bool
     <strong>isSlug</strong>(string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Vérifie si la chaine est en format slug</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Check if the string is in slug format</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1405,7 +1491,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1419,11 +1505,12 @@ eg: http:/exemple.com => false</p>                            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a target="_blank" href="http://php.net/ErrorException">ErrorException</a></td>
+                <td><a target="_blank" rel="noopener" href="https://www.php.net/ErrorException">ErrorException</a></td>
                 <td></td>
             </tr>
             </table>
 
+            
             
                     </div>
     </div>
@@ -1431,19 +1518,20 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isUpper">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L376">line 376</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L377">à la ligne 377</a></div>
         <code>        static            bool
     <strong>isUpper</strong>(string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Vérifie si la chaine est en majiscule</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Check if the string is in uppercase</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1454,7 +1542,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1463,6 +1551,7 @@ eg: http:/exemple.com => false</p>                            </div>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1471,19 +1560,20 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isLower">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L387">line 387</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L388">à la ligne 388</a></div>
         <code>        static            bool
     <strong>isLower</strong>(string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Vérifie si la chaine est en miniscule</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Check if the string is lowercase</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1494,7 +1584,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1505,25 +1595,27 @@ eg: http:/exemple.com => false</p>                            </div>
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_count">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L400">line 400</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L400">à la ligne 400</a></div>
         <code>        static            int
     <strong>count</strong>(string $pattern, string $str)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Retourne le nombre caractère dans une chaine.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Returns the number of characters in a string.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1539,7 +1631,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1550,25 +1642,27 @@ eg: http:/exemple.com => false</p>                            </div>
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getWords">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L413">line 413</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L412">à la ligne 412</a></div>
         <code>        static            string
     <strong>getWords</strong>(string $words, int $len)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Retourne un nombre détermine de mots dans une chaine de caractère.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Returns a determined number of words in a string.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1584,7 +1678,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1595,25 +1689,27 @@ eg: http:/exemple.com => false</p>                            </div>
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_shuffleWords">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L433">line 433</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L431">à la ligne 431</a></div>
         <code>        static            string
     <strong>shuffleWords</strong>(string $words)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Retourne une chaine de caractère dont les mots sont mélangés.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Returns a string of words whose words are mixed.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1624,7 +1720,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1635,24 +1731,78 @@ eg: http:/exemple.com => false</p>                            </div>
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_forceInUTF8">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L461">line 461</a></div>
-        <code>        static            
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L461">à la ligne 461</a></div>
+        <code>        static            void
     <strong>forceInUTF8</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Permet de forcer l'encodage en utf-8</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Enables to force the encoding in utf-8</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_fixUTF8">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L474">à la ligne 474</a></div>
+        <code>        static            string
+    <strong>fixUTF8</strong>(string $garbled_utf8_string)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Enables to force the encoding in utf-8</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$garbled_utf8_string</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
             
@@ -1662,19 +1812,20 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method___call">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L475">line 475</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Support/Str.php#L488">à la ligne 488</a></div>
         <code>                    mixed
     <strong>__call</strong>(string $method, array $arguments)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>__call</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>__call</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1690,7 +1841,7 @@ eg: http:/exemple.com => false</p>                            </div>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -1701,6 +1852,7 @@ eg: http:/exemple.com => false</p>                            </div>
 
             
             
+            
                     </div>
     </div>
 
@@ -1708,12 +1860,8 @@ eg: http:/exemple.com => false</p>                            </div>
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

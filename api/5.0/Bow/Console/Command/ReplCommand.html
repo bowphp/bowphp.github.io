@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Bow\Console\Command\ReplCommand | Bow Framework</title>
+
+            <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../../fonts/doctum-font.css">
+        <script src="../../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../../doctum.js"></script>
+        <script async defer src="../../../js/bootstrap.min.js"></script>
+        <script async defer src="../../../js/autocomplete.min.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+    </head>
+
+    <body id="class" data-name="class:Bow_Console_Command_ReplCommand" data-root-path="../../../" data-search-index-url="../../../doctum-search.json">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../../5.0/index.html"
+                            data-version="5.0" selected>4.0 branch</option>
+                                            <option
+                            value="../../../../master/index.html"
+                            data-version="master" >Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../../search.html">
+            <span class="icon icon-search"></span>
+            <input name="search"
+                   id="doctum-search-auto-complete"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Afficher le menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../../index.html">Bow Framework</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li ><a href="../../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../../classes.html">Classes</a></li>
+                    <li><a href="../../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../traits.html">Traits</a></li>
+                    <li><a href="../../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../../search.html">Rechercher</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">classe</span></li>
+                        <li><a href="../../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../../Bow/Console.html">Console</a></li><li class="backslash">\</li><li><a href="../../../Bow/Console/Command.html">Command</a></li><li class="backslash">\</li><li>ReplCommand</li>
+            </ol>
+        </div>
+                <div id="page-content">
+    <div class="page-header">
+        <h1>ReplCommand    
+            </h1>
+    </div>
+
+    
+    <p>        classe
+    <strong>ReplCommand</strong>        étends <a href="../../../Bow/Console/Command/AbstractCommand.html"><abbr title="Bow\Console\Command\AbstractCommand">AbstractCommand</abbr></a>        (<a href="https://github.com/bowphp/framework/blob/5.0/src/Console/Command/ReplCommand.php">Voir la source</a>)
+</p>
+
+        
+    
+        
+
+            
+                <h2>Traits</h2>
+
+        
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../../Bow/Console/Traits/ConsoleTrait.html"><abbr title="Bow\Console\Traits\ConsoleTrait">ConsoleTrait</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+            </div>
+    
+    
+            <h2>Propriétés</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_setting">
+                                        protected                                        <a href="../../../Bow/Console/Setting.html"><abbr title="Bow\Console\Setting">Setting</abbr></a>
+                                                                                
+                                    </td>
+                <td>$setting</td>
+                <td class="last"><p>Store dirname</p></td>
+                <td><small>depuis&nbsp;<a href="../../../Bow/Console/Command/AbstractCommand.html#property_setting">
+<abbr title="Bow\Console\Command\AbstractCommand">AbstractCommand</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_namespaces">
+                                        protected                                        array
+                                                                                
+                                    </td>
+                <td>$namespaces</td>
+                <td class="last"><p>The application namespace</p></td>
+                <td><small>depuis&nbsp;<a href="../../../Bow/Console/Command/AbstractCommand.html#property_namespaces">
+<abbr title="Bow\Console\Command\AbstractCommand">AbstractCommand</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_arg">
+                                        protected                                        <a href="../../../Bow/Console/Argument.html"><abbr title="Bow\Console\Argument">Argument</abbr></a>
+                                                                                
+                                    </td>
+                <td>$arg</td>
+                <td class="last"><p>The Arg Option instance</p></td>
+                <td><small>depuis&nbsp;<a href="../../../Bow/Console/Command/AbstractCommand.html#property_arg">
+<abbr title="Bow\Console\Command\AbstractCommand">AbstractCommand</abbr></a></small></td>
+            </tr>
+            </table>
+
+    
+            <h2>Méthodes</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_throwFailsCommand">throwFailsCommand</a>(string $message, string|null $command = null)
+        
+                                            <p><p>Throw fails command</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../../Bow/Console/Traits/ConsoleTrait.html#method_throwFailsCommand">
+<abbr title="Bow\Console\Traits\ConsoleTrait">ConsoleTrait</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method___construct">__construct</a>(<a href="../../../Bow/Console/Setting.html"><abbr title="Bow\Console\Setting">Setting</abbr></a> $setting, <a href="../../../Bow/Console/Argument.html"><abbr title="Bow\Console\Argument">Argument</abbr></a> $arg)
+        
+                                            <p><p>AbstractCommand constructor</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../../Bow/Console/Command/AbstractCommand.html#method___construct">
+<abbr title="Bow\Console\Command\AbstractCommand">AbstractCommand</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_run">run</a>()
+        
+                                            <p><p>Launch the REPL console</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Détails</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_throwFailsCommand">
+        <div class="location">dans <a href="../../../Bow/Console/Traits/ConsoleTrait.html#method_throwFailsCommand">
+<abbr title="Bow\Console\Traits\ConsoleTrait">ConsoleTrait</abbr></a> <a href="https://github.com/bowphp/framework/blob/5.0/src/Console/Traits/ConsoleTrait.php#L19">à la ligne 19</a></div>
+        <code>            protected        void
+    <strong>throwFailsCommand</strong>(string $message, string|null $command = null)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Throw fails command</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string|null</td>
+                <td>$command</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a target="_blank" rel="noopener" href="https://www.php.net/ErrorException">ErrorException</a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">dans <a href="../../../Bow/Console/Command/AbstractCommand.html#method___construct">
+<abbr title="Bow\Console\Command\AbstractCommand">AbstractCommand</abbr></a> <a href="https://github.com/bowphp/framework/blob/5.0/src/Console/Command/AbstractCommand.php#L43">à la ligne 43</a></div>
+        <code>                    void
+    <strong>__construct</strong>(<a href="../../../Bow/Console/Setting.html"><abbr title="Bow\Console\Setting">Setting</abbr></a> $setting, <a href="../../../Bow/Console/Argument.html"><abbr title="Bow\Console\Argument">Argument</abbr></a> $arg)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>AbstractCommand constructor</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Bow/Console/Setting.html"><abbr title="Bow\Console\Setting">Setting</abbr></a></td>
+                <td>$setting</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../Bow/Console/Argument.html"><abbr title="Bow\Console\Argument">Argument</abbr></a></td>
+                <td>$arg</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_run">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/5.0/src/Console/Command/ReplCommand.php#L16">à la ligne 16</a></div>
+        <code>                    void
+    <strong>run</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Launch the REPL console</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
+    </div>
+    </body>
+
+</html>

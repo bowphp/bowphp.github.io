@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Security\Hash | Bow Framework API</title>
+    <title>Bow\Security\Hash | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Security_Hash" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Security_Hash" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,86 +97,104 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Security.html">Security</a></li><li class="backslash">\</li><li>Hash</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Hash
-                
-        </h1>
+        <h1>Hash    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>Hash</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Security/Hash.php">View source</a>)
+    
+    <p>        classe
+    <strong>Hash</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Security/Hash.php">Voir la source</a>)
 </p>
 
         
     
+        
 
+            
+        
     
     
-    
-    
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool|string
+                    static&nbsp;<abbr title="Bow\Security\string|int|null">string|int|null</abbr>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_make">make</a>(string $value, int $cost = 10)
+                <div class="col-md-8">
+                    <a href="#method_create">create</a>(string $value)
         
-                                            <p>Permet de hasher une value et quand le hash a échoué
-elle rétourne false.</p>                </div>
+                                            <p><p>Allows to have a value and when the hash has failed it returns false.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;<abbr title="Bow\Security\string|int|null">string|int|null</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_make">make</a>(string $value)
+        
+                                            <p><p>Allows to have a value and when the hash has failed it returns false.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_check">check</a>(string $value, string $hash)
         
-                                            <p>Permet de verifier le hash par apport a une value</p>                </div>
+                                            <p><p>Allows you to check the hash by adding a value</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    bool
+                    static&nbsp;bool
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_needsRehash">needsRehash</a>($hash, int $cost = 10)
+                <div class="col-md-8">
+                    <a href="#method_needsRehash">needsRehash</a>(string $hash)
         
-                                            <p>Permet de rehacher une value.</p>                </div>
+                                            <p><p>Allows you to rehash a value.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getHashConfig">getHashConfig</a>()
+        
+                                            <p><p>Get the hash configuration</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method_make">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Security/Hash.php#L15">line 15</a></div>
-        <code>        static            bool|string
-    <strong>make</strong>(string $value, int $cost = 10)
+                    <h3 id="method_create">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Security/Hash.php#L15">à la ligne 15</a></div>
+        <code>        static            <abbr title="Bow\Security\string|int|null">string|int|null</abbr>
+    <strong>create</strong>(string $value)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Permet de hasher une value et quand le hash a échoué
-elle rétourne false.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Allows to have a value and when the hash has failed it returns false.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -152,23 +202,61 @@ elle rétourne false.</p>                                                </div>
                 <td>$value</td>
                 <td></td>
             </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Security\string|int|null">string|int|null</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_make">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Security/Hash.php#L28">à la ligne 28</a></div>
+        <code>        static            <abbr title="Bow\Security\string|int|null">string|int|null</abbr>
+    <strong>make</strong>(string $value)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Allows to have a value and when the hash has failed it returns false.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
                     <tr>
-                <td>int</td>
-                <td>$cost</td>
+                <td>string</td>
+                <td>$value</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool|string</td>
+            <td><abbr title="Bow\Security\string|int|null">string|int|null</abbr></td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -177,19 +265,20 @@ elle rétourne false.</p>                                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_check">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Security/Hash.php#L33">line 33</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Security/Hash.php#L42">à la ligne 42</a></div>
         <code>        static            bool
     <strong>check</strong>(string $value, string $hash)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Permet de verifier le hash par apport a une value</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Allows you to check the hash by adding a value</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -205,7 +294,7 @@ elle rétourne false.</p>                                                </div>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -214,6 +303,7 @@ elle rétourne false.</p>                                                </div>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -222,35 +312,31 @@ elle rétourne false.</p>                                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_needsRehash">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Security/Hash.php#L49">line 49</a></div>
-        <code>                    bool
-    <strong>needsRehash</strong>($hash, int $cost = 10)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Security/Hash.php#L57">à la ligne 57</a></div>
+        <code>        static            bool
+    <strong>needsRehash</strong>(string $hash)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Permet de rehacher une value.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Allows you to rehash a value.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$hash</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>int</td>
-                <td>$cost</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -261,6 +347,39 @@ elle rétourne false.</p>                                                </div>
 
             
             
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getHashConfig">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Security/Hash.php#L69">à la ligne 69</a></div>
+        <code>        static    protected        array
+    <strong>getHashConfig</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the hash configuration</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
                     </div>
     </div>
 
@@ -268,12 +387,8 @@ elle rétourne false.</p>                                                </div>
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

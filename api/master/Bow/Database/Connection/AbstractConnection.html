@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Database\Connection\AbstractConnection | Bow Framework API</title>
+    <title>Bow\Database\Connection\AbstractConnection | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../../css/sami.css">
-        <script src="../../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../../js/bootstrap.min.js"></script>
-        <script src="../../../js/typeahead.min.js"></script>
-        <script src="../../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../../fonts/doctum-font.css">
+        <script src="../../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../../doctum.js"></script>
+        <script async defer src="../../../js/bootstrap.min.js"></script>
+        <script async defer src="../../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Database_Connection_AbstractConnection" data-root-path="../../../">
+    <body id="class" data-name="class:Bow_Database_Connection_AbstractConnection" data-root-path="../../../" data-search-index-url="../../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../../classes.html">Classes</a></li>
-                                            <li><a href="../../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../../traits.html">Traits</a></li>
-                    <li><a href="../../../doc-index.html">Index</a></li>
-                    <li><a href="../../../search.html">Search</a></li>
+                    <li><a href="../../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,229 +97,206 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../../Bow/Database.html">Database</a></li><li class="backslash">\</li><li><a href="../../../Bow/Database/Connection.html">Connection</a></li><li class="backslash">\</li><li>AbstractConnection</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            AbstractConnection
-                
-        </h1>
+        <h1>AbstractConnection    
+            </h1>
     </div>
 
-    <p>abstract     class
-    <strong>AbstractConnection</strong>        extends <a href="../../../Bow/Database/Tool.html"><abbr title="Bow\Database\Tool">Tool</abbr></a>        (<a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php">View source</a>)
+    
+    <p>    abstract     classe
+    <strong>AbstractConnection</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php">Voir la source</a>)
 </p>
 
         
     
+        
 
-            <div class="description">
-            <p>Interface ConnectionInterface</p>                                </div>
+            
+        
     
-    
-    
-            <h2>Properties</h2>
+            <h2>Propriétés</h2>
 
             <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_name">
                                         protected                                        string
-                </td>
+                                                                                
+                                    </td>
                 <td>$name</td>
-                <td class="last"></td>
+                <td class="last"><p>The connexion name</p></td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type" id="property_config">
                                         protected                                        array
-                </td>
+                                                                                
+                                    </td>
                 <td>$config</td>
-                <td class="last"></td>
+                <td class="last"><p>The configuration definition</p></td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type" id="property_fetch">
                                         protected                                        int
-                </td>
+                                                                                
+                                    </td>
                 <td>$fetch</td>
-                <td class="last"></td>
+                <td class="last"><p>The PDO fetch mode</p></td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type" id="property_pdo">
-                                        protected                                        <a target="_blank" href="http://php.net/PDO">PDO</a>
-                </td>
+                                        protected                                        <a target="_blank" rel="noopener" href="https://www.php.net/PDO">PDO</a>
+                                                                                
+                                    </td>
                 <td>$pdo</td>
-                <td class="last"></td>
+                <td class="last"><p>The PDO instance</p></td>
                 <td></td>
             </tr>
             </table>
 
     
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a target="_blank" href="http://php.net/PDOStatement">PDOStatement</a>
+                    void
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_bind">bind</a>(<a target="_blank" href="http://php.net/PDOStatement">PDOStatement</a> $pdoStatement, array $data = [])
+                <div class="col-md-8">
+                    <a href="#method_connection">connection</a>()
         
-                                            <p>Éxécute PDOStatement::bindValue sur une instance de PDOStatement passé en paramètre</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../../../Bow/Database/Tool.html#method_bind"><abbr title="Bow\Database\Tool">Tool</abbr></a></small></div>
+                                            <p><p>Create an instance of the PDO</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a target="_blank" rel="noopener" href="https://www.php.net/PDO">PDO</a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getConnection">getConnection</a>()
+        
+                                            <p><p>Retrieves the connection</p></p>                </div>
+                <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     void
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_connection">connection</a>()
+                <div class="col-md-8">
+                    <a href="#method_setConnection">setConnection</a>(<a target="_blank" rel="noopener" href="https://www.php.net/PDO">PDO</a> $pdo)
         
-                                            <p>Permet de creer un instance de l'objet PDO</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <a target="_blank" href="http://php.net/PDO">PDO</a>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_getConnection">getConnection</a>()
-        
-                                            <p>Permet de recuperer la connection</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_setConnection">setConnection</a>(<a target="_blank" href="http://php.net/PDO">PDO</a> $pdo)
-        
-                                            <p>Permet de recuperer la connection</p>                </div>
+                                            <p><p>Set the connection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getName">getName</a>()
         
-                                            <p>Permet de retourner le nom de la connectoon</p>                </div>
+                                            <p><p>Returns the name of the connection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setFetchMode">setFetchMode</a>(int $fetch)
         
-                                            <p>Permet de définir le mode de récuperation des données.</p>                </div>
+                                            <p><p>Sets the data recovery mode.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getConfig">getConfig</a>()
         
-                                            <p>Permet de récupérer la configuration</p>                </div>
+                                            <p><p>Retrieves the configuration</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    mixed|string
+                    string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getTablePrefix">getTablePrefix</a>()
         
-                                            <p>Permet de récupérer le prefix des tables</p>                </div>
+                                            <p><p>Retrieves the table prefix</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    mixed|string
+                    string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getCharset">getCharset</a>()
         
-                                            <p>Permet de récupérer le type d'encodage</p>                </div>
+                                            <p><p>Retrieves the type of encoding</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getCollation">getCollation</a>()
+        
+                                            <p><p>Retrieves the define Collation</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getPdoDriver">getPdoDriver</a>()
+        
+                                            <p><p>Get the drive that PDO run on</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a target="_blank" rel="noopener" href="https://www.php.net/PDOStatement">PDOStatement</a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_bind">bind</a>(<a target="_blank" rel="noopener" href="https://www.php.net/PDOStatement">PDOStatement</a> $pdo_statement, array $bindings = [])
+        
+                                            <p><p>Executes PDOStatement::bindValue on an instance of</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method_bind">
-        <div class="location">in <a href="../../../Bow/Database/Tool.html#method_bind"><abbr title="Bow\Database\Tool">Tool</abbr></a> at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Tool.php#L18">line 18</a></div>
-        <code>                    <a target="_blank" href="http://php.net/PDOStatement">PDOStatement</a>
-    <strong>bind</strong>(<a target="_blank" href="http://php.net/PDOStatement">PDOStatement</a> $pdoStatement, array $data = [])
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Éxécute PDOStatement::bindValue sur une instance de PDOStatement passé en paramètre</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><a target="_blank" href="http://php.net/PDOStatement">PDOStatement</a></td>
-                <td>$pdoStatement</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>array</td>
-                <td>$data</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a target="_blank" href="http://php.net/PDOStatement">PDOStatement</a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_connection">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L40">line 40</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L45">à la ligne 45</a></div>
         <code>    abstract                void
     <strong>connection</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Permet de creer un instance de l'objet PDO</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Create an instance of the PDO</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -298,34 +307,37 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getConnection">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L47">line 47</a></div>
-        <code>                    <a target="_blank" href="http://php.net/PDO">PDO</a>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L52">à la ligne 52</a></div>
+        <code>                    <a target="_blank" rel="noopener" href="https://www.php.net/PDO">PDO</a>
     <strong>getConnection</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Permet de recuperer la connection</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Retrieves the connection</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a target="_blank" href="http://php.net/PDO">PDO</a></td>
+            <td><a target="_blank" rel="noopener" href="https://www.php.net/PDO">PDO</a></td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -334,27 +346,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setConnection">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L57">line 57</a></div>
-        <code>                    
-    <strong>setConnection</strong>(<a target="_blank" href="http://php.net/PDO">PDO</a> $pdo)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L62">à la ligne 62</a></div>
+        <code>                    void
+    <strong>setConnection</strong>(<a target="_blank" rel="noopener" href="https://www.php.net/PDO">PDO</a> $pdo)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Permet de recuperer la connection</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Set the connection</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a target="_blank" href="http://php.net/PDO">PDO</a></td>
+                <td><a target="_blank" rel="noopener" href="https://www.php.net/PDO">PDO</a></td>
                 <td>$pdo</td>
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -365,20 +388,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getName">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L67">line 67</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L72">à la ligne 72</a></div>
         <code>                    string
     <strong>getName</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Permet de retourner le nom de la connectoon</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Returns the name of the connection</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -389,25 +413,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setFetchMode">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L77">line 77</a></div>
-        <code>                    
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L83">à la ligne 83</a></div>
+        <code>                    void
     <strong>setFetchMode</strong>(int $fetch)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Permet de définir le mode de récuperation des données.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Sets the data recovery mode.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -418,6 +444,16 @@
             </table>
 
             
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
             
             
                     </div>
@@ -426,20 +462,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getConfig">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L88">line 88</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L98">à la ligne 98</a></div>
         <code>                    array
     <strong>getConfig</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Permet de récupérer la configuration</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Retrieves the configuration</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -450,34 +487,37 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getTablePrefix">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L98">line 98</a></div>
-        <code>                    mixed|string
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L108">à la ligne 108</a></div>
+        <code>                    string
     <strong>getTablePrefix</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Permet de récupérer le prefix des tables</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Retrieves the table prefix</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>mixed|string</td>
+            <td>string</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -486,28 +526,141 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getCharset">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L108">line 108</a></div>
-        <code>                    mixed|string
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L118">à la ligne 118</a></div>
+        <code>                    string
     <strong>getCharset</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Permet de récupérer le type d'encodage</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Retrieves the type of encoding</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>mixed|string</td>
+            <td>string</td>
             <td></td>
         </tr>
     </table>
 
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getCollation">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L128">à la ligne 128</a></div>
+        <code>                    string
+    <strong>getCollation</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Retrieves the define Collation</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPdoDriver">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L138">à la ligne 138</a></div>
+        <code>                    string
+    <strong>getPdoDriver</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the drive that PDO run on</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_bind">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Connection/AbstractConnection.php#L151">à la ligne 151</a></div>
+        <code>                    <a target="_blank" rel="noopener" href="https://www.php.net/PDOStatement">PDOStatement</a>
+    <strong>bind</strong>(<a target="_blank" rel="noopener" href="https://www.php.net/PDOStatement">PDOStatement</a> $pdo_statement, array $bindings = [])
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Executes PDOStatement::bindValue on an instance of</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a target="_blank" rel="noopener" href="https://www.php.net/PDOStatement">PDOStatement</a></td>
+                <td>$pdo_statement</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$bindings</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a target="_blank" rel="noopener" href="https://www.php.net/PDOStatement">PDOStatement</a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
             
             
                     </div>
@@ -517,12 +670,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

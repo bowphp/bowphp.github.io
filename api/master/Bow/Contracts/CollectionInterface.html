@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Contracts\CollectionInterface | Bow Framework API</title>
+    <title>Bow\Contracts\CollectionInterface | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Contracts_CollectionInterface" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Contracts_CollectionInterface" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -70,148 +102,149 @@
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            CollectionInterface
-                
-        </h1>
+        <h1>CollectionInterface    
+            </h1>
     </div>
 
-    <p>    interface
-    <strong>CollectionInterface</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php">View source</a>)
+    
+    <p>        interface
+    <strong>CollectionInterface</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php">Voir la source</a>)
 </p>
 
         
     
+        
 
+            
+        
     
     
-    
-    
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    boolean
+                    bool
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_has">has</a>(string $key)
+                <div class="col-md-8">
+                    <a href="#method_has">has</a>(<abbr title="Bow\Contracts\string|int">string|int</abbr> $key)
         
-                                            <p>has, vérifie l'existance une clé dans la colléction de session</p>                </div>
+                                            <p><p>Check for existence of a key in the session collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    boolean
+                    bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_isEmpty">isEmpty</a>()
         
-                                            <p>isEmpty, vérifie si une colléction est vide.</p>                </div>
+                                            <p><p>Check if a collection is empty.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_get">get</a>(string $key, mixed $default)
+                <div class="col-md-8">
+                    <a href="#method_get">get</a>(mixed $key, mixed $default = null)
         
-                                            <p>get, permet de récupérer une valeur ou la colléction de valeur.</p>                </div>
+                                            <p><p>Allows to recover a value or value collection.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a>
+                    mixed
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_add">add</a>(string $key, $data, bool $next = false)
+                <div class="col-md-8">
+                    <a href="#method_add">add</a>(<abbr title="Bow\Contracts\string|int">string|int</abbr> $key, mixed $data, bool $next = false)
         
-                                            <p>add, ajoute une entrée dans la colléction</p>                </div>
+                                            <p><p>Add an entry to the collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a>
+                    mixed
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_remove">remove</a>(string $key)
+                <div class="col-md-8">
+                    <a href="#method_remove">remove</a>(<abbr title="Bow\Contracts\string|int">string|int</abbr> $key)
         
-                                            <p>remove, supprime une entrée dans la colléction</p>                </div>
+                                            <p><p>Delete an entry in the collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a>
+                    mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_set">set</a>(string $key, mixed $value)
         
-                                            <p>set, modifie une entrée dans la colléction</p>                </div>
+                                            <p><p>Modify an entry in the collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_toArray">toArray</a>()
         
-                                            <p>retourne tout les entrées de la colléction</p>                </div>
+                                            <p><p>Return all the entries of the collection as an array</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_toObject">toObject</a>()
         
-                                            <p>retourne tout les entrées de la colléction sous forme d'object</p>                </div>
+                                            <p><p>Return all entries of the collection as an object</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_has">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L13">line 13</a></div>
-        <code>                    boolean
-    <strong>has</strong>(string $key)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L15">à la ligne 15</a></div>
+        <code>                    bool
+    <strong>has</strong>(<abbr title="Bow\Contracts\string|int">string|int</abbr> $key)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>has, vérifie l'existance une clé dans la colléction de session</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Check for existence of a key in the session collection</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td><abbr title="Bow\Contracts\string|int">string|int</abbr></td>
                 <td>$key</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>boolean</td>
+            <td>bool</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -220,28 +253,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isEmpty">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L20">line 20</a></div>
-        <code>                    boolean
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L22">à la ligne 22</a></div>
+        <code>                    bool
     <strong>isEmpty</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>isEmpty, vérifie si une colléction est vide.</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Check if a collection is empty.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>boolean</td>
+            <td>bool</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -250,23 +285,24 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_get">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L29">line 29</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L31">à la ligne 31</a></div>
         <code>                    mixed
-    <strong>get</strong>(string $key, mixed $default)
+    <strong>get</strong>(mixed $key, mixed $default = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>get, permet de récupérer une valeur ou la colléction de valeur.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Allows to recover a value or value collection.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>mixed</td>
                 <td>$key</td>
                 <td></td>
             </tr>
@@ -278,7 +314,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -289,34 +325,36 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_add">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L39">line 39</a></div>
-        <code>                    <a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a>
-    <strong>add</strong>(string $key, $data, bool $next = false)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L41">à la ligne 41</a></div>
+        <code>                    mixed
+    <strong>add</strong>(<abbr title="Bow\Contracts\string|int">string|int</abbr> $key, mixed $data, bool $next = false)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>add, ajoute une entrée dans la colléction</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Add an entry to the collection</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td><abbr title="Bow\Contracts\string|int">string|int</abbr></td>
                 <td>$key</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$data</td>
                 <td></td>
             </tr>
@@ -328,15 +366,16 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a></td>
+            <td>mixed</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -345,38 +384,40 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_remove">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L48">line 48</a></div>
-        <code>                    <a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a>
-    <strong>remove</strong>(string $key)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L50">à la ligne 50</a></div>
+        <code>                    mixed
+    <strong>remove</strong>(<abbr title="Bow\Contracts\string|int">string|int</abbr> $key)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>remove, supprime une entrée dans la colléction</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Delete an entry in the collection</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td><abbr title="Bow\Contracts\string|int">string|int</abbr></td>
                 <td>$key</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a></td>
+            <td>mixed</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -385,19 +426,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_set">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L57">line 57</a></div>
-        <code>                    <a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L59">à la ligne 59</a></div>
+        <code>                    mixed
     <strong>set</strong>(string $key, mixed $value)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>set, modifie une entrée dans la colléction</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Modify an entry in the collection</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -413,15 +455,16 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Contracts/CollectionInterface.html"><abbr title="Bow\Contracts\CollectionInterface">CollectionInterface</abbr></a></td>
+            <td>mixed</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -430,20 +473,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L64">line 64</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L66">à la ligne 66</a></div>
         <code>                    array
     <strong>toArray</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>retourne tout les entrées de la colléction</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Return all the entries of the collection as an array</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -452,6 +496,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -460,20 +505,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_toObject">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L71">line 71</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Contracts/CollectionInterface.php#L73">à la ligne 73</a></div>
         <code>                    array
     <strong>toObject</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>retourne tout les entrées de la colléction sous forme d'object</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Return all entries of the collection as an object</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -484,6 +530,7 @@
 
             
             
+            
                     </div>
     </div>
 
@@ -491,12 +538,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

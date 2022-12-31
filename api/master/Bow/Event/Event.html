@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Event\Event | Bow Framework API</title>
+    <title>Bow\Event\Event | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Event_Event" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Event_Event" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,108 +97,97 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Event.html">Event</a></li><li class="backslash">\</li><li>Event</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Event
-                
-        </h1>
+        <h1>Event    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>Event</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php">View source</a>)
+    
+    <p>        classe
+    <strong>Event</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php">Voir la source</a>)
 </p>
 
         
     
+        
 
+            
+        
     
     
-    
-    
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;<a href="../../Bow/Event/Event.html"><abbr title="Bow\Event\Event">Event</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getInstance">getInstance</a>()
         
-                                            <p>Event constructor.</p>                </div>
+                                            <p><p>Event constructor.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_on">on</a>(string $event, Callable|array|string $fn, int $priority = 0)
+                <div class="col-md-8">
+                    <a href="#method_on">on</a>(string $event, <abbr title="Bow\Event\callable|string">callable|string</abbr> $fn, int $priority = 0)
         
                                             <p>addEventListener</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;
+                    static&nbsp;void
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_onTransmission">onTransmission</a>(string $event, array|string $fn, int $priority = 0)
+                <div class="col-md-8">
+                    <a href="#method_once">once</a>(string $event, <abbr title="Bow\Event\callable|array|string">callable|array|string</abbr> $fn, int $priority = 0)
         
-                                            <p>Envoyer une event de page en page</p>                </div>
+                                            <p><p>Associate a single listener to an event</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;
+                    static&nbsp;bool|null
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_once">once</a>(string $event, callable|array|string $fn, int $priority = 0)
+                <div class="col-md-8">
+                    <a href="#method_emit">emit</a>(<abbr title="string|Bow\Event\Contracts\AppEvent">AppEvent</abbr> $event)
         
-                                            <p>Associer un seul listener à un event</p>                </div>
+                                            <p><p>Dispatch event</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;void
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_emit">emit</a>(string $event)
-        
-                                            <p>emit dispatchEvent</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    static&nbsp;
-                </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_off">off</a>(string $event)
         
-                                            <p>off supprime un event enregistre</p>                </div>
+                                            <p><p>off removes an event saves</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_bound">bound</a>(string $event)
         
-                                            <p>Permet de vérifier si un evenement est déja enregistre au moin un fois.</p>                </div>
+                                            <p><p>Check whether an event is already recorded at least once.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method___call">__call</a>(string $name, array $arguments)
         
                                             <p>__call</p>                </div>
@@ -175,25 +196,26 @@
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_getInstance">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L30">line 30</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L33">à la ligne 33</a></div>
         <code>        static            <a href="../../Bow/Event/Event.html"><abbr title="Bow\Event\Event">Event</abbr></a>
     <strong>getInstance</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Event constructor.</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Event constructor.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -204,25 +226,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_on">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L46">line 46</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L49">à la ligne 49</a></div>
         <code>        static            
-    <strong>on</strong>(string $event, Callable|array|string $fn, int $priority = 0)
+    <strong>on</strong>(string $event, <abbr title="Bow\Event\callable|string">callable|string</abbr> $fn, int $priority = 0)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>addEventListener</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>addEventListener</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -231,48 +255,7 @@
                 <td></td>
             </tr>
                     <tr>
-                <td>Callable|array|string</td>
-                <td>$fn</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>int</td>
-                <td>$priority</td>
-                <td>Le namespace de la classe ou fonction à</td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_onTransmission">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L67">line 67</a></div>
-        <code>        static            
-    <strong>onTransmission</strong>(string $event, array|string $fn, int $priority = 0)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Envoyer une event de page en page</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$event</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>array|string</td>
+                <td><abbr title="Bow\Event\callable|string">callable|string</abbr></td>
                 <td>$fn</td>
                 <td></td>
             </tr>
@@ -285,15 +268,7 @@
 
             
             
-                            <h4>Exceptions</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><a href="../../Bow/Event/EventException.html"><abbr title="Bow\Event\EventException">EventException</abbr></a></td>
-                <td></td>
-            </tr>
-            </table>
-
+            
             
                     </div>
     </div>
@@ -301,19 +276,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_once">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L89">line 89</a></div>
-        <code>        static            
-    <strong>once</strong>(string $event, callable|array|string $fn, int $priority = 0)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L69">à la ligne 69</a></div>
+        <code>        static            void
+    <strong>once</strong>(string $event, <abbr title="Bow\Event\callable|array|string">callable|array|string</abbr> $fn, int $priority = 0)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Associer un seul listener à un event</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Associate a single listener to an event</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -322,7 +298,7 @@
                 <td></td>
             </tr>
                     <tr>
-                <td>callable|array|string</td>
+                <td><abbr title="Bow\Event\callable|array|string">callable|array|string</abbr></td>
                 <td>$fn</td>
                 <td></td>
             </tr>
@@ -332,6 +308,16 @@
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -342,38 +328,40 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_emit">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L100">line 100</a></div>
-        <code>        static            bool
-    <strong>emit</strong>(string $event)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L80">à la ligne 80</a></div>
+        <code>        static            bool|null
+    <strong>emit</strong>(<abbr title="string|Bow\Event\Contracts\AppEvent">AppEvent</abbr> $event)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>emit dispatchEvent</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Dispatch event</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td><abbr title="string|Bow\Event\Contracts\AppEvent">AppEvent</abbr></td>
                 <td>$event</td>
-                <td>Le nom de l'évènement</td>
+                <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>bool|null</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -382,19 +370,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_off">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L143">line 143</a></div>
-        <code>        static            
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L113">à la ligne 113</a></div>
+        <code>        static            void
     <strong>off</strong>(string $event)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>off supprime un event enregistre</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>off removes an event saves</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -403,6 +392,16 @@
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -413,19 +412,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_bound">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L160">line 160</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L129">à la ligne 129</a></div>
         <code>        static            bool
     <strong>bound</strong>(string $event)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Permet de vérifier si un evenement est déja enregistre au moin un fois.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Check whether an event is already recorded at least once.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -436,7 +436,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -447,25 +447,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method___call">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L182">line 182</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Event/Event.php#L143">à la ligne 143</a></div>
         <code>                    mixed
     <strong>__call</strong>(string $name, array $arguments)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>__call</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>__call</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -481,7 +483,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -492,6 +494,7 @@
 
             
             
+            
                     </div>
     </div>
 
@@ -499,12 +502,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

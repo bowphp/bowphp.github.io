@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Auth\Auth | Bow Framework API</title>
+    <title>Bow\Auth\Auth | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Auth_Auth" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Auth_Auth" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,213 +97,94 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Auth.html">Auth</a></li><li class="backslash">\</li><li>Auth</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Auth
-                
-        </h1>
+        <h1>Auth    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>Auth</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php">View source</a>)
+    
+    <p>        classe
+    <strong>Auth</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php">Voir la source</a>)
 </p>
 
         
     
+        
 
+            
+        
     
     
-    
-            <h2>Properties</h2>
-
-            <table class="table table-condensed">
-                    <tr>
-                <td class="type" id="property_credentials">
-                                        protected                                        array
-                </td>
-                <td>$credentials</td>
-                <td class="last"></td>
-                <td></td>
-            </tr>
-            </table>
-
-    
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    static&nbsp;<a href="../../Bow/Auth/Guards/GuardContract.html"><abbr title="Bow\Auth\Guards\GuardContract">GuardContract</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(array $provider, array $credentials = [])
-        
-                                            <p>Auth constructor.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    static&nbsp;<a href="../../Bow/Auth/Auth.html"><abbr title="Bow\Auth\Auth">Auth</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_configure">configure</a>(array $config)
         
-                                            <p>Configure Auth system</p>                </div>
+                                            <p><p>Configure Auth system</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;<a href="../../Bow/Auth/Auth.html"><abbr title="Bow\Auth\Auth">Auth</abbr></a>
+                    static&nbsp;<abbr title="Bow\Auth\Bow\Auth\Guards\GuardContract">GuardContract</abbr>|null
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getInstance">getInstance</a>()
         
-                                            <p>Get Auth instance</p>                </div>
+                                            <p><p>Get Auth Instance</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a href="../../Bow/Auth/Auth.html"><abbr title="Bow\Auth\Auth">Auth</abbr></a>|null
+                    static&nbsp;<a href="../../Bow/Auth/Guards/GuardContract.html"><abbr title="Bow\Auth\Guards\GuardContract">GuardContract</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_guard">guard</a>(null|string $guard = null)
+                <div class="col-md-8">
+                    <a href="#method_guard">guard</a>(string|null $guard = null)
         
-                                            <p>Check if user is authenticate</p>                </div>
+                                            <p><p>Check if user is authenticate</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    bool
+                    static&nbsp;<a href="../../Bow/Auth/Guards/GuardContract.html"><abbr title="Bow\Auth\Guards\GuardContract">GuardContract</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_check">check</a>()
+                <div class="col-md-8">
+                    <a href="#method___callStatic">__callStatic</a>(string $method, array $params)
         
-                                            <p>Check if user is authenticate</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    bool
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_guest">guest</a>()
-        
-                                            <p>Check if user is guest</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    bool
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_user">user</a>()
-        
-                                            <p>Check if user is authenticate</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    bool
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_attempts">attempts</a>(array $credentials)
-        
-                                            <p>Check if user is authenticate</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    bool
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_login">login</a>(<a href="../../Bow/Auth/Authentication.html"><abbr title="Bow\Auth\Authentication">Authentication</abbr></a> $user)
-        
-                                            <p>Make direct login</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    bool
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_id">id</a>()
-        
-                                            <p>Get the user id</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    static&nbsp;mixed
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method___callStatic">__callStatic</a>(string $method, array $parameters)
-        
-                                            <p>__call</p>                </div>
+                                            <p>__callStatic</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L45">line 45</a></div>
-        <code>                    
-    <strong>__construct</strong>(array $provider, array $credentials = [])
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Auth constructor.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>array</td>
-                <td>$provider</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>array</td>
-                <td>$credentials</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_configure">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L58">line 58</a></div>
-        <code>        static            <a href="../../Bow/Auth/Auth.html"><abbr title="Bow\Auth\Auth">Auth</abbr></a>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L41">à la ligne 41</a></div>
+        <code>        static            <a href="../../Bow/Auth/Guards/GuardContract.html"><abbr title="Bow\Auth\Guards\GuardContract">GuardContract</abbr></a>
     <strong>configure</strong>(array $config)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Configure Auth system</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Configure Auth system</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -282,15 +195,16 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Auth/Auth.html"><abbr title="Bow\Auth\Auth">Auth</abbr></a></td>
+            <td><a href="../../Bow/Auth/Guards/GuardContract.html"><abbr title="Bow\Auth\Guards\GuardContract">GuardContract</abbr></a></td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -299,28 +213,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getInstance">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L76">line 76</a></div>
-        <code>        static            <a href="../../Bow/Auth/Auth.html"><abbr title="Bow\Auth\Auth">Auth</abbr></a>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L57">à la ligne 57</a></div>
+        <code>        static            <abbr title="Bow\Auth\Bow\Auth\Guards\GuardContract">GuardContract</abbr>|null
     <strong>getInstance</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Get Auth instance</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get Auth Instance</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Auth/Auth.html"><abbr title="Bow\Auth\Auth">Auth</abbr></a></td>
+            <td><abbr title="Bow\Auth\Bow\Auth\Guards\GuardContract">GuardContract</abbr>|null</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -329,34 +245,35 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_guard">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L89">line 89</a></div>
-        <code>                    <a href="../../Bow/Auth/Auth.html"><abbr title="Bow\Auth\Auth">Auth</abbr></a>|null
-    <strong>guard</strong>(null|string $guard = null)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L69">à la ligne 69</a></div>
+        <code>        static            <a href="../../Bow/Auth/Guards/GuardContract.html"><abbr title="Bow\Auth\Guards\GuardContract">GuardContract</abbr></a>
+    <strong>guard</strong>(string|null $guard = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Check if user is authenticate</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Check if user is authenticate</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>null|string</td>
+                <td>string|null</td>
                 <td>$guard</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Auth/Auth.html"><abbr title="Bow\Auth\Auth">Auth</abbr></a>|null</td>
+            <td><a href="../../Bow/Auth/Guards/GuardContract.html"><abbr title="Bow\Auth\Guards\GuardContract">GuardContract</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -366,209 +283,10 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="../../Bow/Auth/Exception/AuthenticateException.html"><abbr title="Bow\Auth\Exception\AuthenticateException">AuthenticateException</abbr></a></td>
+                <td><a href="../../Bow/Auth/Exception/AuthenticationException.html"><abbr title="Bow\Auth\Exception\AuthenticationException">AuthenticationException</abbr></a></td>
                 <td></td>
             </tr>
             </table>
-
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_check">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L109">line 109</a></div>
-        <code>                    bool
-    <strong>check</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Check if user is authenticate</p>                                                </div>
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>bool</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_guest">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L119">line 119</a></div>
-        <code>                    bool
-    <strong>guest</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Check if user is guest</p>                                                </div>
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>bool</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_user">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L129">line 129</a></div>
-        <code>                    bool
-    <strong>user</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Check if user is authenticate</p>                                                </div>
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>bool</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_attempts">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L140">line 140</a></div>
-        <code>                    bool
-    <strong>attempts</strong>(array $credentials)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Check if user is authenticate</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>array</td>
-                <td>$credentials</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>bool</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_login">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L165">line 165</a></div>
-        <code>                    bool
-    <strong>login</strong>(<a href="../../Bow/Auth/Authentication.html"><abbr title="Bow\Auth\Authentication">Authentication</abbr></a> $user)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Make direct login</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><a href="../../Bow/Auth/Authentication.html"><abbr title="Bow\Auth\Authentication">Authentication</abbr></a></td>
-                <td>$user</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>bool</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_id">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L177">line 177</a></div>
-        <code>                    bool
-    <strong>id</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Get the user id</p>                                                </div>
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>bool</td>
-            <td></td>
-        </tr>
-    </table>
 
             
             
@@ -578,19 +296,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___callStatic">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L191">line 191</a></div>
-        <code>        static            mixed
-    <strong>__callStatic</strong>(string $method, array $parameters)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Auth/Auth.php#L105">à la ligne 105</a></div>
+        <code>        static            <a href="../../Bow/Auth/Guards/GuardContract.html"><abbr title="Bow\Auth\Guards\GuardContract">GuardContract</abbr></a>
+    <strong>__callStatic</strong>(string $method, array $params)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>__call</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>__callStatic</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -600,31 +319,23 @@
             </tr>
                     <tr>
                 <td>array</td>
-                <td>$parameters</td>
+                <td>$params</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
+            <td><a href="../../Bow/Auth/Guards/GuardContract.html"><abbr title="Bow\Auth\Guards\GuardContract">GuardContract</abbr></a></td>
             <td></td>
         </tr>
     </table>
 
             
-                            <h4>Exceptions</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><a target="_blank" href="http://php.net/BadMethodCallException">BadMethodCallException</a></td>
-                <td></td>
-            </tr>
-            </table>
-
+            
             
                     </div>
     </div>
@@ -633,12 +344,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

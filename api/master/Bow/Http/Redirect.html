@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Http\Redirect | Bow Framework API</title>
+    <title>Bow\Http\Redirect | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Http_Redirect" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Http_Redirect" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,82 +97,100 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Http.html">Http</a></li><li class="backslash">\</li><li>Redirect</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Redirect
-                
-        </h1>
+        <h1>Redirect    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>Redirect</strong>        implements
-        <a href="../../Bow/Contracts/ResponseInterface.html"><abbr title="Bow\Contracts\ResponseInterface">ResponseInterface</abbr></a>        (<a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php">View source</a>)
+    
+    <p>        classe
+    <strong>Redirect</strong>        implémente        <a href="../../Bow/Contracts/ResponseInterface.html"><abbr title="Bow\Contracts\ResponseInterface">ResponseInterface</abbr></a>        (<a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php">Voir la source</a>)
 </p>
 
         
     
+        
 
+            
+        
     
     
-    
-    
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;<a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getInstance">getInstance</a>()
         
-                                            <p>Get redirection instance</p>                </div>
+                                            <p><p>Get redirection instance</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_withInput">withInput</a>(array $data = [])
         
-                                            <p>Redirection avec les informations de requête</p>                </div>
+                                            <p><p>Redirection with the query information</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
+                    <a href="#method_withFlash">withFlash</a>(string $key, mixed $value)
+        
+                                            <p><p>Redirection with define flash information</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
+                </div>
+                <div class="col-md-8">
                     <a href="#method_to">to</a>(string $path, int $status = 302)
         
-                                            <p>Redirection vers une autre URL</p>                </div>
+                                            <p><p>Redirect to another URL</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_back">back</a>(int $status = 302)
+                <div class="col-md-8">
+                    <a href="#method_route">route</a>(string $name, array $data = [], bool $absolute = false)
         
-                                            <p>Rédirection sur l'URL précédent</p>                </div>
+                                            <p><p>Redirect with route definition</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    string
+                    <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
+                    <a href="#method_back">back</a>(int $status = 302)
+        
+                                            <p><p>Redirect on the previous URL</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
                     <a href="#method_sendContent">sendContent</a>()
         
-                                            <p class="no-description">No description</p>
+                                            <p class="no-description">Pas de description</p>
                                     </div>
                 <div class="col-md-2"></div>
             </div>
@@ -148,7 +198,7 @@
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method___invoke">__invoke</a>()
         
                                             <p>__invoke</p>                </div>
@@ -158,7 +208,7 @@
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method___toString">__toString</a>()
         
                                             <p>__toString</p>                </div>
@@ -167,25 +217,26 @@
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_getInstance">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L44">line 44</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L56">à la ligne 56</a></div>
         <code>        static            <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
     <strong>getInstance</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Get redirection instance</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get redirection instance</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -196,25 +247,27 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_withInput">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L59">line 59</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L71">à la ligne 71</a></div>
         <code>                    <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
     <strong>withInput</strong>(array $data = [])
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Redirection avec les informations de requête</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Redirection with the query information</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -225,7 +278,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -236,25 +289,74 @@
 
             
             
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_withFlash">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L89">à la ligne 89</a></div>
+        <code>                    <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
+    <strong>withFlash</strong>(string $key, mixed $value)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Redirection with define flash information</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_to">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L77">line 77</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L103">à la ligne 103</a></div>
         <code>                    <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
     <strong>to</strong>(string $path, int $status = 302)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Redirection vers une autre URL</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Redirect to another URL</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -270,7 +372,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -281,25 +383,79 @@
 
             
             
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_route">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L120">à la ligne 120</a></div>
+        <code>                    <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
+    <strong>route</strong>(string $name, array $data = [], bool $absolute = false)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Redirect with route definition</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$absolute</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_back">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L92">line 92</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L133">à la ligne 133</a></div>
         <code>                    <a href="../../Bow/Http/Redirect.html"><abbr title="Bow\Http\Redirect">Redirect</abbr></a>
     <strong>back</strong>(int $status = 302)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Rédirection sur l'URL précédent</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Redirect on the previous URL</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -310,7 +466,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -321,32 +477,38 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_sendContent">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L102">line 102</a></div>
-        <code>                    string
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L143">à la ligne 143</a></div>
+        <code>                    void
     <strong>sendContent</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p class="no-description">Pas de description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>void</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -355,20 +517,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___invoke">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L114">line 114</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L155">à la ligne 155</a></div>
         <code>                    mixed
     <strong>__invoke</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>__invoke</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p>__invoke</p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -379,26 +542,28 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method___toString">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L124">line 124</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Http/Redirect.php#L165">à la ligne 165</a></div>
         <code>                    string
     <strong>__toString</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>__toString</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p>__toString</p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -409,6 +574,7 @@
 
             
             
+            
                     </div>
     </div>
 
@@ -416,12 +582,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Configuration\Loader | Bow Framework API</title>
+    <title>Bow\Configuration\Loader | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Configuration_Loader" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Configuration_Loader" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,37 +97,36 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Configuration.html">Configuration</a></li><li class="backslash">\</li><li>Loader</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Loader
-                
-        </h1>
+        <h1>Loader    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>Loader</strong>        implements
-        <a target="_blank" href="http://php.net/ArrayAccess">ArrayAccess</a>        (<a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php">View source</a>)
+    
+    <p>        classe
+    <strong>Loader</strong>        implémente        <a target="_blank" rel="noopener" href="https://www.php.net/ArrayAccess">ArrayAccess</a>        (<a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php">Voir la source</a>)
 </p>
 
         
     
+        
 
+            
+        
     
-    
-    
-            <h2>Properties</h2>
+            <h2>Propriétés</h2>
 
             <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_instance">
                     static                    protected                                        <a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a>
-                </td>
+                                                                                
+                                    </td>
                 <td>$instance</td>
                 <td class="last"></td>
                 <td></td>
@@ -103,7 +134,8 @@
                     <tr>
                 <td class="type" id="property_config">
                                         protected                                        <a href="../../Bow/Support/Arraydotify.html"><abbr title="Bow\Support\Arraydotify">Arraydotify</abbr></a>
-                </td>
+                                                                                
+                                    </td>
                 <td>$config</td>
                 <td class="last"></td>
                 <td></td>
@@ -111,7 +143,8 @@
                     <tr>
                 <td class="type" id="property_base_path">
                                         protected                                        string
-                </td>
+                                                                                
+                                    </td>
                 <td>$base_path</td>
                 <td class="last"></td>
                 <td></td>
@@ -119,7 +152,8 @@
                     <tr>
                 <td class="type" id="property_booted">
                                         protected                                        bool
-                </td>
+                                                                                
+                                    </td>
                 <td>$booted</td>
                 <td class="last"></td>
                 <td></td>
@@ -127,164 +161,289 @@
             </table>
 
     
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_isCli">isCli</a>()
+        
+                                            <p><p>Check if php running env is cli</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getBasePath">getBasePath</a>()
+        
+                                            <p><p>Get the base path</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;<a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_configure">configure</a>(string $base_path)
         
-                                            <p>takeInstance singleton</p>                </div>
+                                            <p><p>Configuration Loader</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_pushMiddleware">pushMiddleware</a>(array $middlewares)
         
-                                            <p>Push middlewares</p>                </div>
+                                            <p><p>Push middlewares</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_pushNamespaces">pushNamespaces</a>(array $namespaces)
+        
+                                            <p><p>Push namespaces</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getMiddlewares">getMiddlewares</a>()
         
-                                            <p>Middleware collection</p>                </div>
+                                            <p><p>Middleware collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
+                    <a href="#method_getNamespaces">getNamespaces</a>()
+        
+                                            <p><p>Namespaces collection</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
                     <a href="#method_namespaces">namespaces</a>()
         
-                                            <p>Get app namespace</p>                </div>
+                                            <p><p>Get app namespace</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_middlewares">middlewares</a>()
         
-                                            <p>Middleware collection</p>                </div>
+                                            <p><p>Middleware collection</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_configurations">configurations</a>()
         
-                                            <p>Load serivces</p>                </div>
+                                            <p><p>Load services</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_events">events</a>()
+        
+                                            <p><p>Load events</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;<a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getInstance">getInstance</a>()
         
-                                            <p>Alias de singleton</p>                </div>
+                                            <p><p>Alias of singleton</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
+                    <a href="#method_withoutSession">withoutSession</a>()
+        
+                                            <p><p>Define if the configuration going to boot without session manager</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a>
+                </div>
+                <div class="col-md-8">
                     <a href="#method_boot">boot</a>()
         
-                                            <p>Load configuration</p>                </div>
+                                            <p><p>Load configuration</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method___invoke">__invoke</a>($key, null $value = null)
+                <div class="col-md-8">
+                    <a href="#method___invoke">__invoke</a>(string $key, mixed $value = null)
         
                                             <p>__invoke</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    bool
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_offsetExists">offsetExists</a>($offset)
+                <div class="col-md-8">
+                    <a href="#method_offsetExists">offsetExists</a>(mixed $offset)
         
-                                            <p class="no-description">No description</p>
+                                            <p class="no-description">Pas de description</p>
                                     </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    mixed
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_offsetGet">offsetGet</a>($offset)
+                <div class="col-md-8">
+                    <a href="#method_offsetGet">offsetGet</a>(mixed $offset)
         
-                                            <p class="no-description">No description</p>
+                                            <p class="no-description">Pas de description</p>
                                     </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_offsetSet">offsetSet</a>($offset, $value)
+                <div class="col-md-8">
+                    <a href="#method_offsetSet">offsetSet</a>(mixed $offset, mixed $value)
         
-                                            <p class="no-description">No description</p>
+                                            <p class="no-description">Pas de description</p>
                                     </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_offsetUnset">offsetUnset</a>($offset)
+                <div class="col-md-8">
+                    <a href="#method_offsetUnset">offsetUnset</a>(mixed $offset)
         
-                                            <p class="no-description">No description</p>
+                                            <p class="no-description">Pas de description</p>
                                     </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
+                    <h3 id="method_isCli">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L91">à la ligne 91</a></div>
+        <code>                    bool
+    <strong>isCli</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check if php running env is cli</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getBasePath">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L101">à la ligne 101</a></div>
+        <code>                    string
+    <strong>getBasePath</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the base path</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_configure">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L88">line 88</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L113">à la ligne 113</a></div>
         <code>        static            <a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a>
     <strong>configure</strong>(string $base_path)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>takeInstance singleton</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Configuration Loader</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -295,7 +454,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -315,25 +474,27 @@
             </table>
 
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_pushMiddleware">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L102">line 102</a></div>
-        <code>                    
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L127">à la ligne 127</a></div>
+        <code>                    void
     <strong>pushMiddleware</strong>(array $middlewares)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Push middlewares</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Push middlewares</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -344,6 +505,58 @@
             </table>
 
             
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_pushNamespaces">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L139">à la ligne 139</a></div>
+        <code>                    void
+    <strong>pushNamespaces</strong>(array $namespaces)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Push namespaces</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$namespaces</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
             
             
                     </div>
@@ -352,20 +565,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getMiddlewares">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L114">line 114</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L151">à la ligne 151</a></div>
         <code>                    array
     <strong>getMiddlewares</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Middleware collection</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Middleware collection</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -374,6 +588,39 @@
         </tr>
     </table>
 
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getNamespaces">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L167">à la ligne 167</a></div>
+        <code>                    array
+    <strong>getNamespaces</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Namespaces collection</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
             
             
                     </div>
@@ -382,20 +629,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_namespaces">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L130">line 130</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L183">à la ligne 183</a></div>
         <code>                    array
     <strong>namespaces</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Get app namespace</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Get app namespace</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -404,6 +652,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -412,20 +661,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_middlewares">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L142">line 142</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L195">à la ligne 195</a></div>
         <code>                    array
     <strong>middlewares</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Middleware collection</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Middleware collection</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -434,6 +684,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -442,20 +693,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_configurations">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L154">line 154</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L207">à la ligne 207</a></div>
         <code>                    array
     <strong>configurations</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Load serivces</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Load services</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -466,26 +718,60 @@
 
             
             
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_events">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L219">à la ligne 219</a></div>
+        <code>                    array
+    <strong>events</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Load events</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getInstance">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L167">line 167</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L232">à la ligne 232</a></div>
         <code>        static            <a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a>
     <strong>getInstance</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Alias de singleton</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Alias of singleton</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -499,32 +785,34 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td><a href="../../Bow/Application/Exception/ApplicationException.html"><abbr title="Bow\Application\Exception\ApplicationException">ApplicationException</abbr></a></td>
                 <td></td>
             </tr>
             </table>
 
+            
             
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_boot">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L181">line 181</a></div>
+                    <h3 id="method_withoutSession">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L246">à la ligne 246</a></div>
         <code>                    <a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a>
-    <strong>boot</strong>()
+    <strong>withoutSession</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
-
-                    <div class="method-description">
-                                    <p>Load configuration</p>                                                </div>
-                <div class="tags">
             
-                            <h4>Return Value</h4>
+
+        <div class="method-description">
+                            <p><p>Define if the configuration going to boot without session manager</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -535,41 +823,75 @@
 
             
             
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_boot">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L258">à la ligne 258</a></div>
+        <code>                    <a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a>
+    <strong>boot</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Load configuration</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Configuration/Loader.html"><abbr title="Bow\Configuration\Loader">Loader</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method___invoke">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L223">line 223</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L312">à la ligne 312</a></div>
         <code>                    mixed
-    <strong>__invoke</strong>($key, null $value = null)
+    <strong>__invoke</strong>(string $key, mixed $value = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>__invoke</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>__invoke</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$key</td>
                 <td></td>
             </tr>
                     <tr>
-                <td>null</td>
+                <td>mixed</td>
                 <td>$value</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -580,31 +902,46 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_offsetExists">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L235">line 235</a></div>
-        <code>                    
-    <strong>offsetExists</strong>($offset)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L324">à la ligne 324</a></div>
+        <code>                    bool
+    <strong>offsetExists</strong>(mixed $offset)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p class="no-description">Pas de description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$offset</td>
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -615,25 +952,39 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_offsetGet">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L243">line 243</a></div>
-        <code>                    
-    <strong>offsetGet</strong>($offset)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L332">à la ligne 332</a></div>
+        <code>                    mixed
+    <strong>offsetGet</strong>(mixed $offset)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p class="no-description">Pas de description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$offset</td>
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -644,30 +995,44 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_offsetSet">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L251">line 251</a></div>
-        <code>                    
-    <strong>offsetSet</strong>($offset, $value)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L340">à la ligne 340</a></div>
+        <code>                    void
+    <strong>offsetSet</strong>(mixed $offset, mixed $value)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p class="no-description">Pas de description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$offset</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$value</td>
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -678,25 +1043,39 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_offsetUnset">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L259">line 259</a></div>
-        <code>                    
-    <strong>offsetUnset</strong>($offset)
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Configuration/Loader.php#L348">à la ligne 348</a></div>
+        <code>                    void
+    <strong>offsetUnset</strong>(mixed $offset)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p class="no-description">Pas de description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$offset</td>
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -708,12 +1087,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Bow\Testing\Response | Bow Framework</title>
+
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+    </head>
+
+    <body id="class" data-name="class:Bow_Testing_Response" data-root-path="../../" data-search-index-url="../../doctum-search.json">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" selected>4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" >Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
+            <input name="search"
+                   id="doctum-search-auto-complete"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Afficher le menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li class="active"><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li ><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../classes.html">Classes</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">classe</span></li>
+                        <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Testing.html">Testing</a></li><li class="backslash">\</li><li>Response</li>
+            </ol>
+        </div>
+                <div id="page-content">
+    <div class="page-header">
+        <h1>Response    
+            </h1>
+    </div>
+
+    
+    <p>        classe
+    <strong>Response</strong>        (<a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php">Voir la source</a>)
+</p>
+
+        
+    
+        
+
+            
+        
+    
+    
+            <h2>Méthodes</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method___construct">__construct</a>(<a href="../../Bow/Http/Client/Parser.html"><abbr title="Bow\Http\Client\Parser">Parser</abbr></a> $parser)
+        
+                                            <p><p>Behovior constructor.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertJson">assertJson</a>(string $message = &#039;&#039;)
+        
+                                            <p><p>Check if the content is json format</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertExactJson">assertExactJson</a>($data, string $message = &#039;&#039;)
+        
+                                            <p><p>Check if the content is json format and the parsed data is
+some to the content</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertContainsExactText">assertContainsExactText</a>(string $data, string $message = &#039;&#039;)
+        
+                                            <p><p>Check if the content is some of parse data</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertHeader">assertHeader</a>(string $header, string $message = &#039;&#039;)
+        
+                                            <p><p>Check if the header exists</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertArray">assertArray</a>(string $message = &#039;&#039;)
+        
+                                            <p><p>Check if the content is array format</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertContentType">assertContentType</a>($content_type, string $message = &#039;&#039;)
+        
+                                            <p><p>Check the content type</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertContentTypeJson">assertContentTypeJson</a>(string $message = &#039;&#039;)
+        
+                                            <p><p>Check if the content type is application/json</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertContentTypeText">assertContentTypeText</a>(string $message = &#039;&#039;)
+        
+                                            <p><p>Check if the content type is text/plain</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertContentTypeHtml">assertContentTypeHtml</a>(string $message = &#039;&#039;)
+        
+                                            <p><p>Check if the content type is text/html</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertContentTypeXml">assertContentTypeXml</a>(string $message = &#039;&#039;)
+        
+                                            <p><p>Check if the content type is text/xml</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertStatus">assertStatus</a>(int $code, string $message = &#039;&#039;)
+        
+                                            <p><p>Check the status code</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertKeyExists">assertKeyExists</a>($key, string $message = &#039;&#039;)
+        
+                                            <p class="no-description">Pas de description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertKeyMatchValue">assertKeyMatchValue</a>($key, $value, string $message = &#039;&#039;)
+        
+                                            <p class="no-description">Pas de description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_assertContains">assertContains</a>(string $text)
+        
+                                            <p><p>Check if the content contains the parsed text</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getContent">getContent</a>()
+        
+                                            <p><p>Get the response content</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8">
+                    <a href="#method___call">__call</a>(string $method, array $params = [])
+        
+                                            <p>__call</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Détails</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L29">à la ligne 29</a></div>
+        <code>                    
+    <strong>__construct</strong>(<a href="../../Bow/Http/Client/Parser.html"><abbr title="Bow\Http\Client\Parser">Parser</abbr></a> $parser)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Behovior constructor.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Bow/Http/Client/Parser.html"><abbr title="Bow\Http\Client\Parser">Parser</abbr></a></td>
+                <td>$parser</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertJson">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L43">à la ligne 43</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertJson</strong>(string $message = &#039;&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check if the content is json format</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertExactJson">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L59">à la ligne 59</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertExactJson</strong>($data, string $message = &#039;&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check if the content is json format and the parsed data is
+some to the content</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertContainsExactText">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L74">à la ligne 74</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertContainsExactText</strong>(string $data, string $message = &#039;&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check if the content is some of parse data</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertHeader">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L89">à la ligne 89</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertHeader</strong>(string $header, string $message = &#039;&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check if the header exists</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$header</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertArray">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L103">à la ligne 103</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertArray</strong>(string $message = &#039;&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check if the content is array format</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertContentType">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L118">à la ligne 118</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertContentType</strong>($content_type, string $message = &#039;&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check the content type</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$content_type</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertContentTypeJson">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L138">à la ligne 138</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertContentTypeJson</strong>(string $message = &#039;&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check if the content type is application/json</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertContentTypeText">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L152">à la ligne 152</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertContentTypeText</strong>(string $message = &#039;&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check if the content type is text/plain</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertContentTypeHtml">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L166">à la ligne 166</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertContentTypeHtml</strong>(string $message = &#039;&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check if the content type is text/html</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertContentTypeXml">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L180">à la ligne 180</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertContentTypeXml</strong>(string $message = &#039;&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check if the content type is text/xml</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertStatus">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L195">à la ligne 195</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertStatus</strong>(int $code, string $message = &#039;&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check the status code</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$code</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertKeyExists">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L208">à la ligne 208</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertKeyExists</strong>($key, string $message = &#039;&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">Pas de description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertKeyMatchValue">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L224">à la ligne 224</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertKeyMatchValue</strong>($key, $value, string $message = &#039;&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">Pas de description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_assertContains">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L244">à la ligne 244</a></div>
+        <code>                    <abbr title="Bow\Testing\Behavior">Behavior</abbr>
+    <strong>assertContains</strong>(string $text)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check if the content contains the parsed text</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$text</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Bow\Testing\Behavior">Behavior</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getContent">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L256">à la ligne 256</a></div>
+        <code>                    string
+    <strong>getContent</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the response content</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___call">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/4.0/src/Testing/Response.php#L268">à la ligne 268</a></div>
+        <code>                    mixed
+    <strong>__call</strong>(string $method, array $params = [])
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p>__call</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$method</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
+    </div>
+    </body>
+
+</html>

@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Validation\Validator | Bow Framework API</title>
+    <title>Bow\Validation\Validator | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Validation_Validator" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Validation_Validator" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,885 +97,425 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Validation.html">Validation</a></li><li class="backslash">\</li><li>Validator</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Validator
-                
-        </h1>
+        <h1>Validator    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>Validator</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php">View source</a>)
+    
+    <p>        classe
+    <strong>Validator</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php">Voir la source</a>)
 </p>
 
         
     
+        
 
-            <div class="description">
-            <p>Class Validator</p>            <p>C'est un validateur minimaliste.</p>                    </div>
+            
+                <h2>Traits</h2>
+
+        
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../Bow/Validation/FieldLexical.html"><abbr title="Bow\Validation\FieldLexical">FieldLexical</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../Bow/Validation/Rules/DatabaseRule.html"><abbr title="Bow\Validation\Rules\DatabaseRule">DatabaseRule</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../Bow/Validation/Rules/DatetimeRule.html"><abbr title="Bow\Validation\Rules\DatetimeRule">DatetimeRule</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../Bow/Validation/Rules/EmailRule.html"><abbr title="Bow\Validation\Rules\EmailRule">EmailRule</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../Bow/Validation/Rules/NumericRule.html"><abbr title="Bow\Validation\Rules\NumericRule">NumericRule</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../Bow/Validation/Rules/StringRule.html"><abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../Bow/Validation/Rules/RegexRule.html"><abbr title="Bow\Validation\Rules\RegexRule">RegexRule</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+            </div>
     
     
-    
-            <h2>Properties</h2>
+            <h2>Propriétés</h2>
 
             <table class="table table-condensed">
                     <tr>
-                <td class="type" id="property_fail">
+                <td class="type" id="property_fails">
                                         protected                                        bool
-                </td>
-                <td>$fail</td>
-                <td class="last"></td>
+                                                                                
+                                    </td>
+                <td>$fails</td>
+                <td class="last"><p>The Fails flag</p></td>
                 <td></td>
             </tr>
                     <tr>
-                <td class="type" id="property_lastMessage">
+                <td class="type" id="property_last_message">
                                         protected                                        string
-                </td>
-                <td>$lastMessage</td>
-                <td class="last"></td>
+                                                                                
+                                    </td>
+                <td>$last_message</td>
+                <td class="last"><p>The last name</p></td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type" id="property_errors">
                                         protected                                        array
-                </td>
+                                                                                
+                                    </td>
                 <td>$errors</td>
-                <td class="last"></td>
+                <td class="last"><p>The errors list</p></td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type" id="property_inputs">
                                         protected                                        array
-                </td>
+                                                                                
+                                    </td>
                 <td>$inputs</td>
-                <td class="last"></td>
+                <td class="last"><p>The validation DATA</p></td>
                 <td></td>
             </tr>
                     <tr>
-                <td class="type" id="property_compiles">
+                <td class="type" id="property_messages">
                                         protected                                        array
-                </td>
-                <td>$compiles</td>
-                <td class="last"></td>
+                                                                                
+                                    </td>
+                <td>$messages</td>
+                <td class="last"><p>The user messages</p></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_rules">
+                                        protected                                        array
+                                                                                
+                                    </td>
+                <td>$rules</td>
+                <td class="last"><p>Define the valid rule list</p></td>
                 <td></td>
             </tr>
             </table>
 
     
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileExists">compileExists</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Exists Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/DatabaseRule.html#method_compileExists">
+<abbr title="Bow\Validation\Rules\DatabaseRule">DatabaseRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileNotExists">compileNotExists</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Not Exists Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/DatabaseRule.html#method_compileNotExists">
+<abbr title="Bow\Validation\Rules\DatabaseRule">DatabaseRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileUnique">compileUnique</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Unique Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/DatabaseRule.html#method_compileUnique">
+<abbr title="Bow\Validation\Rules\DatabaseRule">DatabaseRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileDate">compileDate</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Date Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/DatetimeRule.html#method_compileDate">
+<abbr title="Bow\Validation\Rules\DatetimeRule">DatetimeRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileDateTime">compileDateTime</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Date Time Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/DatetimeRule.html#method_compileDateTime">
+<abbr title="Bow\Validation\Rules\DatetimeRule">DatetimeRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileEmail">compileEmail</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Email Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/EmailRule.html#method_compileEmail">
+<abbr title="Bow\Validation\Rules\EmailRule">EmailRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileNumber">compileNumber</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Number Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/NumericRule.html#method_compileNumber">
+<abbr title="Bow\Validation\Rules\NumericRule">NumericRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileInt">compileInt</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Int Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/NumericRule.html#method_compileInt">
+<abbr title="Bow\Validation\Rules\NumericRule">NumericRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileFloat">compileFloat</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Float Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/NumericRule.html#method_compileFloat">
+<abbr title="Bow\Validation\Rules\NumericRule">NumericRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileRequired">compileRequired</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Required Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/StringRule.html#method_compileRequired">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileEmpty">compileEmpty</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Empty Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/StringRule.html#method_compileEmpty">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileAlphaNum">compileAlphaNum</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Alphanum Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/StringRule.html#method_compileAlphaNum">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileIn">compileIn</a>(string $key, string $masque)
+        
+                                            <p><p>Compile In Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/StringRule.html#method_compileIn">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileSize">compileSize</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Size Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/StringRule.html#method_compileSize">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileLower">compileLower</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Lower Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/StringRule.html#method_compileLower">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileUpper">compileUpper</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Upper Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/StringRule.html#method_compileUpper">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileAlpha">compileAlpha</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Alpha Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/StringRule.html#method_compileAlpha">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileMin">compileMin</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Min Mask</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/StringRule.html#method_compileMin">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileMax">compileMax</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Max Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/StringRule.html#method_compileMax">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileSame">compileSame</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Some Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/StringRule.html#method_compileSame">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_compileRegex">compileRegex</a>(string $key, string $masque)
+        
+                                            <p><p>Compile Regex Rule</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../Bow/Validation/Rules/RegexRule.html#method_compileRegex">
+<abbr title="Bow\Validation\Rules\RegexRule">RegexRule</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method___construct">__construct</a>()
+        
+                                            <p><p>Validator constructor</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;<a href="../../Bow/Validation/Validate.html"><abbr title="Bow\Validation\Validate">Validate</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_make">make</a>(array $inputs, array $rules)
+                <div class="col-md-8">
+                    <a href="#method_make">make</a>(array $inputs, array $rules, array $messages = [])
         
-                                            <p>Tout les marqueurs possible.</p>                </div>
+                                            <p><p>Any possible markers.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setCustomMessages">setCustomMessages</a>(array $messages)
+        
+                                            <p><p>Set the user custom message</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <a href="../../Bow/Validation/Validate.html"><abbr title="Bow\Validation\Validate">Validate</abbr></a>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_validate">validate</a>(array $inputs, array $rules)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileMin">compileMin</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle min</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileMax">compileMax</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle max</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileSame">compileSame</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle same</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileEmail">compileEmail</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle email.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileNumber">compileNumber</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle number</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileInt">compileInt</a>($key, $masque)
-        
-                                            <p>Masque sur la règle int</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileFloat">compileFloat</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle float$</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileAlphaNum">compileAlphaNum</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle alphanum</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileIn">compileIn</a>($key, $masque)
-        
-                                            <p>Masque sur la règle in</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileSize">compileSize</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle size</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileLower">compileLower</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle lower</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileUpper">compileUpper</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle upper</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileAlpha">compileAlpha</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle alpha</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileExists">compileExists</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle alpha</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileNotExists">compileNotExists</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle alpha</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileUnique">compileUnique</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle alpha</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileDate">compileDate</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle alpha</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileDateTime">compileDateTime</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle alpha</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_compileRegex">compileRegex</a>(string $key, string $masque)
-        
-                                            <p>Masque sur la règle alpha</p>                </div>
+                                            <p><p>Make validation</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method_make">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L109">line 109</a></div>
-        <code>        static            <a href="../../Bow/Validation/Validate.html"><abbr title="Bow\Validation\Validate">Validate</abbr></a>
-    <strong>make</strong>(array $inputs, array $rules)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Tout les marqueurs possible.</p>                    <p><ul>
-<li>required   Vérifie que le champ existe dans les données à valider</li>
-<li>min:value  Vérifie que le contenu du champ est un nombre de caractère minimal suivant la valeur définie</li>
-<li>max:value  Vérifie que le contenu du champ est un nombre de caractère maximal suivant la valeur définie</li>
-<li>size:value Vérifie que le contenu du champ est un nombre de caractère égale à la valeur définie</li>
-<li>eq:value   Vérifie que le contenu du champ soit égale à la valeur définie</li>
-<li>email      Vérifie que le contenu du champ soit une email</li>
-<li>number     Vérifie que le contenu du champ soit un nombre</li>
-<li>alphanum   Vérifie que le contenu du champ soit une chaine alphanumérique</li>
-<li>alpha      Vérifie que le contenu du champ soit une alpha</li>
-<li>upper      Vérifie que le contenu du champ soit une chaine en majiscule</li>
-<li>lower      Vérifie que le contenu du champ soit une chaine en miniscule</li>
-<li>in:(value, ..) Vérifie que le contenu du champ soit une parmis les valeurs définies.</li>
-</ul>
-
-<p>e.g: required|max:255
-     required|email|min:49
-     required|confirmed</p>                            </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>array</td>
-                <td>$inputs</td>
-                <td>Les informations a validé</td>
-            </tr>
-                    <tr>
-                <td>array</td>
-                <td>$rules</td>
-                <td>Le critaire de validation</td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../Bow/Validation/Validate.html"><abbr title="Bow\Validation\Validate">Validate</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_validate">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L121">line 121</a></div>
-        <code>                    <a href="../../Bow/Validation/Validate.html"><abbr title="Bow\Validation\Validate">Validate</abbr></a>
-    <strong>validate</strong>(array $inputs, array $rules)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>array</td>
-                <td>$inputs</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>array</td>
-                <td>$rules</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../Bow/Validation/Validate.html"><abbr title="Bow\Validation\Validate">Validate</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_compileMin">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L195">line 195</a></div>
-        <code>            protected        
-    <strong>compileMin</strong>(string $key, string $masque)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Masque sur la règle min</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$key</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$masque</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_compileMax">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L219">line 219</a></div>
-        <code>            protected        
-    <strong>compileMax</strong>(string $key, string $masque)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Masque sur la règle max</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$key</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$masque</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_compileSame">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L243">line 243</a></div>
-        <code>            protected        
-    <strong>compileSame</strong>(string $key, string $masque)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Masque sur la règle same</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$key</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$masque</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_compileEmail">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L267">line 267</a></div>
-        <code>            protected        
-    <strong>compileEmail</strong>(string $key, string $masque)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Masque sur la règle email.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$key</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$masque</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_compileNumber">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L284">line 284</a></div>
-        <code>            protected        
-    <strong>compileNumber</strong>(string $key, string $masque)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Masque sur la règle number</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$key</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$masque</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_compileInt">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L301">line 301</a></div>
-        <code>            protected        
-    <strong>compileInt</strong>($key, $masque)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Masque sur la règle int</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td></td>
-                <td>$key</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$masque</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_compileFloat">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L318">line 318</a></div>
-        <code>            protected        
-    <strong>compileFloat</strong>(string $key, string $masque)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Masque sur la règle float$</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$key</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$masque</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_compileAlphaNum">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L335">line 335</a></div>
-        <code>            protected        
-    <strong>compileAlphaNum</strong>(string $key, string $masque)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Masque sur la règle alphanum</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$key</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$masque</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_compileIn">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L352">line 352</a></div>
-        <code>            protected        
-    <strong>compileIn</strong>($key, $masque)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Masque sur la règle in</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td></td>
-                <td>$key</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$masque</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_compileSize">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L381">line 381</a></div>
-        <code>            protected        
-    <strong>compileSize</strong>(string $key, string $masque)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Masque sur la règle size</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$key</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$masque</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_compileLower">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L405">line 405</a></div>
-        <code>            protected        
-    <strong>compileLower</strong>(string $key, string $masque)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Masque sur la règle lower</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$key</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$masque</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_compileUpper">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L422">line 422</a></div>
-        <code>            protected        
-    <strong>compileUpper</strong>(string $key, string $masque)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Masque sur la règle upper</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$key</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$masque</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_compileAlpha">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L439">line 439</a></div>
-        <code>            protected        
-    <strong>compileAlpha</strong>(string $key, string $masque)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Masque sur la règle alpha</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$key</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$masque</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_compileExists">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L456">line 456</a></div>
-        <code>            protected        
+        <div class="location">dans <a href="../../Bow/Validation/Rules/DatabaseRule.html#method_compileExists">
+<abbr title="Bow\Validation\Rules\DatabaseRule">DatabaseRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/DatabaseRule.php#L20">à la ligne 20</a></div>
+        <code>            protected        void
     <strong>compileExists</strong>(string $key, string $masque)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Masque sur la règle alpha</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Compile Exists Rule</p></p>                <p><p>[exists:table,column] Check that the contents of a table field exist</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -957,6 +529,16 @@
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -967,19 +549,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_compileNotExists">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L482">line 482</a></div>
-        <code>            protected        
+        <div class="location">dans <a href="../../Bow/Validation/Rules/DatabaseRule.html#method_compileNotExists">
+<abbr title="Bow\Validation\Rules\DatabaseRule">DatabaseRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/DatabaseRule.php#L58">à la ligne 58</a></div>
+        <code>            protected        void
     <strong>compileNotExists</strong>(string $key, string $masque)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Masque sur la règle alpha</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Compile Not Exists Rule</p></p>                <p><p>[!exists:table,column] Checks that the contents of the field of a table do not exist</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -993,6 +577,16 @@
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -1003,19 +597,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_compileUnique">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L508">line 508</a></div>
-        <code>            protected        
+        <div class="location">dans <a href="../../Bow/Validation/Rules/DatabaseRule.html#method_compileUnique">
+<abbr title="Bow\Validation\Rules\DatabaseRule">DatabaseRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/DatabaseRule.php#L96">à la ligne 96</a></div>
+        <code>            protected        void
     <strong>compileUnique</strong>(string $key, string $masque)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Masque sur la règle alpha</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Compile Unique Rule</p></p>                <p><p>[unique:table,column] Check that the contents of the field of a table is a single value</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1029,6 +625,16 @@
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -1039,19 +645,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_compileDate">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L534">line 534</a></div>
-        <code>            protected        
+        <div class="location">dans <a href="../../Bow/Validation/Rules/DatetimeRule.html#method_compileDate">
+<abbr title="Bow\Validation\Rules\DatetimeRule">DatetimeRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/DatetimeRule.php#L18">à la ligne 18</a></div>
+        <code>            protected        void
     <strong>compileDate</strong>(string $key, string $masque)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Masque sur la règle alpha</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Compile Date Rule</p></p>                <p><p>[date] Check that the field's content is a valid date</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1065,6 +673,16 @@
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -1075,19 +693,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_compileDateTime">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L551">line 551</a></div>
-        <code>            protected        
+        <div class="location">dans <a href="../../Bow/Validation/Rules/DatetimeRule.html#method_compileDateTime">
+<abbr title="Bow\Validation\Rules\DatetimeRule">DatetimeRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/DatetimeRule.php#L47">à la ligne 47</a></div>
+        <code>            protected        void
     <strong>compileDateTime</strong>(string $key, string $masque)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Masque sur la règle alpha</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Compile Date Time Rule</p></p>                <p><p>[datetime] Check that the contents of the field is a valid date time</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1101,6 +721,739 @@
                 <td></td>
             </tr>
             </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileEmail">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/EmailRule.html#method_compileEmail">
+<abbr title="Bow\Validation\Rules\EmailRule">EmailRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/EmailRule.php#L20">à la ligne 20</a></div>
+        <code>            protected        void
+    <strong>compileEmail</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Email Rule</p></p>                <p><p>[email] Check that the content of the field is an email</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileNumber">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/NumericRule.html#method_compileNumber">
+<abbr title="Bow\Validation\Rules\NumericRule">NumericRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/NumericRule.php#L18">à la ligne 18</a></div>
+        <code>            protected        void
+    <strong>compileNumber</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Number Rule</p></p>                <p><p>[number] Check that the contents of the field is a number</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileInt">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/NumericRule.html#method_compileInt">
+<abbr title="Bow\Validation\Rules\NumericRule">NumericRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/NumericRule.php#L47">à la ligne 47</a></div>
+        <code>            protected        void
+    <strong>compileInt</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Int Rule</p></p>                <p><p>[int] Check that the contents of the field is an integer number</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileFloat">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/NumericRule.html#method_compileFloat">
+<abbr title="Bow\Validation\Rules\NumericRule">NumericRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/NumericRule.php#L76">à la ligne 76</a></div>
+        <code>            protected        void
+    <strong>compileFloat</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Float Rule</p></p>                <p><p>[float] Check that the field content is a float number</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileRequired">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/StringRule.html#method_compileRequired">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/StringRule.php#L18">à la ligne 18</a></div>
+        <code>            protected        void
+    <strong>compileRequired</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Required Rule</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileEmpty">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/StringRule.html#method_compileEmpty">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/StringRule.php#L49">à la ligne 49</a></div>
+        <code>            protected        void
+    <strong>compileEmpty</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Empty Rule</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileAlphaNum">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/StringRule.html#method_compileAlphaNum">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/StringRule.php#L72">à la ligne 72</a></div>
+        <code>            protected        void
+    <strong>compileAlphaNum</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Alphanum Rule</p></p>                <p><p>[alphanum] Check that the field content is an alphanumeric string</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileIn">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/StringRule.html#method_compileIn">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/StringRule.php#L101">à la ligne 101</a></div>
+        <code>            protected        void
+    <strong>compileIn</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile In Rule</p></p>                <p><p>[in:(value, ...)] Check that the contents of the field are equal to the defined value</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileSize">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/StringRule.html#method_compileSize">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/StringRule.php#L140">à la ligne 140</a></div>
+        <code>            protected        void
+    <strong>compileSize</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Size Rule</p></p>                <p><p>[size:value] Check that the contents of the field is a number
+of character equal to the defined value</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileLower">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/StringRule.html#method_compileLower">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/StringRule.php#L174">à la ligne 174</a></div>
+        <code>            protected        void
+    <strong>compileLower</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Lower Rule</p></p>                <p><p>[lower] Check that the content of the field is a string in miniscule</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileUpper">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/StringRule.html#method_compileUpper">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/StringRule.php#L203">à la ligne 203</a></div>
+        <code>            protected        void
+    <strong>compileUpper</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Upper Rule</p></p>                <p><p>[upper] Check that the contents of the field is a string in uppercase</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileAlpha">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/StringRule.html#method_compileAlpha">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/StringRule.php#L232">à la ligne 232</a></div>
+        <code>            protected        void
+    <strong>compileAlpha</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Alpha Rule</p></p>                <p><p>[alpha] Check that the field content is an alpha</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileMin">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/StringRule.html#method_compileMin">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/StringRule.php#L262">à la ligne 262</a></div>
+        <code>            protected        void
+    <strong>compileMin</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Min Mask</p></p>                <p><p>[min:value] Check that the content of the field is a number of
+minimal character following the defined value</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileMax">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/StringRule.html#method_compileMax">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/StringRule.php#L297">à la ligne 297</a></div>
+        <code>            protected        void
+    <strong>compileMax</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Max Rule</p></p>                <p><p>[max:value] Check that the content of the field is a number of
+maximum character following the defined value</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_compileSame">
+        <div class="location">dans <a href="../../Bow/Validation/Rules/StringRule.html#method_compileSame">
+<abbr title="Bow\Validation\Rules\StringRule">StringRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/StringRule.php#L331">à la ligne 331</a></div>
+        <code>            protected        void
+    <strong>compileSame</strong>(string $key, string $masque)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Compile Some Rule</p></p>                <p><p>[same:value] Check that the field contents are equal to the mask value</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$masque</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
             
             
@@ -1111,19 +1464,21 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_compileRegex">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L568">line 568</a></div>
-        <code>            protected        
+        <div class="location">dans <a href="../../Bow/Validation/Rules/RegexRule.html#method_compileRegex">
+<abbr title="Bow\Validation\Rules\RegexRule">RegexRule</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Validation/Rules/RegexRule.php#L18">à la ligne 18</a></div>
+        <code>            protected        void
     <strong>compileRegex</strong>(string $key, string $masque)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Masque sur la règle alpha</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Compile Regex Rule</p></p>                <p><p>[regex] Check that the contents of the field with a regular expression</p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -1139,6 +1494,180 @@
             </table>
 
             
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L100">à la ligne 100</a></div>
+        <code>                    void
+    <strong>__construct</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Validator constructor</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_make">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L114">à la ligne 114</a></div>
+        <code>        static            <a href="../../Bow/Validation/Validate.html"><abbr title="Bow\Validation\Validate">Validate</abbr></a>
+    <strong>make</strong>(array $inputs, array $rules, array $messages = [])
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Any possible markers.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$inputs</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$rules</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$messages</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Validation/Validate.html"><abbr title="Bow\Validation\Validate">Validate</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setCustomMessages">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L128">à la ligne 128</a></div>
+        <code>                    
+    <strong>setCustomMessages</strong>(array $messages)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Set the user custom message</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$messages</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_validate">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Validation/Validator.php#L141">à la ligne 141</a></div>
+        <code>                    <a href="../../Bow/Validation/Validate.html"><abbr title="Bow\Validation\Validate">Validate</abbr></a>
+    <strong>validate</strong>(array $inputs, array $rules)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Make validation</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$inputs</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$rules</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bow/Validation/Validate.html"><abbr title="Bow\Validation\Validate">Validate</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
             
             
                     </div>
@@ -1148,12 +1677,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 

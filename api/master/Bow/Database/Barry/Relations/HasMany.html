@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Bow\Database\Barry\Relations\HasMany | Bow Framework</title>
+
+            <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../../../fonts/doctum-font.css">
+        <script src="../../../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../../../doctum.js"></script>
+        <script async defer src="../../../../js/bootstrap.min.js"></script>
+        <script async defer src="../../../../js/autocomplete.min.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+    </head>
+
+    <body id="class" data-name="class:Bow_Database_Barry_Relations_HasMany" data-root-path="../../../../" data-search-index-url="../../../../doctum-search.json">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../../../search.html">
+            <span class="icon icon-search"></span>
+            <input name="search"
+                   id="doctum-search-auto-complete"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Afficher le menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../../../index.html">Bow Framework</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../../../classes.html">Classes</a></li>
+                    <li><a href="../../../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../../traits.html">Traits</a></li>
+                    <li><a href="../../../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../../../search.html">Rechercher</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">classe</span></li>
+                        <li><a href="../../../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../../../Bow/Database.html">Database</a></li><li class="backslash">\</li><li><a href="../../../../Bow/Database/Barry.html">Barry</a></li><li class="backslash">\</li><li><a href="../../../../Bow/Database/Barry/Relations.html">Relations</a></li><li class="backslash">\</li><li>HasMany</li>
+            </ol>
+        </div>
+                <div id="page-content">
+    <div class="page-header">
+        <h1>HasMany    
+            </h1>
+    </div>
+
+    
+    <p>        classe
+    <strong>HasMany</strong>        étends <a href="../../../../Bow/Database/Barry/Relation.html"><abbr title="Bow\Database\Barry\Relation">Relation</abbr></a>        (<a href="https://github.com/bowphp/framework/blob/master/src/Database/Barry/Relations/HasMany.php">Voir la source</a>)
+</p>
+
+        
+    
+        
+
+            
+        
+    
+            <h2>Propriétés</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_parent">
+                                        protected                                        <a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>
+                                                                                
+                                    </td>
+                <td>$parent</td>
+                <td class="last"><p>The parent model instance</p></td>
+                <td><small>depuis&nbsp;<a href="../../../../Bow/Database/Barry/Relation.html#property_parent">
+<abbr title="Bow\Database\Barry\Relation">Relation</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_related">
+                                        protected                                        <a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>
+                                                                                
+                                    </td>
+                <td>$related</td>
+                <td class="last"><p>The related model instance</p></td>
+                <td><small>depuis&nbsp;<a href="../../../../Bow/Database/Barry/Relation.html#property_related">
+<abbr title="Bow\Database\Barry\Relation">Relation</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_query">
+                                        protected                                        <a href="../../../../Bow/Database/QueryBuilder.html"><abbr title="Bow\Database\QueryBuilder">QueryBuilder</abbr></a>
+                                                                                
+                                    </td>
+                <td>$query</td>
+                <td class="last"><p>The Bow Query builder</p></td>
+                <td><small>depuis&nbsp;<a href="../../../../Bow/Database/Barry/Relation.html#property_query">
+<abbr title="Bow\Database\Barry\Relation">Relation</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_has_constraints">
+                    static                    protected                                        bool
+                                                                                
+                                    </td>
+                <td>$has_constraints</td>
+                <td class="last"><p>Indicates whether the relation is adding constraints.</p></td>
+                <td><small>depuis&nbsp;<a href="../../../../Bow/Database/Barry/Relation.html#property_has_constraints">
+<abbr title="Bow\Database\Barry\Relation">Relation</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_has_pivot">
+                    static                    protected                                        bool
+                                                                                
+                                    </td>
+                <td>$has_pivot</td>
+                <td class="last"><p>Indicate whether the relationships use a pivot table.*.</p></td>
+                <td><small>depuis&nbsp;<a href="../../../../Bow/Database/Barry/Relation.html#property_has_pivot">
+<abbr title="Bow\Database\Barry\Relation">Relation</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_foreign_key">
+                                        protected                                        string
+                                                                                
+                                    </td>
+                <td>$foreign_key</td>
+                <td class="last"><p>The foreign key of the parent model.</p></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_local_key">
+                                        protected                                        string
+                                                                                
+                                    </td>
+                <td>$local_key</td>
+                <td class="last"><p>The associated key on the parent model.</p></td>
+                <td></td>
+            </tr>
+            </table>
+
+    
+            <h2>Méthodes</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method___construct">__construct</a>(<a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> $related, <a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> $parent, string $foreign_key, string $local_key)
+        
+                                            <p><p>Create a new belongs to relationship instance.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_addConstraints">addConstraints</a>()
+        
+                                            <p><p>Set the base constraints on the relation query.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getResults">getResults</a>()
+        
+                                            <p><p>Get the results of the relationship.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getParent">getParent</a>()
+        
+                                            <p><p>Get the parent model.</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../../../Bow/Database/Barry/Relation.html#method_getParent">
+<abbr title="Bow\Database\Barry\Relation">Relation</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getRelated">getRelated</a>()
+        
+                                            <p><p>Get associated model class.</p></p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../../../Bow/Database/Barry/Relation.html#method_getRelated">
+<abbr title="Bow\Database\Barry\Relation">Relation</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8">
+                    <a href="#method___call">__call</a>(string $method, array $args)
+        
+                                            <p>_Call</p>                </div>
+                <div class="col-md-2"><small>depuis&nbsp;<a href="../../../../Bow/Database/Barry/Relation.html#method___call">
+<abbr title="Bow\Database\Barry\Relation">Relation</abbr></a></small></div>
+            </div>
+            </div>
+
+
+        <h2>Détails</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Barry/Relations/HasMany.php#L36">à la ligne 36</a></div>
+        <code>                    
+    <strong>__construct</strong>(<a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> $related, <a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a> $parent, string $foreign_key, string $local_key)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Create a new belongs to relationship instance.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></td>
+                <td>$related</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></td>
+                <td>$parent</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$foreign_key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$local_key</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addConstraints">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Barry/Relations/HasMany.php#L62">à la ligne 62</a></div>
+        <code>                    void
+    <strong>addConstraints</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Set the base constraints on the relation query.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getResults">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Database/Barry/Relations/HasMany.php#L51">à la ligne 51</a></div>
+        <code>                    mixed
+    <strong>getResults</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the results of the relationship.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getParent">
+        <div class="location">dans <a href="../../../../Bow/Database/Barry/Relation.html#method_getParent">
+<abbr title="Bow\Database\Barry\Relation">Relation</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Database/Barry/Relation.php#L84">à la ligne 84</a></div>
+        <code>                    <a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>
+    <strong>getParent</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the parent model.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getRelated">
+        <div class="location">dans <a href="../../../../Bow/Database/Barry/Relation.html#method_getRelated">
+<abbr title="Bow\Database\Barry\Relation">Relation</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Database/Barry/Relation.php#L94">à la ligne 94</a></div>
+        <code>                    <a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a>
+    <strong>getRelated</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get associated model class.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../../Bow/Database/Barry/Model.html"><abbr title="Bow\Database\Barry\Model">Model</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___call">
+        <div class="location">dans <a href="../../../../Bow/Database/Barry/Relation.html#method___call">
+<abbr title="Bow\Database\Barry\Relation">Relation</abbr></a> <a href="https://github.com/bowphp/framework/blob/master/src/Database/Barry/Relation.php#L106">à la ligne 106</a></div>
+        <code>                    mixed
+    <strong>__call</strong>(string $method, array $args)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p>_Call</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$method</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Valeur de retour</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
+    </div>
+    </body>
+
+</html>

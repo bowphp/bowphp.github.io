@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bow\Storage\Storage | Bow Framework API</title>
+    <title>Bow\Storage\Storage | Bow Framework</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Bow_Storage_Storage" data-root-path="../../">
+    <body id="class" data-name="class:Bow_Storage_Storage" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../4.0/index.html"
+                            data-version="4.0" >4.0 branch</option>
+                                            <option
+                            value="../../../5.0/index.html"
+                            data-version="5.0" >4.0 branch</option>
+                                            <option
+                            value="../../../master/index.html"
+                            data-version="master" selected>Dev Branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Rechercher"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -43,21 +65,31 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Afficher le menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Bow Framework API</a>
+                <a class="navbar-brand" href="../../index.html">Bow Framework</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../4.0/index.html" data-version="4.0">4.0 branch</a></li>
+                        <li ><a href="../../../5.0/index.html" data-version="5.0">4.0 branch</a></li>
+                        <li class="active"><a href="../../../master/index.html" data-version="master">Dev Branch</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../doc-index.html">Sommaire</a></li>
+                    <li><a href="../../search.html">Rechercher</a></li>
                 </ul>
             </div>
         </div>
@@ -65,80 +97,78 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">classe</span></li>
                         <li><a href="../../Bow.html">Bow</a></li><li class="backslash">\</li><li><a href="../../Bow/Storage.html">Storage</a></li><li class="backslash">\</li><li>Storage</li>
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Storage
-                
-        </h1>
+        <h1>Storage    
+            </h1>
     </div>
 
-    <p>    class
-    <strong>Storage</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Storage/Storage.php">View source</a>)
+    
+    <p>        classe
+    <strong>Storage</strong>        (<a href="https://github.com/bowphp/framework/blob/master/src/Storage/Storage.php">Voir la source</a>)
 </p>
 
         
     
+        
 
+            
+        
     
     
-            <h2>Constants</h2>
-
-            <table class="table table-condensed">
-                    <tr>
-                <td>AVAILABLE_SERIVCES</td>
-                <td class="last">
-                    <p><em></em></p>
-                    <p></p>
-                </td>
-            </tr>
-            </table>
-
-    
-    
-            <h2>Methods</h2>
+            <h2>Méthodes</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;<a href="../../Bow/Storage/MountFilesystem.html"><abbr title="Bow\Storage\MountFilesystem">MountFilesystem</abbr></a>
+                    static&nbsp;<a href="../../Bow/Storage/Service/DiskFilesystemService.html"><abbr title="Bow\Storage\Service\DiskFilesystemService">DiskFilesystemService</abbr></a>
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_mount">mount</a>(string $mount = null)
+                <div class="col-md-8">
+                    <a href="#method_disk">disk</a>(string|null $disk = null)
         
-                                            <p>Mount disk</p>                </div>
+                                            <p><p>Mount disk</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_service">service</a>(string $service)
         
-                                            <p>Mount service</p>                </div>
+                                            <p><p>Mount service</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;<a href="../../Bow/Storage/MountFilesystem.html"><abbr title="Bow\Storage\MountFilesystem">MountFilesystem</abbr></a>
+                    static&nbsp;
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
+                    <a href="#method_pushService">pushService</a>(array $services)
+        
+                                            <p><p>Push a new service who implement
+the Bow\Storage\Contracts\ServiceInterface</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;<abbr title="Bow\Storage\MountFilesystem">MountFilesystem</abbr>
+                </div>
+                <div class="col-md-8">
                     <a href="#method_configure">configure</a>(array $config)
         
-                                            <p>Configure Storage</p>                </div>
+                                            <p><p>Configure Storage</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method___call">__call</a>(string $name, array $arguments)
         
                                             <p>__call</p>                </div>
@@ -148,7 +178,7 @@
                 <div class="col-md-2 type">
                     static&nbsp;mixed
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method___callStatic">__callStatic</a>(string $name, array $arguments)
         
                                             <p>__callStatic</p>                </div>
@@ -157,39 +187,40 @@
             </div>
 
 
-        <h2>Details</h2>
+        <h2>Détails</h2>
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method_mount">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/Storage.php#L108">line 108</a></div>
-        <code>        static            <a href="../../Bow/Storage/MountFilesystem.html"><abbr title="Bow\Storage\MountFilesystem">MountFilesystem</abbr></a>
-    <strong>mount</strong>(string $mount = null)
+                    <h3 id="method_disk">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Storage/Storage.php#L50">à la ligne 50</a></div>
+        <code>        static            <a href="../../Bow/Storage/Service/DiskFilesystemService.html"><abbr title="Bow\Storage\Service\DiskFilesystemService">DiskFilesystemService</abbr></a>
+    <strong>disk</strong>(string|null $disk = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Mount disk</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Mount disk</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
-                <td>$mount</td>
+                <td>string|null</td>
+                <td>$disk</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Storage/MountFilesystem.html"><abbr title="Bow\Storage\MountFilesystem">MountFilesystem</abbr></a></td>
+            <td><a href="../../Bow/Storage/Service/DiskFilesystemService.html"><abbr title="Bow\Storage\Service\DiskFilesystemService">DiskFilesystemService</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -199,11 +230,12 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="../../Bow/Storage/Exception/ResourceException.html"><abbr title="Bow\Storage\Exception\ResourceException">ResourceException</abbr></a></td>
+                <td><a href="../../Bow/Storage/Exception/DiskNotFoundException.html"><abbr title="Bow\Storage\Exception\DiskNotFoundException">DiskNotFoundException</abbr></a></td>
                 <td></td>
             </tr>
             </table>
 
+            
             
                     </div>
     </div>
@@ -211,19 +243,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_service">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/Storage.php#L131">line 131</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Storage/Storage.php#L77">à la ligne 77</a></div>
         <code>        static            mixed
     <strong>service</strong>(string $service)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Mount service</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Mount service</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -234,7 +267,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -245,25 +278,61 @@
 
             
             
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_pushService">
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Storage/Storage.php#L106">à la ligne 106</a></div>
+        <code>        static            
+    <strong>pushService</strong>(array $services)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Push a new service who implement
+the Bow\Storage\Contracts\ServiceInterface</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$services</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_configure">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/Storage.php#L147">line 147</a></div>
-        <code>        static            <a href="../../Bow/Storage/MountFilesystem.html"><abbr title="Bow\Storage\MountFilesystem">MountFilesystem</abbr></a>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Storage/Storage.php#L124">à la ligne 124</a></div>
+        <code>        static            <abbr title="Bow\Storage\MountFilesystem">MountFilesystem</abbr>
     <strong>configure</strong>(array $config)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Configure Storage</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p><p>Configure Storage</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -274,11 +343,11 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Bow/Storage/MountFilesystem.html"><abbr title="Bow\Storage\MountFilesystem">MountFilesystem</abbr></a></td>
+            <td><abbr title="Bow\Storage\MountFilesystem">MountFilesystem</abbr></td>
             <td></td>
         </tr>
     </table>
@@ -294,25 +363,27 @@
             </table>
 
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method___call">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/Storage.php#L165">line 165</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Storage/Storage.php#L142">à la ligne 142</a></div>
         <code>                    mixed
     <strong>__call</strong>(string $name, array $arguments)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>__call</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>__call</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -328,7 +399,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -337,6 +408,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -345,19 +417,20 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___callStatic">
-        <div class="location">at         <a href="https://github.com/bowphp/framework/blob/master/src/Storage/Storage.php#L181">line 181</a></div>
+        <div class="location"><a href="https://github.com/bowphp/framework/blob/master/src/Storage/Storage.php#L158">à la ligne 158</a></div>
         <code>        static            mixed
     <strong>__callStatic</strong>(string $name, array $arguments)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>__callStatic</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
+        <div class="method-description">
+                            <p>__callStatic</p>                        
+        </div>
+        <div class="tags">
+                            <h4>Paramètres</h4>
 
                     <table class="table table-condensed">
                     <tr>
@@ -373,7 +446,7 @@
             </table>
 
             
-                            <h4>Return Value</h4>
+                            <h4>Valeur de retour</h4>
 
                     <table class="table table-condensed">
         <tr>
@@ -384,6 +457,7 @@
 
             
             
+            
                     </div>
     </div>
 
@@ -391,12 +465,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Généré par <a href="https://github.com/code-lts/doctum">Doctum, un générateur de documentation d'API, successeur de Sami</a>.</div></div>
     </div>
     </body>
 
