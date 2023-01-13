@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[2157],{606:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/php","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Trouver les astuces et conseils sur bowphp","blogTitle":"Bowphp blog!"}')}}]);

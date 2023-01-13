@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"Poste recent","items":[{"title":"Demarrer Bow Framework","permalink":"/blog/demarrer-bow-framework"}]}')}}]);
